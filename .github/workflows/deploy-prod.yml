@@ -1,0 +1,73 @@
+name: deploy-prod
+# PRODUCTION (real customers). MANUAL ONLY: it never runs on a push.
+# Actions -> deploy-prod -> Run workflow: name one service (empty = every service) and type PROD to confirm.
+# Runs on the Prod runner (label `prod`, ~/Production/thechilli_resto/actions-runner) and updates ONE service at a time through
+# scripts/update.sh (backup -> build -> migrate -> health check -> automatic rollback). Ask a reviewer: GitHub environment `prod`
+# can require an approver (Settings -> Environments -> prod).
+# The website is NOT deployed from here (own repo: emsplus/Thechilli_website).
+# Note: update.sh takes a database backup first and runs the service's own migration (forward-only) when the service has one.
+on:
+  workflow_dispatch:
+    inputs:
+      service:
+        description: 'Service to deploy (e.g. web-business-admin); empty = ALL services'
+        required: false
+        default: ''
+      confirm:
+        description: 'Type PROD to confirm (this is the live system)'
+        required: true
+        default: ''
+concurrency:
+  group: deploy-prod
+  cancel-in-progress: false
+permissions:
+  contents: read
+jobs:
+  detect:
+    runs-on: [self-hosted, linux, prod]
+    outputs:
+      services: ${{ steps.d.outputs.services }}
+    steps:
+      - id: d
+        env:
+          SVC: ${{ inputs.service }}
+          CONFIRM: ${{ inputs.confirm }}
+        run: |
+          [ "$CONFIRM" = "PROD" ] || { echo "confirm must be exactly PROD"; exit 1; }
+          ALL="pos-service platform-core marketing-service delivery-service payments-service aggregator-service web-business-admin web-super-admin web-marketing web-public waiter-app"
+          list="${SVC:-$ALL}"
+          for s in $list; do
+            case " $ALL " in *" $s "*) ;; *) echo "unknown service: $s"; exit 1;; esac
+          done
+          json=$(printf '"%s",' $list)
+          echo "services=[${json%,}]" >> "$GITHUB_OUTPUT"
+          echo "deploying to PROD: $list"
+  deploy:
+    needs: detect
+    runs-on: [self-hosted, linux, prod]
+    environment: prod
+    strategy:
+      max-parallel: 1
+      fail-fast: true
+      matrix:
+        service: ${{ fromJson(needs.detect.outputs.services) }}
+    env:
+      ROOT: /home/ubuntu/Production/thechilli_resto
+      SERVICE: ${{ matrix.service }}
+    steps:
+      - uses: actions/checkout@v4
+      - name: Check the Prod stack
+        run: |
+          [ -x "$ROOT/scripts/update.sh" ] || { echo "no Prod stack at $ROOT"; exit 1; }
+          grep -q '^COMPOSE_PROJECT_NAME=production-thechilli$' "$ROOT/.env" || { echo "$ROOT/.env is not the Prod stack"; exit 1; }
+          [ -d "src/$SERVICE" ] || { echo "no src/$SERVICE in this checkout"; exit 1; }
+          echo "deploying $SERVICE to PROD ($ROOT) from ${{ github.sha }}"
+      - name: Build update zip
+        run: |
+          echo "CI ${{ github.sha }}" > UPDATE.txt
+          zip -qr "$ROOT/ci-update-$SERVICE.zip" "src/$SERVICE" UPDATE.txt -x '*/node_modules/*' '*/.next/*' '*/.venv/*' '*/.git/*'
+      - name: Update service
+        run: |
+          cd "$ROOT"
+          scripts/update.sh "$SERVICE" "ci-update-$SERVICE.zip"
+          rm -f "ci-update-$SERVICE.zip"
