@@ -1,0 +1,18 @@
+/* @chilli/ui/data styles. Load after styles.css. */
+.ch-dt{position:relative;font-family:var(--font-sans)}
+.ch-dt__bar{display:flex;justify-content:flex-end;margin-bottom:var(--space-8)}
+.ch-dt__frame{position:relative;border:1px solid var(--c-border);border-radius:var(--radius-lg);background:var(--c-surface);overflow:hidden}
+.ch-dt__scroll{overflow:auto;max-height:70vh}
+.ch-dt__table th,.ch-dt__table td{white-space:nowrap}
+.ch-dt__sort{display:inline-flex;align-items:center;gap:6px;min-height:var(--hit);margin:calc(var(--cell-y) * -1) 0;padding:0;border:0;background:none;color:inherit;font:inherit;cursor:pointer}
+.ch-dt__loading{display:flex;flex-direction:column;gap:var(--space-16);padding:var(--space-16)}
+.ch-dt--sticky .ch-dt__table th:first-child,.ch-dt--sticky .ch-dt__table td:first-child{position:sticky;inset-inline-start:0;z-index:1;background:var(--c-surface)}
+.ch-dt--sticky .ch-dt__table th:first-child{z-index:2;background:var(--c-surface-2)}
+.ch-dt--sticky[data-scroll=middle] .ch-dt__table :is(th,td):first-child,.ch-dt--sticky[data-scroll=end] .ch-dt__table :is(th,td):first-child{border-inline-end:1px solid var(--c-border-strong)}
+/* Scroll cue: a fading edge on the side that still has columns. */
+.ch-dt__frame::before,.ch-dt__frame::after{content:'';position:absolute;top:0;bottom:0;width:var(--space-24);z-index:3;pointer-events:none;opacity:0;transition:opacity var(--dur-fade) var(--ease)}
+.ch-dt__frame::after{inset-inline-end:0;background:linear-gradient(to left,var(--c-border-strong),transparent)}
+.ch-dt__frame::before{inset-inline-start:0;background:linear-gradient(to right,var(--c-border-strong),transparent)}
+.ch-dt[data-scroll=start] .ch-dt__frame::after,.ch-dt[data-scroll=middle] .ch-dt__frame::after,.ch-dt[data-scroll=middle]:not(.ch-dt--sticky) .ch-dt__frame::before,.ch-dt[data-scroll=end]:not(.ch-dt--sticky) .ch-dt__frame::before{opacity:.35}
+.ch-filters{display:flex;flex-wrap:wrap;align-items:flex-end;gap:var(--space-12);margin-bottom:var(--space-16)}
+.ch-filters>.ch-field{min-width:160px}

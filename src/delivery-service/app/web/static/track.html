@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex, nofollow">
+<meta name="referrer" content="no-referrer">
+<meta name="color-scheme" content="light">
+<meta name="theme-color" content="#ffffff">
+<meta name="chilli-languages" content="{{LANGUAGES}}">
+<title>Track your order</title>
+<link rel="icon" type="image/png" href="/assets/favicon-32.png">
+<link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
+<link rel="preload" href="/assets/Inter-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="/assets/app.css">
+</head>
+<body>
+<header class="top">
+  <div class="top-in">
+    <a class="logo" href="#main" aria-label="thechilli.ai"><img src="/assets/logo-wordmark.png" width="120" height="25" alt="thechilli.ai"></a>
+    <span class="brand" id="brand"></span>
+    <button type="button" id="lang" class="secondary" aria-label="Switch language" hidden></button>
+  </div>
+</header>
+<main id="main">
+<h1 data-i18n="track_title">Track your order</h1>
+<div id="msg" class="msg" role="alert" hidden></div>
+<div id="view">
+<section class="card hero" aria-labelledby="h-status" aria-live="polite">
+  <h2 id="h-status" class="vh" data-i18n="track_status">Status</h2>
+  <dl>
+    <dt data-i18n="track_order">Order</dt><dd class="big" id="code"></dd>
+    <dt data-i18n="track_status">Status</dt><dd><span id="status" class="status"></span></dd>
+  </dl>
+  <p id="cancelled" class="msg error" hidden data-icon="cancelled"><span data-i18n="msg_cancelled">This order was cancelled.</span></p>
+  <a id="call" class="btn secondary" href="#" hidden data-icon="phone"><span data-i18n="call_restaurant">Call restaurant</span></a>
+</section>
+<section class="card" id="pay" aria-labelledby="h-total" hidden>
+  <h2 id="h-total" class="vh" data-i18n="track_total">Order total</h2>
+  <p class="total"><span data-i18n="track_total">Order total</span><span class="big amt" id="total"></span></p>
+  <p class="help" id="pay-note"></p>
+</section>
+<section class="card" id="steps-card" aria-labelledby="h-steps">
+  <h2 id="h-steps" data-i18n="track_steps">Order progress</h2>
+  <ol class="steps" id="steps"></ol>
+</section>
+<section class="card" id="rider-card" aria-labelledby="h-rider">
+  <h2 id="h-rider" data-icon="bike"><span data-i18n="track_rider">Rider location</span></h2>
+  <p id="rider-info" data-i18n="loading">Loading…</p>
+  <a id="map" class="btn secondary" href="#" target="_blank" rel="noopener noreferrer" hidden data-icon="navigate"><span data-i18n="track_open_map">Open in Maps</span></a>
+</section>
+<p class="help" id="note" data-i18n="track_note"></p>
+</div>
+</main>
+<footer class="foot"><span data-i18n="powered_by">Powered by</span> <strong>thechilli.ai</strong></footer>
+<script src="/assets/common.js"></script>
+<script src="/assets/track.js"></script>
+</body>
+</html>

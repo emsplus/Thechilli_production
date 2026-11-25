@@ -1,0 +1,20 @@
+# Local development database. POSTGRES_USER is a SUPERUSER (the official image makes it one); the role split for the API
+# (pos_owner / pos_migrator / pos_app, docs/PHASE1_PLAN.md PR 1) is created by scripts/setup_db_roles.py, e.g.
+#   ADMIN_DATABASE_URL=postgresql+psycopg://pos:pos@localhost:5460/pos POS_APP_PASSWORD=... POS_MIGRATOR_PASSWORD=... \
+#     uv run python scripts/setup_db_roles.py --transfer-ownership-from pos
+# then set DATABASE_URL (pos_app), MIGRATION_DATABASE_URL (pos_migrator) and MIGRATION_ROLE=pos_owner in .env.
+services:
+  db:
+    image: postgres:16
+    environment:
+      POSTGRES_USER: ${POSTGRES_USER:-pos}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-pos}
+      POSTGRES_DB: ${POSTGRES_DB:-pos}
+    ports: ["5460:5432"]
+    volumes: [pgdata:/var/lib/postgresql/data]
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U ${POSTGRES_USER:-pos}"]
+      interval: 5s
+      retries: 10
+volumes:
+  pgdata:

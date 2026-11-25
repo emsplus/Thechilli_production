@@ -1,0 +1,32 @@
+[
+  {
+    "type": "image",
+    "src": "/auth-media/thali-appam.webp",
+    "alt": "",
+    "credit": "Zoshua Colah / Unsplash"
+  },
+  {
+    "type": "image",
+    "src": "/auth-media/kitchen-pass.webp",
+    "alt": "",
+    "credit": "Fumiaki Hayashi / Unsplash"
+  },
+  {
+    "type": "image",
+    "src": "/auth-media/counter-tablet.webp",
+    "alt": "",
+    "credit": "DJ Paine / Unsplash"
+  },
+  {
+    "type": "image",
+    "src": "/auth-media/biryani.webp",
+    "alt": "",
+    "credit": "Sarabjeet Singh / Unsplash"
+  },
+  {
+    "type": "image",
+    "src": "/auth-media/chai-pour.webp",
+    "alt": "",
+    "credit": "Dhruval Upadhyay / Unsplash"
+  }
+]

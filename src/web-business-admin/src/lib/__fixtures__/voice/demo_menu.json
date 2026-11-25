@@ -1,0 +1,594 @@
+{
+ "_doc": "Frozen snapshot of the live demo restaurant's menu (Masala Courtyard Cafe), taken 2026-10-31 via GET /menu/categories, /menu/items, /menu/modifier-groups. Ids are replaced by stable short ids. Used by the shared voice corpus (voice_corpus.json) in pos-service and web-business-admin.",
+ "categories": [
+  {
+   "id": "c1",
+   "name": "Starters",
+   "sort_order": 0
+  },
+  {
+   "id": "c2",
+   "name": "Tandoor",
+   "sort_order": 1
+  },
+  {
+   "id": "c3",
+   "name": "Mains - Veg",
+   "sort_order": 2
+  },
+  {
+   "id": "c4",
+   "name": "Mains - Non-Veg",
+   "sort_order": 3
+  },
+  {
+   "id": "c5",
+   "name": "Biryani & Rice",
+   "sort_order": 4
+  },
+  {
+   "id": "c6",
+   "name": "Breads",
+   "sort_order": 5
+  },
+  {
+   "id": "c7",
+   "name": "South Indian",
+   "sort_order": 6
+  },
+  {
+   "id": "c8",
+   "name": "Desserts",
+   "sort_order": 7
+  },
+  {
+   "id": "c9",
+   "name": "Beverages",
+   "sort_order": 8
+  }
+ ],
+ "items": [
+  {
+   "id": "i01",
+   "category_id": "c1",
+   "name": "Chicken 65",
+   "price": "300.00",
+   "is_active": true,
+   "variants": [],
+   "modifier_group_ids": [
+    "g1"
+   ],
+   "is_combo": false
+  },
+  {
+   "id": "i02",
+   "category_id": "c1",
+   "name": "Chilli Paneer",
+   "price": "280.00",
+   "is_active": true,
+   "variants": [],
+   "modifier_group_ids": [
+    "g1"
+   ],
+   "is_combo": false
+  },
+  {
+   "id": "i03",
+   "category_id": "c1",
+   "name": "Hara Bhara Kebab",
+   "price": "240.00",
+   "is_active": true,
+   "variants": [],
+   "modifier_group_ids": [],
+   "is_combo": false
+  },
+  {
+   "id": "i04",
+   "category_id": "c1",
+   "name": "Pani Puri (6 pcs)",
+   "price": "90.00",
+   "is_active": true,
+   "variants": [],
+   "modifier_group_ids": [],
+   "is_combo": false
+  },
+  {
+   "id": "i05",
+   "category_id": "c1",
+   "name": "Samosa (2 pcs)",
+   "price": "80.00",
+   "is_active": true,
+   "variants": [],
+   "modifier_group_ids": [],
+   "is_combo": false
+  },
+  {
+   "id": "i06",
+   "category_id": "c1",
+   "name": "Veg Pakora",
+   "price": "160.00",
+   "is_active": true,
+   "variants": [],
+   "modifier_group_ids": [],
+   "is_combo": false
+  },
+  {
+   "id": "i07",
+   "category_id": "c2",
+   "name": "Chicken Tikka",
+   "price": "340.00",
+   "is_active": true,
+   "variants": [],
+   "modifier_group_ids": [
+    "g1"
+   ],
+   "is_combo": false
+  },
+  {
+   "id": "i08",
+   "category_id": "c2",
+   "name": "Mutton Seekh Kebab",
+   "price": "420.00",
+   "is_active": true,
+   "variants": [],
+   "modifier_group_ids": [
+    "g1"
+   ],
+   "is_combo": false
+  },
+  {
+   "id": "i09",
+   "category_id": "c2",
+   "name": "Paneer Tikka",
+   "price": "320.00",
+   "is_active": true,
+   "variants": [],
+   "modifier_group_ids": [
+    "g1"
+   ],
+   "is_combo": false
+  },
+  {
+   "id": "i10",
+   "category_id": "c2",
+   "name": "Tandoori Chicken",
+   "price": "280.00",
+   "is_active": true,
+   "variants": [
+    {
+     "id": "i10v1",
+     "name": "Half",
+     "price_delta": "0.00"
+    },
+    {
+     "id": "i10v2",
+     "name": "Full",
+     "price_delta": "220.00"
+    }
+   ],
+   "modifier_group_ids": [
+    "g1"
+   ],
+   "is_combo": false
+  },
+  {
+   "id": "i11",
+   "category_id": "c3",
+   "name": "Chole Masala",
+   "price": "220.00",
+   "is_active": true,
+   "variants": [],
+   "modifier_group_ids": [
+    "g1"
+   ],
+   "is_combo": false
+  },
+  {
+   "id": "i12",
+   "category_id": "c3",
+   "name": "Dal Makhani",
+   "price": "260.00",
+   "is_active": true,
+   "variants": [],
+   "modifier_group_ids": [],
+   "is_combo": false
+  },
+  {
+   "id": "i13",
+   "category_id": "c3",
+   "name": "Dal Tadka",
+   "price": "200.00",
+   "is_active": true,
+   "variants": [],
+   "modifier_group_ids": [
+    "g1"
+   ],
+   "is_combo": false
+  },
+  {
+   "id": "i14",
+   "category_id": "c3",
+   "name": "Palak Paneer",
+   "price": "300.00",
+   "is_active": true,
+   "variants": [],
+   "modifier_group_ids": [
+    "g1"
+   ],
+   "is_combo": false
+  },
+  {
+   "id": "i15",
+   "category_id": "c3",
+   "name": "Paneer Butter Masala",
+   "price": "320.00",
+   "is_active": true,
+   "variants": [],
+   "modifier_group_ids": [
+    "g1"
+   ],
+   "is_combo": false
+  },
+  {
+   "id": "i16",
+   "category_id": "c3",
+   "name": "Veg Lunch Thali",
+   "price": "349.00",
+   "is_active": true,
+   "variants": [],
+   "modifier_group_ids": [],
+   "is_combo": true
+  },
+  {
+   "id": "i17",
+   "category_id": "c4",
+   "name": "Butter Chicken",
+   "price": "280.00",
+   "is_active": true,
+   "variants": [
+    {
+     "id": "i17v1",
+     "name": "Half",
+     "price_delta": "0.00"
+    },
+    {
+     "id": "i17v2",
+     "name": "Full",
+     "price_delta": "180.00"
+    }
+   ],
+   "modifier_group_ids": [
+    "g1"
+   ],
+   "is_combo": false
+  },
+  {
+   "id": "i18",
+   "category_id": "c4",
+   "name": "Chicken Tikka Masala",
+   "price": "380.00",
+   "is_active": true,
+   "variants": [],
+   "modifier_group_ids": [
+    "g1"
+   ],
+   "is_combo": false
+  },
+  {
+   "id": "i19",
+   "category_id": "c4",
+   "name": "Kerala Fish Curry",
+   "price": "420.00",
+   "is_active": true,
+   "variants": [],
+   "modifier_group_ids": [
+    "g1"
+   ],
+   "is_combo": false
+  },
+  {
+   "id": "i20",
+   "category_id": "c4",
+   "name": "Mutton Rogan Josh",
+   "price": "460.00",
+   "is_active": true,
+   "variants": [],
+   "modifier_group_ids": [
+    "g1"
+   ],
+   "is_combo": false
+  },
+  {
+   "id": "i21",
+   "category_id": "c5",
+   "name": "Chicken Biryani",
+   "price": "260.00",
+   "is_active": true,
+   "variants": [
+    {
+     "id": "i21v1",
+     "name": "Half",
+     "price_delta": "0.00"
+    },
+    {
+     "id": "i21v2",
+     "name": "Full",
+     "price_delta": "140.00"
+    }
+   ],
+   "modifier_group_ids": [
+    "g1"
+   ],
+   "is_combo": false
+  },
+  {
+   "id": "i22",
+   "category_id": "c5",
+   "name": "Jeera Rice",
+   "price": "180.00",
+   "is_active": true,
+   "variants": [],
+   "modifier_group_ids": [],
+   "is_combo": false
+  },
+  {
+   "id": "i23",
+   "category_id": "c5",
+   "name": "Mutton Biryani",
+   "price": "340.00",
+   "is_active": true,
+   "variants": [
+    {
+     "id": "i23v1",
+     "name": "Half",
+     "price_delta": "0.00"
+    },
+    {
+     "id": "i23v2",
+     "name": "Full",
+     "price_delta": "180.00"
+    }
+   ],
+   "modifier_group_ids": [
+    "g1"
+   ],
+   "is_combo": false
+  },
+  {
+   "id": "i24",
+   "category_id": "c5",
+   "name": "Veg Biryani",
+   "price": "240.00",
+   "is_active": true,
+   "variants": [],
+   "modifier_group_ids": [
+    "g1"
+   ],
+   "is_combo": false
+  },
+  {
+   "id": "i25",
+   "category_id": "c6",
+   "name": "Butter Naan",
+   "price": "60.00",
+   "is_active": true,
+   "variants": [],
+   "modifier_group_ids": [],
+   "is_combo": false
+  },
+  {
+   "id": "i26",
+   "category_id": "c6",
+   "name": "Garlic Naan",
+   "price": "80.00",
+   "is_active": true,
+   "variants": [],
+   "modifier_group_ids": [],
+   "is_combo": false
+  },
+  {
+   "id": "i27",
+   "category_id": "c6",
+   "name": "Laccha Paratha",
+   "price": "70.00",
+   "is_active": true,
+   "variants": [],
+   "modifier_group_ids": [],
+   "is_combo": false
+  },
+  {
+   "id": "i28",
+   "category_id": "c6",
+   "name": "Tandoori Roti",
+   "price": "30.00",
+   "is_active": true,
+   "variants": [],
+   "modifier_group_ids": [],
+   "is_combo": false
+  },
+  {
+   "id": "i29",
+   "category_id": "c7",
+   "name": "Idli Sambar (3 pcs)",
+   "price": "110.00",
+   "is_active": true,
+   "variants": [],
+   "modifier_group_ids": [],
+   "is_combo": false
+  },
+  {
+   "id": "i30",
+   "category_id": "c7",
+   "name": "Masala Dosa",
+   "price": "160.00",
+   "is_active": true,
+   "variants": [],
+   "modifier_group_ids": [],
+   "is_combo": false
+  },
+  {
+   "id": "i31",
+   "category_id": "c7",
+   "name": "Medu Vada (2 pcs)",
+   "price": "120.00",
+   "is_active": true,
+   "variants": [],
+   "modifier_group_ids": [],
+   "is_combo": false
+  },
+  {
+   "id": "i32",
+   "category_id": "c7",
+   "name": "Podi Uttapam",
+   "price": "150.00",
+   "is_active": true,
+   "variants": [],
+   "modifier_group_ids": [],
+   "is_combo": false
+  },
+  {
+   "id": "i33",
+   "category_id": "c8",
+   "name": "Gajar Ka Halwa",
+   "price": "150.00",
+   "is_active": true,
+   "variants": [],
+   "modifier_group_ids": [],
+   "is_combo": false
+  },
+  {
+   "id": "i34",
+   "category_id": "c8",
+   "name": "Gulab Jamun (2 pcs)",
+   "price": "90.00",
+   "is_active": true,
+   "variants": [],
+   "modifier_group_ids": [],
+   "is_combo": false
+  },
+  {
+   "id": "i35",
+   "category_id": "c8",
+   "name": "Malai Kulfi",
+   "price": "120.00",
+   "is_active": true,
+   "variants": [],
+   "modifier_group_ids": [],
+   "is_combo": false
+  },
+  {
+   "id": "i36",
+   "category_id": "c8",
+   "name": "Rasmalai (2 pcs)",
+   "price": "140.00",
+   "is_active": true,
+   "variants": [],
+   "modifier_group_ids": [],
+   "is_combo": false
+  },
+  {
+   "id": "i37",
+   "category_id": "c9",
+   "name": "Filter Coffee",
+   "price": "70.00",
+   "is_active": true,
+   "variants": [],
+   "modifier_group_ids": [],
+   "is_combo": false
+  },
+  {
+   "id": "i38",
+   "category_id": "c9",
+   "name": "Fresh Lime Soda",
+   "price": "90.00",
+   "is_active": true,
+   "variants": [],
+   "modifier_group_ids": [],
+   "is_combo": false
+  },
+  {
+   "id": "i39",
+   "category_id": "c9",
+   "name": "Mango Lassi",
+   "price": "140.00",
+   "is_active": true,
+   "variants": [],
+   "modifier_group_ids": [],
+   "is_combo": false
+  },
+  {
+   "id": "i40",
+   "category_id": "c9",
+   "name": "Masala Chai",
+   "price": "50.00",
+   "is_active": true,
+   "variants": [],
+   "modifier_group_ids": [],
+   "is_combo": false
+  },
+  {
+   "id": "i41",
+   "category_id": "c9",
+   "name": "Packaged Drinking Water (1 L)",
+   "price": "30.00",
+   "is_active": true,
+   "variants": [],
+   "modifier_group_ids": [],
+   "is_combo": false
+  },
+  {
+   "id": "i42",
+   "category_id": "c9",
+   "name": "Sweet Lassi",
+   "price": "110.00",
+   "is_active": true,
+   "variants": [],
+   "modifier_group_ids": [],
+   "is_combo": false
+  }
+ ],
+ "modifier_groups": [
+  {
+   "id": "g1",
+   "name": "Spice level",
+   "min_select": 1,
+   "max_select": 1,
+   "sort_order": 0,
+   "is_active": true,
+   "options": [
+    {
+     "id": "g1o1",
+     "name": "Mild",
+     "price_delta_paise": 0,
+     "is_default": true,
+     "is_active": true,
+     "sort_order": 0
+    },
+    {
+     "id": "g1o2",
+     "name": "Medium",
+     "price_delta_paise": 0,
+     "is_default": false,
+     "is_active": true,
+     "sort_order": 1
+    },
+    {
+     "id": "g1o3",
+     "name": "Hot",
+     "price_delta_paise": 0,
+     "is_default": false,
+     "is_active": true,
+     "sort_order": 2
+    },
+    {
+     "id": "g1o4",
+     "name": "Extra hot",
+     "price_delta_paise": 0,
+     "is_default": false,
+     "is_active": true,
+     "sort_order": 3
+    }
+   ]
+  }
+ ]
+}

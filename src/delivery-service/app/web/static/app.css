@@ -1,0 +1,156 @@
+/* TheChilli.ai look for the customer pages (order, tracking) and the rider screen. Tokens follow the final style guide in
+   design-system packages/tokens (Chilli Red #E50914, Dark Charcoal #111820, canvas #F9FAFB, border #E5E7EB; Vibrant Orange is a
+   decoration only, never text; danger #B91C1C always comes with an icon). Radii 6 / 12 / 20, 1px borders instead of shadows.
+   No CDN and no inline style anywhere (strict CSP): Inter (body), Poppins 700 (headings) and JetBrains Mono (amounts, codes)
+   are self-hosted woff2 files next to this stylesheet, all SIL OFL 1.1 (OFL-*.txt). Mobile first, small, works on slow 3G. */
+@font-face { font-family: "Inter"; font-style: normal; font-weight: 400 700; font-display: swap; src: url("/assets/Inter-latin.woff2") format("woff2"); }
+@font-face { font-family: "Poppins"; font-style: normal; font-weight: 700; font-display: swap; src: url("/assets/Poppins-700-latin.woff2") format("woff2"); }
+@font-face { font-family: "JetBrains Mono"; font-style: normal; font-weight: 100 800; font-display: swap; src: url("/assets/JetBrainsMono-latin.woff2") format("woff2"); }
+:root {
+  --bg: #f9fafb; --card: #ffffff; --card-2: #f3f4f6; --ink: #111820; --muted: #4b5563; --subtle: #6b7280;
+  --line: #e5e7eb; --line-strong: #878d96;
+  --primary: #e50914; --primary-hover: #c20710; --on-primary: #ffffff; --link: #c20710;
+  --primary-soft: #ffe0e0; --primary-subtle: #fff1f1; --accent: #ff5a1f; --ring: #e50914;
+  --ok: #167d32; --ok-soft: #eef7ee; --ok-fg: #136b2b;
+  --bad: #b91c1c; --bad-soft: #fef2f2; --bad-fg: #991b1b;
+  --r-sm: 6px; --r-md: 12px; --r-lg: 20px; --r-pill: 999px; --tap: 44px; --tap-lg: 56px;
+  --font: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  --display: "Poppins", "Inter", system-ui, sans-serif;
+  --mono: "JetBrains Mono", ui-monospace, Menlo, Consolas, monospace;
+  color-scheme: light;
+}
+/* LIGHT ONLY (owner decision 2026-11-01): the customer pages are always light, whatever the phone is set to. The dark tokens below are
+   kept on purpose but are inert: they apply only when <html data-theme="dark"> is set (nothing sets it). To bring dark back: wrap the
+   block in the phone's dark-scheme media query instead of the attribute selector (see docs/LIGHT_ONLY_STATUS.md). */
+/* DARK:BEGIN */
+:root[data-theme="dark"] { color-scheme: dark; --bg: #0b1015; --card: #111820; --card-2: #1f2937; --ink: #f5f6f8; --muted: #c2c8d0; --subtle: #9aa3ae;
+          --line: #2a3442; --line-strong: #7c8590;
+          --primary: #ff5a5a; --primary-hover: #ff9494; --on-primary: #111820; --link: #ff9494;
+          --primary-soft: #3a0f12; --primary-subtle: #24090b; --ring: #ff5a5a;
+          --ok: #4ade80; --ok-soft: #12301a; --ok-fg: #86efac; --bad: #f87171; --bad-soft: #3a1414; --bad-fg: #fca5a5; }
+/* DARK:END */
+* { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; }
+body { margin: 0; background: var(--bg); color: var(--ink); font: 400 16px/1.5 var(--font); -webkit-font-smoothing: antialiased;
+  min-height: 100vh; display: flex; flex-direction: column; padding: 0 env(safe-area-inset-right) env(safe-area-inset-bottom) env(safe-area-inset-left); }
+a { color: var(--link); }
+/* Header: the real thechilli.ai wordmark (the on-dark wordmark file is kept for the day dark returns) and the restaurant's own name. */
+.top { background: var(--card); border-bottom: 1px solid var(--line); padding-top: env(safe-area-inset-top); }
+.top-in { max-width: 32rem; margin: 0 auto; padding: 10px 16px; display: flex; align-items: center; justify-content: space-between; gap: 12px; min-height: 56px; }
+.logo { display: inline-flex; align-items: center; flex: none; min-height: var(--tap); }
+.logo img { display: block; width: 120px; height: 25px; }
+.brand { min-width: 0; text-align: right; font-weight: 600; font-size: .9rem; color: var(--muted); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+main { flex: 1 0 auto; width: 100%; max-width: 32rem; margin: 0 auto; padding: 8px 16px 32px; }
+.wide .top-in { max-width: 64rem; } .wide main { max-width: 64rem; }
+h1, h2, h3 { font-family: var(--display); font-weight: 700; margin: 0; color: var(--ink); }
+h1 { font-size: 1.75rem; line-height: 1.25; letter-spacing: -.02em; margin: 20px 0 16px; }
+h2 { font-size: 1.25rem; line-height: 1.4; margin: 0 0 12px; }
+h3 { font-size: 1.0625rem; line-height: 1.4; }
+.card { background: var(--card); border: 1px solid var(--line); border-radius: var(--r-md); padding: 16px; margin: 0 0 12px; }
+.card.hero { border-radius: var(--r-lg); padding: 20px; }
+dl { margin: 0; display: grid; grid-template-columns: max-content 1fr; gap: 10px 16px; align-items: baseline; }
+dt { color: var(--muted); font-weight: 500; font-size: .9375rem; } dd { margin: 0; overflow-wrap: anywhere; font-weight: 600; }
+.amt, .code { font-family: var(--mono); font-weight: 500; font-variant-numeric: tabular-nums; letter-spacing: 0; }
+.big { font-size: 1.5rem; line-height: 1.3; font-weight: 600; }
+.code { color: var(--ink); } dd.big { font-weight: 600; } #code.big { font-family: var(--mono); font-weight: 500; }
+dl ~ .btn { margin-top: 16px; }
+dl + .row, dl + p, .card dl + .msg { margin-top: 16px; } #cash.big { font-size: 1.25rem; }
+/* Icons are drawn by common.js from data-icon; they take the colour of the text next to them. */
+.ic { width: 1.25em; height: 1.25em; flex: none; fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+.status { display: inline-flex; align-items: center; gap: 8px; padding: 6px 12px; border-radius: var(--r-sm); border: 1px solid var(--line); background: var(--primary-subtle); color: var(--ink); font-weight: 700; font-size: 1rem; }
+.status .ic { color: var(--primary); }
+.status.ok { background: var(--ok-soft); border-color: var(--ok); color: var(--ok-fg); } .status.ok .ic { color: var(--ok); }
+.status.bad { background: var(--bad-soft); border-color: var(--bad); color: var(--bad-fg); } .status.bad .ic { color: var(--bad); }
+/* Buttons: 6px radius, flat, 44px+ targets. Primary = Chilli Red with a white label (dark label on the lighter dark-mode red). */
+button, .btn { font: inherit; font-weight: 600; min-height: var(--tap-lg); min-width: var(--tap); padding: 0 20px; border-radius: var(--r-sm); border: 1px solid transparent;
+  background: var(--primary); color: var(--on-primary); cursor: pointer; text-decoration: none; display: flex; width: 100%; gap: 8px;
+  align-items: center; justify-content: center; text-align: center; }
+button:hover, .btn:hover { background: var(--primary-hover); }
+button.secondary, .btn.secondary { background: var(--card); color: var(--ink); border-color: var(--line-strong); min-height: 48px; }
+button.secondary:hover, .btn.secondary:hover { background: var(--card-2); }
+button.small, .btn.small { min-height: var(--tap); padding: 0 14px; width: auto; }
+button[disabled] { opacity: .55; cursor: not-allowed; }
+.row { display: flex; flex-direction: column; gap: 10px; }
+.row.tight { flex-direction: row; flex-wrap: wrap; } .row.tight > * { flex: 1 1 10rem; }
+#lang { width: auto; min-height: var(--tap); padding: 0 16px; }
+:focus-visible { outline: 3px solid var(--ring); outline-offset: 2px; }
+label, .label { display: block; font-weight: 600; font-size: .9375rem; margin-bottom: 6px; }
+input[type=text], input[type=tel], input[inputmode], textarea, select { font: inherit; width: 100%; min-height: 48px; padding: 10px 12px; border-radius: var(--r-sm);
+  border: 1px solid var(--line-strong); background: var(--card); color: var(--ink); }
+textarea { min-height: 88px; resize: vertical; }
+#otp-input { min-height: var(--tap-lg); letter-spacing: .3em; font-family: var(--mono); font-size: 1.5rem; font-weight: 500; text-align: center; }
+.field { margin: 0 0 14px; }
+.help { color: var(--muted); font-size: .9375rem; margin: 6px 0 14px; }
+.msg { display: flex; gap: 10px; align-items: flex-start; padding: 12px 14px; border-radius: var(--r-sm); border: 1px solid var(--line); background: var(--card); margin: 0 0 12px; font-weight: 500; }
+.msg .ic { margin-top: 2px; }
+.msg.error { border-color: var(--bad); background: var(--bad-soft); color: var(--bad-fg); } .msg.error .ic { color: var(--bad); }
+.msg.ok { border-color: var(--ok); background: var(--ok-soft); color: var(--ok-fg); } .msg.ok .ic { color: var(--ok); }
+.total { display: flex; justify-content: space-between; align-items: baseline; gap: 12px; margin: 0; font-weight: 600; }
+.card p:last-child, .card .help:last-child { margin-bottom: 0; }
+.card h2 { display: flex; align-items: center; gap: 8px; } .card h2 .ic { color: var(--primary); }
+/* Order timeline: every step has an icon and a words label (Done / In progress / Up next); colour is only a second cue. */
+ol.steps { list-style: none; margin: 0; padding: 0; }
+ol.steps li { position: relative; display: flex; align-items: center; gap: 14px; padding: 0 0 18px; min-height: 56px; }
+ol.steps li:last-child { padding-bottom: 0; min-height: 40px; }
+ol.steps li::after { content: ""; position: absolute; left: 19px; top: 40px; bottom: 0; width: 2px; background: var(--line); }
+ol.steps li:last-child::after { display: none; }
+ol.steps .dot { width: 40px; height: 40px; border-radius: var(--r-pill); border: 2px solid var(--line-strong); background: var(--card); color: var(--subtle);
+  display: flex; align-items: center; justify-content: center; flex: none; position: relative; z-index: 1; }
+ol.steps .dot .ic { width: 20px; height: 20px; }
+ol.steps .txt { display: flex; flex-direction: column; min-width: 0; line-height: 1.3; }
+ol.steps .name { font-weight: 600; color: var(--muted); font-size: 1.0625rem; }
+ol.steps .when { font-size: .875rem; color: var(--subtle); font-weight: 500; }
+ol.steps li[data-state=done] .dot { background: var(--ok); border-color: var(--ok); color: #fff; }
+ol.steps li[data-state=done]::after { background: var(--ok); }
+ol.steps li[data-state=done] .name { color: var(--ink); } ol.steps li[data-state=done] .when { color: var(--ok-fg); }
+ol.steps li[data-state=current] .dot { background: var(--primary); border-color: var(--primary); color: var(--on-primary); }
+ol.steps li[data-state=current] .name { color: var(--ink); font-size: 1.1875rem; font-weight: 700; } ol.steps li[data-state=current] .when { color: var(--ink); font-weight: 600; }
+/* DARK:BEGIN */ :root[data-theme="dark"] ol.steps li[data-state=done] .dot { color: #111820; } /* DARK:END */
+@media (prefers-reduced-motion: no-preference) { ol.steps li[data-state=current] .dot { animation: pulse 2.4s ease-in-out infinite; } }
+@keyframes pulse { 0%, 100% { box-shadow: 0 0 0 0 transparent; } 50% { box-shadow: 0 0 0 6px var(--primary-soft); } }
+/* Ordering page */
+.menu-grid { display: block; }
+.cat { margin: 0 0 20px; } .cat h2 { margin: 8px 0 12px; }
+ul.items { list-style: none; margin: 0; padding: 0; display: grid; gap: 10px; }
+.item { background: var(--card); border: 1px solid var(--line); border-radius: var(--r-md); padding: 14px; display: grid; gap: 10px; grid-template-columns: 1fr auto; align-items: start; }
+.item .name { display: flex; gap: 8px; align-items: center; } .item .name h3 { overflow-wrap: anywhere; }
+.item .desc { margin: 4px 0 0; color: var(--muted); font-size: .9375rem; overflow-wrap: anywhere; }
+.item .price { margin: 6px 0 0; font-size: 1rem; }
+.item .var { grid-column: 1 / -1; }
+.mark { width: 18px; height: 18px; flex: none; }
+.stepper { display: inline-flex; align-items: center; border: 1px solid var(--line-strong); border-radius: var(--r-sm); overflow: hidden; background: var(--card); }
+.stepper button { width: var(--tap); min-width: var(--tap); min-height: var(--tap); padding: 0; border: 0; border-radius: 0; background: var(--card); color: var(--ink); }
+.stepper button:hover { background: var(--card-2); }
+.stepper output { min-width: 36px; text-align: center; font-family: var(--mono); font-weight: 500; }
+.add { width: auto; min-height: var(--tap); padding: 0 18px; background: var(--card); color: var(--link); border-color: var(--primary); font-weight: 700; }
+.add:hover { background: var(--primary-subtle); }
+.lines { list-style: none; margin: 0 0 12px; padding: 0; display: grid; gap: 8px; }
+.lines li { display: flex; justify-content: space-between; gap: 12px; align-items: baseline; }
+.lines .q { color: var(--muted); font-family: var(--mono); }
+.sum { border-top: 1px solid var(--line); padding-top: 12px; display: grid; gap: 6px; margin: 0 0 14px; }
+.sum div { display: flex; justify-content: space-between; gap: 12px; }
+.sum .grand { font-weight: 700; font-size: 1.125rem; }
+.pay-opt { display: flex; align-items: center; gap: 12px; min-height: var(--tap); padding: 6px 12px; border: 1px solid var(--line-strong); border-radius: var(--r-sm); margin: 0 0 8px; font-weight: 600; cursor: pointer; background: var(--card); }
+.pay-opt input { width: 20px; height: 20px; min-height: 0; accent-color: var(--primary); flex: none; }
+fieldset { border: 0; margin: 0 0 14px; padding: 0; } legend { font-weight: 600; font-size: .9375rem; margin-bottom: 8px; padding: 0; }
+.item.sold-out { background: var(--card-2); }
+.item.sold-out h3, .item.sold-out .price { color: var(--muted); }
+.sold-tag { margin: 0; align-self: center; padding: 6px 10px; border: 1px solid var(--line-strong); border-radius: var(--r-sm); font-weight: 700; font-size: .875rem; color: var(--muted); background: var(--card); }
+.msg.closed { border-color: var(--line-strong); background: var(--card-2); }
+.cartbar { position: sticky; bottom: 0; z-index: 5; background: var(--card); border-top: 1px solid var(--line-strong); padding: 10px 16px calc(10px + env(safe-area-inset-bottom)); margin: 0 -16px; }
+.cartbar .btn { min-height: var(--tap-lg); justify-content: space-between; }
+/* Footer */
+.foot { flex: none; border-top: 1px solid var(--line); background: var(--card); color: var(--muted); font-size: .875rem; text-align: center; padding: 14px 16px calc(14px + env(safe-area-inset-bottom)); }
+.foot strong { font-weight: 700; color: var(--ink); }
+.vh { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+[hidden] { display: none !important; }
+@media (prefers-reduced-motion: reduce) { * { animation: none !important; transition: none !important; scroll-behavior: auto !important; } }
+@media (min-width: 420px) { .row:not(.tight) { flex-direction: row; } .row:not(.tight) > * { flex: 1; } }
+@media (min-width: 900px) {
+  .top-in { padding-left: 24px; padding-right: 24px; } main { padding-left: 24px; padding-right: 24px; }
+  .menu-grid { display: grid; grid-template-columns: minmax(0, 1fr) 22rem; gap: 24px; align-items: start; }
+  .menu-grid aside { position: sticky; top: 16px; }
+  ul.items { grid-template-columns: 1fr 1fr; }
+  .cartbar { display: none; }
+  .logo img { width: 144px; height: 30px; }
+}

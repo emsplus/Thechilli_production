@@ -1,0 +1,389 @@
+@import "tailwindcss";
+
+/* ==========================================================================
+   TheChilli.ai style guide v1.0 (owner PDF, 2026-10-31). Every colour comes from @chilli/tokens (tokens.css, imported
+   first in layout.tsx), which is light only (no OS or data-theme dark override). These app names map onto it.
+   Chilli Red primary (white label 4.8:1), Chilli 700 links, Charcoal neutrals, one accent, 1px borders over shadows.
+   Token NAMES are the contract with the pages: never rename, only add.
+   ========================================================================== */
+:root {
+  --nf-ui: "Inter Variable", Inter;
+  --nf-display: Poppins, "Inter Variable", Inter;
+  --nf-code: "JetBrains Mono Variable", "JetBrains Mono";
+  --nf-tagline: Montserrat, "Inter Variable", Inter;
+
+  --bg: var(--c-bg);
+  --surface: var(--c-surface);
+  --surface-2: var(--c-surface-2);
+  --surface-3: var(--c-surface-3);
+  --border: var(--c-border);
+  --border-strong: var(--c-border-strong);
+  --fg: var(--c-fg);
+  --fg-muted: var(--c-fg-muted);
+  --fg-subtle: var(--c-fg-subtle);
+
+  --primary: var(--c-primary);
+  --primary-hover: var(--c-primary-hover);
+  --primary-fg: var(--c-on-primary);
+  --primary-soft: var(--c-primary-soft);
+  --primary-soft-fg: var(--c-primary-soft-fg);
+  --primary-vivid: var(--c-accent);             /* Vibrant Orange: decorative only (dots, illustrations), never text */
+  --primary-gradient: linear-gradient(var(--c-primary), var(--c-primary)); /* flat: the guide has no gradient buttons */
+  --ring: var(--c-ring);
+  --link: var(--c-link);
+
+  /* The old teal second accent broke "one accent": secondary emphasis is now Dark Charcoal (ink). */
+  --accent-2: var(--c-ink);
+  --accent-2-hover: color-mix(in oklab, var(--c-ink) 86%, var(--c-bg));
+  --accent-2-fg: var(--c-on-ink);
+  --accent-2-soft: var(--c-surface-2);
+  --accent-2-soft-fg: var(--c-fg);
+
+  --success: var(--c-success);  --success-soft: var(--c-success-soft);  --success-fg: var(--c-success-fg);
+  --warning: var(--c-warning);  --warning-soft: var(--c-warning-soft);  --warning-fg: var(--c-warning-fg);
+  --danger: var(--c-danger);    --danger-soft: var(--c-danger-soft);    --danger-fg: var(--c-danger-fg);
+  --danger-solid: #B91C1C;      /* filled danger keeps a white label (6.5:1) in both themes */
+  --info: var(--c-info);        --info-soft: var(--c-info-soft);        --info-fg: var(--c-info-fg);
+
+  /* Elevation (guide): e-0 border only for cards and tables; e-1 menus/popovers; e-2 dialogs/toasts. */
+  --shadow-sm: none;
+  --shadow-md: var(--shadow-e1);
+  --shadow-lg: var(--shadow-e2);
+  --shadow-glow: none;
+  --shadow-inset-hi: none;
+  --overlay: var(--c-scrim);
+
+  --highlight: transparent;
+
+  /* No ambient mesh: calm by default. */
+  --mesh-1: transparent;
+  --mesh-2: transparent;
+  --mesh-3: transparent;
+
+  /* Food tiles (image fallbacks): background / glyph colour pairs, from the guide's tints. */
+  --tile-1: var(--c-chilli-50); --tile-1-fg: var(--c-chilli-700);
+  --tile-2: #FEFCE8; --tile-2-fg: #854D0E;
+  --tile-3: #EEF7EE; --tile-3-fg: #136B2B;
+  --tile-4: var(--c-chilli-100); --tile-4-fg: var(--c-chilli-800);
+  --tile-5: var(--c-charcoal-100); --tile-5-fg: var(--c-charcoal-600);
+  --tile-6: #EFF6FF; --tile-6-fg: #1E40AF;
+
+  --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+  --ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
+  --dur-fast: 120ms;
+  --dur-base: 180ms;
+  --dur-slow: 260ms;
+
+  /* Former warm shading: flat now (same names so pages keep working). */
+  --wash-top: var(--c-bg);
+  --panel-head-top: var(--c-surface);
+  --tile-tint: transparent;
+  --shadow-tile: none;
+
+  --sidebar-w: 16rem;
+  /* One content column for every page (UI_REVIEW BA-25); the counter screens (POS, kitchen) use the full width. */
+  --content-max: 1500px;
+  --sidebar-w-collapsed: 5rem;
+  --topbar-h: 4rem;
+  --tabbar-h: 4.25rem;
+  /* Space the floating tab bar occupies at the bottom on < lg (bar + gap + safe area). */
+  --tabbar-space: calc(var(--tabbar-h) + 0.75rem + env(safe-area-inset-bottom));
+}
+
+/* Light theme only (owner decision 2026-11-01): the old dark tile values and --viz overrides were removed; the dark palette stays in @chilli/tokens (darkColors). */
+
+/* Tailwind theme: utilities like bg-surface, text-fg-muted, border-border, bg-primary-soft ... */
+@theme inline {
+  --color-bg: var(--bg);
+  --color-surface: var(--surface);
+  --color-surface-2: var(--surface-2);
+  --color-surface-3: var(--surface-3);
+  --color-border: var(--border);
+  --color-border-strong: var(--border-strong);
+  --color-fg: var(--fg);
+  --color-fg-muted: var(--fg-muted);
+  --color-fg-subtle: var(--fg-subtle);
+  --color-primary: var(--primary);
+  --color-primary-hover: var(--primary-hover);
+  --color-primary-fg: var(--primary-fg);
+  --color-primary-soft: var(--primary-soft);
+  --color-primary-soft-fg: var(--primary-soft-fg);
+  --color-primary-vivid: var(--primary-vivid);
+  --color-ring: var(--ring);
+  --color-link: var(--link);
+  --color-ink: var(--c-ink);
+  --color-on-ink: var(--c-on-ink);
+  --color-brand: var(--c-brand);
+  --color-accent: var(--c-accent);
+  --color-accent-2: var(--accent-2);
+  --color-accent-2-hover: var(--accent-2-hover);
+  --color-accent-2-fg: var(--accent-2-fg);
+  --color-accent-2-soft: var(--accent-2-soft);
+  --color-accent-2-soft-fg: var(--accent-2-soft-fg);
+  --color-success: var(--success);
+  --color-success-soft: var(--success-soft);
+  --color-success-fg: var(--success-fg);
+  --color-warning: var(--warning);
+  --color-warning-soft: var(--warning-soft);
+  --color-warning-fg: var(--warning-fg);
+  --color-danger: var(--danger);
+  --color-danger-soft: var(--danger-soft);
+  --color-danger-fg: var(--danger-fg);
+  --color-danger-solid: var(--danger-solid);
+  --color-info: var(--info);
+  --color-info-soft: var(--info-soft);
+  --color-info-fg: var(--info-fg);
+
+  --font-sans: var(--nf-ui), ui-sans-serif, system-ui, sans-serif;
+  --font-display: var(--nf-display), var(--nf-ui), ui-sans-serif, system-ui, sans-serif;
+  --font-mono: var(--nf-code), ui-monospace, SFMono-Regular, Menlo, monospace;
+
+  /* Guide radii: sm 6 (buttons, inputs, chips), md 12 (cards, table shells), lg 20 (dialogs, login card). */
+  --radius-sm: 0.375rem;
+  --radius-md: 0.375rem;
+  --radius-lg: 0.5rem;
+  --radius-xl: 0.75rem;    /* cards, panels, table shells */
+  --radius-2xl: 1.25rem;   /* dialogs, sheets */
+  --radius-3xl: 1.25rem;
+
+  --shadow-xs: var(--shadow-sm);
+  --shadow-card: var(--shadow-sm);
+  --shadow-pop: var(--shadow-md);
+  --shadow-modal: var(--shadow-lg);
+  --shadow-glow: var(--shadow-glow);
+
+  --ease-out: var(--ease-out);
+  --ease-spring: var(--ease-spring);
+}
+
+@layer base {
+  html { -webkit-text-size-adjust: 100%; }
+  body {
+    background: var(--bg);
+    color: var(--fg);
+    font-family: var(--nf-ui), ui-sans-serif, system-ui, sans-serif;
+    font-feature-settings: "cv11";
+    -webkit-font-smoothing: antialiased;
+    -webkit-tap-highlight-color: transparent;
+  }
+  /* Headings: Poppins 700 (guide). */
+  h1, h2, h3 { letter-spacing: -0.015em; font-family: var(--nf-display), var(--nf-ui), ui-sans-serif, system-ui, sans-serif; }
+  a { color: inherit; }
+  /* Visible keyboard focus everywhere; mouse/touch clicks stay clean. */
+  :focus-visible { outline: 2px solid var(--ring); outline-offset: 2px; border-radius: 8px; }
+  ::selection { background: var(--primary-soft); color: var(--primary-soft-fg); }
+  button, [role="button"], a { touch-action: manipulation; }
+  /* Native controls (select, date picker, autofill, scrollbars) are light: color-scheme comes from :root (light) */
+  select, input, textarea { color-scheme: light; }
+}
+
+@layer utilities {
+  .tnum { font-variant-numeric: tabular-nums lining-nums; font-feature-settings: "tnum", "lnum"; }
+  .pb-safe { padding-bottom: env(safe-area-inset-bottom); }
+  .pt-safe { padding-top: env(safe-area-inset-top); }
+  .scrollbar-thin { scrollbar-width: thin; scrollbar-color: var(--border-strong) transparent; }
+  .scrollbar-none { scrollbar-width: none; }
+  .scrollbar-none::-webkit-scrollbar { display: none; }
+  /* Primary CTA surface: gradient + soft glow + top highlight. */
+  .bg-primary-gradient { background-image: var(--primary-gradient); }
+  /* Horizontal scroller with soft fade edges (open-order strip, category pills). */
+  .pill-fade-right { mask-image: linear-gradient(90deg, #000 0, #000 calc(100% - 4.5rem), transparent 100%); }
+  .pill-fade-left { mask-image: linear-gradient(90deg, transparent 0, #000 4.5rem, #000 100%); }
+  .pill-fade-both { mask-image: linear-gradient(90deg, transparent 0, #000 4.5rem, #000 calc(100% - 4.5rem), transparent 100%); }
+  .fade-x { mask-image: linear-gradient(90deg, transparent 0, #000 16px, #000 calc(100% - 16px), transparent 100%); }
+}
+
+/* Shimmer for Skeleton */
+@keyframes shimmer { 100% { transform: translateX(100%); } }
+.skeleton { position: relative; overflow: hidden; background: var(--surface-3); }
+.skeleton::after {
+  content: ""; position: absolute; inset: 0; transform: translateX(-100%);
+  background: linear-gradient(90deg, transparent, color-mix(in oklab, var(--surface) 70%, transparent), transparent);
+  animation: shimmer 1.4s var(--ease-out) infinite;
+}
+
+/* Illustration + ambient helpers */
+@keyframes float-y { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-5px); } }
+@keyframes draw { to { stroke-dashoffset: 0; } }
+@keyframes pulse-dot { 0% { box-shadow: 0 0 0 0 currentColor; opacity: 1; } 70% { box-shadow: 0 0 0 6px transparent; } 100% { box-shadow: 0 0 0 0 transparent; } }
+@keyframes steam { 0% { transform: translateY(4px) scaleY(.8); opacity: 0; } 40% { opacity: .9; } 100% { transform: translateY(-10px) scaleY(1.1); opacity: 0; } }
+@keyframes drift { 0%,100% { transform: translate3d(0,0,0) scale(1); } 50% { transform: translate3d(3%, -4%, 0) scale(1.06); } }
+@keyframes cart-bump { 0% { transform: scale(1); } 35% { transform: scale(1.18); } 65% { transform: scale(.94); } 100% { transform: scale(1); } }
+.anim-float { animation: float-y 4.5s ease-in-out infinite; }
+.anim-draw { stroke-dasharray: 1; stroke-dashoffset: 1; animation: draw 700ms var(--ease-out) 150ms forwards; }
+.anim-pulse-dot { animation: pulse-dot 1.8s ease-out infinite; }
+.anim-steam { animation: steam 2.6s ease-out infinite; transform-box: fill-box; transform-origin: bottom; }
+.anim-drift { animation: drift 18s ease-in-out infinite; }
+.anim-cart-bump { animation: cart-bump 420ms var(--ease-out); }
+
+/* ---- Effects level (html[data-effects=reduced], set pre-paint; see components/theme/effects.ts) ---- */
+html[data-effects="reduced"] .anim-float,
+html[data-effects="reduced"] .anim-drift,
+html[data-effects="reduced"] .anim-steam,
+html[data-effects="reduced"] .anim-pulse-dot { animation: none !important; }
+html[data-effects="reduced"] .fx-only { display: none !important; }
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation-duration: 0.001ms !important; animation-iteration-count: 1 !important; transition-duration: 0.001ms !important; scroll-behavior: auto !important; }
+  .anim-draw { stroke-dashoffset: 0; }
+}
+
+/* Sonner themed with our tokens */
+[data-sonner-toaster] { --normal-bg: var(--surface); --normal-text: var(--fg); --normal-border: var(--border); font-family: var(--nf-ui); }
+
+@media print {
+  body * { visibility: hidden; }
+  .print-area, .print-area * { visibility: visible; }
+  .print-area { position: absolute; left: 0; top: 0; width: 80mm; }
+}
+
+/* ---- App shell layout (driven by html[data-sidebar=collapsed], set pre-paint) ---- */
+.page-width { max-width: var(--content-max); }
+.page-width[data-width="full"] { max-width: none; }
+:root { --sbw: var(--sidebar-w); }
+html[data-sidebar="collapsed"] { --sbw: var(--sidebar-w-collapsed); }
+.shell-sidebar { width: calc(var(--sbw) - 1.25rem); transition: width var(--dur-slow) var(--ease-out); }
+@media (min-width: 1024px) { .shell-main { padding-left: var(--sbw); transition: padding-left var(--dur-slow) var(--ease-out); } }
+html[data-sidebar="collapsed"] .shell-label { display: none; }
+html[data-sidebar="collapsed"] .shell-divider { display: block; }
+html[data-sidebar="collapsed"] .shell-sidebar a, html[data-sidebar="collapsed"] .shell-sidebar button { justify-content: center; padding-inline: 0; }
+/* Counter screens (POS, kitchen: main[data-width=full]) on 1024-1279 px screens: the sidebar is an icon rail so the dish
+   grid / ticket board get the room (UI_REVIEW BA-1, BA-12). Labels stay in the accessibility tree (visually hidden);
+   the collapse toggle is hidden because the rail is not a choice here. The saved preference is untouched. */
+@media (min-width: 1024px) and (max-width: 1279.98px) {
+  html:has(main[data-width="full"]) { --sbw: var(--sidebar-w-collapsed); }
+  html:has(main[data-width="full"]) .shell-label { position: absolute; width: 1px; height: 1px; margin: -1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
+  html:has(main[data-width="full"]) .shell-divider { display: block; }
+  html:has(main[data-width="full"]) .shell-sidebar a, html:has(main[data-width="full"]) .shell-sidebar button { justify-content: center; padding-inline: 0; }
+  html:has(main[data-width="full"]) .shell-sidebar button[aria-expanded] { display: none; }
+  html:has(main[data-width="full"]) .shell-sidebar .border-t { flex-direction: column; }
+  html:has(main[data-width="full"]) .shell-sidebar .border-t > * { width: 100%; }
+}
+
+/* ---- Kitchen board (app/kitchen): from 768 px the three status columns always sit side by side and fill the height;
+   each column scrolls inside itself (wall tablets, UI_REVIEW BA-12). Below 768 they stack as before. ---- */
+@media (min-width: 768px) {
+  .kitchen-board .ch-kds { grid-template-columns: repeat(3, minmax(0, 1fr)); height: 100%; min-height: 0; align-items: stretch; gap: var(--space-12, 0.75rem); padding: var(--space-12, 0.75rem); }
+  .kitchen-board .ch-kds-col { display: flex; flex-direction: column; min-height: 0; }
+  .kitchen-board .ch-kds-col__list { flex: 1; min-height: 0; overflow-y: auto; overscroll-behavior: contain; padding-bottom: 0.5rem; scrollbar-width: thin; }
+}
+
+/* ---- Kitchen ticket (app/kitchen/_components/KitchenTicket): proportional lateness, UI_REVIEW BA-13. Built on the design-system
+   .ch-kds-ticket type scale; the card border is always neutral (no state stripe: the column says the stage). Getting late = a
+   thin amber leading accent, late = a thin red one; the wait chip carries the words. ---- */
+.ch-kds-ticket.kitchen-ticket { position: relative; border: 1px solid var(--c-border); border-inline-start: 1px solid var(--c-border); display: flex; flex-direction: column; gap: var(--space-8, 0.5rem); }
+.ch-kds-ticket.kitchen-ticket[data-wait="warn"] { border-inline-start: 5px solid var(--c-warning); }
+.ch-kds-ticket.kitchen-ticket[data-wait="late"] { border-inline-start: 5px solid var(--c-danger); }
+.kitchen-ticket__head { display: flex; align-items: center; justify-content: space-between; gap: var(--space-8, 0.5rem) var(--space-12, 0.75rem); flex-wrap: wrap; }
+.kitchen-ticket__wait { display: inline-flex; align-items: center; gap: 0.4rem; padding: 0.25rem 0.75rem; border-radius: 999px; background: var(--c-surface-3); color: var(--c-fg-muted);
+  font-size: var(--text-lg, 1.125rem); line-height: 1.5rem; font-weight: 600; font-variant-numeric: tabular-nums; white-space: nowrap; }
+.kitchen-ticket__wait[data-wait="warn"] { background: var(--c-warning-soft); color: var(--c-warning-fg); }
+.kitchen-ticket__wait[data-wait="late"] { background: var(--c-danger-soft); color: var(--c-danger-fg); }
+.kitchen-ticket__where { display: flex; align-items: center; gap: 0.5rem; min-width: 0; margin: 0; color: var(--c-fg-muted); font-size: var(--text-lg, 1.125rem); line-height: 1.75rem; }
+.kitchen-ticket__kind { flex-shrink: 0; padding: 0 0.5rem; border: 1px solid var(--c-border-strong); border-radius: 6px; font-size: 0.875rem; line-height: 1.5rem; font-weight: 600; color: var(--c-fg-muted); }
+.kitchen-ticket .ch-kds-ticket__items { margin-top: var(--space-4, 0.25rem); }
+.kitchen-ticket__mods { display: block; font-size: 0.95rem; line-height: 1.35rem; font-weight: 500; color: var(--c-fg-muted); }
+/* KOT-only kitchen (default): one list of open tickets, oldest first, as many columns as fit; the page does the scrolling inside the board. */
+.kitchen-board--kot { overflow-y: auto; overscroll-behavior: contain; scrollbar-width: thin; }
+.kitchen-grid { display: grid; gap: var(--space-12, 0.75rem); padding: var(--space-12, 0.75rem); grid-template-columns: repeat(auto-fill, minmax(min(100%, 19rem), 1fr)); align-items: start; }
+.kitchen-ticket__foot { display: flex; align-items: center; gap: var(--space-8, 0.5rem); margin-top: auto; padding-top: var(--space-8, 0.5rem); }
+.kitchen-ticket__foot > .ch-btn--icon { flex-shrink: 0; width: 48px; min-width: 48px; }
+/* Primary action: Chilli Red with a white label (the same as the light tokens now that the ticket is a light card; kept explicit). */
+.kitchen-ticket .kitchen-ticket__go { flex: 1; min-width: 0; min-height: 56px; padding-inline: 0.75rem; font-size: var(--text-lg, 1.125rem); white-space: nowrap;
+  --c-primary: #E50914; --c-primary-hover: #C20710; --c-on-primary: #FFFFFF;
+  --ch-grad-primary: linear-gradient(#E50914, #E50914); --ch-grad-primary-hover: linear-gradient(#C20710, #C20710); }
+
+/* ---- Phone POS: the "View order" bar (MobileCartBar, data-cart-dock) docks onto the tab bar as one unit: square top corners
+   here, the tab bar's top border is the divider between the two rows (UI_REVIEW BA-2). ---- */
+@media (max-width: 767.98px) {
+  html:has([data-cart-dock]) .vt-tabbar { border-top-left-radius: 0; border-top-right-radius: 0; }
+}
+
+/* ---- Short viewports (QA D19): a phone held sideways (667x375, 844x390) or a 200 % zoomed laptop window (640x400) left ~90 px for the dishes
+   between the sticky top bars and the fixed "View order" + tab bars. Below lg (the bars exist there) and up to 520 px tall: the bars shrink
+   (top bar and tab bar 2.75rem, tabs laid out icon-beside-label, the cart bar one slim row) and the top bar and the ticket strip scroll
+   away with the page instead of sticking. Layout only: no colour, no token. ---- */
+@media (max-height: 520px) and (max-width: 1023.98px) {
+  :root { --topbar-h: 2.75rem; --tabbar-h: 2.75rem; }
+  .vt-topbar, [data-open-strip] { position: static; }
+  .vt-tabbar > ul { padding-inline: 0.25rem; }
+  .vt-tabbar a, .vt-tabbar button { flex-direction: row; gap: 0.375rem; }
+  .vt-tabbar .vt-tab-icon { width: 1.25rem; height: 1.25rem; }
+  .vt-tabbar .vt-tab-label { min-height: 0; align-items: center; }
+  [data-cart-dock] { padding: 0.25rem 0.5rem; }
+  [data-cart-dock] .vt-cart-icon { width: 2.25rem; height: 2.25rem; }
+  [data-cart-dock] .vt-cart-total { font-size: 1rem; line-height: 1.25rem; }
+  [data-cart-dock] .ch-btn { min-height: 2.5rem; height: 2.5rem; }
+}
+
+/* Landscape phone / small tablet (768 to 1023 px wide, up to 520 px tall): the counter is a two-column screen with a fixed page height, which
+   left the dish grid ~70 px. Here the page scrolls instead, and the order panel stays pinned beside it at the height of the screen. */
+@media (max-height: 520px) and (min-width: 768px) and (max-width: 1023.98px) {
+  [data-pos-root] { height: auto; }
+  [data-pos-aside] { position: sticky; top: 0.5rem; align-self: flex-start; height: calc(100dvh - 1rem - var(--tabbar-space)); }
+}
+
+/* ---- Route transitions: React <ViewTransition> (app/template.tsx) on supporting browsers, CSS fallback otherwise ---- */
+@keyframes page-in { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: none; } }
+@keyframes page-out { to { opacity: 0; transform: translateY(-4px); } }
+@supports not (view-transition-name: none) {
+  .page-enter { animation: page-in var(--dur-slow) var(--ease-out); }
+}
+::view-transition-old(root), ::view-transition-new(root) { animation: none; }
+::view-transition-old(.vt-page-out) { animation: page-out 140ms ease-in both; }
+::view-transition-new(.vt-page-in) { animation: page-in 260ms var(--ease-out) 60ms both; }
+::view-transition-group(*) { animation-duration: 260ms; }
+html[data-effects="reduced"]::view-transition-old(*),
+html[data-effects="reduced"]::view-transition-new(*),
+html[data-effects="reduced"]::view-transition-group(*) { animation: none !important; }
+/* The shell chrome sits above the page snapshot while a route transition runs. */
+.vt-topbar { view-transition-name: shell-topbar; }
+.vt-tabbar { view-transition-name: shell-tabbar; }
+::view-transition-group(shell-topbar), ::view-transition-group(shell-tabbar) { animation: none; z-index: 10; }
+
+/* ---- Data-viz tokens (components/charts). Categorical slots 1-4, stepped per theme. Sequential = primary. ---- */
+/* Chilli Red leads; Vibrant Orange is the guide's chart accent; blue and leaf follow. */
+:root { --viz-1: var(--c-primary); --viz-2: var(--c-accent); --viz-3: #1D4ED8; --viz-4: #167D32; --viz-seq: var(--primary); --viz-grid: var(--border); }
+
+/* NumberRoll digit strips */
+.roll-strip { transition: transform 420ms var(--ease-out); will-change: transform; }
+html[data-effects="reduced"] .roll-strip { transition: none; }
+
+
+
+/* GlowBorder: rotating conic ring */
+@property --glow-angle { syntax: "<angle>"; inherits: false; initial-value: 0deg; }
+
+/* Design-system fields in toolbars and table cells: label stays for screen readers, hidden visually (components/inline-fields.tsx). */
+.ch-inline .ch-label { position: absolute; width: 1px; height: 1px; margin: -1px; padding: 0; overflow: hidden; clip-path: inset(50%); white-space: nowrap; border: 0; }
+/* Same, but the label shows on a phone, where a row of bare boxes (placeholders vanish once typed in) cannot be told apart. */
+@media (min-width: 640px) { .ch-inline-sm .ch-label { position: absolute; width: 1px; height: 1px; margin: -1px; padding: 0; overflow: hidden; clip-path: inset(50%); white-space: nowrap; border: 0; } }
+
+/* ---- Former colour shading (now flat per the style guide; classes kept so pages need no change) ---- */
+/* Never a page-level sideways scroll: wide content (ticket queue, tables) scrolls inside its own box. */
+html, body { overflow-x: clip; }
+.shell-main { background-image: linear-gradient(180deg, var(--wash-top) 0, var(--bg) 22rem); background-repeat: no-repeat; }
+/* Today KPI tiles: a warm corner and a warm-tinted shadow over the plain card colour (hover still changes the base colour). */
+.tile-warm { background-image: linear-gradient(160deg, transparent 0%, transparent 45%, var(--tile-tint) 100%); box-shadow: var(--shadow-tile); }
+/* Order panel header: soft peach at the top fading into the card. */
+.panel-head-warm { background-image: linear-gradient(180deg, var(--panel-head-top) 0%, var(--surface) 100%); }
+
+
+/* One visible page title: the top bar already names the page ("POS", "Orders", "Reservations"), so a page's own
+   PageHeader title stays for screen readers only (still the page's single h1). Its description and actions stay visible.
+   Pages outside the shell (sign-in) are not inside .shell-main and keep their heading. */
+.shell-main main .ch-page-head__title { position: absolute; width: 1px; height: 1px; margin: -1px; padding: 0; overflow: hidden; clip-path: inset(50%); white-space: nowrap; border: 0; }
+
+/* ---- Style guide v1.0 brand surface ---- */
+/* Tagline (Montserrat SemiBold). */
+.brand-tagline { font-family: var(--nf-tagline), ui-sans-serif, system-ui, sans-serif; font-weight: 600; }
+/* Voided amounts are struck through. */
+.amount-void, [data-voided] .tnum { text-decoration: line-through; color: var(--fg-subtle); }
+
+/* Numeric table columns: the design-system header rule (.ch-table th { text-align: start }) outranks .ch-end, which left
+   headers like "Taxable value" over right-aligned figures (UI_REVIEW BA-16). A numeric column's header aligns with its numbers. */
+.ch-table th.ch-end, .ch-dt__table th.ch-end { text-align: end; }
+
+/* QR code of a counter device code (src/components/devices/CounterDevices.tsx): always dark modules on a light plate, so any
+   scanner reads it. Tokens only: --c-on-ink / --c-ink are white / charcoal (light only: the dead dark overrides were removed). */
+.qr-plate { background: var(--c-on-ink); fill: var(--c-ink); }

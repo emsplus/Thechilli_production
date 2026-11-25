@@ -1,0 +1,88 @@
+/* Layout only. Colours, spacing and type come from @chilli/tokens (light theme only: no dark override in the tokens); components from @chilli/ui. */
+*,*::before,*::after{box-sizing:border-box}
+html,body{margin:0;padding:0}
+body{background:var(--c-surface);color:var(--c-fg);font-family:var(--font-sans);font-size:var(--body-size);line-height:var(--body-lh);-webkit-font-smoothing:antialiased}
+a{color:var(--c-link);text-decoration:underline;text-underline-offset:2px}
+a.ch-btn{text-decoration:none}
+a.ch-btn--primary{color:var(--c-on-primary)}
+h1,h2,h3{margin:0;line-height:1.25}
+h1,h2,h3{font-family:var(--font-display);font-weight:700;letter-spacing:-0.01em}
+h1{font-size:var(--text-h1);line-height:var(--lh-h1);letter-spacing:-0.02em}
+h2{font-size:var(--text-h2);line-height:var(--lh-h2)}
+h3{font-size:var(--text-h3);line-height:var(--lh-h3)}
+p{margin:0}
+.muted{color:var(--c-fg-muted)}.small{font-size:var(--text-sm)}.mono{font-family:var(--font-mono)}
+.skip{position:absolute;left:-999px;display:inline-flex;align-items:center;min-height:44px}.skip:focus{left:8px;top:8px;background:var(--c-surface);padding:8px 12px;z-index:50}
+:focus-visible{outline:2px solid var(--c-ring);outline-offset:2px}
+[tabindex="-1"]:focus{outline:none}
+
+.topbar{position:sticky;top:0;z-index:20;display:flex;flex-wrap:wrap;align-items:center;gap:var(--space-12);padding:var(--space-8) max(var(--gutter),calc((100% - 1120px) / 2 + var(--gutter)));background:var(--c-surface);border-bottom:1px solid var(--c-border)}
+.brand{text-decoration:none;min-height:44px;display:flex;align-items:center}
+.spacer{flex:1}
+
+.main{max-width:1120px;margin:0 auto;padding:var(--space-32) var(--gutter) var(--space-48);min-height:70dvh}
+.page-head{display:flex;flex-direction:column;gap:var(--space-8);max-width:62ch;margin-bottom:var(--space-24)}
+.lead{font-size:var(--text-lg);color:var(--c-fg-muted);max-width:62ch}
+.row{display:flex;flex-wrap:wrap;gap:var(--space-12);align-items:center}
+.ch-card{padding:var(--space-16)}
+.legal h2{margin-top:var(--space-24);font-size:var(--text-lg)}
+.legal{display:flex;flex-direction:column;gap:var(--space-8);max-width:70ch}
+.notice{border:1px solid var(--c-warning);background:var(--c-warning-soft);color:var(--c-warning-fg);border-radius:var(--radius-md);padding:var(--space-12) var(--space-16)}
+.notice.danger{border-color:var(--c-danger);background:var(--c-danger-soft);color:var(--c-danger-fg)}
+.notice.info{border-color:var(--c-info);background:var(--c-info-soft);color:var(--c-info-fg)}
+.notice p{margin:0}.notice p+p{margin-top:var(--space-4)}
+.notice ul{margin:var(--space-8) 0 0;padding-inline-start:20px}
+.notice.danger a{color:inherit}
+.notice li a{display:inline-flex;align-items:center;min-height:44px}
+
+.wizard{display:flex;flex-direction:column;gap:var(--space-16);max-width:560px}
+.fields{display:flex;flex-direction:column;gap:var(--space-16)}
+.fields[hidden]{display:none}
+.steps{display:flex;gap:6px;padding:0;margin:0}
+.steps li{flex:1;height:6px;border-radius:3px;background:var(--c-border);list-style:none}
+.steps li.done{background:var(--c-success)}.steps li.cur{background:var(--c-primary)}
+.hp{position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden}
+.checkbox{display:flex;gap:var(--space-12);align-items:flex-start;min-height:44px}
+.checkbox input{width:24px;height:24px;margin-top:2px;flex:none;accent-color:var(--c-primary)}
+.ch-error{color:var(--c-danger-fg);font-size:var(--text-sm)}
+.done{display:flex;flex-direction:column;gap:var(--space-16);max-width:560px}
+.kv{display:grid;grid-template-columns:auto 1fr;gap:var(--space-8) var(--space-16);margin:0}.kv dd{margin:0;overflow-wrap:anywhere}.kv dt{color:var(--c-fg-muted)}
+.token{font-family:var(--font-mono);word-break:break-all;background:var(--c-surface-2);padding:var(--space-8) var(--space-12);border-radius:var(--radius-sm);border:1px dashed var(--c-border-strong)}
+.receipt{display:flex;flex-direction:column;gap:var(--space-8);align-items:flex-start}
+
+.footer{border-top:1px solid var(--c-border);background:var(--c-surface);padding:var(--space-24) 0}
+.footer-legal{max-width:1120px;margin:0 auto;padding-inline:var(--gutter);display:flex;flex-wrap:wrap;gap:var(--space-16)}
+.footer-legal a{display:inline-flex;min-height:44px;min-width:44px;align-items:center}
+.copy{max-width:1120px;margin:var(--space-8) auto 0;padding-inline:var(--gutter)}
+
+
+/* Branded 404. */
+.nf{align-items:center;text-align:center;margin-inline:auto;padding-top:var(--space-32)}
+.nf__code{font-family:var(--font-display);font-weight:800;font-size:var(--text-display);line-height:var(--lh-display);color:var(--c-brand)}
+
+/* Sign-up (PW-8): the form and a short "what happens next" panel side by side on wide screens, centred column on narrow ones. */
+.signup-layout{display:grid;gap:var(--space-24);align-items:start}
+.signup-layout .wizard,.signup-layout .done{max-width:none}
+.signup-aside{display:flex;flex-direction:column;gap:var(--space-12)}
+.signup-aside ol{margin:0;padding-inline-start:20px;display:flex;flex-direction:column;gap:var(--space-8);color:var(--c-fg-muted)}
+.signin-line{display:flex;flex-wrap:wrap;gap:var(--space-4) var(--space-8);align-items:center}
+.signin-line a{display:inline-flex;align-items:center;min-height:44px}
+@media (min-width:960px){.signup-layout{grid-template-columns:minmax(0,600px) minmax(0,1fr);gap:var(--space-48)}.signup-aside{position:sticky;top:96px}}
+/* "What do you run?" cards (multi-select checkboxes). */
+.types{border:0;margin:0;padding:0;display:flex;flex-direction:column;gap:var(--space-12)}
+.types legend{font-weight:600;margin-bottom:var(--space-8);padding:0}
+.type-card{display:grid;grid-template-columns:24px 1fr;gap:var(--space-12);align-items:start;padding:var(--space-12) var(--space-16);border:1px solid var(--c-border-strong);border-radius:var(--radius-md);background:var(--c-surface);cursor:pointer;min-height:44px}
+.type-card:has(input:checked){border-color:var(--c-primary);background:var(--c-primary-subtle)}
+.type-card:has(input:focus-visible){outline:2px solid var(--c-ring);outline-offset:2px}
+.type-card input{width:24px;height:24px;margin:2px 0 0;accent-color:var(--c-primary)}
+.type-card strong{display:block}
+.type-card .small{display:block;margin-top:2px}
+
+/* Phones (mobile review 2026-11): no text under 14px. @chilli/ui sets hints and badges at 12px (caption/xs); lift them to the sm step. */
+@media (max-width:767px){
+  .ch-hint,.ch-badge{font-size:var(--text-sm);line-height:var(--lh-sm)}
+  /* Wizard actions: full-width, thumb-sized buttons with the primary action on the right. */
+  .wizard>.row{flex-wrap:nowrap}
+  .wizard>.row>.ch-btn{flex:0 0 auto;min-width:96px;min-height:48px}
+  .wizard>.row>.ch-btn--primary{flex:1 1 auto}
+}

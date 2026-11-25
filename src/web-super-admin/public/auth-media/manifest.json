@@ -1,0 +1,26 @@
+[
+  {
+    "type": "image",
+    "src": "/auth-media/mumbai-evening.webp",
+    "alt": "",
+    "credit": "Purvesh Parmar / Unsplash"
+  },
+  {
+    "type": "image",
+    "src": "/auth-media/kitchen-night.webp",
+    "alt": "",
+    "credit": "Eugeniya Belova / Unsplash"
+  },
+  {
+    "type": "image",
+    "src": "/auth-media/counter-tablet.webp",
+    "alt": "",
+    "credit": "DJ Paine / Unsplash"
+  },
+  {
+    "type": "image",
+    "src": "/auth-media/city-skyline.webp",
+    "alt": "",
+    "credit": "Sidharth Kumar / Unsplash"
+  }
+]

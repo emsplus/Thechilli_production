@@ -1,0 +1,41 @@
+[project]
+name = "platform-core"
+version = "0.1.0"
+description = "Chilli platform control plane backend (staff, tenants, onboarding, plans, entitlements, billing, support, audit)"
+requires-python = ">=3.12"
+dependencies = [
+  "fastapi>=0.115",
+  "uvicorn[standard]>=0.30",
+  "sqlalchemy>=2.0.30",
+  "alembic>=1.13",
+  "psycopg[binary]>=3.2",
+  "pydantic>=2.8",
+  "pydantic-settings>=2.4",
+  "argon2-cffi>=23.1",
+  "pyjwt[crypto]>=2.9",
+  "email-validator>=2.2",
+  "segno>=1.6.6",
+  "httpx>=0.28.1",
+]
+
+[dependency-groups]
+dev = ["pytest>=8", "httpx>=0.27", "ruff>=0.6"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["."]
+filterwarnings = ["ignore::DeprecationWarning"]
+
+[tool.ruff]
+line-length = 120
+
+[tool.ruff.lint]
+# Classic pyflakes + pycodestyle errors. Style-only rules the existing code does not follow are ignored so CI lint is a real gate
+# for unused/undefined names without a mass reformat (same spirit as payments/aggregator/delivery).
+select = ["E", "F"]
+ignore = ["E501", "E741", "E731", "E702"]
+
+[tool.ruff.lint.per-file-ignores]
+"tests/**" = ["F401", "F811", "F841", "E402"]   # pytest fixtures are imported for their side effect and re-declared as arguments
+"alembic/**" = ["E402", "F401"]
+"**/__init__.py" = ["F401"]                     # re-exports

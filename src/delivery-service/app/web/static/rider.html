@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex, nofollow">
+<meta name="referrer" content="no-referrer">
+<meta name="color-scheme" content="light">
+<meta name="theme-color" content="#ffffff">
+<meta name="chilli-languages" content="{{LANGUAGES}}">
+<title>Delivery</title>
+<link rel="icon" type="image/png" href="/assets/favicon-32.png">
+<link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
+<link rel="preload" href="/assets/Inter-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="/assets/app.css">
+</head>
+<body>
+<header class="top">
+  <div class="top-in">
+    <a class="logo" href="#main" aria-label="thechilli.ai"><img src="/assets/logo-wordmark.png" width="120" height="25" alt="thechilli.ai"></a>
+    <span class="brand" id="brand"></span>
+    <button type="button" id="lang" class="secondary" aria-label="Switch language" hidden></button>
+  </div>
+</header>
+<main id="main">
+<h1 data-i18n="rider_title">Delivery</h1>
+<div id="msg" class="msg" role="alert" hidden></div>
+<div id="view">
+<section class="card hero" aria-labelledby="h-order">
+  <h2 id="h-order" class="vh" data-i18n="rider_order">Order</h2>
+  <dl>
+    <dt data-i18n="rider_order">Order</dt><dd class="big" id="code"></dd>
+    <dt data-i18n="rider_deliver_to">Deliver to</dt><dd id="addr"></dd>
+    <dt data-i18n="rider_customer">Customer</dt><dd id="cust"></dd>
+    <dt data-i18n="rider_collect_label">Payment</dt><dd class="big" id="cash"></dd>
+  </dl>
+  <div class="row tight">
+    <a id="nav" class="btn secondary" href="#" target="_blank" rel="noopener noreferrer" hidden data-icon="navigate"><span data-i18n="rider_navigate">Navigate</span></a>
+    <a id="call" class="btn secondary" href="#" hidden data-icon="phone"><span data-i18n="call_customer">Call customer</span></a>
+  </div>
+</section>
+<section class="card" id="offer" hidden aria-labelledby="h-offer">
+  <h2 id="h-offer" data-i18n="rider_offer_text">New delivery for you</h2>
+  <div class="row"><button type="button" id="accept" data-i18n="rider_accept">Accept</button>
+  <button type="button" id="decline" class="secondary" data-i18n="rider_decline">Decline</button></div>
+</section>
+<section class="card" id="waiting" hidden><p class="total" data-icon="clock"><span data-i18n="rider_waiting">Accepted. Waiting for the kitchen.</span></p></section>
+<section class="card" id="pickup" hidden aria-labelledby="h-pick">
+  <h2 id="h-pick" data-i18n="rider_ready">Ready for pickup</h2>
+  <button type="button" id="pickup-btn" data-i18n="rider_pickup">I picked it up</button>
+</section>
+<section class="card" id="share" hidden aria-labelledby="h-share">
+  <h2 id="h-share" data-i18n="rider_share_title">Share your location</h2>
+  <p class="help" data-i18n="rider_share_help"></p>
+  <p id="share-state" role="status"></p>
+  <p class="help" id="share-sent" role="status"></p>
+  <button type="button" id="share-toggle" class="secondary" aria-pressed="false" data-i18n="rider_share_start">Start sharing</button>
+</section>
+<section class="card" id="otp" hidden aria-labelledby="h-otp">
+  <h2 id="h-otp" data-i18n="rider_otp_title">Delivery code</h2>
+  <form id="otp-form" novalidate>
+    <label for="otp-input" data-i18n="rider_otp_label">Code from the customer</label>
+    <input type="text" id="otp-input" inputmode="numeric" pattern="[0-9]*" autocomplete="one-time-code" maxlength="10" aria-describedby="otp-help" required>
+    <p class="help" id="otp-help" data-i18n="rider_otp_help"></p>
+    <button type="submit" data-i18n="rider_deliver">Complete delivery</button>
+  </form>
+</section>
+<section class="card" id="done" hidden><p class="msg ok" data-icon="check"><span data-i18n="rider_done">Delivered. Thank you!</span></p></section>
+<section class="card" id="cancelled" hidden><p class="msg error" data-icon="cancelled"><span data-i18n="rider_cancelled">This order was cancelled.</span></p></section>
+<section class="card" id="notyours" hidden><p data-i18n="rider_not_yours">This order is not assigned to you.</p></section>
+</div>
+</main>
+<footer class="foot"><span data-i18n="powered_by">Powered by</span> <strong>thechilli.ai</strong></footer>
+<script src="/assets/common.js"></script>
+<script src="/assets/rider.js"></script>
+</body>
+</html>

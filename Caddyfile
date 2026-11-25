@@ -1,0 +1,193 @@
+# TheChilli.ai internal router (caddy). Host-based routing; all names come from the DOMAIN_* environment variables.
+# Default (shared host): ROUTER_SCHEME=http, TLS_MODE_*=none: plain HTTP inside the stack, published only on
+# 127.0.0.1:${STACK_HTTP_PORT}; the host nginx terminates TLS and sets X-Forwarded-Proto/Host/For (nginx/thechilli.conf).
+# Own host (docker-compose.tls.yml): ROUTER_SCHEME=https and TLS_MODE_TOP / TLS_MODE_SUB = auto (Let's Encrypt per host),
+# files (/certs/<top|sub>/fullchain.pem + privkey.pem) or internal (local CA, tests).
+{
+	admin 127.0.0.1:2019
+	servers {
+		# X-Forwarded-* from the host nginx (reaches us through Docker's port publishing, i.e. a private address) are believed;
+		# anything a browser sends is overwritten by the host nginx before it gets here.
+		trusted_proxies static private_ranges
+		client_ip_headers X-Forwarded-For
+	}
+}
+
+(tls_none) {
+}
+(tls_auto) {
+}
+(tls_internal) {
+	tls internal
+}
+(tls_files_top) {
+	tls /certs/top/fullchain.pem /certs/top/privkey.pem
+}
+(tls_files_sub) {
+	tls /certs/sub/fullchain.pem /certs/sub/privkey.pem
+}
+(hsts_http) {
+}
+(hsts_https) {
+	header Strict-Transport-Security "max-age=31536000; includeSubDomains"
+}
+# Upstreams get ONE X-Forwarded-For value: the real client (taken from the host nginx's header, see trusted_proxies), so the
+# APIs' rate limits and audit logs see the visitor, not Docker's gateway. They trust only this router's fixed IP.
+(up) {
+	header_up X-Forwarded-For {client_ip}
+}
+(common) {
+	header {
+		-Server
+		-X-Powered-By
+		X-Content-Type-Options nosniff
+		Referrer-Policy strict-origin-when-cross-origin
+	}
+	import hsts_{$ROUTER_SCHEME}
+	encode zstd gzip
+	request_body {
+		max_size 25MB
+	}
+	log {
+		output stdout
+		format json
+		level INFO
+	}
+}
+
+# Public site hostname: sign-up (web-public, Next.js) and the Razorpay webhook only; the website itself is the standalone stack deploy/site.
+# Keep @signup in step with web-public's routes and assets (docs/testing/FINAL2_FRONTEND_REPORT.md).
+{$ROUTER_SCHEME}://{$DOMAIN_SITE} {
+	import tls_{$TLS_MODE_TOP}
+	import common
+	# Razorpay webhook of Chilli's own account (Chilli wallet recharge): the URL registered in the Razorpay dashboard is
+	# https://<site host>/api/webhooks/razorpay/ ; it goes to platform-core's signed (HMAC) webhook, body untouched.
+	@rzp_webhook {
+		path /api/webhooks/razorpay /api/webhooks/razorpay/
+		method POST
+	}
+	handle @rzp_webhook {
+		rewrite * /api/v1/billing/webhooks/razorpay
+		reverse_proxy platform-core:8000 {
+			import up
+		}
+	}
+	@signup path /signup /signup/* /_next/* /brand/*   # /terms, /privacy and /refund are pages of the standalone website
+	handle @signup {
+		reverse_proxy web-public:3000 {
+			import up
+		}
+	}
+	# Everything else is the ONE public website (its own stack, deploy/site): this router never serves it
+	handle {
+		redir {$MAIN_SITE_URL:https://thechilli.zonov.ai}{uri} 302
+	}
+}
+
+# Super Admin (server-side proxy to platform-core; the browser never calls platform-core directly)
+{$ROUTER_SCHEME}://{$DOMAIN_ADMIN} {
+	import tls_{$TLS_MODE_TOP}
+	import common
+	reverse_proxy web-super-admin:3000 {
+		import up
+	}
+}
+
+# Partner portal (browser talks to its own BFF only)
+{$ROUTER_SCHEME}://{$DOMAIN_PARTNER} {
+	import tls_{$TLS_MODE_TOP}
+	import common
+	reverse_proxy web-marketing:3000 {
+		import up
+	}
+}
+
+# Business app
+{$ROUTER_SCHEME}://{$DOMAIN_APP} {
+	import tls_{$TLS_MODE_SUB}
+	import common
+	reverse_proxy web-business-admin:3000 {
+		import up
+	}
+}
+
+# Waiter PWA
+{$ROUTER_SCHEME}://{$DOMAIN_WAITER} {
+	import tls_{$TLS_MODE_SUB}
+	import common
+	reverse_proxy waiter-app:3000 {
+		import up
+	}
+}
+
+# API: pos-service at the root; platform-core and marketing-service only for the few routes browsers need (prefix stripped);
+# payments-service only for provider webhooks.
+{$ROUTER_SCHEME}://{$DOMAIN_API} {
+	import tls_{$TLS_MODE_SUB}
+	import common
+	handle_path /platform/* {
+		@onboarding path /api/v1/onboarding/applications /api/v1/onboarding/applications/* /api/v1/plans /api/v1/plans/*
+		handle @onboarding {
+			reverse_proxy platform-core:8000 {
+		import up
+	}
+		}
+		handle {
+			respond "Not found" 404
+		}
+	}
+	handle_path /marketing/* {
+		@public path /api/v1/public/*
+		handle @public {
+			reverse_proxy marketing-service:8200 {
+		import up
+	}
+		}
+		handle {
+			respond "Not found" 404
+		}
+	}
+	handle_path /payments/* {
+		@hooks {
+			path /api/v1/webhooks/*
+			not path /api/v1/webhooks/reprocess
+		}
+		handle @hooks {
+			reverse_proxy payments-service:8000 {
+		import up
+	}
+		}
+		handle {
+			respond "Not found" 404
+		}
+	}
+	# F-06: machine-to-machine routes are never public. platform-core reaches pos-service's /internal/provision over the Docker
+	# network; the provision key is still required, but the endpoint and its failure counters have no business on the internet.
+	@internal path /internal /internal/*
+	handle @internal {
+		respond "Not found" 404
+	}
+	handle {
+		reverse_proxy pos-service:8000 {
+		import up
+	}
+	}
+}
+
+# Table QR codes (pos-service docs/TABLE_QR_REVIEWS.md): view-only menu /m/<token>, review form /rv/<token>, their static files,
+# their JSON and the public menu photos go to pos-service; everything else stays with delivery-service.
+{$ROUTER_SCHEME}://{$DOMAIN_ORDER} {
+	import tls_{$TLS_MODE_SUB}
+	import common
+	@tableqr path /m/* /rv/* /qr-static/* /api/v1/table-qr/public/* /api/v1/media/menu/*
+	handle @tableqr {
+		reverse_proxy pos-service:8000 {
+			import up
+		}
+	}
+	handle {
+		reverse_proxy delivery-service:8000 {
+			import up
+		}
+	}
+}

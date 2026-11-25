@@ -1,0 +1,59 @@
+{
+  "name": "@chilli/ui",
+  "version": "0.1.0",
+  "type": "module",
+  "sideEffects": [
+    "*.css"
+  ],
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    },
+    "./data": {
+      "types": "./dist/data.d.ts",
+      "import": "./dist/data.js"
+    },
+    "./kds": {
+      "types": "./dist/kds.d.ts",
+      "import": "./dist/kds.js"
+    },
+    "./auth": {
+      "types": "./dist/auth.d.ts",
+      "import": "./dist/auth.js"
+    },
+    "./styles.css": "./dist/styles.css",
+    "./data.css": "./dist/data.css",
+    "./kds.css": "./dist/kds.css",
+    "./auth.css": "./dist/auth.css"
+  },
+  "files": [
+    "dist"
+  ],
+  "peerDependencies": {
+    "react": "^19",
+    "react-dom": "^19"
+  },
+  "dependencies": {
+    "@chilli/tokens": "workspace:*",
+    "@radix-ui/react-dialog": "^1",
+    "@radix-ui/react-tabs": "^1"
+  },
+  "devDependencies": {
+    "@testing-library/jest-dom": "^6",
+    "@testing-library/react": "^16",
+    "@testing-library/user-event": "^14",
+    "axe-core": "^4",
+    "jsdom": "^26",
+    "react": "^19",
+    "react-dom": "^19"
+  },
+  "scripts": {
+    "build": "tsup && node scripts/copy-css.mjs",
+    "size": "node scripts/size.mjs",
+    "typecheck": "tsc -p . --noEmit",
+    "test": "vitest run"
+  }
+}

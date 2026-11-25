@@ -1,0 +1,87 @@
+/* @chilli/ui/auth: sign-in shell (owner reference 8.png): one rounded white card, form left, Chilli shape right. Colours (thechilli.ai brand: Chilli Red shape, warm neutral page), borders, radius and type from the design system; layout unchanged by owner direction. Needs tokens.css and styles.css. Tokens only; opacity/transform animation only; no blur or glass. */
+.ch-auth{box-sizing:border-box;min-height:100vh;min-height:100dvh;display:grid;place-items:center;padding:max(var(--space-32),env(safe-area-inset-top)) max(var(--space-32),env(safe-area-inset-right)) max(var(--space-32),env(safe-area-inset-bottom)) max(var(--space-32),env(safe-area-inset-left));background:var(--c-bg);color:var(--c-fg);font-family:var(--font-sans)}
+.ch-auth *,.ch-auth *::before,.ch-auth *::after{box-sizing:border-box}
+.ch-auth__card{position:relative;display:grid;grid-template-columns:minmax(0,55fr) minmax(0,45fr);width:100%;max-width:1180px;min-height:min(680px,calc(100dvh - 64px));overflow:hidden;border:1px solid var(--c-border);border-radius:var(--radius-lg);background:var(--c-surface);box-shadow:var(--shadow-e1)}
+
+/* Form column. */
+.ch-auth__main{display:flex;align-items:center;justify-content:center;min-width:0;padding:var(--space-48) clamp(var(--space-24),5vw,var(--space-64))}
+.ch-auth__inner{width:100%;max-width:440px;display:flex;flex-direction:column;align-items:stretch}
+.ch-auth__logo{display:flex;justify-content:center;align-items:center;gap:var(--space-8);margin-bottom:var(--space-12);font-weight:600;font-size:var(--text-lg)}
+.ch-auth__mark{display:inline-grid;place-items:center;flex:none;width:52px;height:52px;border-radius:16px;background:var(--c-primary-soft);color:var(--c-primary-soft-fg);font-weight:700;font-size:24px;line-height:1}
+.ch-auth__mark svg{width:44px;height:44px}
+.ch-auth__mark:has(svg){background:none}
+.ch-auth__title{margin:0;text-align:center;font-family:var(--font-display);font-size:clamp(34px,3.4vw,48px);line-height:1.15;font-weight:700;letter-spacing:-.02em;overflow-wrap:anywhere}
+.ch-auth__sub{margin:var(--space-8) 0 0;text-align:center;color:var(--c-fg-muted);font-size:var(--text-sm);line-height:var(--lh-sm)}
+.ch-auth__body{display:flex;flex-direction:column;gap:var(--space-16);min-width:0;margin-top:var(--space-32)}
+.ch-auth__body form{display:flex;flex-direction:column;gap:var(--space-16);min-width:0}
+.ch-auth__foot{margin:var(--space-24) 0 0;text-align:center;color:var(--c-fg-muted);font-size:var(--text-sm)}
+.ch-auth a{color:var(--c-link);font-weight:600;text-underline-offset:3px}
+.ch-auth__row{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:var(--space-8)}
+.ch-auth__row .ch-check{font-size:var(--text-sm);color:var(--c-fg-muted);font-weight:400}
+.ch-auth__center{display:flex;justify-content:center}
+.ch-auth__center .ch-btn--ghost{color:var(--c-fg-muted);font-weight:500}
+
+/* Pill fields; the border-strong edge keeps the 3:1 boundary. */
+.ch-auth .ch-label{font-weight:500;color:var(--c-fg-muted);padding-inline-start:var(--space-16)}
+.ch-input--pill{min-height:max(54px,var(--hit));padding:0 var(--space-24);border-radius:var(--radius-full);border-width:1px;background:var(--c-surface)}
+.ch-input--pill[aria-invalid=true]{border-width:2px}
+.ch-auth .ch-btn--lg{min-height:max(54px,var(--hit));border-radius:var(--radius-full);letter-spacing:.06em;text-transform:uppercase;font-weight:600;font-size:var(--text-base)}
+.ch-auth .ch-btn--lg.ch-btn--primary{align-self:center;min-width:min(100%,240px);padding:0 var(--space-48);margin-top:var(--space-8)}
+.ch-auth .ch-btn--secondary:not(.ch-btn--lg){border-radius:var(--radius-full)}
+
+/* Chilli Red shape (red -> darker red, white text >= 4.5:1): heavily rounded left corners, bleeds off the card's right edge. */
+.ch-auth__shape{position:relative;isolation:isolate;overflow:hidden;display:flex;align-items:center;justify-content:center;min-width:0;padding:var(--space-48) clamp(var(--space-24),4vw,var(--space-64));border-radius:42% 0 0 42% / 34% 0 0 34%;background-color:var(--ch-scene-shape-fallback);background-image:var(--ch-scene-shape);color:var(--c-on-hero);text-align:center;--c-ring:var(--c-on-hero)}
+.ch-auth__shape-text{position:relative;z-index:2;max-width:380px}
+.ch-auth__pill{display:inline-flex;align-items:center;justify-content:center;margin-bottom:var(--space-24);padding:var(--space-8) var(--space-16);border-radius:var(--radius-md);background:var(--c-charcoal-0)}
+.ch-auth__pill img{display:block;height:32px;width:auto}
+.ch-auth__headline{margin:0;font-family:var(--font-display);font-size:clamp(32px,3.2vw,46px);line-height:1.15;font-weight:700;letter-spacing:-.01em;overflow-wrap:anywhere}
+.ch-auth__tagline{margin:var(--space-16) 0 0;font-family:var(--font-tagline);font-size:var(--text-lg);line-height:var(--lh-lg);font-weight:600}
+.ch-auth__action-wrap{margin-top:var(--space-32);display:flex;justify-content:center}
+.ch-auth .ch-auth__action{display:inline-flex;align-items:center;justify-content:center;min-height:max(52px,var(--hit));min-width:200px;padding:0 var(--space-40);border:1.5px solid var(--c-on-hero);border-radius:var(--radius-full);color:var(--c-on-hero);font-weight:600;letter-spacing:.06em;text-transform:uppercase;text-decoration:none;transition:background-color var(--dur-fade) var(--ease)}
+.ch-auth .ch-auth__action:hover{background:var(--c-on-hero-tint)}
+
+/* Optional photos inside the shape (showMedia): faint, multiplied into the Chilli so white text keeps its contrast. */
+.ch-auth__shape-media{position:absolute;inset:0;z-index:1;min-height:0;border-radius:0;background:none;opacity:.32;mix-blend-mode:multiply}
+.ch-auth__media{position:relative;overflow:hidden;isolation:isolate}
+.ch-auth__slides,.ch-auth__slide{position:absolute;inset:0}
+.ch-auth__slide{opacity:0;transition:opacity 1200ms var(--ease);pointer-events:none}
+.ch-auth__slide.is-on{opacity:1}
+.ch-auth__slide img,.ch-auth__slide video{display:block;width:100%;height:100%;object-fit:cover;object-position:35% 50%}
+.ch-auth__slide.is-on img{animation:ch-kenburns 16s ease-out both}
+@keyframes ch-kenburns{from{transform:scale(1)}to{transform:scale(1.07)}}
+.ch-auth__media[data-paused] .ch-auth__slide img{animation-play-state:paused}
+.ch-auth__credit{position:absolute;inset-inline-end:var(--space-12);top:var(--space-12);z-index:2;max-width:calc(100% - var(--space-24));margin:0;padding:2px var(--space-8);border-radius:var(--radius-full);background:var(--c-surface);color:var(--c-fg-muted);font-size:var(--text-xs);line-height:var(--lh-xs);overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.ch-auth__dots{position:absolute;inset-inline:0;bottom:var(--space-8);z-index:3;display:flex;justify-content:center;pointer-events:none}
+.ch-auth__dot{pointer-events:auto;position:relative;display:grid;place-items:center;min-width:var(--hit);min-height:var(--hit);padding:0;border:0;background:transparent;cursor:pointer;-webkit-tap-highlight-color:transparent}
+.ch-auth__dot::before{content:'';width:6px;height:6px;border-radius:var(--radius-full);background:var(--c-on-hero);opacity:.6;transition:transform var(--dur-fade) var(--ease),opacity var(--dur-fade) var(--ease)}
+.ch-auth__dot[aria-current=true]::before{opacity:1;transform:scale(1.4)}
+.ch-auth__media--ph{background:none}
+.ch-auth__ph-art{display:none}
+.ch-auth__ph-tag{display:none}
+.ch-auth__chips{display:none}
+
+@media (max-width:1023px){
+  .ch-auth{padding:max(var(--space-16),env(safe-area-inset-top)) max(var(--space-16),env(safe-area-inset-right)) max(var(--space-16),env(safe-area-inset-bottom)) max(var(--space-16),env(safe-area-inset-left))}
+  .ch-auth__card{grid-template-columns:minmax(0,1fr) minmax(0,.8fr)}
+  .ch-auth__main{padding:var(--space-40) var(--space-24)}
+  .ch-auth__shape{padding:var(--space-40) var(--space-24);border-radius:46% 0 0 46% / 30% 0 0 30%}
+  .ch-auth__tagline{font-size:var(--text-base)}
+  .ch-auth .ch-auth__action{min-width:0;padding:0 var(--space-24)}
+}
+/* Phones and narrow tablets: the shape becomes a curved banner above the form; its action is a text link. */
+@media (max-width:767px){
+  .ch-auth{align-items:start;padding:0;background:var(--c-surface)}
+  .ch-auth__card{grid-template-columns:minmax(0,1fr);min-height:100dvh;border-radius:0;box-shadow:none}
+  .ch-auth__shape{order:-1;padding:max(var(--space-32),env(safe-area-inset-top)) var(--space-24) var(--space-48);border-radius:0 0 50% 50% / 0 0 18% 18%}
+  .ch-auth__headline{font-size:28px}
+  .ch-auth__tagline{margin-top:var(--space-8);font-size:var(--text-sm);line-height:var(--lh-sm)}
+  .ch-auth__action-wrap{margin-top:var(--space-12)}
+  .ch-auth .ch-auth__action{min-width:0;min-height:var(--hit);padding:0 var(--space-12);border:0;text-decoration:underline;text-underline-offset:4px;letter-spacing:.04em}
+  .ch-auth__main{align-items:flex-start;padding:var(--space-24) var(--space-20) var(--space-32)}
+  .ch-auth__body{margin-top:var(--space-24)}
+  .ch-auth__title{font-size:32px}
+  .ch-auth .ch-btn--lg.ch-btn--primary{align-self:stretch}
+}
+@media (prefers-reduced-motion:reduce){.ch-auth__slide{transition:none}.ch-auth__dot::before{transition:none}.ch-auth__slide img{animation:none}}
+:root[data-motion=off] .ch-auth__slide{transition:none}
+:root[data-motion=off] .ch-auth__slide img{animation:none}

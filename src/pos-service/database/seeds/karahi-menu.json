@@ -1,0 +1,1798 @@
+{
+ "restaurant": {
+  "name": "The Karahi",
+  "address": "378 Bath Road, Hounslow West, TW4 7HT",
+  "phone": "020 8577 8767",
+  "trn": null,
+  "vat_registered": true,
+  "prices_include_tax": true,
+  "service_charge_percent": "0.00",
+  "max_cashier_discount_percent": "10.00"
+ },
+ "categories": [
+  {
+   "name": "Veg Starters",
+   "sort_order": 0
+  },
+  {
+   "name": "Non Veg Starters",
+   "sort_order": 1
+  },
+  {
+   "name": "Tandoor Starters",
+   "sort_order": 2
+  },
+  {
+   "name": "Veg Mains",
+   "sort_order": 3
+  },
+  {
+   "name": "Non Veg Mains",
+   "sort_order": 4
+  },
+  {
+   "name": "Rice & Biryani",
+   "sort_order": 5
+  },
+  {
+   "name": "Roti & Naan",
+   "sort_order": 6
+  },
+  {
+   "name": "Tawa",
+   "sort_order": 7
+  },
+  {
+   "name": "Wraps",
+   "sort_order": 8
+  },
+  {
+   "name": "Noodles",
+   "sort_order": 9
+  },
+  {
+   "name": "On the Side",
+   "sort_order": 10
+  },
+  {
+   "name": "Shakes",
+   "sort_order": 11
+  },
+  {
+   "name": "Lassi",
+   "sort_order": 12
+  },
+  {
+   "name": "J20",
+   "sort_order": 13
+  },
+  {
+   "name": "Hot Drinks",
+   "sort_order": 14
+  },
+  {
+   "name": "Mocktails",
+   "sort_order": 15
+  },
+  {
+   "name": "Cocktails",
+   "sort_order": 16
+  },
+  {
+   "name": "Soft Drinks",
+   "sort_order": 17
+  },
+  {
+   "name": "Bottles",
+   "sort_order": 18
+  },
+  {
+   "name": "Beers",
+   "sort_order": 19
+  },
+  {
+   "name": "Spirits",
+   "sort_order": 20
+  },
+  {
+   "name": "Shots & Wine",
+   "sort_order": 21
+  },
+  {
+   "name": "Desserts",
+   "sort_order": 22
+  }
+ ],
+ "items": [
+  {
+   "name": "7UP",
+   "category": "Soft Drinks",
+   "price": "1.90",
+   "tax_kind": "standard",
+   "variants": []
+  },
+  {
+   "name": "Aloo Gobi",
+   "category": "Veg Mains",
+   "price": "9.50",
+   "tax_kind": "hot_food",
+   "variants": []
+  },
+  {
+   "name": "Aloo Matar",
+   "category": "Veg Mains",
+   "price": "9.50",
+   "tax_kind": "hot_food",
+   "variants": []
+  },
+  {
+   "name": "Aloo Methi",
+   "category": "Veg Mains",
+   "price": "9.50",
+   "tax_kind": "hot_food",
+   "variants": []
+  },
+  {
+   "name": "Aloo Paratha",
+   "category": "Roti & Naan",
+   "price": "4.00",
+   "tax_kind": "hot_food",
+   "variants": []
+  },
+  {
+   "name": "Aloo Paratha (Tawa)",
+   "category": "Tawa",
+   "price": "4.00",
+   "tax_kind": "hot_food",
+   "variants": []
+  },
+  {
+   "name": "Aloo Tikki Chana Chaat",
+   "category": "Veg Starters",
+   "price": "5.95",
+   "tax_kind": "hot_food",
+   "variants": []
+  },
+  {
+   "name": "Aloo Tikki Roll",
+   "category": "Wraps",
+   "price": "5.50",
+   "tax_kind": "hot_food",
+   "variants": []
+  },
+  {
+   "name": "Amritsari Fish",
+   "category": "Non Veg Starters",
+   "price": "12.50",
+   "tax_kind": "hot_food",
+   "variants": []
+  },
+  {
+   "name": "Apple & Mango",
+   "category": "J20",
+   "price": "2.95",
+   "tax_kind": "standard",
+   "variants": []
+  },
+  {
+   "name": "Apple & Raspberry",
+   "category": "J20",
+   "price": "2.95",
+   "tax_kind": "standard",
+   "variants": []
+  },
+  {
+   "name": "Banana Shake",
+   "category": "Shakes",
+   "price": "4.95",
+   "tax_kind": "standard",
+   "variants": []
+  },
+  {
+   "name": "Bhatura",
+   "category": "Roti & Naan",
+   "price": "3.00",
+   "tax_kind": "hot_food",
+   "variants": []
+  },
+  {
+   "name": "Bhindi",
+   "category": "Veg Mains",
+   "price": "9.50",
+   "tax_kind": "hot_food",
+   "variants": []
+  },
+  {
+   "name": "Bhindi Lamb",
+   "category": "Non Veg Mains",
+   "price": "12.50",
+   "tax_kind": "hot_food",
+   "variants": []
+  },
+  {
+   "name": "Bhuna Chicken",
+   "category": "Non Veg Mains",
+   "price": "11.50",
+   "tax_kind": "hot_food",
+   "variants": []
+  },
+  {
+   "name": "Bhuna Ghost",
+   "category": "Non Veg Mains",
+   "price": "12.50",
+   "tax_kind": "hot_food",
+   "variants": []
+  },
+  {
+   "name": "Bombay Aloo",
+   "category": "Veg Mains",
+   "price": "9.50",
+   "tax_kind": "hot_food",
+   "variants": []
+  },
+  {
+   "name": "Budweiser Large",
+   "category": "Beers",
+   "price": "6.10",
+   "tax_kind": "standard",
+   "variants": []
+  },
+  {
+   "name": "Butter Chicken",
+   "category": "Non Veg Mains",
+   "price": "11.50",
+   "tax_kind": "hot_food",
+   "variants": []
+  },
+  {
+   "name": "Butter Naan",
+   "category": "Roti & Naan",
+   "price": "2.50",
+   "tax_kind": "hot_food",
+   "variants": []
+  },
+  {
+   "name": "Butter Roti",
+   "category": "Roti & Naan",
+   "price": "2.50",
+   "tax_kind": "hot_food",
+   "variants": []
+  },
+  {
+   "name": "Channa Masala",
+   "category": "Veg Mains",
+   "price": "9.50",
+   "tax_kind": "hot_food",
+   "variants": []
+  },
+  {
+   "name": "Chapatti",
+   "category": "Tawa",
+   "price": "2.25",
+   "tax_kind": "hot_food",
+   "variants": []
+  },
+  {
+   "name": "Cheese Garlic Chilli Naan",
+   "category": "Roti & Naan",
+   "price": "5.00",
+   "tax_kind": "hot_food",
+   "variants": []
+  },
+  {
+   "name": "Cheese Garlic Naan",
+   "category": "Roti & Naan",
+   "price": "4.25",
+   "tax_kind": "hot_food",
+   "variants": []
+  },
+  {
+   "name": "Cheese Naan",
+   "category": "Roti & Naan",
+   "price": "4.00",
+   "tax_kind": "hot_food",
+   "variants": []
+  },
+  {
+   "name": "Chicken Biryani",
+   "category": "Rice & Biryani",
+   "price": "10.00",
+   "tax_kind": "hot_food",
+   "variants": []
+  },
+  {
+   "name": "Chicken Fried Rice",
+   "category": "Rice & Biryani",
+   "price": "8.90",
+   "tax_kind": "hot_food",
+   "variants": []
+  },
+  {
+   "name": "Chicken Jalfrezi",
+   "category": "Non Veg Mains",
+   "price": "11.50",
+   "tax_kind": "hot_food",
+   "variants": []
+  },
+  {
+   "name": "Chicken Korma",
+   "category": "Non Veg Mains",
+   "price": "11.50",
+   "tax_kind": "hot_food",
+   "variants": []
+  },
+  {
+   "name": "Chicken Lollipop",
+   "category": "Non Veg Starters",
+   "price": "11.80",
+   "tax_kind": "hot_food",
+   "variants": []
+  },
+  {
+   "name": "Chicken Malai Tikka",
+   "category": "Tandoor Starters",
+   "price": "11.00",
+   "tax_kind": "hot_food",
+   "variants": []
+  },
+  {
+   "name": "Chicken Manchurian",
+   "category": "Non Veg Starters",
+   "price": "10.50",
+   "tax_kind": "hot_food",
+   "variants": []
+  },
+  {
+   "name": "Chicken Noodles",
+   "category": "Noodles",
+   "price": "8.90",
+   "tax_kind": "hot_food",
+   "variants": []
+  },
+  {
+   "name": "Chicken Nuggets",
+   "category": "Non Veg Starters",
+   "price": "4.90",
+   "tax_kind": "hot_food",
+   "variants": []
+  },
+  {
+   "name": "Chicken Tikka",
+   "category": "Tandoor Starters",
+   "price": "10.80",
+   "tax_kind": "hot_food",
+   "variants": []
+  },
+  {
+   "name": "Chicken Tikka Masala",
+   "category": "Non Veg Mains",
+   "price": "11.50",
+   "tax_kind": "hot_food",
+   "variants": []
+  },
+  {
+   "name": "Chicken Tikka Roll",
+   "category": "Wraps",
+   "price": "7.50",
+   "tax_kind": "hot_food",
+   "variants": []
+  },
+  {
+   "name": "Chicken Wings",
+   "category": "Tandoor Starters",
+   "price": "10.90",
+   "tax_kind": "hot_food",
+   "variants": []
+  },
+  {
+   "name": "Chilli Chicken",
+   "category": "Non Veg Starters",
+   "price": "12.80",
+   "tax_kind": "hot_food",
+   "variants": []
+  },
+  {
+   "name": "Chilli Chicken",
+   "category": "Non Veg Mains",
+   "price": "11.50",
+   "tax_kind": "hot_food",
+   "variants": []
+  },
+  {
+   "name": "Chilli Chicken Roll",
+   "category": "Wraps",
+   "price": "7.50",
+   "tax_kind": "hot_food",
+   "variants": []
+  },
+  {
+   "name": "Chilli Chicken Wings (6 pcs)",
+   "category": "Non Veg Starters",
+   "price": "11.80",
+   "tax_kind": "hot_food",
+   "variants": []
+  },
+  {
+   "name": "Chilli Naan",
+   "category": "Roti & Naan",
+   "price": "3.50",
+   "tax_kind": "hot_food",
+   "variants": []
+  },
+  {
+   "name": "Chilli Paneer",
+   "category": "Veg Starters",
+   "price": "10.50",
+   "tax_kind": "hot_food",
+   "variants": []
+  },
+  {
+   "name": "Chilli Paneer Roll",
+   "category": "Wraps",
+   "price": "7.50",
+   "tax_kind": "hot_food",
+   "variants": []
+  },
+  {
+   "name": "Chocolate Shake",
+   "category": "Shakes",
+   "price": "4.95",
+   "tax_kind": "standard",
+   "variants": []
+  },
+  {
+   "name": "Chopped Salad",
+   "category": "On the Side",
+   "price": "2.90",
+   "tax_kind": "cold_food",
+   "variants": []
+  },
+  {
+   "name": "Cider",
+   "category": "Beers",
+   "price": "4.50",
+   "tax_kind": "standard",
+   "variants": []
+  },
+  {
+   "name": "Classic Mojito",
+   "category": "Cocktails",
+   "price": "7.00",
+   "tax_kind": "standard",
+   "variants": []
+  },
+  {
+   "name": "Cobra Bottle Large",
+   "category": "Beers",
+   "price": "6.10",
+   "tax_kind": "standard",
+   "variants": []
+  },
+  {
+   "name": "Coke",
+   "category": "Soft Drinks",
+   "price": "1.90",
+   "tax_kind": "standard",
+   "variants": []
+  },
+  {
+   "name": "Coke (Bottle)",
+   "category": "Bottles",
+   "price": "4.20",
+   "tax_kind": "standard",
+   "variants": []
+  },
+  {
+   "name": "Corona Large",
+   "category": "Beers",
+   "price": "6.10",
+   "tax_kind": "standard",
+   "variants": []
+  },
+  {
+   "name": "Crispy Chilli Paneer",
+   "category": "Veg Starters",
+   "price": "11.50",
+   "tax_kind": "hot_food",
+   "variants": []
+  },
+  {
+   "name": "Crispy Lamb",
+   "category": "Non Veg Starters",
+   "price": "13.50",
+   "tax_kind": "hot_food",
+   "variants": []
+  },
+  {
+   "name": "Daal Makhani",
+   "category": "Veg Mains",
+   "price": "9.50",
+   "tax_kind": "hot_food",
+   "variants": []
+  },
+  {
+   "name": "Daal Tarka",
+   "category": "Veg Mains",
+   "price": "9.50",
+   "tax_kind": "hot_food",
+   "variants": []
+  },
+  {
+   "name": "Dahi Puri",
+   "category": "Veg Starters",
+   "price": "5.95",
+   "tax_kind": "hot_food",
+   "variants": []
+  },
+  {
+   "name": "Dahi Raita",
+   "category": "On the Side",
+   "price": "3.90",
+   "tax_kind": "cold_food",
+   "variants": []
+  },
+  {
+   "name": "Diet Coke",
+   "category": "Soft Drinks",
+   "price": "1.90",
+   "tax_kind": "standard",
+   "variants": []
+  },
+  {
+   "name": "Diet Coke (Bottle)",
+   "category": "Bottles",
+   "price": "4.20",
+   "tax_kind": "standard",
+   "variants": []
+  },
+  {
+   "name": "Draught Beer (Half Pint)",
+   "category": "Beers",
+   "price": "4.00",
+   "tax_kind": "standard",
+   "variants": []
+  },
+  {
+   "name": "Draught Beer (Pint)",
+   "category": "Beers",
+   "price": "6.10",
+   "tax_kind": "standard",
+   "variants": []
+  },
+  {
+   "name": "Egg Bhurji",
+   "category": "Veg Mains",
+   "price": "7.80",
+   "tax_kind": "hot_food",
+   "variants": []
+  },
+  {
+   "name": "Egg Fried Rice",
+   "category": "Rice & Biryani",
+   "price": "6.90",
+   "tax_kind": "hot_food",
+   "variants": []
+  },
+  {
+   "name": "Falooda (Ice Cream)",
+   "category": "Desserts",
+   "price": "5.50",
+   "tax_kind": "standard",
+   "variants": []
+  },
+  {
+   "name": "Falooda (Kulfi)",
+   "category": "Desserts",
+   "price": "5.50",
+   "tax_kind": "standard",
+   "variants": []
+  },
+  {
+   "name": "Falooda (Rose)",
+   "category": "Desserts",
+   "price": "5.50",
+   "tax_kind": "standard",
+   "variants": []
+  },
+  {
+   "name": "Fanta",
+   "category": "Soft Drinks",
+   "price": "1.90",
+   "tax_kind": "standard",
+   "variants": []
+  },
+  {
+   "name": "Fish Curry",
+   "category": "Non Veg Mains",
+   "price": "12.90",
+   "tax_kind": "hot_food",
+   "variants": []
+  },
+  {
+   "name": "Fish Tikka",
+   "category": "Tandoor Starters",
+   "price": "13.80",
+   "tax_kind": "hot_food",
+   "variants": []
+  },
+  {
+   "name": "Fish Tikka Roll",
+   "category": "Wraps",
+   "price": "8.50",
+   "tax_kind": "hot_food",
+   "variants": []
+  },
+  {
+   "name": "Fries",
+   "category": "Veg Starters",
+   "price": "3.30",
+   "tax_kind": "hot_food",
+   "variants": []
+  },
+  {
+   "name": "Gajrela",
+   "category": "Desserts",
+   "price": "3.50",
+   "tax_kind": "hot_food",
+   "variants": []
+  },
+  {
+   "name": "Gajrela Sundae",
+   "category": "Desserts",
+   "price": "4.50",
+   "tax_kind": "standard",
+   "variants": []
+  },
+  {
+   "name": "Garlic Chilli Mushrooms",
+   "category": "Veg Starters",
+   "price": "9.00",
+   "tax_kind": "hot_food",
+   "variants": []
+  },
+  {
+   "name": "Garlic Chilli Naan",
+   "category": "Roti & Naan",
+   "price": "3.80",
+   "tax_kind": "hot_food",
+   "variants": []
+  },
+  {
+   "name": "Garlic Chilli Prawn",
+   "category": "Non Veg Starters",
+   "price": "17.90",
+   "tax_kind": "hot_food",
+   "variants": []
+  },
+  {
+   "name": "Garlic Naan",
+   "category": "Roti & Naan",
+   "price": "3.50",
+   "tax_kind": "hot_food",
+   "variants": []
+  },
+  {
+   "name": "Gin",
+   "category": "Spirits",
+   "price": "4.00",
+   "tax_kind": "standard",
+   "variants": [
+    {
+     "name": "50ml",
+     "price_delta": "1.50"
+    }
+   ]
+  },
+  {
+   "name": "Ginger Ale (Bottle)",
+   "category": "Bottles",
+   "price": "3.75",
+   "tax_kind": "standard",
+   "variants": []
+  },
+  {
+   "name": "Ginger Chicken",
+   "category": "Non Veg Mains",
+   "price": "11.50",
+   "tax_kind": "hot_food",
+   "variants": []
+  },
+  {
+   "name": "Gobi Manchurian",
+   "category": "Veg Starters",
+   "price": "9.50",
+   "tax_kind": "hot_food",
+   "variants": []
+  },
+  {
+   "name": "Gobi Paratha",
+   "category": "Roti & Naan",
+   "price": "4.00",
+   "tax_kind": "hot_food",
+   "variants": []
+  },
+  {
+   "name": "Gobi Paratha (Tawa)",
+   "category": "Tawa",
+   "price": "4.00",
+   "tax_kind": "hot_food",
+   "variants": []
+  },
+  {
+   "name": "Guinness",
+   "category": "Beers",
+   "price": "5.50",
+   "tax_kind": "standard",
+   "variants": []
+  },
+  {
+   "name": "Gulab Jamun",
+   "category": "Desserts",
+   "price": "3.50",
+   "tax_kind": "hot_food",
+   "variants": []
+  },
+  {
+   "name": "Gulab Jamun Sundae",
+   "category": "Desserts",
+   "price": "4.50",
+   "tax_kind": "standard",
+   "variants": []
+  },
+  {
+   "name": "Hara Bhara Kebab",
+   "category": "Veg Starters",
+   "price": "9.50",
+   "tax_kind": "hot_food",
+   "variants": []
+  },
+  {
+   "name": "Honey Chicken",
+   "category": "Non Veg Starters",
+   "price": "12.80",
+   "tax_kind": "hot_food",
+   "variants": []
+  },
+  {
+   "name": "Honey Prawns",
+   "category": "Non Veg Starters",
+   "price": "17.90",
+   "tax_kind": "hot_food",
+   "variants": []
+  },
+  {
+   "name": "Ice Cream (Chocolate)",
+   "category": "Desserts",
+   "price": "3.00",
+   "tax_kind": "standard",
+   "variants": []
+  },
+  {
+   "name": "Ice Cream (Strawberry)",
+   "category": "Desserts",
+   "price": "3.00",
+   "tax_kind": "standard",
+   "variants": []
+  },
+  {
+   "name": "Ice Cream (Vanilla)",
+   "category": "Desserts",
+   "price": "3.00",
+   "tax_kind": "standard",
+   "variants": []
+  },
+  {
+   "name": "Jeera Aloo",
+   "category": "Veg Mains",
+   "price": "9.50",
+   "tax_kind": "hot_food",
+   "variants": []
+  },
+  {
+   "name": "Jeera Chicken",
+   "category": "Non Veg Starters",
+   "price": "11.80",
+   "tax_kind": "hot_food",
+   "variants": []
+  },
+  {
+   "name": "Jeera Rice",
+   "category": "Rice & Biryani",
+   "price": "5.40",
+   "tax_kind": "hot_food",
+   "variants": []
+  },
+  {
+   "name": "Karahi Chicken",
+   "category": "Non Veg Mains",
+   "price": "11.50",
+   "tax_kind": "hot_food",
+   "variants": []
+  },
+  {
+   "name": "Karahi Lamb",
+   "category": "Non Veg Mains",
+   "price": "12.50",
+   "tax_kind": "hot_food",
+   "variants": []
+  },
+  {
+   "name": "Karahi Paneer",
+   "category": "Veg Mains",
+   "price": "9.50",
+   "tax_kind": "hot_food",
+   "variants": []
+  },
+  {
+   "name": "Karahi Soya Champ",
+   "category": "Veg Mains",
+   "price": "9.50",
+   "tax_kind": "hot_food",
+   "variants": []
+  },
+  {
+   "name": "Kebab Roll Large (3 pcs)",
+   "category": "Wraps",
+   "price": "8.90",
+   "tax_kind": "hot_food",
+   "variants": []
+  },
+  {
+   "name": "Kebab Roll Regular (2 pcs)",
+   "category": "Wraps",
+   "price": "7.90",
+   "tax_kind": "hot_food",
+   "variants": []
+  },
+  {
+   "name": "Keema Naan",
+   "category": "Roti & Naan",
+   "price": "4.50",
+   "tax_kind": "hot_food",
+   "variants": []
+  },
+  {
+   "name": "Keema Paratha",
+   "category": "Tawa",
+   "price": "4.40",
+   "tax_kind": "hot_food",
+   "variants": []
+  },
+  {
+   "name": "Keema Peas",
+   "category": "Non Veg Mains",
+   "price": "12.50",
+   "tax_kind": "hot_food",
+   "variants": []
+  },
+  {
+   "name": "Kingfisher Bottle Large",
+   "category": "Beers",
+   "price": "6.10",
+   "tax_kind": "standard",
+   "variants": []
+  },
+  {
+   "name": "Kulfi (Malai)",
+   "category": "Desserts",
+   "price": "3.00",
+   "tax_kind": "standard",
+   "variants": []
+  },
+  {
+   "name": "Kulfi (Mango)",
+   "category": "Desserts",
+   "price": "3.00",
+   "tax_kind": "standard",
+   "variants": []
+  },
+  {
+   "name": "Kulfi (Pistachio)",
+   "category": "Desserts",
+   "price": "3.00",
+   "tax_kind": "standard",
+   "variants": []
+  },
+  {
+   "name": "Lacha Paratha",
+   "category": "Roti & Naan",
+   "price": "3.80",
+   "tax_kind": "hot_food",
+   "variants": []
+  },
+  {
+   "name": "Lamb Biryani",
+   "category": "Rice & Biryani",
+   "price": "11.50",
+   "tax_kind": "hot_food",
+   "variants": []
+  },
+  {
+   "name": "Lamb Chops (5 pcs)",
+   "category": "Tandoor Starters",
+   "price": "13.90",
+   "tax_kind": "hot_food",
+   "variants": []
+  },
+  {
+   "name": "Lamb Dhansak",
+   "category": "Non Veg Mains",
+   "price": "12.50",
+   "tax_kind": "hot_food",
+   "variants": []
+  },
+  {
+   "name": "Lamb Korma",
+   "category": "Non Veg Mains",
+   "price": "12.50",
+   "tax_kind": "hot_food",
+   "variants": []
+  },
+  {
+   "name": "Lamb Rogan Josh",
+   "category": "Non Veg Mains",
+   "price": "12.50",
+   "tax_kind": "hot_food",
+   "variants": []
+  },
+  {
+   "name": "Lemonade (Bottle)",
+   "category": "Bottles",
+   "price": "4.20",
+   "tax_kind": "standard",
+   "variants": []
+  },
+  {
+   "name": "Lime Soda",
+   "category": "Mocktails",
+   "price": "4.00",
+   "tax_kind": "standard",
+   "variants": [
+    {
+     "name": "Jug",
+     "price_delta": "8.00"
+    }
+   ]
+  },
+  {
+   "name": "Lychee Martini",
+   "category": "Cocktails",
+   "price": "7.00",
+   "tax_kind": "standard",
+   "variants": []
+  },
+  {
+   "name": "Malai Kofta",
+   "category": "Veg Mains",
+   "price": "9.50",
+   "tax_kind": "hot_food",
+   "variants": []
+  },
+  {
+   "name": "Malai Tikka Roll",
+   "category": "Wraps",
+   "price": "7.50",
+   "tax_kind": "hot_food",
+   "variants": []
+  },
+  {
+   "name": "Mango Chutney",
+   "category": "On the Side",
+   "price": "0.40",
+   "tax_kind": "cold_food",
+   "variants": []
+  },
+  {
+   "name": "Mango Lassi",
+   "category": "Lassi",
+   "price": "4.50",
+   "tax_kind": "standard",
+   "variants": [
+    {
+     "name": "Jug",
+     "price_delta": "10.00"
+    }
+   ]
+  },
+  {
+   "name": "Mango Shake",
+   "category": "Shakes",
+   "price": "4.95",
+   "tax_kind": "standard",
+   "variants": []
+  },
+  {
+   "name": "Margarita",
+   "category": "Cocktails",
+   "price": "7.00",
+   "tax_kind": "standard",
+   "variants": []
+  },
+  {
+   "name": "Masala Fries",
+   "category": "Veg Starters",
+   "price": "5.00",
+   "tax_kind": "hot_food",
+   "variants": []
+  },
+  {
+   "name": "Masala Mogo Chips",
+   "category": "Veg Starters",
+   "price": "8.50",
+   "tax_kind": "hot_food",
+   "variants": []
+  },
+  {
+   "name": "Masala Punjabi Chai",
+   "category": "Hot Drinks",
+   "price": "3.75",
+   "tax_kind": "standard",
+   "variants": []
+  },
+  {
+   "name": "Mattar Paneer",
+   "category": "Veg Mains",
+   "price": "9.50",
+   "tax_kind": "hot_food",
+   "variants": []
+  },
+  {
+   "name": "Meat Samosa (2 pcs)",
+   "category": "Non Veg Starters",
+   "price": "3.50",
+   "tax_kind": "hot_food",
+   "variants": []
+  },
+  {
+   "name": "Methi Chicken",
+   "category": "Non Veg Mains",
+   "price": "11.50",
+   "tax_kind": "hot_food",
+   "variants": []
+  },
+  {
+   "name": "Methi Paneer",
+   "category": "Veg Mains",
+   "price": "9.50",
+   "tax_kind": "hot_food",
+   "variants": []
+  },
+  {
+   "name": "Mineral Water Still",
+   "category": "Bottles",
+   "price": "3.00",
+   "tax_kind": "standard",
+   "variants": []
+  },
+  {
+   "name": "Mint Chutney",
+   "category": "On the Side",
+   "price": "0.40",
+   "tax_kind": "cold_food",
+   "variants": []
+  },
+  {
+   "name": "Mixed Vegetables",
+   "category": "Veg Mains",
+   "price": "9.50",
+   "tax_kind": "hot_food",
+   "variants": []
+  },
+  {
+   "name": "Mix Fried Rice",
+   "category": "Rice & Biryani",
+   "price": "14.00",
+   "tax_kind": "hot_food",
+   "variants": []
+  },
+  {
+   "name": "Mix Kebab Roll",
+   "category": "Wraps",
+   "price": "8.50",
+   "tax_kind": "hot_food",
+   "variants": []
+  },
+  {
+   "name": "Mushroom Karahi",
+   "category": "Veg Mains",
+   "price": "9.50",
+   "tax_kind": "hot_food",
+   "variants": []
+  },
+  {
+   "name": "Mushroom Rice",
+   "category": "Rice & Biryani",
+   "price": "6.50",
+   "tax_kind": "hot_food",
+   "variants": []
+  },
+  {
+   "name": "Naan",
+   "category": "Roti & Naan",
+   "price": "2.25",
+   "tax_kind": "hot_food",
+   "variants": []
+  },
+  {
+   "name": "Onion Bhaji",
+   "category": "Veg Starters",
+   "price": "4.90",
+   "tax_kind": "hot_food",
+   "variants": []
+  },
+  {
+   "name": "Onion Kulcha",
+   "category": "Roti & Naan",
+   "price": "4.00",
+   "tax_kind": "hot_food",
+   "variants": []
+  },
+  {
+   "name": "Onion Salad",
+   "category": "On the Side",
+   "price": "2.50",
+   "tax_kind": "cold_food",
+   "variants": []
+  },
+  {
+   "name": "Orange & Passion Fruit",
+   "category": "J20",
+   "price": "2.95",
+   "tax_kind": "standard",
+   "variants": []
+  },
+  {
+   "name": "Paneer Bhurji",
+   "category": "Veg Mains",
+   "price": "9.50",
+   "tax_kind": "hot_food",
+   "variants": []
+  },
+  {
+   "name": "Paneer Bhurji Roll",
+   "category": "Wraps",
+   "price": "7.50",
+   "tax_kind": "hot_food",
+   "variants": []
+  },
+  {
+   "name": "Paneer Tikka",
+   "category": "Tandoor Starters",
+   "price": "9.90",
+   "tax_kind": "hot_food",
+   "variants": []
+  },
+  {
+   "name": "Paneer Tikka Masala",
+   "category": "Veg Mains",
+   "price": "9.50",
+   "tax_kind": "hot_food",
+   "variants": []
+  },
+  {
+   "name": "Paneer Tikka Roll",
+   "category": "Wraps",
+   "price": "7.50",
+   "tax_kind": "hot_food",
+   "variants": []
+  },
+  {
+   "name": "Pani Puri",
+   "category": "Veg Starters",
+   "price": "5.95",
+   "tax_kind": "hot_food",
+   "variants": []
+  },
+  {
+   "name": "Panjabi Butter Chicken",
+   "category": "Non Veg Mains",
+   "price": "15.50",
+   "tax_kind": "hot_food",
+   "variants": []
+  },
+  {
+   "name": "Panjabi Salad",
+   "category": "On the Side",
+   "price": "3.50",
+   "tax_kind": "cold_food",
+   "variants": [
+    {
+     "name": "Large",
+     "price_delta": "1.25"
+    }
+   ]
+  },
+  {
+   "name": "Pappad",
+   "category": "On the Side",
+   "price": "0.80",
+   "tax_kind": "standard",
+   "variants": []
+  },
+  {
+   "name": "Papri Chaat",
+   "category": "Veg Starters",
+   "price": "5.95",
+   "tax_kind": "hot_food",
+   "variants": []
+  },
+  {
+   "name": "Paratha Tawa",
+   "category": "Tawa",
+   "price": "3.80",
+   "tax_kind": "hot_food",
+   "variants": []
+  },
+  {
+   "name": "Passion & Vanilla Martini",
+   "category": "Cocktails",
+   "price": "7.00",
+   "tax_kind": "standard",
+   "variants": []
+  },
+  {
+   "name": "Peas Rice",
+   "category": "Rice & Biryani",
+   "price": "5.90",
+   "tax_kind": "hot_food",
+   "variants": []
+  },
+  {
+   "name": "Peshwari Naan",
+   "category": "Roti & Naan",
+   "price": "4.00",
+   "tax_kind": "hot_food",
+   "variants": []
+  },
+  {
+   "name": "Pilau Rice",
+   "category": "Rice & Biryani",
+   "price": "5.40",
+   "tax_kind": "hot_food",
+   "variants": []
+  },
+  {
+   "name": "Plain Dahi",
+   "category": "On the Side",
+   "price": "2.80",
+   "tax_kind": "cold_food",
+   "variants": []
+  },
+  {
+   "name": "Plain Rice",
+   "category": "Rice & Biryani",
+   "price": "4.40",
+   "tax_kind": "hot_food",
+   "variants": []
+  },
+  {
+   "name": "Prawn Biryani",
+   "category": "Rice & Biryani",
+   "price": "15.00",
+   "tax_kind": "hot_food",
+   "variants": []
+  },
+  {
+   "name": "Prawns Curry",
+   "category": "Non Veg Mains",
+   "price": "15.90",
+   "tax_kind": "hot_food",
+   "variants": []
+  },
+  {
+   "name": "Prawn Tikka",
+   "category": "Tandoor Starters",
+   "price": "15.90",
+   "tax_kind": "hot_food",
+   "variants": []
+  },
+  {
+   "name": "Prawn Tikka Masala",
+   "category": "Non Veg Mains",
+   "price": "15.90",
+   "tax_kind": "hot_food",
+   "variants": []
+  },
+  {
+   "name": "Punjabi Coffee",
+   "category": "Hot Drinks",
+   "price": "3.75",
+   "tax_kind": "standard",
+   "variants": []
+  },
+  {
+   "name": "Ras Malai",
+   "category": "Desserts",
+   "price": "3.50",
+   "tax_kind": "hot_food",
+   "variants": []
+  },
+  {
+   "name": "Red Bull",
+   "category": "Soft Drinks",
+   "price": "3.00",
+   "tax_kind": "standard",
+   "variants": []
+  },
+  {
+   "name": "Red Wine",
+   "category": "Shots & Wine",
+   "price": "5.00",
+   "tax_kind": "standard",
+   "variants": []
+  },
+  {
+   "name": "Reshmi Kebab (2 pcs)",
+   "category": "Tandoor Starters",
+   "price": "7.00",
+   "tax_kind": "hot_food",
+   "variants": []
+  },
+  {
+   "name": "Reshmi Kebab Roll (2 pcs)",
+   "category": "Wraps",
+   "price": "7.50",
+   "tax_kind": "hot_food",
+   "variants": []
+  },
+  {
+   "name": "Roti",
+   "category": "Roti & Naan",
+   "price": "2.25",
+   "tax_kind": "hot_food",
+   "variants": []
+  },
+  {
+   "name": "Rum",
+   "category": "Spirits",
+   "price": "4.00",
+   "tax_kind": "standard",
+   "variants": [
+    {
+     "name": "50ml",
+     "price_delta": "1.50"
+    }
+   ]
+  },
+  {
+   "name": "Saag Aloo",
+   "category": "Veg Mains",
+   "price": "9.50",
+   "tax_kind": "hot_food",
+   "variants": []
+  },
+  {
+   "name": "Saag Aloo (Potato Cubes)",
+   "category": "Veg Mains",
+   "price": "9.50",
+   "tax_kind": "hot_food",
+   "variants": []
+  },
+  {
+   "name": "Saag Chicken",
+   "category": "Non Veg Mains",
+   "price": "11.50",
+   "tax_kind": "hot_food",
+   "variants": []
+  },
+  {
+   "name": "Saag Lamb",
+   "category": "Non Veg Mains",
+   "price": "12.50",
+   "tax_kind": "hot_food",
+   "variants": []
+  },
+  {
+   "name": "Saag Paneer",
+   "category": "Veg Mains",
+   "price": "9.50",
+   "tax_kind": "hot_food",
+   "variants": []
+  },
+  {
+   "name": "Salmon Fish Tikka",
+   "category": "Tandoor Starters",
+   "price": "18.90",
+   "tax_kind": "hot_food",
+   "variants": []
+  },
+  {
+   "name": "Salty Lassi",
+   "category": "Lassi",
+   "price": "4.50",
+   "tax_kind": "standard",
+   "variants": [
+    {
+     "name": "Jug",
+     "price_delta": "10.00"
+    }
+   ]
+  },
+  {
+   "name": "Sambuca Shot",
+   "category": "Shots & Wine",
+   "price": "5.00",
+   "tax_kind": "standard",
+   "variants": []
+  },
+  {
+   "name": "Samosa Chaat",
+   "category": "Veg Starters",
+   "price": "5.95",
+   "tax_kind": "hot_food",
+   "variants": []
+  },
+  {
+   "name": "Schezwan Chicken Hakka Noodles",
+   "category": "Noodles",
+   "price": "9.90",
+   "tax_kind": "hot_food",
+   "variants": []
+  },
+  {
+   "name": "Schezwan Veg Hakka Noodles",
+   "category": "Noodles",
+   "price": "9.50",
+   "tax_kind": "hot_food",
+   "variants": []
+  },
+  {
+   "name": "Seekh Kebab (2 pcs)",
+   "category": "Tandoor Starters",
+   "price": "7.00",
+   "tax_kind": "hot_food",
+   "variants": []
+  },
+  {
+   "name": "Shahi Paneer",
+   "category": "Veg Mains",
+   "price": "9.50",
+   "tax_kind": "hot_food",
+   "variants": []
+  },
+  {
+   "name": "Sizzling Garlic Chilli Fish",
+   "category": "Non Veg Starters",
+   "price": "13.80",
+   "tax_kind": "hot_food",
+   "variants": []
+  },
+  {
+   "name": "Small Ginger Ale",
+   "category": "Soft Drinks",
+   "price": "2.00",
+   "tax_kind": "standard",
+   "variants": []
+  },
+  {
+   "name": "Small Soda Water",
+   "category": "Soft Drinks",
+   "price": "2.00",
+   "tax_kind": "standard",
+   "variants": []
+  },
+  {
+   "name": "Small Tonic Water",
+   "category": "Soft Drinks",
+   "price": "2.00",
+   "tax_kind": "standard",
+   "variants": []
+  },
+  {
+   "name": "Small Water Bottle",
+   "category": "Soft Drinks",
+   "price": "2.00",
+   "tax_kind": "standard",
+   "variants": []
+  },
+  {
+   "name": "Soda Water (Bottle)",
+   "category": "Bottles",
+   "price": "3.75",
+   "tax_kind": "standard",
+   "variants": []
+  },
+  {
+   "name": "Soya Chaap Tikka",
+   "category": "Tandoor Starters",
+   "price": "11.50",
+   "tax_kind": "hot_food",
+   "variants": []
+  },
+  {
+   "name": "Soya Keema Peas",
+   "category": "Veg Mains",
+   "price": "9.50",
+   "tax_kind": "hot_food",
+   "variants": []
+  },
+  {
+   "name": "Sparkling Water (Bottle)",
+   "category": "Bottles",
+   "price": "3.75",
+   "tax_kind": "standard",
+   "variants": []
+  },
+  {
+   "name": "Strawberry Shake",
+   "category": "Shakes",
+   "price": "4.95",
+   "tax_kind": "standard",
+   "variants": []
+  },
+  {
+   "name": "Sweet Lassi",
+   "category": "Lassi",
+   "price": "4.50",
+   "tax_kind": "standard",
+   "variants": [
+    {
+     "name": "Jug",
+     "price_delta": "10.00"
+    }
+   ]
+  },
+  {
+   "name": "Tandoor Chicken",
+   "category": "Tandoor Starters",
+   "price": "9.90",
+   "tax_kind": "hot_food",
+   "variants": [
+    {
+     "name": "Full",
+     "price_delta": "7.10"
+    }
+   ]
+  },
+  {
+   "name": "Tandoor Mixed Grill",
+   "category": "Tandoor Starters",
+   "price": "26.50",
+   "tax_kind": "hot_food",
+   "variants": []
+  },
+  {
+   "name": "Tequila Shot",
+   "category": "Shots & Wine",
+   "price": "5.00",
+   "tax_kind": "standard",
+   "variants": []
+  },
+  {
+   "name": "Tonic Water (Bottle)",
+   "category": "Bottles",
+   "price": "3.75",
+   "tax_kind": "standard",
+   "variants": []
+  },
+  {
+   "name": "Vanilla Shake",
+   "category": "Shakes",
+   "price": "4.95",
+   "tax_kind": "standard",
+   "variants": []
+  },
+  {
+   "name": "Vegetable Biryani",
+   "category": "Rice & Biryani",
+   "price": "10.00",
+   "tax_kind": "hot_food",
+   "variants": []
+  },
+  {
+   "name": "Vegetable Kofta",
+   "category": "Veg Mains",
+   "price": "9.50",
+   "tax_kind": "hot_food",
+   "variants": []
+  },
+  {
+   "name": "Vegetable Korma",
+   "category": "Veg Mains",
+   "price": "9.50",
+   "tax_kind": "hot_food",
+   "variants": []
+  },
+  {
+   "name": "Vegetable Manchurian",
+   "category": "Veg Starters",
+   "price": "9.50",
+   "tax_kind": "hot_food",
+   "variants": []
+  },
+  {
+   "name": "Vegetable Spring Rolls (2 pcs)",
+   "category": "Veg Starters",
+   "price": "3.30",
+   "tax_kind": "hot_food",
+   "variants": []
+  },
+  {
+   "name": "Veg Fried Rice",
+   "category": "Rice & Biryani",
+   "price": "6.50",
+   "tax_kind": "hot_food",
+   "variants": []
+  },
+  {
+   "name": "Veg Noodles",
+   "category": "Noodles",
+   "price": "8.50",
+   "tax_kind": "hot_food",
+   "variants": []
+  },
+  {
+   "name": "Veg Samosa (2 pcs)",
+   "category": "Veg Starters",
+   "price": "3.30",
+   "tax_kind": "hot_food",
+   "variants": []
+  },
+  {
+   "name": "Virgin Mojito",
+   "category": "Mocktails",
+   "price": "6.00",
+   "tax_kind": "standard",
+   "variants": [
+    {
+     "name": "Jug",
+     "price_delta": "8.00"
+    }
+   ]
+  },
+  {
+   "name": "Vodka",
+   "category": "Spirits",
+   "price": "4.00",
+   "tax_kind": "standard",
+   "variants": [
+    {
+     "name": "50ml",
+     "price_delta": "1.50"
+    }
+   ]
+  },
+  {
+   "name": "Whisky",
+   "category": "Spirits",
+   "price": "4.00",
+   "tax_kind": "standard",
+   "variants": [
+    {
+     "name": "50ml",
+     "price_delta": "2.50"
+    }
+   ]
+  },
+  {
+   "name": "White Wine",
+   "category": "Shots & Wine",
+   "price": "5.00",
+   "tax_kind": "standard",
+   "variants": []
+  },
+  {
+   "name": "Zero Beer",
+   "category": "Beers",
+   "price": "3.50",
+   "tax_kind": "standard",
+   "variants": []
+  },
+  {
+   "name": "Zero Coke",
+   "category": "Soft Drinks",
+   "price": "1.90",
+   "tax_kind": "standard",
+   "variants": []
+  },
+  {
+   "name": "Zero Coke (Bottle)",
+   "category": "Bottles",
+   "price": "4.20",
+   "tax_kind": "standard",
+   "variants": []
+  }
+ ],
+ "tables": [
+  {
+   "label": "O1",
+   "seats": 4,
+   "area": "outdoor"
+  },
+  {
+   "label": "O10",
+   "seats": 4,
+   "area": "outdoor"
+  },
+  {
+   "label": "O2",
+   "seats": 4,
+   "area": "outdoor"
+  },
+  {
+   "label": "O3",
+   "seats": 4,
+   "area": "outdoor"
+  },
+  {
+   "label": "O4",
+   "seats": 4,
+   "area": "outdoor"
+  },
+  {
+   "label": "O5",
+   "seats": 4,
+   "area": "outdoor"
+  },
+  {
+   "label": "O6",
+   "seats": 4,
+   "area": "outdoor"
+  },
+  {
+   "label": "O7",
+   "seats": 4,
+   "area": "outdoor"
+  },
+  {
+   "label": "O8",
+   "seats": 4,
+   "area": "outdoor"
+  },
+  {
+   "label": "O9",
+   "seats": 4,
+   "area": "outdoor"
+  },
+  {
+   "label": "T1",
+   "seats": 4,
+   "area": "indoor"
+  },
+  {
+   "label": "T10",
+   "seats": 4,
+   "area": "indoor"
+  },
+  {
+   "label": "T2",
+   "seats": 4,
+   "area": "indoor"
+  },
+  {
+   "label": "T3",
+   "seats": 4,
+   "area": "indoor"
+  },
+  {
+   "label": "T4",
+   "seats": 4,
+   "area": "indoor"
+  },
+  {
+   "label": "T5",
+   "seats": 4,
+   "area": "indoor"
+  },
+  {
+   "label": "T6",
+   "seats": 4,
+   "area": "indoor"
+  },
+  {
+   "label": "T7",
+   "seats": 4,
+   "area": "indoor"
+  },
+  {
+   "label": "T8",
+   "seats": 4,
+   "area": "indoor"
+  },
+  {
+   "label": "T9",
+   "seats": 4,
+   "area": "indoor"
+  }
+ ]
+}

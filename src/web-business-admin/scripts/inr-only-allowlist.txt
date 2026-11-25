@@ -1,0 +1,19 @@
+# INR-only guard allowlist (scripts/check-inr-only.sh, docs/INR_ONLY.md).
+# Format, one entry per line, each with a "# why" comment above it:
+#   <path glob>                    whole file exempt (rare)
+#   <path glob> :: <perl regex>    only lines of that file that match the regex
+# Keep this list tiny. Every entry is reviewed like code.
+
+# The one ASCII rupee for printers / fonts without the ₹ glyph (formatInrAscii builds on it).
+src/lib/money.ts :: ^export const RUPEE_ASCII = "Rs\.";$
+# Guard tests: a foreign currency code coming in must still render as ₹.
+src/lib/money.test.ts :: for \(const c of \["AED", "GBP", "USD"\]\) expect\(currencyPrefix\(c\)\)\.toBe\("₹"\)
+src/lib/money.test.ts :: expect\(fc\("123456\.5", "GBP"\)\)\.toBe\("₹1,23,456\.50"\)
+# Stock import: rupee prefixes (Rs / Rs. / INR) are accepted, and amounts in another currency are refused.
+e2e/match-items.spec.ts :: for \(const v of \["₹1,250\.50", "Rs\. 1,250\.50"
+e2e/match-items.spec.ts :: for \(const v of \["£1\.80", "\$1\.80", "€1\.80"\]\) expect\(parseNumber\(v\), v\)\.toBeNull\(\)
+# Rendered-page guards: no UK / UAE tax words or foreign currency on the register and restaurant screens.
+e2e/login.spec.ts :: await expect\(page\.getByText\(/VAT\|HMRC/\)\)\.toHaveCount\(0\)
+e2e/manage.spec.ts :: await expect\(page\.getByText\(/\\bVAT\\b\|\\bTRN\\b\|AED\|£/\)\)\.toHaveCount\(0\)
+# The offline wake detector's vendored engine and model (third-party binaries / minified WebAssembly glue, not app text).
+public/voice-models/*

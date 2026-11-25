@@ -1,0 +1,41 @@
+{
+  "name": "web-marketing",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev -p 3200",
+    "dev:mock": "NEXT_PUBLIC_API_MOCK=1 next dev -p 3200",
+    "dev:bearer": "NEXT_PUBLIC_AUTH_MODE=bearer next dev -p 3200",
+    "dev:mock-cookie": "NEXT_PUBLIC_API_MOCK=1 NEXT_PUBLIC_AUTH_MODE=cookie next dev -p 3200",
+    "build": "next build",
+    "start": "next start -p 3200",
+    "lint": "eslint .",
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run",
+    "e2e": "playwright test",
+    "e2e:mock": "E2E_TARGET=mock playwright test",
+    "e2e:real": "E2E_TARGET=real playwright test"
+  },
+  "dependencies": {
+    "@chilli/tokens": "link:../design-system/packages/tokens",
+    "@chilli/ui": "link:../design-system/packages/ui",
+    "next": "16.4.6",
+    "react": "19.3.0",
+    "react-dom": "19.3.0"
+  },
+  "devDependencies": {
+    "@axe-core/playwright": "^4.14.0",
+    "@playwright/test": "1.64.1",
+    "@testing-library/jest-dom": "^6",
+    "@testing-library/react": "^16",
+    "@types/node": "^22",
+    "@types/react": "^19",
+    "@types/react-dom": "^19",
+    "eslint": "^9",
+    "eslint-config-next": "16.4.6",
+    "jsdom": "^26",
+    "typescript": "^5",
+    "vitest": "^3"
+  },
+  "packageManager": "pnpm@12.11.2"
+}

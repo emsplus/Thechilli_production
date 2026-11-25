@@ -1,0 +1,7 @@
+# web.Dockerfile builds use named contexts (app, design-system); this context only needs the Dockerfile itself.
+.env
+.env.*
+*.yml
+*.sh
+initdb
+README.md

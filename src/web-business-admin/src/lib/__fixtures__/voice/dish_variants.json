@@ -1,0 +1,967 @@
+{
+ "_doc": "Spoken forms of every dish of demo_menu_44.json the way Chrome's recogniser writes them (en-IN and hi-IN): the menu name, Hinglish spellings, recogniser slips and Devanagari. Each `says` must resolve to `item` (+ `variant`, null = the dish's default). `confusions`: phrases that must NOT become `not` (and must become `item` when given). dishMatch.test.ts asserts >= 95% right and 0 cross-dish confusions.",
+ "dishes": [
+  {
+   "item": "Samosa (2 pcs)",
+   "says": [
+    "samosa",
+    "samosaa",
+    "samose",
+    "samoosa",
+    "समोसा",
+    "समोसे",
+    "do samosa",
+    "somosa",
+    "samosas",
+    "सामोसा"
+   ]
+  },
+  {
+   "item": "Veg Pakora",
+   "says": [
+    "veg pakora",
+    "veg pakoda",
+    "vej pakode",
+    "veg pakore",
+    "वेज पकोड़ा",
+    "वेज पकौड़ा",
+    "veg pakauda",
+    "veg pakodaa",
+    "vej pakorha",
+    "वेज पकौडे"
+   ]
+  },
+  {
+   "item": "Chilli Paneer",
+   "says": [
+    "chilli paneer",
+    "chili paneer",
+    "chilly panir",
+    "chilli pneer",
+    "चिली पनीर",
+    "चिल्ली पनीर",
+    "chili panner",
+    "chilly paneer",
+    "chilli panier",
+    "चिल्ली पनिर"
+   ]
+  },
+  {
+   "item": "Hara Bhara Kebab",
+   "says": [
+    "hara bhara kebab",
+    "hara bara kabab",
+    "hara bhara kabab",
+    "hara bhra kebab",
+    "हरा भरा कबाब",
+    "हरा भरा कबाब",
+    "हरा-भरा कबाब",
+    "harabhara kebab",
+    "hara bhara kebap",
+    "हरा भरा केबाब"
+   ]
+  },
+  {
+   "item": "Chicken 65",
+   "says": [
+    "chicken 65",
+    "chicken sixty five",
+    "chiken 65",
+    "चिकन 65",
+    "चिकन ६५",
+    "chikan 65",
+    "chicken sixtyfive",
+    "chikken 65",
+    "चिकेन 65"
+   ]
+  },
+  {
+   "item": "Pani Puri (6 pcs)",
+   "says": [
+    "pani puri",
+    "paani poori",
+    "golgappe",
+    "पानी पूरी",
+    "पानीपुरी",
+    "गोलगप्पे",
+    "pani poori",
+    "panipuri",
+    "paani puri",
+    "पानी पुरी"
+   ]
+  },
+  {
+   "item": "Paneer Tikka",
+   "says": [
+    "paneer tikka",
+    "panir tika",
+    "paneer tikkaa",
+    "peneer tikka",
+    "पनीर टिक्का",
+    "पनीर टिका",
+    "paneer teeka",
+    "panier tikka",
+    "paneer tickah",
+    "पनीर टीका"
+   ]
+  },
+  {
+   "item": "Tandoori Chicken",
+   "variant": "Half",
+   "says": [
+    "tandoori chicken",
+    "tandoori chikan",
+    "tanduri chicken",
+    "तंदूरी चिकन",
+    "तन्दूरी चिकन",
+    "half tandoori chicken",
+    "हाफ तंदूरी चिकन",
+    "tandoory chicken",
+    "tandooree chikan",
+    "तन्दूरी चिकेन"
+   ]
+  },
+  {
+   "item": "Tandoori Chicken",
+   "variant": "Full",
+   "says": [
+    "full tandoori chicken",
+    "tandoori chicken full",
+    "फुल तंदूरी चिकन",
+    "tanduri chikan full",
+    "poora tandoori chicken",
+    "तंदूरी चिकन फुल"
+   ]
+  },
+  {
+   "item": "Chicken Tikka",
+   "says": [
+    "chicken tikka",
+    "chiken tika",
+    "chicken teeka",
+    "चिकन टिक्का",
+    "चिकन टिका",
+    "chikan tikka",
+    "chicken tikaa",
+    "chikken tikka",
+    "chicken tickah",
+    "चिकेन टिक्का"
+   ]
+  },
+  {
+   "item": "Mutton Seekh Kebab",
+   "says": [
+    "mutton seekh kebab",
+    "mutton sheekh kabab",
+    "matan seekh kabab",
+    "मटन सीख कबाब",
+    "मटन सीक कबाब",
+    "mutton seek kebab",
+    "seekh kebab",
+    "mutton sheek kebab",
+    "muttan seekh kebap",
+    "मटन शीख कबाब"
+   ]
+  },
+  {
+   "item": "Paneer Butter Masala",
+   "says": [
+    "paneer butter masala",
+    "panir butter masala",
+    "paneer batar masala",
+    "पनीर बटर मसाला",
+    "पनीर बटर मसाले",
+    "paneer butter masaala",
+    "paneer butter masla",
+    "paneer buttar masalah",
+    "panir batter masala",
+    "पनीर बटर मसाला"
+   ]
+  },
+  {
+   "item": "Palak Paneer",
+   "says": [
+    "palak paneer",
+    "paalak panir",
+    "palak pneer",
+    "पालक पनीर",
+    "पालक पनीर",
+    "palak paner",
+    "spinach paneer",
+    "pallak paneer",
+    "palak panier",
+    "पालक पनिर"
+   ]
+  },
+  {
+   "item": "Matar Paneer",
+   "says": [
+    "matar paneer",
+    "mattar paneer",
+    "mutter paneer",
+    "मटर पनीर",
+    "matar panir",
+    "mutter panir",
+    "peas paneer",
+    "mater paneer",
+    "muttar panir",
+    "मटर पनिर"
+   ]
+  },
+  {
+   "item": "Dal Makhani",
+   "says": [
+    "dal makhani",
+    "daal makhni",
+    "dhal makhani",
+    "दाल मखनी",
+    "दाल मखानी",
+    "dal makkhani",
+    "dal makhana",
+    "dal makani",
+    "daal makhanee",
+    "दाल मक्खनी"
+   ]
+  },
+  {
+   "item": "Chole Masala",
+   "says": [
+    "chole masala",
+    "chhole masala",
+    "chola masala",
+    "छोले मसाला",
+    "छोले",
+    "choley masala",
+    "chole",
+    "cholay masala",
+    "chhole masaala",
+    "छोले मसाले"
+   ]
+  },
+  {
+   "item": "Dal Tadka",
+   "says": [
+    "dal tadka",
+    "daal tarka",
+    "dal tadkaa",
+    "दाल तड़का",
+    "दाल तडका",
+    "dhal tadka",
+    "dal tarka",
+    "dal turka",
+    "daal tadkaa",
+    "दाल तरका"
+   ]
+  },
+  {
+   "item": "Veg Lunch Thali",
+   "says": [
+    "veg lunch thali",
+    "veg thali",
+    "lunch thali",
+    "वेज लंच थाली",
+    "वेज थाली",
+    "vej thaali",
+    "thali",
+    "veg lunch thaali",
+    "vegetable thali",
+    "वेज लन्च थाली"
+   ]
+  },
+  {
+   "item": "Butter Chicken",
+   "variant": "Half",
+   "says": [
+    "butter chicken",
+    "batar chicken",
+    "butter chiken",
+    "बटर चिकन",
+    "बटर चिकिन",
+    "butter chikin",
+    "half butter chicken",
+    "murgh makhani",
+    "buttar chiken",
+    "batter chikken",
+    "बटर चिकेन"
+   ]
+  },
+  {
+   "item": "Butter Chicken",
+   "variant": "Full",
+   "says": [
+    "full butter chicken",
+    "butter chicken full",
+    "फुल बटर चिकन",
+    "बटर चिकन फुल",
+    "batar chikan full",
+    "poora butter chicken"
+   ]
+  },
+  {
+   "item": "Chicken Tikka Masala",
+   "says": [
+    "chicken tikka masala",
+    "chiken tika masala",
+    "चिकन टिक्का मसाला",
+    "chicken tikka masaala",
+    "चिकन टिका मसाला",
+    "chikan tikka masala",
+    "chikken tikka masalah",
+    "chicken teeka masala",
+    "चिकेन टिक्का मसाले"
+   ]
+  },
+  {
+   "item": "Mutton Rogan Josh",
+   "says": [
+    "mutton rogan josh",
+    "rogan josh",
+    "matan roghan josh",
+    "मटन रोगन जोश",
+    "रोगन जोश",
+    "mutton rogan gosh",
+    "mutton rogen josh",
+    "muttan roghan josh",
+    "मटन रोग़न जोश"
+   ]
+  },
+  {
+   "item": "Kerala Fish Curry",
+   "says": [
+    "kerala fish curry",
+    "fish curry",
+    "kerla fish kari",
+    "केरला फिश करी",
+    "फिश करी",
+    "kerala fish kurry",
+    "machli curry",
+    "kerala fish kari",
+    "keral fish curry",
+    "केरल फिश करी"
+   ]
+  },
+  {
+   "item": "Egg Curry",
+   "says": [
+    "egg curry",
+    "egg kari",
+    "anda curry",
+    "एग करी",
+    "अंडा करी",
+    "egg curri",
+    "ande ki curry",
+    "eg curry",
+    "egg karri",
+    "एग करि"
+   ]
+  },
+  {
+   "item": "Chicken Biryani",
+   "variant": "Half",
+   "says": [
+    "chicken biryani",
+    "chicken biriyani",
+    "chiken beriyani",
+    "चिकन बिरयानी",
+    "चिकन बिरियानी",
+    "chicken biryani half",
+    "chikan briyani",
+    "chicken biryanee",
+    "chikken biriani",
+    "चिकन बिर्यानी"
+   ]
+  },
+  {
+   "item": "Chicken Biryani",
+   "variant": "Full",
+   "says": [
+    "full chicken biryani",
+    "चिकन बिरयानी फुल",
+    "chicken biriyani full",
+    "फुल चिकन बिरयानी",
+    "poora chicken biryani",
+    "chicken biryani large"
+   ]
+  },
+  {
+   "item": "Mutton Biryani",
+   "variant": "Half",
+   "says": [
+    "mutton biryani",
+    "matan biriyani",
+    "मटन बिरयानी",
+    "mutton briyani",
+    "मटन बिरियानी",
+    "mutton beryani",
+    "mutton biriani",
+    "muttan biryanee",
+    "मटन बिरयाणी"
+   ]
+  },
+  {
+   "item": "Mutton Biryani",
+   "variant": "Full",
+   "says": [
+    "full mutton biryani",
+    "mutton biryani full",
+    "फुल मटन बिरयानी",
+    "matan biriyani full",
+    "poora mutton biryani",
+    "मटन बिरयानी फुल"
+   ]
+  },
+  {
+   "item": "Veg Biryani",
+   "says": [
+    "veg biryani",
+    "vej biriyani",
+    "वेज बिरयानी",
+    "veg beriyani",
+    "वेज बिरियानी",
+    "vegetable biryani",
+    "sabzi biryani",
+    "veg biriani",
+    "vej biryanee",
+    "वेज बिर्यानी"
+   ]
+  },
+  {
+   "item": "Jeera Rice",
+   "says": [
+    "jeera rice",
+    "zeera rice",
+    "jira rice",
+    "जीरा राइस",
+    "जीरा चावल",
+    "jeera chawal",
+    "jeera rais",
+    "jeeraa rice",
+    "zira rice",
+    "जीरा रईस"
+   ]
+  },
+  {
+   "item": "Butter Naan",
+   "says": [
+    "butter naan",
+    "butter nan",
+    "batar naan",
+    "बटर नान",
+    "बटर नॉन",
+    "buttar naan",
+    "makhan naan",
+    "butter naun",
+    "buttar nan",
+    "बटर नाण"
+   ]
+  },
+  {
+   "item": "Garlic Naan",
+   "says": [
+    "garlic naan",
+    "garlik nan",
+    "गार्लिक नान",
+    "garlic non",
+    "lahsun naan",
+    "लहसुन नान",
+    "garlick naan",
+    "garlic nan",
+    "garlik naan",
+    "गारलिक नान"
+   ]
+  },
+  {
+   "item": "Tandoori Roti",
+   "says": [
+    "tandoori roti",
+    "tanduri rotee",
+    "तंदूरी रोटी",
+    "तन्दूरी रोटी",
+    "tandoor roti",
+    "roti",
+    "रोटी",
+    "tandoori rotty",
+    "tandoory roti",
+    "तन्दूरी रोटि"
+   ]
+  },
+  {
+   "item": "Laccha Paratha",
+   "says": [
+    "laccha paratha",
+    "lachha parantha",
+    "लच्छा पराठा",
+    "लच्छा परांठा",
+    "lacha prantha",
+    "laccha parotta",
+    "paratha",
+    "lachcha paratha",
+    "lucha parotha",
+    "लच्छा परोठा"
+   ]
+  },
+  {
+   "item": "Masala Dosa",
+   "says": [
+    "masala dosa",
+    "masaala dosha",
+    "मसाला डोसा",
+    "मसाला दोसा",
+    "dosa",
+    "masala dose",
+    "डोसा",
+    "masalah dosa",
+    "masala dosai",
+    "मसाला दोसे"
+   ]
+  },
+  {
+   "item": "Idli Sambar (3 pcs)",
+   "says": [
+    "idli sambar",
+    "idly sambhar",
+    "इडली सांभर",
+    "इडली",
+    "idli",
+    "edli sambar",
+    "इडली साम्भर",
+    "idly sambar",
+    "idli saambar",
+    "इडलि सांबर"
+   ]
+  },
+  {
+   "item": "Medu Vada (2 pcs)",
+   "says": [
+    "medu vada",
+    "medu wada",
+    "मेदु वडा",
+    "वड़ा",
+    "vada",
+    "medu vadai",
+    "मेदू वड़ा",
+    "medhu vada",
+    "medu vadda",
+    "मेडु वडा"
+   ]
+  },
+  {
+   "item": "Podi Uttapam",
+   "says": [
+    "podi uttapam",
+    "podi uthappam",
+    "पोडी उत्तपम",
+    "उत्तपम",
+    "uttapam",
+    "podi oothappam",
+    "पोड़ी उत्तपम",
+    "pody uttapam",
+    "podi utappam",
+    "पोडी उथप्पम"
+   ]
+  },
+  {
+   "item": "Gulab Jamun (2 pcs)",
+   "says": [
+    "gulab jamun",
+    "gulaab jamoon",
+    "गुलाब जामुन",
+    "गुलाबजामुन",
+    "gulab jaman",
+    "gulab jamon",
+    "गुलाब जामन",
+    "gulab jamoon",
+    "gulaab jamun",
+    "गुलाब जामून"
+   ]
+  },
+  {
+   "item": "Rasmalai (2 pcs)",
+   "says": [
+    "rasmalai",
+    "ras malai",
+    "रसमलाई",
+    "रस मलाई",
+    "rasmalaai",
+    "rus malai",
+    "rasmalay",
+    "ras malaai",
+    "रसमलाइ"
+   ]
+  },
+  {
+   "item": "Gajar Ka Halwa",
+   "says": [
+    "gajar ka halwa",
+    "gajar halwa",
+    "गाजर का हलवा",
+    "गाजर हलवा",
+    "gaajar ka halva",
+    "carrot halwa",
+    "halwa",
+    "gajar ka halua",
+    "gaajar halwa",
+    "गाजर का हलुआ"
+   ]
+  },
+  {
+   "item": "Malai Kulfi",
+   "says": [
+    "malai kulfi",
+    "malaai kulfee",
+    "मलाई कुल्फी",
+    "कुल्फी",
+    "kulfi",
+    "malai qulfi",
+    "malai kulphy",
+    "malay kulfi",
+    "मलाई कुल्फ़ी"
+   ]
+  },
+  {
+   "item": "Masala Chai",
+   "says": [
+    "masala chai",
+    "masaala chaay",
+    "मसाला चाय",
+    "masala tea",
+    "chai",
+    "masala chaai",
+    "चाय",
+    "masala chay",
+    "massala chai",
+    "मसाला चाई"
+   ]
+  },
+  {
+   "item": "Mango Lassi",
+   "says": [
+    "mango lassi",
+    "mango lasi",
+    "मैंगो लस्सी",
+    "mango lassy",
+    "aam lassi",
+    "आम लस्सी",
+    "mengo lassi",
+    "mango lussi",
+    "mango lassie",
+    "मेंगो लस्सी"
+   ]
+  },
+  {
+   "item": "Sweet Lassi",
+   "says": [
+    "sweet lassi",
+    "sweet lasi",
+    "स्वीट लस्सी",
+    "मीठी लस्सी",
+    "meethi lassi",
+    "sweet lassee",
+    "स्वीट लस्सी",
+    "sweet lussi",
+    "swit lassi",
+    "स्वीट लस्सि"
+   ]
+  },
+  {
+   "item": "Filter Coffee",
+   "says": [
+    "filter coffee",
+    "filter kofi",
+    "फ़िल्टर कॉफ़ी",
+    "फिल्टर कॉफी",
+    "filter kaapi",
+    "filtar coffee",
+    "coffee",
+    "filter kaafi",
+    "filtter coffee",
+    "फिल्टर कॉफ़ी"
+   ]
+  },
+  {
+   "item": "Fresh Lime Soda",
+   "says": [
+    "fresh lime soda",
+    "lime soda",
+    "फ्रेश लाइम सोडा",
+    "लाइम सोडा",
+    "nimbu soda",
+    "fresh lime sodaa",
+    "निम्बू सोडा",
+    "fresh lyme soda",
+    "fresh lime sodah",
+    "फ्रेश लाइम सोडा"
+   ]
+  },
+  {
+   "item": "Packaged Drinking Water (1 L)",
+   "says": [
+    "water",
+    "paani",
+    "पानी",
+    "drinking water",
+    "packaged water",
+    "mineral water",
+    "water bottle",
+    "bisleri",
+    "drinking paani",
+    "पीने का पानी"
+   ]
+  }
+ ],
+ "confusions": [
+  {
+   "say": "butter naan",
+   "item": "Butter Naan",
+   "not": "Butter Chicken"
+  },
+  {
+   "say": "बटर नान",
+   "item": "Butter Naan",
+   "not": "Butter Chicken"
+  },
+  {
+   "say": "butter chicken",
+   "item": "Butter Chicken",
+   "not": "Butter Naan"
+  },
+  {
+   "say": "बटर चिकन",
+   "item": "Butter Chicken",
+   "not": "Paneer Butter Masala"
+  },
+  {
+   "say": "paneer butter masala",
+   "item": "Paneer Butter Masala",
+   "not": "Butter Chicken"
+  },
+  {
+   "say": "chicken tikka",
+   "item": "Chicken Tikka",
+   "not": "Paneer Tikka"
+  },
+  {
+   "say": "chicken tikka",
+   "item": "Chicken Tikka",
+   "not": "Chicken Tikka Masala"
+  },
+  {
+   "say": "paneer tikka",
+   "item": "Paneer Tikka",
+   "not": "Chicken Tikka"
+  },
+  {
+   "say": "पनीर टिक्का",
+   "item": "Paneer Tikka",
+   "not": "Chicken Tikka"
+  },
+  {
+   "say": "चिकन टिक्का",
+   "item": "Chicken Tikka",
+   "not": "Paneer Tikka"
+  },
+  {
+   "say": "chicken tikka masala",
+   "item": "Chicken Tikka Masala",
+   "not": "Chicken Tikka"
+  },
+  {
+   "say": "chicken biryani",
+   "item": "Chicken Biryani",
+   "not": "Mutton Biryani"
+  },
+  {
+   "say": "mutton biryani",
+   "item": "Mutton Biryani",
+   "not": "Chicken Biryani"
+  },
+  {
+   "say": "veg biryani",
+   "item": "Veg Biryani",
+   "not": "Chicken Biryani"
+  },
+  {
+   "say": "वेज बिरयानी",
+   "item": "Veg Biryani",
+   "not": "Mutton Biryani"
+  },
+  {
+   "say": "garlic naan",
+   "item": "Garlic Naan",
+   "not": "Butter Naan"
+  },
+  {
+   "say": "tandoori roti",
+   "item": "Tandoori Roti",
+   "not": "Tandoori Chicken"
+  },
+  {
+   "say": "तंदूरी रोटी",
+   "item": "Tandoori Roti",
+   "not": "Tandoori Chicken"
+  },
+  {
+   "say": "tandoori chicken",
+   "item": "Tandoori Chicken",
+   "not": "Tandoori Roti"
+  },
+  {
+   "say": "chicken 65",
+   "item": "Chicken 65",
+   "not": "Chicken Tikka"
+  },
+  {
+   "say": "mango lassi",
+   "item": "Mango Lassi",
+   "not": "Sweet Lassi"
+  },
+  {
+   "say": "sweet lassi",
+   "item": "Sweet Lassi",
+   "not": "Mango Lassi"
+  },
+  {
+   "say": "dal makhani",
+   "item": "Dal Makhani",
+   "not": "Dal Tadka"
+  },
+  {
+   "say": "dal tadka",
+   "item": "Dal Tadka",
+   "not": "Dal Makhani"
+  },
+  {
+   "say": "palak paneer",
+   "item": "Palak Paneer",
+   "not": "Matar Paneer"
+  },
+  {
+   "say": "matar paneer",
+   "item": "Matar Paneer",
+   "not": "Palak Paneer"
+  },
+  {
+   "say": "chilli paneer",
+   "item": "Chilli Paneer",
+   "not": "Chicken 65"
+  },
+  {
+   "say": "pani puri",
+   "item": "Pani Puri (6 pcs)",
+   "not": "Packaged Drinking Water (1 L)"
+  },
+  {
+   "say": "paani",
+   "item": "Packaged Drinking Water (1 L)",
+   "not": "Pani Puri (6 pcs)"
+  },
+  {
+   "say": "egg curry",
+   "item": "Egg Curry",
+   "not": "Kerala Fish Curry"
+  },
+  {
+   "say": "fish curry",
+   "item": "Kerala Fish Curry",
+   "not": "Egg Curry"
+  },
+  {
+   "say": "masala dosa",
+   "item": "Masala Dosa",
+   "not": "Masala Chai"
+  },
+  {
+   "say": "masala chai",
+   "item": "Masala Chai",
+   "not": "Masala Dosa"
+  },
+  {
+   "say": "butter roti",
+   "not": "Butter Chicken"
+  },
+  {
+   "say": "butter roti",
+   "not": "Butter Naan"
+  },
+  {
+   "say": "paneer biryani",
+   "not": "Chicken Biryani"
+  },
+  {
+   "say": "paneer biryani",
+   "not": "Paneer Tikka"
+  },
+  {
+   "say": "chicken naan",
+   "not": "Butter Chicken"
+  },
+  {
+   "say": "mutton tikka",
+   "not": "Chicken Tikka"
+  },
+  {
+   "say": "egg biryani",
+   "not": "Chicken Biryani"
+  },
+  {
+   "say": "plain naan",
+   "not": "Butter Naan"
+  },
+  {
+   "say": "plain naan",
+   "not": "Garlic Naan"
+  }
+ ],
+ "half_full": [
+  {
+   "say": "half butter chicken",
+   "item": "Butter Chicken",
+   "variant": "Half"
+  },
+  {
+   "say": "full butter chicken",
+   "item": "Butter Chicken",
+   "variant": "Full"
+  },
+  {
+   "say": "आधा बटर चिकन",
+   "item": "Butter Chicken",
+   "variant": "Half"
+  },
+  {
+   "say": "पूरा बटर चिकन",
+   "item": "Butter Chicken",
+   "variant": "Full"
+  },
+  {
+   "say": "tandoori chicken full",
+   "item": "Tandoori Chicken",
+   "variant": "Full"
+  },
+  {
+   "say": "tandoori chicken half",
+   "item": "Tandoori Chicken",
+   "variant": "Half"
+  },
+  {
+   "say": "full chicken biryani",
+   "item": "Chicken Biryani",
+   "variant": "Full"
+  },
+  {
+   "say": "mutton biryani full",
+   "item": "Mutton Biryani",
+   "variant": "Full"
+  },
+  {
+   "say": "बड़ा चिकन बिरयानी",
+   "item": "Chicken Biryani",
+   "variant": "Full"
+  },
+  {
+   "say": "छोटा चिकन बिरयानी",
+   "item": "Chicken Biryani",
+   "variant": "Half"
+  }
+ ]
+}

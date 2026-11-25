@@ -1,0 +1,606 @@
+{
+ "/admin/billing/usage": {
+  "item_keys": [
+   "adjustments_paise",
+   "bills",
+   "closing_balance_paise",
+   "fee_credit_backs_paise",
+   "fees_paise",
+   "gst_in_net_fees_paise",
+   "month",
+   "net_fees_paise",
+   "opening_balance_paise",
+   "period_end",
+   "period_start",
+   "promo_paise",
+   "receipts",
+   "tax_notice",
+   "tenant",
+   "tenant_id",
+   "timezone",
+   "topups_paise"
+  ],
+  "keys": [
+   "items",
+   "month"
+  ]
+ },
+ "/admin/tenants/{ref}/billing-settings": {
+  "keys": [
+   "defaults",
+   "effective",
+   "override",
+   "trial_ends_at",
+   "trial_started_at"
+  ]
+ },
+ "/admin/tenants/{ref}/receipts": {
+  "item_keys": [
+   "amount_paise",
+   "bonus_paise",
+   "buyer_gstin",
+   "buyer_state_code",
+   "cgst_paise",
+   "created_at",
+   "created_by",
+   "gst_mode",
+   "gst_rate_bps",
+   "id",
+   "igst_paise",
+   "ledger_id",
+   "note",
+   "number",
+   "payment_ref",
+   "sac_code",
+   "sgst_paise",
+   "source",
+   "supplier_gstin",
+   "supplier_state_code",
+   "tax_needs_ca_verification",
+   "taxable_paise",
+   "tenant_id"
+  ],
+  "keys": [
+   "items",
+   "limit",
+   "offset",
+   "total"
+  ]
+ },
+ "/admin/tenants/{ref}/usage": {
+  "keys": [
+   "adjustments_paise",
+   "bills",
+   "closing_balance_paise",
+   "fee_credit_backs_paise",
+   "fees_paise",
+   "gst_in_net_fees_paise",
+   "month",
+   "net_fees_paise",
+   "opening_balance_paise",
+   "period_end",
+   "period_start",
+   "promo_paise",
+   "receipts",
+   "tax_notice",
+   "tenant",
+   "tenant_id",
+   "timezone",
+   "topups_paise"
+  ]
+ },
+ "/admin/tenants/{ref}/wallet": {
+  "keys": [
+   "billing",
+   "recent_ledger",
+   "settings",
+   "slug",
+   "tenant",
+   "tenant_id",
+   "wallet"
+  ]
+ },
+ "/admin/tenants/{ref}/wallet/ledger": {
+  "item_keys": [
+   "actor",
+   "amount_paise",
+   "at",
+   "balance_after_paise",
+   "fee_base_paise",
+   "fee_gst_paise",
+   "id",
+   "kind",
+   "meta",
+   "reason",
+   "ref_id",
+   "ref_type",
+   "source",
+   "tenant_id"
+  ],
+  "keys": [
+   "items",
+   "limit",
+   "offset",
+   "total"
+  ]
+ },
+ "/ai-usage/summary": {
+  "item_keys": [
+   "calls",
+   "cost_micro_inr",
+   "feature",
+   "input_tokens",
+   "output_tokens",
+   "tenant_id"
+  ],
+  "keys": [
+   "items"
+  ]
+ },
+ "/analytics/overview": {
+  "keys": [
+   "active_tenants",
+   "arr_paise",
+   "as_of",
+   "churn",
+   "mrr_by_plan",
+   "mrr_paise",
+   "notes",
+   "paying_subscriptions",
+   "signups",
+   "tenants_by_status",
+   "trialing_tenants",
+   "window"
+  ]
+ },
+ "/audit-log": {
+  "item_keys": [
+   "action",
+   "actor_id",
+   "actor_label",
+   "actor_type",
+   "after",
+   "at",
+   "before",
+   "id",
+   "ip",
+   "meta",
+   "target_id",
+   "target_type",
+   "tenant_id"
+  ],
+  "keys": [
+   "items",
+   "limit",
+   "offset",
+   "total"
+  ]
+ },
+ "/auth/me": {
+  "keys": [
+   "created_at",
+   "email",
+   "id",
+   "is_active",
+   "last_login_at",
+   "must_change_password",
+   "name",
+   "permissions",
+   "role"
+  ]
+ },
+ "/auth/mfa/status": {
+  "keys": [
+   "enrolled",
+   "enrolled_at",
+   "recovery_codes_remaining",
+   "required"
+  ]
+ },
+ "/auth/sessions": {
+  "item_keys": [
+   "current",
+   "id",
+   "ip",
+   "last_active_at",
+   "mfa",
+   "started_at",
+   "user_agent"
+  ],
+  "keys": [
+   "items"
+  ]
+ },
+ "/config": {
+  "item_keys": [
+   "description",
+   "key",
+   "updated_at",
+   "updated_by",
+   "value"
+  ],
+  "keys": [
+   "items"
+  ]
+ },
+ "/entitlements/{ref}": {
+  "keys": [
+   "business_types",
+   "features",
+   "generated_at",
+   "plan_code",
+   "subscription_reason",
+   "subscription_status",
+   "tenant_id",
+   "tenant_status",
+   "version"
+  ]
+ },
+ "/entitlements/{ref}/history": {
+  "item_keys": [
+   "actor",
+   "after",
+   "at",
+   "before",
+   "feature_code",
+   "id",
+   "reason",
+   "tenant_id",
+   "trigger"
+  ],
+  "keys": [
+   "items"
+  ]
+ },
+ "/features": {
+  "item_keys": [
+   "code",
+   "description",
+   "is_active",
+   "kind",
+   "name",
+   "unit"
+  ],
+  "keys": [
+   "items"
+  ]
+ },
+ "/invoices": {
+  "item_keys": [
+   "buyer_gstin",
+   "buyer_state_code",
+   "cgst_paise",
+   "created_at",
+   "currency",
+   "discount_paise",
+   "due_at",
+   "gst_rate_bps",
+   "id",
+   "igst_paise",
+   "issued_at",
+   "number",
+   "paid_at",
+   "period_end",
+   "period_start",
+   "sac_code",
+   "sgst_paise",
+   "status",
+   "subscription_id",
+   "subtotal_paise",
+   "supplier_gstin",
+   "supplier_state_code",
+   "tax_needs_ca_verification",
+   "taxable_paise",
+   "tenant_id",
+   "total_paise",
+   "void_reason"
+  ],
+  "keys": [
+   "items",
+   "limit",
+   "offset",
+   "total"
+  ]
+ },
+ "/invoices/{id}": {
+  "keys": [
+   "buyer_gstin",
+   "buyer_state_code",
+   "cgst_paise",
+   "created_at",
+   "currency",
+   "discount_paise",
+   "due_at",
+   "gst_rate_bps",
+   "id",
+   "igst_paise",
+   "issued_at",
+   "lines",
+   "number",
+   "paid_at",
+   "period_end",
+   "period_start",
+   "sac_code",
+   "sgst_paise",
+   "status",
+   "subscription_id",
+   "subtotal_paise",
+   "supplier_gstin",
+   "supplier_state_code",
+   "tax_needs_ca_verification",
+   "tax_notice",
+   "taxable_paise",
+   "tenant_id",
+   "total_paise",
+   "void_reason"
+  ]
+ },
+ "/onboarding/applications": {
+  "item_keys": [
+   "attempts",
+   "business_name",
+   "business_types",
+   "contact_name",
+   "created_at",
+   "email",
+   "id",
+   "idempotency_key",
+   "invite_sends",
+   "last_error",
+   "live_at",
+   "marketing_ref",
+   "owner_invited_at",
+   "payload",
+   "phone",
+   "plan_code",
+   "provision_error_code",
+   "provision_next_at",
+   "provision_state",
+   "reject_reason",
+   "source",
+   "status",
+   "tenant_id",
+   "updated_at"
+  ],
+  "keys": [
+   "items",
+   "limit",
+   "offset",
+   "total"
+  ]
+ },
+ "/onboarding/applications/{id}": {
+  "keys": [
+   "attempts",
+   "business_name",
+   "business_types",
+   "contact_name",
+   "created_at",
+   "email",
+   "events",
+   "id",
+   "idempotency_key",
+   "invite_sends",
+   "last_error",
+   "live_at",
+   "marketing_ref",
+   "owner_invited_at",
+   "payload",
+   "phone",
+   "plan_code",
+   "provision_error_code",
+   "provision_next_at",
+   "provision_state",
+   "reject_reason",
+   "source",
+   "status",
+   "submitter_ip",
+   "tenant_id",
+   "updated_at"
+  ]
+ },
+ "/payments": {
+  "item_keys": [
+   "amount_paise",
+   "created_at",
+   "currency",
+   "id",
+   "invoice_id",
+   "method",
+   "provider",
+   "provider_ref",
+   "status",
+   "tenant_id",
+   "updated_at"
+  ],
+  "keys": [
+   "items",
+   "limit",
+   "offset",
+   "total"
+  ]
+ },
+ "/plans": {
+  "item_keys": [
+   "billing_period",
+   "code",
+   "created_at",
+   "description",
+   "features",
+   "id",
+   "is_active",
+   "live_subscriptions",
+   "name",
+   "price_paise",
+   "retired_at",
+   "version"
+  ],
+  "keys": [
+   "items"
+  ]
+ },
+ "/security-events": {
+  "item_keys": [
+   "at",
+   "details",
+   "email",
+   "id",
+   "ip",
+   "severity",
+   "staff_id",
+   "type"
+  ],
+  "keys": [
+   "items",
+   "limit",
+   "offset",
+   "total"
+  ]
+ },
+ "/staff": {
+  "item_keys": [
+   "created_at",
+   "email",
+   "id",
+   "is_active",
+   "last_login_at",
+   "must_change_password",
+   "name",
+   "role"
+  ],
+  "keys": [
+   "items",
+   "limit",
+   "offset",
+   "total"
+  ]
+ },
+ "/subscriptions": {
+  "item_keys": [
+   "cancel_at_period_end",
+   "created_at",
+   "current_period_end",
+   "current_period_start",
+   "ended_at",
+   "id",
+   "plan_id",
+   "status",
+   "tenant_id",
+   "trial_end"
+  ],
+  "keys": [
+   "items"
+  ]
+ },
+ "/support-access/grants": {
+  "item_keys": [
+   "created_at",
+   "expires_at",
+   "granted_by",
+   "id",
+   "reason",
+   "revoked_at",
+   "revoked_by",
+   "scope",
+   "staff_id",
+   "starts_at",
+   "tenant_id",
+   "ticket_id"
+  ],
+  "keys": [
+   "items",
+   "limit",
+   "offset",
+   "total"
+  ]
+ },
+ "/system/health": {
+  "keys": [
+   "checked_at",
+   "database",
+   "environment",
+   "failed_onboardings",
+   "jobs",
+   "signing_key_id",
+   "status"
+  ]
+ },
+ "/tenants": {
+  "item_keys": [
+   "business_types",
+   "created_at",
+   "display_name",
+   "id",
+   "pos_tenant_ref",
+   "slug",
+   "status",
+   "status_changed_at",
+   "status_reason"
+  ],
+  "keys": [
+   "items",
+   "limit",
+   "offset",
+   "total"
+  ]
+ },
+ "/tenants/{ref}": {
+  "keys": [
+   "business_types",
+   "created_at",
+   "display_name",
+   "id",
+   "outlets",
+   "pos_tenant_ref",
+   "profile",
+   "slug",
+   "status",
+   "status_changed_at",
+   "status_reason"
+  ]
+ },
+ "/tenants/{ref}/subscription": {
+  "keys": [
+   "current",
+   "history"
+  ]
+ },
+ "/tickets": {
+  "item_keys": [
+   "assignee_id",
+   "body",
+   "created_at",
+   "created_by",
+   "id",
+   "priority",
+   "requester_email",
+   "status",
+   "subject",
+   "tenant_id",
+   "updated_at"
+  ],
+  "keys": [
+   "items",
+   "limit",
+   "offset",
+   "total"
+  ]
+ },
+ "/tickets/{id}": {
+  "keys": [
+   "assignee_id",
+   "body",
+   "comments",
+   "created_at",
+   "created_by",
+   "id",
+   "priority",
+   "requester_email",
+   "status",
+   "subject",
+   "tenant_id",
+   "updated_at"
+  ]
+ },
+ "_source": "platform-core release/night-1 b9b2641, seeded scratch instance, captured 2026-11-01"
+}

@@ -1,0 +1,136 @@
+/* App layout only. Colours, spacing and type come from @chilli/tokens (style guide v1.0: Inter UI, Poppins headings, JetBrains Mono amounts); components from @chilli/ui. */
+*,*::before,*::after{box-sizing:border-box}
+html,body{margin:0;padding:0}
+body{background:var(--c-bg);color:var(--c-fg);font-family:var(--font-sans);font-size:var(--text-body);line-height:var(--lh-body);-webkit-font-smoothing:antialiased}
+a{color:var(--c-link);text-decoration:none}
+a:hover{text-decoration:underline}
+p a,li a.inline,.small a,.hint a{text-decoration:underline}
+h1,h2,h3{margin:0;line-height:1.25}
+h1{font-family:var(--font-display);font-size:var(--text-h1);line-height:var(--lh-h1);font-weight:700;letter-spacing:-0.02em}
+h2{font-family:var(--font-display);font-size:var(--text-h3);line-height:var(--lh-h3);font-weight:700}
+h3,.h3{font-size:var(--text-body);font-weight:600}
+p{margin:0}
+.muted{color:var(--c-fg-muted)}
+.small{font-size:var(--text-sm)}
+.nowrap{white-space:nowrap}
+.mono{font-family:var(--font-mono)}
+.skip{position:absolute;left:-999px;display:inline-flex;align-items:center;min-height:44px}.skip:focus{left:8px;top:8px;background:var(--c-surface);padding:8px 12px;z-index:50}
+
+/* shell */
+/* Flat canvas (calm by default). */
+.shell{min-height:100dvh;display:flex;flex-direction:column}
+.topbar{position:sticky;top:0;z-index:20;display:flex;align-items:center;gap:var(--space-16);padding:0 var(--gutter);height:56px;background:var(--c-surface);border-bottom:1px solid var(--c-border)}
+.brand{display:inline-flex;align-items:center;gap:var(--space-12);min-height:44px;color:var(--c-fg);white-space:nowrap}
+.brand-portal{padding-inline-start:var(--space-12);border-inline-start:1px solid var(--c-border);font-size:var(--text-label);font-weight:500;color:var(--c-fg-muted)}
+.brand:hover{text-decoration:none}
+.topnav{display:none;gap:var(--space-4);margin-inline-start:var(--space-16);flex:1}
+.topnav a,.bottomnav a{color:var(--c-fg-muted);font-weight:500;border-radius:var(--radius-sm)}
+.topnav a{padding:8px 12px}
+.topnav a:hover,.bottomnav a:hover{text-decoration:none;color:var(--c-fg)}
+.topnav a[aria-current=page]{background:var(--c-primary-subtle);color:var(--c-primary-soft-fg);font-weight:600}
+.spacer{flex:1}
+.menu{position:relative}
+.menu summary{list-style:none;cursor:pointer;display:flex;align-items:center;gap:8px;min-height:44px;padding:0 8px;border-radius:var(--radius-sm)}
+.menu summary::-webkit-details-marker{display:none}
+.avatar{width:32px;height:32px;border-radius:var(--radius-full);background:var(--c-primary-soft);color:var(--c-primary-soft-fg);display:grid;place-items:center;font-weight:600;font-size:var(--text-sm)}
+.menu-panel{position:absolute;right:0;top:100%;min-width:220px;background:var(--c-surface);border:1px solid var(--c-border);border-radius:var(--radius-md);box-shadow:var(--shadow-e1);padding:var(--space-8);display:flex;flex-direction:column;gap:2px}
+.menu-panel a,.menu-panel button{display:flex;align-items:center;min-height:44px;padding:0 12px;border:0;background:none;text-align:start;font:inherit;color:var(--c-fg);border-radius:var(--radius-sm);cursor:pointer}
+.menu-panel a:hover,.menu-panel button:hover{background:var(--c-surface-2);text-decoration:none}
+.nav-more summary{color:var(--c-fg-muted);font-weight:500;padding:0 12px;gap:4px}
+.nav-more summary:hover{color:var(--c-fg)}
+.nav-more summary[aria-current=page]{background:var(--c-primary-subtle);color:var(--c-primary-soft-fg);font-weight:600}
+.nav-more .caret{font-size:14px;line-height:1}
+.menu-panel--start{right:auto;left:0;min-width:200px;z-index:30}
+.menu-panel a[aria-current=page]{background:var(--c-primary-subtle);color:var(--c-primary-soft-fg);font-weight:600}
+.menu-who{padding:8px 12px;border-bottom:1px solid var(--c-border);margin-bottom:4px}
+.main{flex:1;width:100%;max-width:1120px;margin:0 auto;padding:var(--space-16) var(--gutter) calc(var(--space-64) + 24px)}
+.bottomnav{position:fixed;inset:auto 0 0 0;z-index:20;display:flex;background:var(--c-surface);border-top:1px solid var(--c-border);padding-bottom:env(safe-area-inset-bottom)}
+/* Labels at 14px (phone minimum); items size to their label so "Onboarding" and "Campaigns" keep a visible gap at 360px. */
+.bottomnav a{flex:1 1 auto;min-height:56px;display:grid;place-items:center;font-size:var(--text-sm);text-align:center;padding:0 6px;border-radius:0}
+.bottomnav .more-btn{flex:1 1 auto;min-height:56px;padding:0 6px;border:0;background:none;font:inherit;font-size:var(--text-sm);font-weight:600;color:var(--c-fg-muted);cursor:pointer}
+.bottomnav .more-btn[aria-current=page]{color:var(--c-primary);box-shadow:inset 0 2px 0 var(--c-brand)}
+.more-panel{position:absolute;right:var(--gutter);bottom:calc(100% + 8px);min-width:180px;background:var(--c-surface);border:1px solid var(--c-border);border-radius:var(--radius-md);box-shadow:var(--shadow-e1);padding:var(--space-8);display:flex;flex-direction:column}
+.more-panel a{display:flex;align-items:center;min-height:44px;padding:0 12px;border-radius:var(--radius-sm);flex:none;color:var(--c-fg);font-size:var(--text-body)}
+.more-panel a[aria-current=page]{background:var(--c-primary-subtle);color:var(--c-primary-soft-fg);box-shadow:none}
+.bottomnav a[aria-current=page]{color:var(--c-primary);box-shadow:inset 0 2px 0 var(--c-brand)}
+@media (min-width:860px){.topnav{display:flex}.bottomnav,.more-panel{display:none}.main{padding-bottom:var(--space-48)}}
+
+/* page pieces */
+.page-head{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:var(--space-12);margin-bottom:var(--space-16)}
+.page-head .sub{color:var(--c-fg-muted);font-size:var(--text-sm);margin-top:2px}
+.actions{display:flex;flex-wrap:wrap;gap:var(--space-8);align-items:center}
+.stack{display:flex;flex-direction:column;gap:var(--space-16)}
+.stack-sm{display:flex;flex-direction:column;gap:var(--space-8)}
+.row{display:flex;flex-wrap:wrap;gap:var(--space-8);align-items:center}
+.between{display:flex;justify-content:space-between;align-items:center;gap:var(--space-12);flex-wrap:wrap}
+.grid{display:grid;gap:var(--space-16)}
+.grid.two{grid-template-columns:repeat(auto-fit,minmax(min(100%,320px),1fr))}
+.grid.kpis{grid-template-columns:repeat(auto-fit,minmax(min(100%,150px),1fr))}
+.grid.form{grid-template-columns:repeat(auto-fit,minmax(min(100%,240px),1fr))}
+.list{list-style:none;margin:0;padding:0;display:flex;flex-direction:column}
+.list>li{display:flex;gap:var(--space-12);align-items:center;justify-content:space-between;padding:var(--space-12) 0;border-bottom:1px solid var(--c-border)}
+.list>li:last-child{border-bottom:0}
+@media (max-width:480px){.list>li{flex-wrap:wrap;align-items:flex-start}.list>li .grow{flex:1 1 100%}}
+.list .grow{flex:1;min-width:0;overflow-wrap:anywhere}
+.list .title{font-weight:600;overflow-wrap:anywhere}
+/* Sub-navigation scrolls sideways on phones; edge shadows (scroll-linked backgrounds) show there are more tabs. */
+.tabs-nav{display:flex;gap:var(--space-4);border-bottom:1px solid var(--c-border);margin-bottom:var(--space-16);overflow-x:auto;scrollbar-width:none;
+  background:linear-gradient(to right,var(--c-bg) 30%,transparent) left center / 2rem 100% local no-repeat,linear-gradient(to left,var(--c-bg) 30%,transparent) right center / 2rem 100% local no-repeat,
+  radial-gradient(farthest-side at 0 50%,rgb(0 0 0 / .18),transparent) left center / .75rem 100% scroll no-repeat,radial-gradient(farthest-side at 100% 50%,rgb(0 0 0 / .18),transparent) right center / .75rem 100% scroll no-repeat}
+.tabs-nav a{padding:12px 14px;color:var(--c-fg-muted);font-weight:500;white-space:nowrap;border-bottom:2px solid transparent;min-height:44px;display:flex;align-items:center}
+.tabs-nav a[aria-current=page]{color:var(--c-fg);font-weight:600;border-bottom-color:var(--c-brand)}
+.tabs-nav a:hover{text-decoration:none;color:var(--c-fg)}
+.center{max-width:420px;margin:12vh auto 0;padding:0 var(--gutter)}
+.table-scroll{overflow-x:auto}
+.empty-pad{padding:var(--space-24) 0}
+
+/* kanban-lite */
+.board{display:flex;gap:var(--space-12);overflow-x:auto;padding-bottom:var(--space-12);scroll-snap-type:x proximity}
+.col{flex:0 0 min(82vw,270px);scroll-snap-align:start;background:var(--c-surface-2);border-radius:var(--radius-md);padding:var(--space-8);display:flex;flex-direction:column;gap:var(--space-8);max-height:70dvh}
+.col-head{display:flex;justify-content:space-between;align-items:center;padding:4px 6px;font-weight:600}
+.col-body{display:flex;flex-direction:column;gap:var(--space-8);overflow-y:auto}
+.card-lite{background:var(--c-surface);border:1px solid var(--c-border);border-radius:var(--radius-md);padding:var(--space-12);display:flex;flex-direction:column;gap:6px}
+.card-lite .t{font-weight:600;overflow-wrap:anywhere}
+.card-lite select{min-height:44px}
+
+/* wizard */
+.steps{display:flex;gap:6px;margin-bottom:var(--space-16)}
+.steps li{flex:1;height:6px;border-radius:3px;background:var(--c-border);list-style:none}
+.steps li.done{background:var(--c-success)}.steps li.cur{background:var(--c-primary)}
+.steps{padding:0;margin:0 0 var(--space-16)}
+.check{display:flex;align-items:center;gap:var(--space-12);padding:var(--space-12) 0;border-bottom:1px solid var(--c-border)}
+.check:last-child{border-bottom:0}
+.check .grow{flex:1}
+.token-box{font-family:var(--font-mono);word-break:break-all;background:var(--c-surface-2);padding:var(--space-8) var(--space-12);border-radius:var(--radius-sm);border:1px dashed var(--c-border-strong)}
+.bar{height:8px;border-radius:4px;background:var(--c-surface-3);overflow:hidden}
+.bar>span{display:block;height:100%;background:var(--c-primary)}
+
+/* long Devanagari / unbroken names must wrap, never push the page sideways */
+.ch-page-head__title,.ch-section__title,.ch-table td,.ch-table th,.ch-notice__body,.card-lite,.ch-stat__value{overflow-wrap:anywhere}
+a.plain-link{display:block;color:inherit;text-decoration:none;border-radius:var(--radius-md)}
+a.plain-link:hover{text-decoration:none}
+.grid.kpis{align-items:stretch}
+.ch-notice a{text-decoration:underline}
+.topnav a,.bottomnav a{white-space:nowrap}
+
+/* 44px touch targets (UI review MK-3/MK-4): stand-alone links in headers, lists and cards get a full-height hit area. */
+.between>a,.list a,.card-lite a,.col a,.ch-section__actions a,.ch-page-head__actions a{display:inline-flex;align-items:center;min-height:44px}
+.list a.title,.card-lite a.t{display:flex}
+dd a[href^="tel:"],dd a[href^="mailto:"],.wizard-skip a{display:inline-flex;align-items:center;min-height:44px}
+@media (max-width:1023px),(pointer:coarse){.ch-table td a{display:inline-flex;align-items:center;min-height:44px}}
+
+/* Branded 404. */
+.nf{min-height:100dvh;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:var(--space-12);padding:var(--space-24);text-align:center}
+.nf__code{margin:var(--space-16) 0 0;font-family:var(--font-display);font-weight:800;font-size:var(--text-display);line-height:var(--lh-display);color:var(--c-brand)}
+.nf .ch-btn{margin-top:var(--space-12);text-decoration:none}
+
+.topnav{align-items:center}
+@media (max-width:1099px){.demo-flag{display:none}}
+
+/* Phones (mobile review 2026-11): no text under 14px. @chilli/ui sets hints, badges and table headers at 12px; lift them to the sm step.
+   Table headers drop the uppercase caption style here so plain and sortable headers read the same. */
+@media (max-width:767px){
+  .ch-hint,.ch-badge,.ch-pill,.ch-dt__sort{font-size:var(--text-sm);line-height:var(--lh-sm)}
+  .ch-table th{font-size:var(--text-sm);line-height:var(--lh-sm);text-transform:none;letter-spacing:0}
+  .ch-filters>.ch-field,.ch-filters>.search{flex:1 1 100%;min-width:0}
+}

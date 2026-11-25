@@ -1,0 +1,6321 @@
+{
+ "_doc": "Builds tests/fixtures/voice/voice_corpus.json (the shared, labelled voice-ordering corpus) from the compact table below.\n\nRun:  uv run python tests/fixtures/voice/build_corpus.py   then   sh scripts/sync_voice_fixtures.sh <web-business-admin dir>\nThe JSON is what both parsers are tested against (pos-service tests/test_voice_corpus.py, web src/lib/voiceCorpus.test.ts).",
+ "lexicon_sha256": "1e93c33d282db0c66391aefade909ad5d73a3c0871f8de65a1789214cce5ea75",
+ "cases": [
+  {
+   "id": "engl-001",
+   "cat": "english",
+   "text": "two butter naan",
+   "lines": [
+    {
+     "item": "Butter Naan",
+     "variant": null,
+     "qty": 2
+    }
+   ],
+   "command": null,
+   "gemini_sample": true
+  },
+  {
+   "id": "engl-002",
+   "cat": "english",
+   "text": "one masala dosa",
+   "lines": [
+    {
+     "item": "Masala Dosa",
+     "variant": null,
+     "qty": 1
+    }
+   ],
+   "command": null,
+   "gemini_sample": false
+  },
+  {
+   "id": "engl-003",
+   "cat": "english",
+   "text": "3 garlic naan",
+   "lines": [
+    {
+     "item": "Garlic Naan",
+     "variant": null,
+     "qty": 3
+    }
+   ],
+   "command": null,
+   "gemini_sample": false
+  },
+  {
+   "id": "engl-004",
+   "cat": "english",
+   "text": "one paneer tikka and two garlic naan",
+   "lines": [
+    {
+     "item": "Paneer Tikka",
+     "variant": null,
+     "qty": 1
+    },
+    {
+     "item": "Garlic Naan",
+     "variant": null,
+     "qty": 2
+    }
+   ],
+   "command": null,
+   "gemini_sample": false
+  },
+  {
+   "id": "engl-005",
+   "cat": "english",
+   "text": "a dal makhani please",
+   "lines": [
+    {
+     "item": "Dal Makhani",
+     "variant": null,
+     "qty": 1
+    }
+   ],
+   "command": null,
+   "gemini_sample": false
+  },
+  {
+   "id": "engl-006",
+   "cat": "english",
+   "text": "two sweet lassi",
+   "lines": [
+    {
+     "item": "Sweet Lassi",
+     "variant": null,
+     "qty": 2
+    }
+   ],
+   "command": null,
+   "gemini_sample": false
+  },
+  {
+   "id": "engl-007",
+   "cat": "english",
+   "text": "one mango lassi",
+   "lines": [
+    {
+     "item": "Mango Lassi",
+     "variant": null,
+     "qty": 1
+    }
+   ],
+   "command": null,
+   "gemini_sample": false
+  },
+  {
+   "id": "engl-008",
+   "cat": "english",
+   "text": "four tandoori roti",
+   "lines": [
+    {
+     "item": "Tandoori Roti",
+     "variant": null,
+     "qty": 4
+    }
+   ],
+   "command": null,
+   "gemini_sample": false
+  },
+  {
+   "id": "engl-009",
+   "cat": "english",
+   "text": "one veg lunch thali",
+   "lines": [
+    {
+     "item": "Veg Lunch Thali",
+     "variant": null,
+     "qty": 1
+    }
+   ],
+   "command": null,
+   "gemini_sample": true
+  },
+  {
+   "id": "engl-010",
+   "cat": "english",
+   "text": "two filter coffee",
+   "lines": [
+    {
+     "item": "Filter Coffee",
+     "variant": null,
+     "qty": 2
+    }
+   ],
+   "command": null,
+   "gemini_sample": false
+  },
+  {
+   "id": "engl-011",
+   "cat": "english",
+   "text": "one medu vada",
+   "lines": [
+    {
+     "item": "Medu Vada (2 pcs)",
+     "variant": null,
+     "qty": 1
+    }
+   ],
+   "command": null,
+   "gemini_sample": false
+  },
+  {
+   "id": "engl-012",
+   "cat": "english",
+   "text": "one chicken tikka masala",
+   "lines": [
+    {
+     "item": "Chicken Tikka Masala",
+     "variant": null,
+     "qty": 1
+    }
+   ],
+   "command": null,
+   "gemini_sample": false
+  },
+  {
+   "id": "engl-013",
+   "cat": "english",
+   "text": "one chicken tikka",
+   "lines": [
+    {
+     "item": "Chicken Tikka",
+     "variant": null,
+     "qty": 1
+    }
+   ],
+   "command": null,
+   "gemini_sample": false
+  },
+  {
+   "id": "engl-014",
+   "cat": "english",
+   "text": "two chicken 65",
+   "lines": [
+    {
+     "item": "Chicken 65",
+     "variant": null,
+     "qty": 2
+    }
+   ],
+   "command": null,
+   "gemini_sample": false
+  },
+  {
+   "id": "engl-015",
+   "cat": "english",
+   "text": "one kerala fish curry",
+   "lines": [
+    {
+     "item": "Kerala Fish Curry",
+     "variant": null,
+     "qty": 1
+    }
+   ],
+   "command": null,
+   "gemini_sample": false
+  },
+  {
+   "id": "engl-016",
+   "cat": "english",
+   "text": "one mutton rogan josh",
+   "lines": [
+    {
+     "item": "Mutton Rogan Josh",
+     "variant": null,
+     "qty": 1
+    }
+   ],
+   "command": null,
+   "gemini_sample": false
+  },
+  {
+   "id": "engl-017",
+   "cat": "english",
+   "text": "2 jeera rice",
+   "lines": [
+    {
+     "item": "Jeera Rice",
+     "variant": null,
+     "qty": 2
+    }
+   ],
+   "command": null,
+   "gemini_sample": true
+  },
+  {
+   "id": "engl-018",
+   "cat": "english",
+   "text": "one palak paneer",
+   "lines": [
+    {
+     "item": "Palak Paneer",
+     "variant": null,
+     "qty": 1
+    }
+   ],
+   "command": null,
+   "gemini_sample": false
+  },
+  {
+   "id": "engl-019",
+   "cat": "english",
+   "text": "one paneer butter masala",
+   "lines": [
+    {
+     "item": "Paneer Butter Masala",
+     "variant": null,
+     "qty": 1
+    }
+   ],
+   "command": null,
+   "gemini_sample": false
+  },
+  {
+   "id": "engl-020",
+   "cat": "english",
+   "text": "one chilli paneer",
+   "lines": [
+    {
+     "item": "Chilli Paneer",
+     "variant": null,
+     "qty": 1
+    }
+   ],
+   "command": null,
+   "gemini_sample": false
+  },
+  {
+   "id": "engl-021",
+   "cat": "english",
+   "text": "one hara bhara kebab",
+   "lines": [
+    {
+     "item": "Hara Bhara Kebab",
+     "variant": null,
+     "qty": 1
+    }
+   ],
+   "command": null,
+   "gemini_sample": false
+  },
+  {
+   "id": "engl-022",
+   "cat": "english",
+   "text": "two mutton seekh kebab",
+   "lines": [
+    {
+     "item": "Mutton Seekh Kebab",
+     "variant": null,
+     "qty": 2
+    }
+   ],
+   "command": null,
+   "gemini_sample": false
+  },
+  {
+   "id": "engl-023",
+   "cat": "english",
+   "text": "one veg biryani",
+   "lines": [
+    {
+     "item": "Veg Biryani",
+     "variant": null,
+     "qty": 1
+    }
+   ],
+   "command": null,
+   "gemini_sample": false
+  },
+  {
+   "id": "engl-024",
+   "cat": "english",
+   "text": "two gulab jamun",
+   "lines": [
+    {
+     "item": "Gulab Jamun (2 pcs)",
+     "variant": null,
+     "qty": 2
+    }
+   ],
+   "command": null,
+   "gemini_sample": false
+  },
+  {
+   "id": "engl-025",
+   "cat": "english",
+   "text": "one rasmalai",
+   "lines": [
+    {
+     "item": "Rasmalai (2 pcs)",
+     "variant": null,
+     "qty": 1
+    }
+   ],
+   "command": null,
+   "gemini_sample": true
+  },
+  {
+   "id": "engl-026",
+   "cat": "english",
+   "text": "one gajar ka halwa",
+   "lines": [
+    {
+     "item": "Gajar Ka Halwa",
+     "variant": null,
+     "qty": 1
+    }
+   ],
+   "command": null,
+   "gemini_sample": false
+  },
+  {
+   "id": "engl-027",
+   "cat": "english",
+   "text": "two malai kulfi",
+   "lines": [
+    {
+     "item": "Malai Kulfi",
+     "variant": null,
+     "qty": 2
+    }
+   ],
+   "command": null,
+   "gemini_sample": false
+  },
+  {
+   "id": "engl-028",
+   "cat": "english",
+   "text": "one fresh lime soda",
+   "lines": [
+    {
+     "item": "Fresh Lime Soda",
+     "variant": null,
+     "qty": 1
+    }
+   ],
+   "command": null,
+   "gemini_sample": false
+  },
+  {
+   "id": "engl-029",
+   "cat": "english",
+   "text": "three masala chai",
+   "lines": [
+    {
+     "item": "Masala Chai",
+     "variant": null,
+     "qty": 3
+    }
+   ],
+   "command": null,
+   "gemini_sample": false
+  },
+  {
+   "id": "engl-030",
+   "cat": "english",
+   "text": "one packaged drinking water",
+   "lines": [
+    {
+     "item": "Packaged Drinking Water (1 L)",
+     "variant": null,
+     "qty": 1
+    }
+   ],
+   "command": null,
+   "gemini_sample": false
+  },
+  {
+   "id": "engl-031",
+   "cat": "english",
+   "text": "one idli sambar",
+   "lines": [
+    {
+     "item": "Idli Sambar (3 pcs)",
+     "variant": null,
+     "qty": 1
+    }
+   ],
+   "command": null,
+   "gemini_sample": false
+  },
+  {
+   "id": "engl-032",
+   "cat": "english",
+   "text": "one podi uttapam",
+   "lines": [
+    {
+     "item": "Podi Uttapam",
+     "variant": null,
+     "qty": 1
+    }
+   ],
+   "command": null,
+   "gemini_sample": false
+  },
+  {
+   "id": "engl-033",
+   "cat": "english",
+   "text": "one pani puri",
+   "lines": [
+    {
+     "item": "Pani Puri (6 pcs)",
+     "variant": null,
+     "qty": 1
+    }
+   ],
+   "command": null,
+   "gemini_sample": true
+  },
+  {
+   "id": "engl-034",
+   "cat": "english",
+   "text": "two samosa",
+   "lines": [
+    {
+     "item": "Samosa (2 pcs)",
+     "variant": null,
+     "qty": 2
+    }
+   ],
+   "command": null,
+   "gemini_sample": false
+  },
+  {
+   "id": "engl-035",
+   "cat": "english",
+   "text": "one veg pakora",
+   "lines": [
+    {
+     "item": "Veg Pakora",
+     "variant": null,
+     "qty": 1
+    }
+   ],
+   "command": null,
+   "gemini_sample": false
+  },
+  {
+   "id": "engl-036",
+   "cat": "english",
+   "text": "one chole masala",
+   "lines": [
+    {
+     "item": "Chole Masala",
+     "variant": null,
+     "qty": 1
+    }
+   ],
+   "command": null,
+   "gemini_sample": false
+  },
+  {
+   "id": "engl-037",
+   "cat": "english",
+   "text": "one dal tadka",
+   "lines": [
+    {
+     "item": "Dal Tadka",
+     "variant": null,
+     "qty": 1
+    }
+   ],
+   "command": null,
+   "gemini_sample": false
+  },
+  {
+   "id": "engl-038",
+   "cat": "english",
+   "text": "two laccha paratha",
+   "lines": [
+    {
+     "item": "Laccha Paratha",
+     "variant": null,
+     "qty": 2
+    }
+   ],
+   "command": null,
+   "gemini_sample": false
+  },
+  {
+   "id": "engl-039",
+   "cat": "english",
+   "text": "can I get two butter naan and one dal makhani",
+   "lines": [
+    {
+     "item": "Butter Naan",
+     "variant": null,
+     "qty": 2
+    },
+    {
+     "item": "Dal Makhani",
+     "variant": null,
+     "qty": 1
+    }
+   ],
+   "command": null,
+   "gemini_sample": false
+  },
+  {
+   "id": "engl-040",
+   "cat": "english",
+   "text": "I'd like a masala dosa and a filter coffee",
+   "lines": [
+    {
+     "item": "Masala Dosa",
+     "variant": null,
+     "qty": 1
+    },
+    {
+     "item": "Filter Coffee",
+     "variant": null,
+     "qty": 1
+    }
+   ],
+   "command": null,
+   "gemini_sample": false
+  },
+  {
+   "id": "engl-041",
+   "cat": "english",
+   "text": "give me three samosas",
+   "lines": [
+    {
+     "item": "Samosa (2 pcs)",
+     "variant": null,
+     "qty": 3
+    }
+   ],
+   "command": null,
+   "gemini_sample": true
+  },
+  {
+   "id": "engl-042",
+   "cat": "english",
+   "text": "one more garlic naan",
+   "lines": [
+    {
+     "item": "Garlic Naan",
+     "variant": null,
+     "qty": 1
+    }
+   ],
+   "command": null,
+   "gemini_sample": false
+  },
+  {
+   "id": "engl-043",
+   "cat": "english",
+   "text": "two waters",
+   "lines": [
+    {
+     "item": "Packaged Drinking Water (1 L)",
+     "variant": null,
+     "qty": 2
+    }
+   ],
+   "command": null,
+   "gemini_sample": false
+  },
+  {
+   "id": "engl-044",
+   "cat": "english",
+   "text": "one tea",
+   "lines": [
+    {
+     "item": "Masala Chai",
+     "variant": null,
+     "qty": 1
+    }
+   ],
+   "command": null,
+   "gemini_sample": false
+  },
+  {
+   "id": "engl-045",
+   "cat": "english",
+   "text": "two coffee",
+   "lines": [
+    {
+     "item": "Filter Coffee",
+     "variant": null,
+     "qty": 2
+    }
+   ],
+   "command": null,
+   "gemini_sample": false
+  },
+  {
+   "id": "engl-046",
+   "cat": "english",
+   "text": "one lime soda",
+   "lines": [
+    {
+     "item": "Fresh Lime Soda",
+     "variant": null,
+     "qty": 1
+    }
+   ],
+   "command": null,
+   "gemini_sample": false
+  },
+  {
+   "id": "engl-047",
+   "cat": "english",
+   "text": "paneer tikka two",
+   "lines": [
+    {
+     "item": "Paneer Tikka",
+     "variant": null,
+     "qty": 2
+    }
+   ],
+   "command": null,
+   "gemini_sample": false
+  },
+  {
+   "id": "engl-048",
+   "cat": "english",
+   "text": "garlic naan x2",
+   "lines": [
+    {
+     "item": "Garlic Naan",
+     "variant": null,
+     "qty": 2
+    }
+   ],
+   "command": null,
+   "gemini_sample": false
+  },
+  {
+   "id": "engl-049",
+   "cat": "english",
+   "text": "2x butter naan",
+   "lines": [
+    {
+     "item": "Butter Naan",
+     "variant": null,
+     "qty": 2
+    }
+   ],
+   "command": null,
+   "gemini_sample": true
+  },
+  {
+   "id": "engl-050",
+   "cat": "english",
+   "text": "butter naan times 3",
+   "lines": [
+    {
+     "item": "Butter Naan",
+     "variant": null,
+     "qty": 3
+    }
+   ],
+   "command": null,
+   "gemini_sample": false
+  },
+  {
+   "id": "engl-051",
+   "cat": "english",
+   "text": "one chicken sixty five",
+   "lines": [
+    {
+     "item": "Chicken 65",
+     "variant": null,
+     "qty": 1
+    }
+   ],
+   "command": null,
+   "gemini_sample": false
+  },
+  {
+   "id": "engl-052",
+   "cat": "english",
+   "text": "ten tandoori roti",
+   "lines": [
+    {
+     "item": "Tandoori Roti",
+     "variant": null,
+     "qty": 10
+    }
+   ],
+   "command": null,
+   "gemini_sample": false
+  },
+  {
+   "id": "engl-053",
+   "cat": "english",
+   "text": "twelve butter naan",
+   "lines": [
+    {
+     "item": "Butter Naan",
+     "variant": null,
+     "qty": 12
+    }
+   ],
+   "command": null,
+   "gemini_sample": false
+  },
+  {
+   "id": "engl-054",
+   "cat": "english",
+   "text": "one thali",
+   "lines": [
+    {
+     "item": "Veg Lunch Thali",
+     "variant": null,
+     "qty": 1
+    }
+   ],
+   "command": null,
+   "gemini_sample": false
+  },
+  {
+   "id": "engl-055",
+   "cat": "english",
+   "text": "one rogan josh",
+   "lines": [
+    {
+     "item": "Mutton Rogan Josh",
+     "variant": null,
+     "qty": 1
+    }
+   ],
+   "command": null,
+   "gemini_sample": false
+  },
+  {
+   "id": "engl-056",
+   "cat": "english",
+   "text": "one fish curry",
+   "lines": [
+    {
+     "item": "Kerala Fish Curry",
+     "variant": null,
+     "qty": 1
+    }
+   ],
+   "command": null,
+   "gemini_sample": false
+  },
+  {
+   "id": "hind-057",
+   "cat": "hindi_roman",
+   "text": "do butter naan",
+   "lines": [
+    {
+     "item": "Butter Naan",
+     "variant": null,
+     "qty": 2
+    }
+   ],
+   "command": null,
+   "gemini_sample": true
+  },
+  {
+   "id": "hind-058",
+   "cat": "hindi_roman",
+   "text": "ek dal makhani",
+   "lines": [
+    {
+     "item": "Dal Makhani",
+     "variant": null,
+     "qty": 1
+    }
+   ],
+   "command": null,
+   "gemini_sample": false
+  },
+  {
+   "id": "hind-059",
+   "cat": "hindi_roman",
+   "text": "teen garlic naan",
+   "lines": [
+    {
+     "item": "Garlic Naan",
+     "variant": null,
+     "qty": 3
+    }
+   ],
+   "command": null,
+   "gemini_sample": false
+  },
+  {
+   "id": "hind-060",
+   "cat": "hindi_roman",
+   "text": "char tandoori roti",
+   "lines": [
+    {
+     "item": "Tandoori Roti",
+     "variant": null,
+     "qty": 4
+    }
+   ],
+   "command": null,
+   "gemini_sample": false
+  },
+  {
+   "id": "hind-061",
+   "cat": "hindi_roman",
+   "text": "paanch samosa",
+   "lines": [
+    {
+     "item": "Samosa (2 pcs)",
+     "variant": null,
+     "qty": 5
+    }
+   ],
+   "command": null,
+   "gemini_sample": false
+  },
+  {
+   "id": "hind-062",
+   "cat": "hindi_roman",
+   "text": "chhe masala chai",
+   "lines": [
+    {
+     "item": "Masala Chai",
+     "variant": null,
+     "qty": 6
+    }
+   ],
+   "command": null,
+   "gemini_sample": false
+  },
+  {
+   "id": "hind-063",
+   "cat": "hindi_roman",
+   "text": "saat gulab jamun",
+   "lines": [
+    {
+     "item": "Gulab Jamun (2 pcs)",
+     "variant": null,
+     "qty": 7
+    }
+   ],
+   "command": null,
+   "gemini_sample": false
+  },
+  {
+   "id": "hind-064",
+   "cat": "hindi_roman",
+   "text": "aath butter naan",
+   "lines": [
+    {
+     "item": "Butter Naan",
+     "variant": null,
+     "qty": 8
+    }
+   ],
+   "command": null,
+   "gemini_sample": false
+  },
+  {
+   "id": "hind-065",
+   "cat": "hindi_roman",
+   "text": "nau tandoori roti",
+   "lines": [
+    {
+     "item": "Tandoori Roti",
+     "variant": null,
+     "qty": 9
+    }
+   ],
+   "command": null,
+   "gemini_sample": true
+  },
+  {
+   "id": "hind-066",
+   "cat": "hindi_roman",
+   "text": "das pani puri",
+   "lines": [
+    {
+     "item": "Pani Puri (6 pcs)",
+     "variant": null,
+     "qty": 10
+    }
+   ],
+   "command": null,
+   "gemini_sample": false
+  },
+  {
+   "id": "hind-067",
+   "cat": "hindi_roman",
+   "text": "ek masala dosa dena",
+   "lines": [
+    {
+     "item": "Masala Dosa",
+     "variant": null,
+     "qty": 1
+    }
+   ],
+   "command": null,
+   "gemini_sample": false
+  },
+  {
+   "id": "hind-068",
+   "cat": "hindi_roman",
+   "text": "do sweet lassi chahiye",
+   "lines": [
+    {
+     "item": "Sweet Lassi",
+     "variant": null,
+     "qty": 2
+    }
+   ],
+   "command": null,
+   "gemini_sample": false
+  },
+  {
+   "id": "hind-069",
+   "cat": "hindi_roman",
+   "text": "ek paneer tikka laao",
+   "lines": [
+    {
+     "item": "Paneer Tikka",
+     "variant": null,
+     "qty": 1
+    }
+   ],
+   "command": null,
+   "gemini_sample": false
+  },
+  {
+   "id": "hind-070",
+   "cat": "hindi_roman",
+   "text": "bhaiya do chai dena",
+   "lines": [
+    {
+     "item": "Masala Chai",
+     "variant": null,
+     "qty": 2
+    }
+   ],
+   "command": null,
+   "gemini_sample": false
+  },
+  {
+   "id": "hind-071",
+   "cat": "hindi_roman",
+   "text": "ek garlic naan de do",
+   "lines": [
+    {
+     "item": "Garlic Naan",
+     "variant": null,
+     "qty": 1
+    }
+   ],
+   "command": null,
+   "gemini_sample": false
+  },
+  {
+   "id": "hind-072",
+   "cat": "hindi_roman",
+   "text": "do jeera rice kar do",
+   "lines": [
+    {
+     "item": "Jeera Rice",
+     "variant": null,
+     "qty": 2
+    }
+   ],
+   "command": null,
+   "gemini_sample": false
+  },
+  {
+   "id": "hind-073",
+   "cat": "hindi_roman",
+   "text": "ek palak paneer bhi",
+   "lines": [
+    {
+     "item": "Palak Paneer",
+     "variant": null,
+     "qty": 1
+    }
+   ],
+   "command": null,
+   "gemini_sample": true
+  },
+  {
+   "id": "hind-074",
+   "cat": "hindi_roman",
+   "text": "teen medu vada laga do",
+   "lines": [
+    {
+     "item": "Medu Vada (2 pcs)",
+     "variant": null,
+     "qty": 3
+    }
+   ],
+   "command": null,
+   "gemini_sample": false
+  },
+  {
+   "id": "hind-075",
+   "cat": "hindi_roman",
+   "text": "ek filter coffee aur do idli sambar",
+   "lines": [
+    {
+     "item": "Filter Coffee",
+     "variant": null,
+     "qty": 1
+    },
+    {
+     "item": "Idli Sambar (3 pcs)",
+     "variant": null,
+     "qty": 2
+    }
+   ],
+   "command": null,
+   "gemini_sample": false
+  },
+  {
+   "id": "hind-076",
+   "cat": "hindi_roman",
+   "text": "ek gajar ka halwa",
+   "lines": [
+    {
+     "item": "Gajar Ka Halwa",
+     "variant": null,
+     "qty": 1
+    }
+   ],
+   "command": null,
+   "gemini_sample": false
+  },
+  {
+   "id": "hind-077",
+   "cat": "hindi_roman",
+   "text": "do malai kulfi chahiye bhaiya",
+   "lines": [
+    {
+     "item": "Malai Kulfi",
+     "variant": null,
+     "qty": 2
+    }
+   ],
+   "command": null,
+   "gemini_sample": false
+  },
+  {
+   "id": "hind-078",
+   "cat": "hindi_roman",
+   "text": "ek pani ki bottle",
+   "lines": [
+    {
+     "item": "Packaged Drinking Water (1 L)",
+     "variant": null,
+     "qty": 1
+    }
+   ],
+   "command": null,
+   "gemini_sample": false
+  },
+  {
+   "id": "hind-079",
+   "cat": "hindi_roman",
+   "text": "do paani",
+   "lines": [
+    {
+     "item": "Packaged Drinking Water (1 L)",
+     "variant": null,
+     "qty": 2
+    }
+   ],
+   "command": null,
+   "gemini_sample": false
+  },
+  {
+   "id": "hind-080",
+   "cat": "hindi_roman",
+   "text": "ek nimbu soda",
+   "lines": [
+    {
+     "item": "Fresh Lime Soda",
+     "variant": null,
+     "qty": 1
+    }
+   ],
+   "command": null,
+   "gemini_sample": false
+  },
+  {
+   "id": "hind-081",
+   "cat": "hindi_roman",
+   "text": "ek aam ki lassi",
+   "lines": [
+    {
+     "item": "Mango Lassi",
+     "variant": null,
+     "qty": 1
+    }
+   ],
+   "command": null,
+   "gemini_sample": true
+  },
+  {
+   "id": "hind-082",
+   "cat": "hindi_roman",
+   "text": "ek meethi lassi",
+   "lines": [
+    {
+     "item": "Sweet Lassi",
+     "variant": null,
+     "qty": 1
+    }
+   ],
+   "command": null,
+   "gemini_sample": false
+  },
+  {
+   "id": "hind-083",
+   "cat": "hindi_roman",
+   "text": "do golgappe",
+   "lines": [
+    {
+     "item": "Pani Puri (6 pcs)",
+     "variant": null,
+     "qty": 2
+    }
+   ],
+   "command": null,
+   "gemini_sample": false
+  },
+  {
+   "id": "hind-084",
+   "cat": "hindi_roman",
+   "text": "ek chana masala",
+   "lines": [
+    {
+     "item": "Chole Masala",
+     "variant": null,
+     "qty": 1
+    }
+   ],
+   "command": null,
+   "gemini_sample": false
+  },
+  {
+   "id": "hind-085",
+   "cat": "hindi_roman",
+   "text": "ek murgh tikka",
+   "lines": [
+    {
+     "item": "Chicken Tikka",
+     "variant": null,
+     "qty": 1
+    }
+   ],
+   "command": null,
+   "gemini_sample": false
+  },
+  {
+   "id": "hind-086",
+   "cat": "hindi_roman",
+   "text": "ek chicken tikka masala dijiye",
+   "lines": [
+    {
+     "item": "Chicken Tikka Masala",
+     "variant": null,
+     "qty": 1
+    }
+   ],
+   "command": null,
+   "gemini_sample": false
+  },
+  {
+   "id": "hind-087",
+   "cat": "hindi_roman",
+   "text": "gyarah roti",
+   "lines": [
+    {
+     "item": "Tandoori Roti",
+     "variant": null,
+     "qty": 11
+    }
+   ],
+   "command": null,
+   "gemini_sample": false
+  },
+  {
+   "id": "hind-088",
+   "cat": "hindi_roman",
+   "text": "barah butter naan",
+   "lines": [
+    {
+     "item": "Butter Naan",
+     "variant": null,
+     "qty": 12
+    }
+   ],
+   "command": null,
+   "gemini_sample": false
+  },
+  {
+   "id": "hind-089",
+   "cat": "hindi_roman",
+   "text": "bees samose",
+   "lines": [
+    {
+     "item": "Samosa (2 pcs)",
+     "variant": null,
+     "qty": 20
+    }
+   ],
+   "command": null,
+   "gemini_sample": true
+  },
+  {
+   "id": "hind-090",
+   "cat": "hindi_roman",
+   "text": "ek ek masala dosa aur filter coffee",
+   "lines": [
+    {
+     "item": "Masala Dosa",
+     "variant": null,
+     "qty": 1
+    },
+    {
+     "item": "Filter Coffee",
+     "variant": null,
+     "qty": 1
+    }
+   ],
+   "command": null,
+   "gemini_sample": false
+  },
+  {
+   "id": "hind-091",
+   "cat": "hindi_roman",
+   "text": "do do butter naan aur garlic naan",
+   "lines": [
+    {
+     "item": "Butter Naan",
+     "variant": null,
+     "qty": 2
+    },
+    {
+     "item": "Garlic Naan",
+     "variant": null,
+     "qty": 2
+    }
+   ],
+   "command": null,
+   "gemini_sample": false
+  },
+  {
+   "id": "hind-092",
+   "cat": "hindi_roman",
+   "text": "ek plate chole masala",
+   "lines": [
+    {
+     "item": "Chole Masala",
+     "variant": null,
+     "qty": 1
+    }
+   ],
+   "command": null,
+   "gemini_sample": false
+  },
+  {
+   "id": "hind-093",
+   "cat": "hindi_roman",
+   "text": "do glass sweet lassi",
+   "lines": [
+    {
+     "item": "Sweet Lassi",
+     "variant": null,
+     "qty": 2
+    }
+   ],
+   "command": null,
+   "gemini_sample": false
+  },
+  {
+   "id": "hind-094",
+   "cat": "hindi_roman",
+   "text": "teen cup chai",
+   "lines": [
+    {
+     "item": "Masala Chai",
+     "variant": null,
+     "qty": 3
+    }
+   ],
+   "command": null,
+   "gemini_sample": false
+  },
+  {
+   "id": "hind-095",
+   "cat": "hindi_roman",
+   "text": "ek katori dal tadka",
+   "lines": [
+    {
+     "item": "Dal Tadka",
+     "variant": null,
+     "qty": 1
+    }
+   ],
+   "command": null,
+   "gemini_sample": false
+  },
+  {
+   "id": "hind-096",
+   "cat": "hindi_roman",
+   "text": "mujhe ek veg biryani chahiye",
+   "lines": [
+    {
+     "item": "Veg Biryani",
+     "variant": null,
+     "qty": 1
+    }
+   ],
+   "command": null,
+   "gemini_sample": false
+  },
+  {
+   "id": "deva-097",
+   "cat": "devanagari",
+   "text": "दो बटर नान",
+   "lines": [
+    {
+     "item": "Butter Naan",
+     "variant": null,
+     "qty": 2
+    }
+   ],
+   "command": null,
+   "gemini_sample": true
+  },
+  {
+   "id": "deva-098",
+   "cat": "devanagari",
+   "text": "एक पनीर टिक्का",
+   "lines": [
+    {
+     "item": "Paneer Tikka",
+     "variant": null,
+     "qty": 1
+    }
+   ],
+   "command": null,
+   "gemini_sample": false
+  },
+  {
+   "id": "deva-099",
+   "cat": "devanagari",
+   "text": "तीन गार्लिक नान",
+   "lines": [
+    {
+     "item": "Garlic Naan",
+     "variant": null,
+     "qty": 3
+    }
+   ],
+   "command": null,
+   "gemini_sample": false
+  },
+  {
+   "id": "deva-100",
+   "cat": "devanagari",
+   "text": "एक दाल मखनी",
+   "lines": [
+    {
+     "item": "Dal Makhani",
+     "variant": null,
+     "qty": 1
+    }
+   ],
+   "command": null,
+   "gemini_sample": false
+  },
+  {
+   "id": "deva-101",
+   "cat": "devanagari",
+   "text": "दो मसाला डोसा",
+   "lines": [
+    {
+     "item": "Masala Dosa",
+     "variant": null,
+     "qty": 2
+    }
+   ],
+   "command": null,
+   "gemini_sample": false
+  },
+  {
+   "id": "deva-102",
+   "cat": "devanagari",
+   "text": "एक मैंगो लस्सी",
+   "lines": [
+    {
+     "item": "Mango Lassi",
+     "variant": null,
+     "qty": 1
+    }
+   ],
+   "command": null,
+   "gemini_sample": false
+  },
+  {
+   "id": "deva-103",
+   "cat": "devanagari",
+   "text": "चार तंदूरी रोटी",
+   "lines": [
+    {
+     "item": "Tandoori Roti",
+     "variant": null,
+     "qty": 4
+    }
+   ],
+   "command": null,
+   "gemini_sample": false
+  },
+  {
+   "id": "deva-104",
+   "cat": "devanagari",
+   "text": "दो समोसा",
+   "lines": [
+    {
+     "item": "Samosa (2 pcs)",
+     "variant": null,
+     "qty": 2
+    }
+   ],
+   "command": null,
+   "gemini_sample": false
+  },
+  {
+   "id": "deva-105",
+   "cat": "devanagari",
+   "text": "एक मसाला चाय",
+   "lines": [
+    {
+     "item": "Masala Chai",
+     "variant": null,
+     "qty": 1
+    }
+   ],
+   "command": null,
+   "gemini_sample": true
+  },
+  {
+   "id": "deva-106",
+   "cat": "devanagari",
+   "text": "२ बटर नान",
+   "lines": [
+    {
+     "item": "Butter Naan",
+     "variant": null,
+     "qty": 2
+    }
+   ],
+   "command": null,
+   "gemini_sample": false
+  },
+  {
+   "id": "deva-107",
+   "cat": "devanagari",
+   "text": "३ मसाला चाय",
+   "lines": [
+    {
+     "item": "Masala Chai",
+     "variant": null,
+     "qty": 3
+    }
+   ],
+   "command": null,
+   "gemini_sample": false
+  },
+  {
+   "id": "deva-108",
+   "cat": "devanagari",
+   "text": "एक बटर चिकन",
+   "lines": [
+    {
+     "item": "Butter Chicken",
+     "variant": "Half",
+     "qty": 1
+    }
+   ],
+   "command": null,
+   "gemini_sample": false
+  },
+  {
+   "id": "deva-109",
+   "cat": "devanagari",
+   "text": "एक बटर चिकन फुल",
+   "lines": [
+    {
+     "item": "Butter Chicken",
+     "variant": "Full",
+     "qty": 1
+    }
+   ],
+   "command": null,
+   "gemini_sample": false
+  },
+  {
+   "id": "deva-110",
+   "cat": "devanagari",
+   "text": "एक चिकन बिरयानी",
+   "lines": [
+    {
+     "item": "Chicken Biryani",
+     "variant": "Half",
+     "qty": 1
+    }
+   ],
+   "command": null,
+   "gemini_sample": false
+  },
+  {
+   "id": "deva-111",
+   "cat": "devanagari",
+   "text": "दो गुलाब जामुन",
+   "lines": [
+    {
+     "item": "Gulab Jamun (2 pcs)",
+     "variant": null,
+     "qty": 2
+    }
+   ],
+   "command": null,
+   "gemini_sample": false
+  },
+  {
+   "id": "deva-112",
+   "cat": "devanagari",
+   "text": "एक पालक पनीर और दो रोटी",
+   "lines": [
+    {
+     "item": "Palak Paneer",
+     "variant": null,
+     "qty": 1
+    },
+    {
+     "item": "Tandoori Roti",
+     "variant": null,
+     "qty": 2
+    }
+   ],
+   "command": null,
+   "gemini_sample": false
+  },
+  {
+   "id": "deva-113",
+   "cat": "devanagari",
+   "text": "एक फ़िल्टर कॉफ़ी",
+   "lines": [
+    {
+     "item": "Filter Coffee",
+     "variant": null,
+     "qty": 1
+    }
+   ],
+   "command": null,
+   "gemini_sample": true
+  },
+  {
+   "id": "deva-114",
+   "cat": "devanagari",
+   "text": "एक मेदु वडा",
+   "lines": [
+    {
+     "item": "Medu Vada (2 pcs)",
+     "variant": null,
+     "qty": 1
+    }
+   ],
+   "command": null,
+   "gemini_sample": false
+  },
+  {
+   "id": "deva-115",
+   "cat": "devanagari",
+   "text": "एक रसमलाई",
+   "lines": [
+    {
+     "item": "Rasmalai (2 pcs)",
+     "variant": null,
+     "qty": 1
+    }
+   ],
+   "command": null,
+   "gemini_sample": false
+  },
+  {
+   "id": "deva-116",
+   "cat": "devanagari",
+   "text": "दो जीरा राइस",
+   "lines": [
+    {
+     "item": "Jeera Rice",
+     "variant": null,
+     "qty": 2
+    }
+   ],
+   "command": null,
+   "gemini_sample": false
+  },
+  {
+   "id": "hing-117",
+   "cat": "hinglish",
+   "text": "ek butter chicken half aur do butter naan",
+   "lines": [
+    {
+     "item": "Butter Chicken",
+     "variant": "Half",
+     "qty": 1
+    },
+    {
+     "item": "Butter Naan",
+     "variant": null,
+     "qty": 2
+    }
+   ],
+   "command": null,
+   "gemini_sample": false
+  },
+  {
+   "id": "hing-118",
+   "cat": "hinglish",
+   "text": "do paneer tikka and ek mango lassi",
+   "lines": [
+    {
+     "item": "Paneer Tikka",
+     "variant": null,
+     "qty": 2
+    },
+    {
+     "item": "Mango Lassi",
+     "variant": null,
+     "qty": 1
+    }
+   ],
+   "command": null,
+   "gemini_sample": false
+  },
+  {
+   "id": "hing-119",
+   "cat": "hinglish",
+   "text": "bhai ek masala dosa extra sambar ke saath",
+   "lines": [
+    {
+     "item": "Masala Dosa",
+     "variant": null,
+     "qty": 1
+    }
+   ],
+   "command": null,
+   "gemini_sample": false
+  },
+  {
+   "id": "hing-120",
+   "cat": "hinglish",
+   "text": "one dal makhani aur teen butter naan please",
+   "lines": [
+    {
+     "item": "Dal Makhani",
+     "variant": null,
+     "qty": 1
+    },
+    {
+     "item": "Butter Naan",
+     "variant": null,
+     "qty": 3
+    }
+   ],
+   "command": null,
+   "gemini_sample": false
+  },
+  {
+   "id": "hing-121",
+   "cat": "hinglish",
+   "text": "ek veg thali aur ek sweet lassi",
+   "lines": [
+    {
+     "item": "Veg Lunch Thali",
+     "variant": null,
+     "qty": 1
+    },
+    {
+     "item": "Sweet Lassi",
+     "variant": null,
+     "qty": 1
+    }
+   ],
+   "command": null,
+   "gemini_sample": true
+  },
+  {
+   "id": "hing-122",
+   "cat": "hinglish",
+   "text": "do chicken biryani full aur ek raita nahi",
+   "lines": [
+    {
+     "item": "Chicken Biryani",
+     "variant": "Full",
+     "qty": 2
+    }
+   ],
+   "command": null,
+   "gemini_sample": false
+  },
+  {
+   "id": "hing-123",
+   "cat": "hinglish",
+   "text": "table ke liye do garlic naan",
+   "lines": [
+    {
+     "item": "Garlic Naan",
+     "variant": null,
+     "qty": 2
+    }
+   ],
+   "command": null,
+   "gemini_sample": false
+  },
+  {
+   "id": "hing-124",
+   "cat": "hinglish",
+   "text": "ek chilli paneer dry",
+   "lines": [
+    {
+     "item": "Chilli Paneer",
+     "variant": null,
+     "qty": 1
+    }
+   ],
+   "command": null,
+   "gemini_sample": false
+  },
+  {
+   "id": "hing-125",
+   "cat": "hinglish",
+   "text": "do masala chai, ek kam cheeni wali",
+   "lines": [
+    {
+     "item": "Masala Chai",
+     "variant": null,
+     "qty": 2
+    }
+   ],
+   "command": null,
+   "gemini_sample": false
+  },
+  {
+   "id": "hing-126",
+   "cat": "hinglish",
+   "text": "ek filter coffee strong",
+   "lines": [
+    {
+     "item": "Filter Coffee",
+     "variant": null,
+     "qty": 1
+    }
+   ],
+   "command": null,
+   "gemini_sample": false
+  },
+  {
+   "id": "hing-127",
+   "cat": "hinglish",
+   "text": "two plate pani puri",
+   "lines": [
+    {
+     "item": "Pani Puri (6 pcs)",
+     "variant": null,
+     "qty": 2
+    }
+   ],
+   "command": null,
+   "gemini_sample": false
+  },
+  {
+   "id": "hing-128",
+   "cat": "hinglish",
+   "text": "ek plate samosa aur do chai",
+   "lines": [
+    {
+     "item": "Samosa (2 pcs)",
+     "variant": null,
+     "qty": 1
+    },
+    {
+     "item": "Masala Chai",
+     "variant": null,
+     "qty": 2
+    }
+   ],
+   "command": null,
+   "gemini_sample": false
+  },
+  {
+   "id": "hing-129",
+   "cat": "hinglish",
+   "text": "ek hara bhara kebab aur ek seekh kebab",
+   "lines": [
+    {
+     "item": "Hara Bhara Kebab",
+     "variant": null,
+     "qty": 1
+    },
+    {
+     "item": "Mutton Seekh Kebab",
+     "variant": null,
+     "qty": 1
+    }
+   ],
+   "command": null,
+   "gemini_sample": true
+  },
+  {
+   "id": "hing-130",
+   "cat": "hinglish",
+   "text": "mutton biryani ek full",
+   "lines": [
+    {
+     "item": "Mutton Biryani",
+     "variant": "Full",
+     "qty": 1
+    }
+   ],
+   "command": null,
+   "gemini_sample": false
+  },
+  {
+   "id": "hing-131",
+   "cat": "hinglish",
+   "text": "ek tandoori chicken half",
+   "lines": [
+    {
+     "item": "Tandoori Chicken",
+     "variant": "Half",
+     "qty": 1
+    }
+   ],
+   "command": null,
+   "gemini_sample": false
+  },
+  {
+   "id": "hing-132",
+   "cat": "hinglish",
+   "text": "ek tandoori chicken full",
+   "lines": [
+    {
+     "item": "Tandoori Chicken",
+     "variant": "Full",
+     "qty": 1
+    }
+   ],
+   "command": null,
+   "gemini_sample": false
+  },
+  {
+   "id": "hing-133",
+   "cat": "hinglish",
+   "text": "ek palak paneer, do laccha paratha",
+   "lines": [
+    {
+     "item": "Palak Paneer",
+     "variant": null,
+     "qty": 1
+    },
+    {
+     "item": "Laccha Paratha",
+     "variant": null,
+     "qty": 2
+    }
+   ],
+   "command": null,
+   "gemini_sample": false
+  },
+  {
+   "id": "hing-134",
+   "cat": "hinglish",
+   "text": "ek idli sambar aur ek medu vada",
+   "lines": [
+    {
+     "item": "Idli Sambar (3 pcs)",
+     "variant": null,
+     "qty": 1
+    },
+    {
+     "item": "Medu Vada (2 pcs)",
+     "variant": null,
+     "qty": 1
+    }
+   ],
+   "command": null,
+   "gemini_sample": false
+  },
+  {
+   "id": "hing-135",
+   "cat": "hinglish",
+   "text": "ek rogan josh aur do jeera rice",
+   "lines": [
+    {
+     "item": "Mutton Rogan Josh",
+     "variant": null,
+     "qty": 1
+    },
+    {
+     "item": "Jeera Rice",
+     "variant": null,
+     "qty": 2
+    }
+   ],
+   "command": null,
+   "gemini_sample": false
+  },
+  {
+   "id": "hing-136",
+   "cat": "hinglish",
+   "text": "do kulfi aur ek gajar halwa",
+   "lines": [
+    {
+     "item": "Malai Kulfi",
+     "variant": null,
+     "qty": 2
+    },
+    {
+     "item": "Gajar Ka Halwa",
+     "variant": null,
+     "qty": 1
+    }
+   ],
+   "command": null,
+   "gemini_sample": false
+  },
+  {
+   "id": "hing-137",
+   "cat": "hinglish",
+   "text": "ek fish curry with rice",
+   "lines": [
+    {
+     "item": "Kerala Fish Curry",
+     "variant": null,
+     "qty": 1
+    },
+    {
+     "item": "Jeera Rice",
+     "variant": null,
+     "qty": 1
+    }
+   ],
+   "command": null,
+   "gemini_sample": true
+  },
+  {
+   "id": "hing-138",
+   "cat": "hinglish",
+   "text": "ek podi uttapam bhi add karo",
+   "lines": [
+    {
+     "item": "Podi Uttapam",
+     "variant": null,
+     "qty": 1
+    }
+   ],
+   "command": null,
+   "gemini_sample": false
+  },
+  {
+   "id": "hing-139",
+   "cat": "hinglish",
+   "text": "paneer tikka do plate",
+   "lines": [
+    {
+     "item": "Paneer Tikka",
+     "variant": null,
+     "qty": 2
+    }
+   ],
+   "command": null,
+   "gemini_sample": false
+  },
+  {
+   "id": "hing-140",
+   "cat": "hinglish",
+   "text": "butter naan teen",
+   "lines": [
+    {
+     "item": "Butter Naan",
+     "variant": null,
+     "qty": 3
+    }
+   ],
+   "command": null,
+   "gemini_sample": false
+  },
+  {
+   "id": "hing-141",
+   "cat": "hinglish",
+   "text": "dal makhani ek aur butter naan do",
+   "lines": [
+    {
+     "item": "Dal Makhani",
+     "variant": null,
+     "qty": 1
+    },
+    {
+     "item": "Butter Naan",
+     "variant": null,
+     "qty": 2
+    }
+   ],
+   "command": null,
+   "gemini_sample": false
+  },
+  {
+   "id": "miss-142",
+   "cat": "misspelling",
+   "text": "two butter nan",
+   "lines": [
+    {
+     "item": "Butter Naan",
+     "variant": null,
+     "qty": 2
+    }
+   ],
+   "command": null,
+   "gemini_sample": false
+  },
+  {
+   "id": "miss-143",
+   "cat": "misspelling",
+   "text": "ek garlic nan",
+   "lines": [
+    {
+     "item": "Garlic Naan",
+     "variant": null,
+     "qty": 1
+    }
+   ],
+   "command": null,
+   "gemini_sample": false
+  },
+  {
+   "id": "miss-144",
+   "cat": "misspelling",
+   "text": "ek paneer tika",
+   "lines": [
+    {
+     "item": "Paneer Tikka",
+     "variant": null,
+     "qty": 1
+    }
+   ],
+   "command": null,
+   "gemini_sample": false
+  },
+  {
+   "id": "miss-145",
+   "cat": "misspelling",
+   "text": "ek panir tikka",
+   "lines": [
+    {
+     "item": "Paneer Tikka",
+     "variant": null,
+     "qty": 1
+    }
+   ],
+   "command": null,
+   "gemini_sample": true
+  },
+  {
+   "id": "miss-146",
+   "cat": "misspelling",
+   "text": "ek paneer teeka",
+   "lines": [
+    {
+     "item": "Paneer Tikka",
+     "variant": null,
+     "qty": 1
+    }
+   ],
+   "command": null,
+   "gemini_sample": false
+  },
+  {
+   "id": "miss-147",
+   "cat": "misspelling",
+   "text": "do chicken biriyani",
+   "lines": [
+    {
+     "item": "Chicken Biryani",
+     "variant": "Half",
+     "qty": 2
+    }
+   ],
+   "command": null,
+   "gemini_sample": false
+  },
+  {
+   "id": "miss-148",
+   "cat": "misspelling",
+   "text": "ek chicken briyani",
+   "lines": [
+    {
+     "item": "Chicken Biryani",
+     "variant": "Half",
+     "qty": 1
+    }
+   ],
+   "command": null,
+   "gemini_sample": false
+  },
+  {
+   "id": "miss-149",
+   "cat": "misspelling",
+   "text": "ek mutton beriyani full",
+   "lines": [
+    {
+     "item": "Mutton Biryani",
+     "variant": "Full",
+     "qty": 1
+    }
+   ],
+   "command": null,
+   "gemini_sample": false
+  },
+  {
+   "id": "miss-150",
+   "cat": "misspelling",
+   "text": "ek daal makhni",
+   "lines": [
+    {
+     "item": "Dal Makhani",
+     "variant": null,
+     "qty": 1
+    }
+   ],
+   "command": null,
+   "gemini_sample": false
+  },
+  {
+   "id": "miss-151",
+   "cat": "misspelling",
+   "text": "ek dal makhni",
+   "lines": [
+    {
+     "item": "Dal Makhani",
+     "variant": null,
+     "qty": 1
+    }
+   ],
+   "command": null,
+   "gemini_sample": false
+  },
+  {
+   "id": "miss-152",
+   "cat": "misspelling",
+   "text": "do lasi sweet",
+   "lines": [
+    {
+     "item": "Sweet Lassi",
+     "variant": null,
+     "qty": 2
+    }
+   ],
+   "command": null,
+   "gemini_sample": false
+  },
+  {
+   "id": "miss-153",
+   "cat": "misspelling",
+   "text": "ek mango lasi",
+   "lines": [
+    {
+     "item": "Mango Lassi",
+     "variant": null,
+     "qty": 1
+    }
+   ],
+   "command": null,
+   "gemini_sample": true
+  },
+  {
+   "id": "miss-154",
+   "cat": "misspelling",
+   "text": "ek masala dosha",
+   "lines": [
+    {
+     "item": "Masala Dosa",
+     "variant": null,
+     "qty": 1
+    }
+   ],
+   "command": null,
+   "gemini_sample": false
+  },
+  {
+   "id": "miss-155",
+   "cat": "misspelling",
+   "text": "do masala chaay",
+   "lines": [
+    {
+     "item": "Masala Chai",
+     "variant": null,
+     "qty": 2
+    }
+   ],
+   "command": null,
+   "gemini_sample": false
+  },
+  {
+   "id": "miss-156",
+   "cat": "misspelling",
+   "text": "ek batter chicken",
+   "lines": [
+    {
+     "item": "Butter Chicken",
+     "variant": "Half",
+     "qty": 1
+    }
+   ],
+   "command": null,
+   "gemini_sample": false
+  },
+  {
+   "id": "miss-157",
+   "cat": "misspelling",
+   "text": "ek butter chiken",
+   "lines": [
+    {
+     "item": "Butter Chicken",
+     "variant": "Half",
+     "qty": 1
+    }
+   ],
+   "command": null,
+   "gemini_sample": false
+  },
+  {
+   "id": "miss-158",
+   "cat": "misspelling",
+   "text": "ek chikan tikka",
+   "lines": [
+    {
+     "item": "Chicken Tikka",
+     "variant": null,
+     "qty": 1
+    }
+   ],
+   "command": null,
+   "gemini_sample": false
+  },
+  {
+   "id": "miss-159",
+   "cat": "misspelling",
+   "text": "two garlic naans",
+   "lines": [
+    {
+     "item": "Garlic Naan",
+     "variant": null,
+     "qty": 2
+    }
+   ],
+   "command": null,
+   "gemini_sample": false
+  },
+  {
+   "id": "miss-160",
+   "cat": "misspelling",
+   "text": "ek palak panir",
+   "lines": [
+    {
+     "item": "Palak Paneer",
+     "variant": null,
+     "qty": 1
+    }
+   ],
+   "command": null,
+   "gemini_sample": false
+  },
+  {
+   "id": "miss-161",
+   "cat": "misspelling",
+   "text": "ek paneer butter masaala",
+   "lines": [
+    {
+     "item": "Paneer Butter Masala",
+     "variant": null,
+     "qty": 1
+    }
+   ],
+   "command": null,
+   "gemini_sample": true
+  },
+  {
+   "id": "miss-162",
+   "cat": "misspelling",
+   "text": "ek chole masaala",
+   "lines": [
+    {
+     "item": "Chole Masala",
+     "variant": null,
+     "qty": 1
+    }
+   ],
+   "command": null,
+   "gemini_sample": false
+  },
+  {
+   "id": "miss-163",
+   "cat": "misspelling",
+   "text": "do laccha parantha",
+   "lines": [
+    {
+     "item": "Laccha Paratha",
+     "variant": null,
+     "qty": 2
+    }
+   ],
+   "command": null,
+   "gemini_sample": false
+  },
+  {
+   "id": "miss-164",
+   "cat": "misspelling",
+   "text": "ek lachha paratha",
+   "lines": [
+    {
+     "item": "Laccha Paratha",
+     "variant": null,
+     "qty": 1
+    }
+   ],
+   "command": null,
+   "gemini_sample": false
+  },
+  {
+   "id": "miss-165",
+   "cat": "misspelling",
+   "text": "ek tanduri roti",
+   "lines": [
+    {
+     "item": "Tandoori Roti",
+     "variant": null,
+     "qty": 1
+    }
+   ],
+   "command": null,
+   "gemini_sample": false
+  },
+  {
+   "id": "miss-166",
+   "cat": "misspelling",
+   "text": "do tandoori rotis",
+   "lines": [
+    {
+     "item": "Tandoori Roti",
+     "variant": null,
+     "qty": 2
+    }
+   ],
+   "command": null,
+   "gemini_sample": false
+  },
+  {
+   "id": "miss-167",
+   "cat": "misspelling",
+   "text": "ek medu wada",
+   "lines": [
+    {
+     "item": "Medu Vada (2 pcs)",
+     "variant": null,
+     "qty": 1
+    }
+   ],
+   "command": null,
+   "gemini_sample": false
+  },
+  {
+   "id": "miss-168",
+   "cat": "misspelling",
+   "text": "ek idly sambhar",
+   "lines": [
+    {
+     "item": "Idli Sambar (3 pcs)",
+     "variant": null,
+     "qty": 1
+    }
+   ],
+   "command": null,
+   "gemini_sample": false
+  },
+  {
+   "id": "miss-169",
+   "cat": "misspelling",
+   "text": "ek podi uthappam",
+   "lines": [
+    {
+     "item": "Podi Uttapam",
+     "variant": null,
+     "qty": 1
+    }
+   ],
+   "command": null,
+   "gemini_sample": true
+  },
+  {
+   "id": "miss-170",
+   "cat": "misspelling",
+   "text": "ek gulab jamoon",
+   "lines": [
+    {
+     "item": "Gulab Jamun (2 pcs)",
+     "variant": null,
+     "qty": 1
+    }
+   ],
+   "command": null,
+   "gemini_sample": false
+  },
+  {
+   "id": "miss-171",
+   "cat": "misspelling",
+   "text": "ek ras malai",
+   "lines": [
+    {
+     "item": "Rasmalai (2 pcs)",
+     "variant": null,
+     "qty": 1
+    }
+   ],
+   "command": null,
+   "gemini_sample": false
+  },
+  {
+   "id": "miss-172",
+   "cat": "misspelling",
+   "text": "ek gajar ka halva",
+   "lines": [
+    {
+     "item": "Gajar Ka Halwa",
+     "variant": null,
+     "qty": 1
+    }
+   ],
+   "command": null,
+   "gemini_sample": false
+  },
+  {
+   "id": "miss-173",
+   "cat": "misspelling",
+   "text": "ek malai kulphi",
+   "lines": [
+    {
+     "item": "Malai Kulfi",
+     "variant": null,
+     "qty": 1
+    }
+   ],
+   "command": null,
+   "gemini_sample": false
+  },
+  {
+   "id": "miss-174",
+   "cat": "misspelling",
+   "text": "ek filter kofi",
+   "lines": [
+    {
+     "item": "Filter Coffee",
+     "variant": null,
+     "qty": 1
+    }
+   ],
+   "command": null,
+   "gemini_sample": false
+  },
+  {
+   "id": "miss-175",
+   "cat": "misspelling",
+   "text": "ek fresh lime sodaa",
+   "lines": [
+    {
+     "item": "Fresh Lime Soda",
+     "variant": null,
+     "qty": 1
+    }
+   ],
+   "command": null,
+   "gemini_sample": false
+  },
+  {
+   "id": "miss-176",
+   "cat": "misspelling",
+   "text": "ek veg pakoda",
+   "lines": [
+    {
+     "item": "Veg Pakora",
+     "variant": null,
+     "qty": 1
+    }
+   ],
+   "command": null,
+   "gemini_sample": false
+  },
+  {
+   "id": "miss-177",
+   "cat": "misspelling",
+   "text": "ek hara bhara kabab",
+   "lines": [
+    {
+     "item": "Hara Bhara Kebab",
+     "variant": null,
+     "qty": 1
+    }
+   ],
+   "command": null,
+   "gemini_sample": true
+  },
+  {
+   "id": "miss-178",
+   "cat": "misspelling",
+   "text": "ek mutton sheekh kabab",
+   "lines": [
+    {
+     "item": "Mutton Seekh Kebab",
+     "variant": null,
+     "qty": 1
+    }
+   ],
+   "command": null,
+   "gemini_sample": false
+  },
+  {
+   "id": "miss-179",
+   "cat": "misspelling",
+   "text": "ek mutton rogan gosht",
+   "lines": [
+    {
+     "item": "Mutton Rogan Josh",
+     "variant": null,
+     "qty": 1
+    }
+   ],
+   "command": null,
+   "gemini_sample": false
+  },
+  {
+   "id": "miss-180",
+   "cat": "misspelling",
+   "text": "ek keral fish curry",
+   "lines": [
+    {
+     "item": "Kerala Fish Curry",
+     "variant": null,
+     "qty": 1
+    }
+   ],
+   "command": null,
+   "gemini_sample": false
+  },
+  {
+   "id": "miss-181",
+   "cat": "misspelling",
+   "text": "ek chicken tikka masaala",
+   "lines": [
+    {
+     "item": "Chicken Tikka Masala",
+     "variant": null,
+     "qty": 1
+    }
+   ],
+   "command": null,
+   "gemini_sample": false
+  },
+  {
+   "id": "miss-182",
+   "cat": "misspelling",
+   "text": "ek jira rice",
+   "lines": [
+    {
+     "item": "Jeera Rice",
+     "variant": null,
+     "qty": 1
+    }
+   ],
+   "command": null,
+   "gemini_sample": false
+  },
+  {
+   "id": "miss-183",
+   "cat": "misspelling",
+   "text": "ek zeera rice",
+   "lines": [
+    {
+     "item": "Jeera Rice",
+     "variant": null,
+     "qty": 1
+    }
+   ],
+   "command": null,
+   "gemini_sample": false
+  },
+  {
+   "id": "miss-184",
+   "cat": "misspelling",
+   "text": "ek chilly paneer",
+   "lines": [
+    {
+     "item": "Chilli Paneer",
+     "variant": null,
+     "qty": 1
+    }
+   ],
+   "command": null,
+   "gemini_sample": false
+  },
+  {
+   "id": "miss-185",
+   "cat": "misspelling",
+   "text": "ek chilli panir",
+   "lines": [
+    {
+     "item": "Chilli Paneer",
+     "variant": null,
+     "qty": 1
+    }
+   ],
+   "command": null,
+   "gemini_sample": true
+  },
+  {
+   "id": "miss-186",
+   "cat": "misspelling",
+   "text": "ek veg biriyani",
+   "lines": [
+    {
+     "item": "Veg Biryani",
+     "variant": null,
+     "qty": 1
+    }
+   ],
+   "command": null,
+   "gemini_sample": false
+  },
+  {
+   "id": "miss-187",
+   "cat": "misspelling",
+   "text": "ek samose",
+   "lines": [
+    {
+     "item": "Samosa (2 pcs)",
+     "variant": null,
+     "qty": 1
+    }
+   ],
+   "command": null,
+   "gemini_sample": false
+  },
+  {
+   "id": "miss-188",
+   "cat": "misspelling",
+   "text": "ek pani poori",
+   "lines": [
+    {
+     "item": "Pani Puri (6 pcs)",
+     "variant": null,
+     "qty": 1
+    }
+   ],
+   "command": null,
+   "gemini_sample": false
+  },
+  {
+   "id": "miss-189",
+   "cat": "misspelling",
+   "text": "ek daal tarka",
+   "lines": [
+    {
+     "item": "Dal Tadka",
+     "variant": null,
+     "qty": 1
+    }
+   ],
+   "command": null,
+   "gemini_sample": false
+  },
+  {
+   "id": "miss-190",
+   "cat": "misspelling",
+   "text": "ek tandoori chiken full",
+   "lines": [
+    {
+     "item": "Tandoori Chicken",
+     "variant": "Full",
+     "qty": 1
+    }
+   ],
+   "command": null,
+   "gemini_sample": false
+  },
+  {
+   "id": "miss-191",
+   "cat": "misspelling",
+   "text": "do butter non",
+   "lines": [
+    {
+     "item": "Butter Naan",
+     "variant": null,
+     "qty": 2
+    }
+   ],
+   "command": null,
+   "gemini_sample": false
+  },
+  {
+   "id": "miss-192",
+   "cat": "misspelling",
+   "text": "ek masala chai",
+   "lines": [
+    {
+     "item": "Masala Chai",
+     "variant": null,
+     "qty": 1
+    }
+   ],
+   "command": null,
+   "gemini_sample": false
+  },
+  {
+   "id": "miss-193",
+   "cat": "misspelling",
+   "text": "ek masla dosa",
+   "lines": [
+    {
+     "item": "Masala Dosa",
+     "variant": null,
+     "qty": 1
+    }
+   ],
+   "command": null,
+   "gemini_sample": true
+  },
+  {
+   "id": "miss-194",
+   "cat": "misspelling",
+   "text": "ek garlik naan",
+   "lines": [
+    {
+     "item": "Garlic Naan",
+     "variant": null,
+     "qty": 1
+    }
+   ],
+   "command": null,
+   "gemini_sample": false
+  },
+  {
+   "id": "miss-195",
+   "cat": "misspelling",
+   "text": "ek paneer tikkaa",
+   "lines": [
+    {
+     "item": "Paneer Tikka",
+     "variant": null,
+     "qty": 1
+    }
+   ],
+   "command": null,
+   "gemini_sample": false
+  },
+  {
+   "id": "miss-196",
+   "cat": "misspelling",
+   "text": "ek mango lassy",
+   "lines": [
+    {
+     "item": "Mango Lassi",
+     "variant": null,
+     "qty": 1
+    }
+   ],
+   "command": null,
+   "gemini_sample": false
+  },
+  {
+   "id": "miss-197",
+   "cat": "misspelling",
+   "text": "ek sweet lussi",
+   "lines": [
+    {
+     "item": "Sweet Lassi",
+     "variant": null,
+     "qty": 1
+    }
+   ],
+   "command": null,
+   "gemini_sample": false
+  },
+  {
+   "id": "quan-198",
+   "cat": "quantity",
+   "text": "dedh plate chicken biryani",
+   "lines": [
+    {
+     "item": "Chicken Biryani",
+     "variant": "Full",
+     "qty": 1
+    },
+    {
+     "item": "Chicken Biryani",
+     "variant": "Half",
+     "qty": 1
+    }
+   ],
+   "command": null,
+   "gemini_sample": false
+  },
+  {
+   "id": "quan-199",
+   "cat": "quantity",
+   "text": "dhai plate mutton biryani",
+   "lines": [
+    {
+     "item": "Mutton Biryani",
+     "variant": "Full",
+     "qty": 2
+    },
+    {
+     "item": "Mutton Biryani",
+     "variant": "Half",
+     "qty": 1
+    }
+   ],
+   "command": null,
+   "gemini_sample": false
+  },
+  {
+   "id": "quan-200",
+   "cat": "quantity",
+   "text": "aadha butter chicken",
+   "lines": [
+    {
+     "item": "Butter Chicken",
+     "variant": "Half",
+     "qty": 1
+    }
+   ],
+   "command": null,
+   "gemini_sample": false
+  },
+  {
+   "id": "quan-201",
+   "cat": "quantity",
+   "text": "aadha plate tandoori chicken",
+   "lines": [
+    {
+     "item": "Tandoori Chicken",
+     "variant": "Half",
+     "qty": 1
+    }
+   ],
+   "command": null,
+   "gemini_sample": true
+  },
+  {
+   "id": "quan-202",
+   "cat": "quantity",
+   "text": "half plate chicken biryani",
+   "lines": [
+    {
+     "item": "Chicken Biryani",
+     "variant": "Half",
+     "qty": 1
+    }
+   ],
+   "command": null,
+   "gemini_sample": false
+  },
+  {
+   "id": "quan-203",
+   "cat": "quantity",
+   "text": "full plate chicken biryani",
+   "lines": [
+    {
+     "item": "Chicken Biryani",
+     "variant": "Full",
+     "qty": 1
+    }
+   ],
+   "command": null,
+   "gemini_sample": false
+  },
+  {
+   "id": "quan-204",
+   "cat": "quantity",
+   "text": "2 butter naan 3 garlic naan",
+   "lines": [
+    {
+     "item": "Butter Naan",
+     "variant": null,
+     "qty": 2
+    },
+    {
+     "item": "Garlic Naan",
+     "variant": null,
+     "qty": 3
+    }
+   ],
+   "command": null,
+   "gemini_sample": false
+  },
+  {
+   "id": "quan-205",
+   "cat": "quantity",
+   "text": "do paneer tikka teen butter naan",
+   "lines": [
+    {
+     "item": "Paneer Tikka",
+     "variant": null,
+     "qty": 2
+    },
+    {
+     "item": "Butter Naan",
+     "variant": null,
+     "qty": 3
+    }
+   ],
+   "command": null,
+   "gemini_sample": false
+  },
+  {
+   "id": "quan-206",
+   "cat": "quantity",
+   "text": "paneer tikka x2 garlic naan x3",
+   "lines": [
+    {
+     "item": "Paneer Tikka",
+     "variant": null,
+     "qty": 2
+    },
+    {
+     "item": "Garlic Naan",
+     "variant": null,
+     "qty": 3
+    }
+   ],
+   "command": null,
+   "gemini_sample": false
+  },
+  {
+   "id": "quan-207",
+   "cat": "quantity",
+   "text": "twenty one butter naan",
+   "lines": [
+    {
+     "item": "Butter Naan",
+     "variant": null,
+     "qty": 21
+    }
+   ],
+   "command": null,
+   "gemini_sample": false
+  },
+  {
+   "id": "quan-208",
+   "cat": "quantity",
+   "text": "15 tandoori roti",
+   "lines": [
+    {
+     "item": "Tandoori Roti",
+     "variant": null,
+     "qty": 15
+    }
+   ],
+   "command": null,
+   "gemini_sample": false
+  },
+  {
+   "id": "quan-209",
+   "cat": "quantity",
+   "text": "pandrah roti",
+   "lines": [
+    {
+     "item": "Tandoori Roti",
+     "variant": null,
+     "qty": 15
+    }
+   ],
+   "command": null,
+   "gemini_sample": true
+  },
+  {
+   "id": "quan-210",
+   "cat": "quantity",
+   "text": "one dozen samosa",
+   "lines": [
+    {
+     "item": "Samosa (2 pcs)",
+     "variant": null,
+     "qty": 12
+    }
+   ],
+   "command": null,
+   "gemini_sample": false
+  },
+  {
+   "id": "quan-211",
+   "cat": "quantity",
+   "text": "ek darjan butter naan",
+   "lines": [
+    {
+     "item": "Butter Naan",
+     "variant": null,
+     "qty": 12
+    }
+   ],
+   "command": null,
+   "gemini_sample": false
+  },
+  {
+   "id": "quan-212",
+   "cat": "quantity",
+   "text": "two, butter naan",
+   "lines": [
+    {
+     "item": "Butter Naan",
+     "variant": null,
+     "qty": 2
+    }
+   ],
+   "command": null,
+   "gemini_sample": false
+  },
+  {
+   "id": "quan-213",
+   "cat": "quantity",
+   "text": "to garlic naan",
+   "lines": [
+    {
+     "item": "Garlic Naan",
+     "variant": null,
+     "qty": 2
+    }
+   ],
+   "command": null,
+   "gemini_sample": false
+  },
+  {
+   "id": "quan-214",
+   "cat": "quantity",
+   "text": "ek",
+   "lines": [],
+   "command": null,
+   "gemini_sample": false
+  },
+  {
+   "id": "quan-215",
+   "cat": "quantity",
+   "text": "jeera rice 2",
+   "lines": [
+    {
+     "item": "Jeera Rice",
+     "variant": null,
+     "qty": 2
+    }
+   ],
+   "command": null,
+   "gemini_sample": false
+  },
+  {
+   "id": "quan-216",
+   "cat": "quantity",
+   "text": "masala dosa ek",
+   "lines": [
+    {
+     "item": "Masala Dosa",
+     "variant": null,
+     "qty": 1
+    }
+   ],
+   "command": null,
+   "gemini_sample": false
+  },
+  {
+   "id": "quan-217",
+   "cat": "quantity",
+   "text": "sweet lassi teen glass",
+   "lines": [
+    {
+     "item": "Sweet Lassi",
+     "variant": null,
+     "qty": 3
+    }
+   ],
+   "command": null,
+   "gemini_sample": true
+  },
+  {
+   "id": "quan-218",
+   "cat": "quantity",
+   "text": "ek ek sweet lassi aur mango lassi",
+   "lines": [
+    {
+     "item": "Sweet Lassi",
+     "variant": null,
+     "qty": 1
+    },
+    {
+     "item": "Mango Lassi",
+     "variant": null,
+     "qty": 1
+    }
+   ],
+   "command": null,
+   "gemini_sample": false
+  },
+  {
+   "id": "quan-219",
+   "cat": "quantity",
+   "text": "3 x masala chai",
+   "lines": [
+    {
+     "item": "Masala Chai",
+     "variant": null,
+     "qty": 3
+    }
+   ],
+   "command": null,
+   "gemini_sample": false
+  },
+  {
+   "id": "quan-220",
+   "cat": "quantity",
+   "text": "samosa ke do plate",
+   "lines": [
+    {
+     "item": "Samosa (2 pcs)",
+     "variant": null,
+     "qty": 2
+    }
+   ],
+   "command": null,
+   "gemini_sample": false
+  },
+  {
+   "id": "vari-221",
+   "cat": "variant_default",
+   "text": "ek butter chicken",
+   "lines": [
+    {
+     "item": "Butter Chicken",
+     "variant": "Half",
+     "qty": 1
+    }
+   ],
+   "command": null,
+   "gemini_sample": true
+  },
+  {
+   "id": "vari-222",
+   "cat": "variant_default",
+   "text": "butter chicken",
+   "lines": [
+    {
+     "item": "Butter Chicken",
+     "variant": "Half",
+     "qty": 1
+    }
+   ],
+   "command": null,
+   "gemini_sample": false
+  },
+  {
+   "id": "vari-223",
+   "cat": "variant_default",
+   "text": "do butter chicken",
+   "lines": [
+    {
+     "item": "Butter Chicken",
+     "variant": "Half",
+     "qty": 2
+    }
+   ],
+   "command": null,
+   "gemini_sample": false
+  },
+  {
+   "id": "vari-224",
+   "cat": "variant_default",
+   "text": "chicken biryani",
+   "lines": [
+    {
+     "item": "Chicken Biryani",
+     "variant": "Half",
+     "qty": 1
+    }
+   ],
+   "command": null,
+   "gemini_sample": false
+  },
+  {
+   "id": "vari-225",
+   "cat": "variant_default",
+   "text": "ek chicken biryani",
+   "lines": [
+    {
+     "item": "Chicken Biryani",
+     "variant": "Half",
+     "qty": 1
+    }
+   ],
+   "command": null,
+   "gemini_sample": true
+  },
+  {
+   "id": "vari-226",
+   "cat": "variant_default",
+   "text": "do mutton biryani",
+   "lines": [
+    {
+     "item": "Mutton Biryani",
+     "variant": "Half",
+     "qty": 2
+    }
+   ],
+   "command": null,
+   "gemini_sample": false
+  },
+  {
+   "id": "vari-227",
+   "cat": "variant_default",
+   "text": "ek tandoori chicken",
+   "lines": [
+    {
+     "item": "Tandoori Chicken",
+     "variant": "Half",
+     "qty": 1
+    }
+   ],
+   "command": null,
+   "gemini_sample": false
+  },
+  {
+   "id": "vari-228",
+   "cat": "variant_default",
+   "text": "one butter chicken and two butter naan",
+   "lines": [
+    {
+     "item": "Butter Chicken",
+     "variant": "Half",
+     "qty": 1
+    },
+    {
+     "item": "Butter Naan",
+     "variant": null,
+     "qty": 2
+    }
+   ],
+   "command": null,
+   "gemini_sample": false
+  },
+  {
+   "id": "vari-229",
+   "cat": "variant_default",
+   "text": "teen chicken biryani aur ek raita",
+   "lines": [
+    {
+     "item": "Chicken Biryani",
+     "variant": "Half",
+     "qty": 3
+    },
+    {
+     "none": true
+    }
+   ],
+   "command": null,
+   "gemini_sample": true
+  },
+  {
+   "id": "vari-230",
+   "cat": "variant_default",
+   "text": "एक मटन बिरयानी",
+   "lines": [
+    {
+     "item": "Mutton Biryani",
+     "variant": "Half",
+     "qty": 1
+    }
+   ],
+   "command": null,
+   "gemini_sample": false
+  },
+  {
+   "id": "vari-231",
+   "cat": "variant_default",
+   "text": "ek butter chicken extra spicy",
+   "lines": [
+    {
+     "item": "Butter Chicken",
+     "variant": "Half",
+     "qty": 1,
+     "note": "extra spicy"
+    }
+   ],
+   "command": null,
+   "gemini_sample": false
+  },
+  {
+   "id": "vari-232",
+   "cat": "variant_default",
+   "text": "ek chicken biryani aur ek mutton biryani",
+   "lines": [
+    {
+     "item": "Chicken Biryani",
+     "variant": "Half",
+     "qty": 1
+    },
+    {
+     "item": "Mutton Biryani",
+     "variant": "Half",
+     "qty": 1
+    }
+   ],
+   "command": null,
+   "gemini_sample": false
+  },
+  {
+   "id": "vari-233",
+   "cat": "variant_explicit",
+   "text": "ek butter chicken full",
+   "lines": [
+    {
+     "item": "Butter Chicken",
+     "variant": "Full",
+     "qty": 1
+    }
+   ],
+   "command": null,
+   "gemini_sample": true
+  },
+  {
+   "id": "vari-234",
+   "cat": "variant_explicit",
+   "text": "ek full butter chicken",
+   "lines": [
+    {
+     "item": "Butter Chicken",
+     "variant": "Full",
+     "qty": 1
+    }
+   ],
+   "command": null,
+   "gemini_sample": false
+  },
+  {
+   "id": "vari-235",
+   "cat": "variant_explicit",
+   "text": "ek poora butter chicken",
+   "lines": [
+    {
+     "item": "Butter Chicken",
+     "variant": "Full",
+     "qty": 1
+    }
+   ],
+   "command": null,
+   "gemini_sample": false
+  },
+  {
+   "id": "vari-236",
+   "cat": "variant_explicit",
+   "text": "ek butter chicken poora",
+   "lines": [
+    {
+     "item": "Butter Chicken",
+     "variant": "Full",
+     "qty": 1
+    }
+   ],
+   "command": null,
+   "gemini_sample": false
+  },
+  {
+   "id": "vari-237",
+   "cat": "variant_explicit",
+   "text": "ek bada butter chicken",
+   "lines": [
+    {
+     "item": "Butter Chicken",
+     "variant": "Full",
+     "qty": 1
+    }
+   ],
+   "command": null,
+   "gemini_sample": true
+  },
+  {
+   "id": "vari-238",
+   "cat": "variant_explicit",
+   "text": "ek large chicken biryani",
+   "lines": [
+    {
+     "item": "Chicken Biryani",
+     "variant": "Full",
+     "qty": 1
+    }
+   ],
+   "command": null,
+   "gemini_sample": false
+  },
+  {
+   "id": "vari-239",
+   "cat": "variant_explicit",
+   "text": "do chicken biryani full plate",
+   "lines": [
+    {
+     "item": "Chicken Biryani",
+     "variant": "Full",
+     "qty": 2
+    }
+   ],
+   "command": null,
+   "gemini_sample": false
+  },
+  {
+   "id": "vari-240",
+   "cat": "variant_explicit",
+   "text": "ek half butter chicken",
+   "lines": [
+    {
+     "item": "Butter Chicken",
+     "variant": "Half",
+     "qty": 1
+    }
+   ],
+   "command": null,
+   "gemini_sample": false
+  },
+  {
+   "id": "vari-241",
+   "cat": "variant_explicit",
+   "text": "ek butter chicken half",
+   "lines": [
+    {
+     "item": "Butter Chicken",
+     "variant": "Half",
+     "qty": 1
+    }
+   ],
+   "command": null,
+   "gemini_sample": true
+  },
+  {
+   "id": "vari-242",
+   "cat": "variant_explicit",
+   "text": "do half chicken biryani",
+   "lines": [
+    {
+     "item": "Chicken Biryani",
+     "variant": "Half",
+     "qty": 2
+    }
+   ],
+   "command": null,
+   "gemini_sample": false
+  },
+  {
+   "id": "vari-243",
+   "cat": "variant_explicit",
+   "text": "ek full tandoori chicken",
+   "lines": [
+    {
+     "item": "Tandoori Chicken",
+     "variant": "Full",
+     "qty": 1
+    }
+   ],
+   "command": null,
+   "gemini_sample": false
+  },
+  {
+   "id": "vari-244",
+   "cat": "variant_explicit",
+   "text": "ek tandoori chicken pura",
+   "lines": [
+    {
+     "item": "Tandoori Chicken",
+     "variant": "Full",
+     "qty": 1
+    }
+   ],
+   "command": null,
+   "gemini_sample": false
+  },
+  {
+   "id": "vari-245",
+   "cat": "variant_explicit",
+   "text": "ek mutton biryani full aur ek chicken biryani half",
+   "lines": [
+    {
+     "item": "Mutton Biryani",
+     "variant": "Full",
+     "qty": 1
+    },
+    {
+     "item": "Chicken Biryani",
+     "variant": "Half",
+     "qty": 1
+    }
+   ],
+   "command": null,
+   "gemini_sample": true
+  },
+  {
+   "id": "vari-246",
+   "cat": "variant_explicit",
+   "text": "one full butter chicken and one half butter chicken",
+   "lines": [
+    {
+     "item": "Butter Chicken",
+     "variant": "Full",
+     "qty": 1
+    },
+    {
+     "item": "Butter Chicken",
+     "variant": "Half",
+     "qty": 1
+    }
+   ],
+   "command": null,
+   "gemini_sample": false
+  },
+  {
+   "id": "vari-247",
+   "cat": "variant_explicit",
+   "text": "ek butter chicken full aur do butter naan",
+   "lines": [
+    {
+     "item": "Butter Chicken",
+     "variant": "Full",
+     "qty": 1
+    },
+    {
+     "item": "Butter Naan",
+     "variant": null,
+     "qty": 2
+    }
+   ],
+   "command": null,
+   "gemini_sample": false
+  },
+  {
+   "id": "vari-248",
+   "cat": "variant_explicit",
+   "text": "ek badi chicken biryani",
+   "lines": [
+    {
+     "item": "Chicken Biryani",
+     "variant": "Full",
+     "qty": 1
+    }
+   ],
+   "command": null,
+   "gemini_sample": false
+  },
+  {
+   "id": "vari-249",
+   "cat": "variant_explicit",
+   "text": "ek chhota butter chicken",
+   "lines": [
+    {
+     "item": "Butter Chicken",
+     "variant": "Half",
+     "qty": 1
+    }
+   ],
+   "command": null,
+   "gemini_sample": true
+  },
+  {
+   "id": "vari-250",
+   "cat": "variant_explicit",
+   "text": "one small chicken biryani",
+   "lines": [
+    {
+     "item": "Chicken Biryani",
+     "variant": "Half",
+     "qty": 1
+    }
+   ],
+   "command": null,
+   "gemini_sample": false
+  },
+  {
+   "id": "vari-251",
+   "cat": "variant_explicit",
+   "text": "ek regular butter naan",
+   "lines": [
+    {
+     "item": "Butter Naan",
+     "variant": null,
+     "qty": 1
+    }
+   ],
+   "command": null,
+   "gemini_sample": false
+  },
+  {
+   "id": "vari-252",
+   "cat": "variant_explicit",
+   "text": "ek full plate butter chicken",
+   "lines": [
+    {
+     "item": "Butter Chicken",
+     "variant": "Full",
+     "qty": 1
+    }
+   ],
+   "command": null,
+   "gemini_sample": false
+  },
+  {
+   "id": "note-253",
+   "cat": "notes",
+   "text": "ek paneer tikka less spicy",
+   "lines": [
+    {
+     "item": "Paneer Tikka",
+     "variant": null,
+     "qty": 1,
+     "note": "less spicy"
+    }
+   ],
+   "command": null,
+   "gemini_sample": false
+  },
+  {
+   "id": "note-254",
+   "cat": "notes",
+   "text": "ek butter chicken no onion",
+   "lines": [
+    {
+     "item": "Butter Chicken",
+     "variant": "Half",
+     "qty": 1,
+     "note": "no onion"
+    }
+   ],
+   "command": null,
+   "gemini_sample": false
+  },
+  {
+   "id": "note-255",
+   "cat": "notes",
+   "text": "ek dal makhani zyada teekha",
+   "lines": [
+    {
+     "item": "Dal Makhani",
+     "variant": null,
+     "qty": 1,
+     "note": "extra spicy"
+    }
+   ],
+   "command": null,
+   "gemini_sample": false
+  },
+  {
+   "id": "note-256",
+   "cat": "notes",
+   "text": "ek veg biryani bina pyaaz",
+   "lines": [
+    {
+     "item": "Veg Biryani",
+     "variant": null,
+     "qty": 1,
+     "note": "no onion"
+    }
+   ],
+   "command": null,
+   "gemini_sample": false
+  },
+  {
+   "id": "note-257",
+   "cat": "notes",
+   "text": "do masala chai kam cheeni",
+   "lines": [
+    {
+     "item": "Masala Chai",
+     "variant": null,
+     "qty": 2,
+     "note": "less sugar"
+    }
+   ],
+   "command": null,
+   "gemini_sample": true
+  },
+  {
+   "id": "note-258",
+   "cat": "notes",
+   "text": "ek chole masala jain",
+   "lines": [
+    {
+     "item": "Chole Masala",
+     "variant": null,
+     "qty": 1,
+     "note": "jain"
+    }
+   ],
+   "command": null,
+   "gemini_sample": false
+  },
+  {
+   "id": "note-259",
+   "cat": "notes",
+   "text": "ek paneer butter masala extra butter",
+   "lines": [
+    {
+     "item": "Paneer Butter Masala",
+     "variant": null,
+     "qty": 1,
+     "note": "extra butter"
+    }
+   ],
+   "command": null,
+   "gemini_sample": false
+  },
+  {
+   "id": "note-260",
+   "cat": "notes",
+   "text": "ek sweet lassi no sugar",
+   "lines": [
+    {
+     "item": "Sweet Lassi",
+     "variant": null,
+     "qty": 1,
+     "note": "no sugar"
+    }
+   ],
+   "command": null,
+   "gemini_sample": false
+  },
+  {
+   "id": "note-261",
+   "cat": "notes",
+   "text": "ek masala dosa without onion",
+   "lines": [
+    {
+     "item": "Masala Dosa",
+     "variant": null,
+     "qty": 1,
+     "note": "no onion"
+    }
+   ],
+   "command": null,
+   "gemini_sample": false
+  },
+  {
+   "id": "note-262",
+   "cat": "notes",
+   "text": "ek dal tadka less oil",
+   "lines": [
+    {
+     "item": "Dal Tadka",
+     "variant": null,
+     "qty": 1,
+     "note": "less oil"
+    }
+   ],
+   "command": null,
+   "gemini_sample": false
+  },
+  {
+   "id": "note-263",
+   "cat": "notes",
+   "text": "ek chicken tikka extra spicy aur do butter naan",
+   "lines": [
+    {
+     "item": "Chicken Tikka",
+     "variant": null,
+     "qty": 1,
+     "note": "extra spicy"
+    },
+    {
+     "item": "Butter Naan",
+     "variant": null,
+     "qty": 2
+    }
+   ],
+   "command": null,
+   "gemini_sample": false
+  },
+  {
+   "id": "note-264",
+   "cat": "notes",
+   "text": "ek palak paneer lehsun nahi",
+   "lines": [
+    {
+     "item": "Palak Paneer",
+     "variant": null,
+     "qty": 1,
+     "note": "no garlic"
+    }
+   ],
+   "command": null,
+   "gemini_sample": false
+  },
+  {
+   "id": "note-265",
+   "cat": "notes",
+   "text": "ek butter chicken full kam teekha",
+   "lines": [
+    {
+     "item": "Butter Chicken",
+     "variant": "Full",
+     "qty": 1,
+     "note": "less spicy"
+    }
+   ],
+   "command": null,
+   "gemini_sample": true
+  },
+  {
+   "id": "note-266",
+   "cat": "notes",
+   "text": "do fresh lime soda no ice",
+   "lines": [
+    {
+     "item": "Fresh Lime Soda",
+     "variant": null,
+     "qty": 2,
+     "note": "no ice"
+    }
+   ],
+   "command": null,
+   "gemini_sample": false
+  },
+  {
+   "id": "note-267",
+   "cat": "notes",
+   "text": "ek mutton rogan josh mild",
+   "lines": [
+    {
+     "item": "Mutton Rogan Josh",
+     "variant": null,
+     "qty": 1,
+     "note": "less spicy"
+    }
+   ],
+   "command": null,
+   "gemini_sample": false
+  },
+  {
+   "id": "note-268",
+   "cat": "notes",
+   "text": "ek filter coffee sugar free",
+   "lines": [
+    {
+     "item": "Filter Coffee",
+     "variant": null,
+     "qty": 1,
+     "note": "no sugar"
+    }
+   ],
+   "command": null,
+   "gemini_sample": false
+  },
+  {
+   "id": "note-269",
+   "cat": "notes",
+   "text": "ek veg pakora extra chutney",
+   "lines": [
+    {
+     "item": "Veg Pakora",
+     "variant": null,
+     "qty": 1
+    }
+   ],
+   "command": null,
+   "gemini_sample": false
+  },
+  {
+   "id": "note-270",
+   "cat": "notes",
+   "text": "ek chilli paneer zyada mirchi",
+   "lines": [
+    {
+     "item": "Chilli Paneer",
+     "variant": null,
+     "qty": 1,
+     "note": "extra chilli"
+    }
+   ],
+   "command": null,
+   "gemini_sample": false
+  },
+  {
+   "id": "note-271",
+   "cat": "notes",
+   "text": "ek garlic naan extra butter",
+   "lines": [
+    {
+     "item": "Garlic Naan",
+     "variant": null,
+     "qty": 1,
+     "note": "extra butter"
+    }
+   ],
+   "command": null,
+   "gemini_sample": false
+  },
+  {
+   "id": "note-272",
+   "cat": "notes",
+   "text": "teekha ek chicken 65",
+   "lines": [
+    {
+     "item": "Chicken 65",
+     "variant": null,
+     "qty": 1,
+     "note": "spicy"
+    }
+   ],
+   "command": null,
+   "gemini_sample": false
+  },
+  {
+   "id": "mult-273",
+   "cat": "multi_item",
+   "text": "do butter naan ek dal makhani ek jeera rice",
+   "lines": [
+    {
+     "item": "Butter Naan",
+     "variant": null,
+     "qty": 2
+    },
+    {
+     "item": "Dal Makhani",
+     "variant": null,
+     "qty": 1
+    },
+    {
+     "item": "Jeera Rice",
+     "variant": null,
+     "qty": 1
+    }
+   ],
+   "command": null,
+   "gemini_sample": true
+  },
+  {
+   "id": "mult-274",
+   "cat": "multi_item",
+   "text": "one paneer tikka two garlic naan one sweet lassi",
+   "lines": [
+    {
+     "item": "Paneer Tikka",
+     "variant": null,
+     "qty": 1
+    },
+    {
+     "item": "Garlic Naan",
+     "variant": null,
+     "qty": 2
+    },
+    {
+     "item": "Sweet Lassi",
+     "variant": null,
+     "qty": 1
+    }
+   ],
+   "command": null,
+   "gemini_sample": false
+  },
+  {
+   "id": "mult-275",
+   "cat": "multi_item",
+   "text": "ek masala dosa ek medu vada do filter coffee",
+   "lines": [
+    {
+     "item": "Masala Dosa",
+     "variant": null,
+     "qty": 1
+    },
+    {
+     "item": "Medu Vada (2 pcs)",
+     "variant": null,
+     "qty": 1
+    },
+    {
+     "item": "Filter Coffee",
+     "variant": null,
+     "qty": 2
+    }
+   ],
+   "command": null,
+   "gemini_sample": false
+  },
+  {
+   "id": "mult-276",
+   "cat": "multi_item",
+   "text": "butter chicken, garlic naan, jeera rice",
+   "lines": [
+    {
+     "item": "Butter Chicken",
+     "variant": "Half",
+     "qty": 1
+    },
+    {
+     "item": "Garlic Naan",
+     "variant": null,
+     "qty": 1
+    },
+    {
+     "item": "Jeera Rice",
+     "variant": null,
+     "qty": 1
+    }
+   ],
+   "command": null,
+   "gemini_sample": false
+  },
+  {
+   "id": "mult-277",
+   "cat": "multi_item",
+   "text": "two samosa and three chai",
+   "lines": [
+    {
+     "item": "Samosa (2 pcs)",
+     "variant": null,
+     "qty": 2
+    },
+    {
+     "item": "Masala Chai",
+     "variant": null,
+     "qty": 3
+    }
+   ],
+   "command": null,
+   "gemini_sample": false
+  },
+  {
+   "id": "mult-278",
+   "cat": "multi_item",
+   "text": "ek chicken biryani do raita",
+   "lines": [
+    {
+     "item": "Chicken Biryani",
+     "variant": "Half",
+     "qty": 1
+    },
+    {
+     "none": true
+    }
+   ],
+   "command": null,
+   "gemini_sample": false
+  },
+  {
+   "id": "mult-279",
+   "cat": "multi_item",
+   "text": "ek palak paneer ek dal tadka chaar roti",
+   "lines": [
+    {
+     "item": "Palak Paneer",
+     "variant": null,
+     "qty": 1
+    },
+    {
+     "item": "Dal Tadka",
+     "variant": null,
+     "qty": 1
+    },
+    {
+     "item": "Tandoori Roti",
+     "variant": null,
+     "qty": 4
+    }
+   ],
+   "command": null,
+   "gemini_sample": false
+  },
+  {
+   "id": "mult-280",
+   "cat": "multi_item",
+   "text": "teen chai do samosa ek gulab jamun",
+   "lines": [
+    {
+     "item": "Masala Chai",
+     "variant": null,
+     "qty": 3
+    },
+    {
+     "item": "Samosa (2 pcs)",
+     "variant": null,
+     "qty": 2
+    },
+    {
+     "item": "Gulab Jamun (2 pcs)",
+     "variant": null,
+     "qty": 1
+    }
+   ],
+   "command": null,
+   "gemini_sample": false
+  },
+  {
+   "id": "mult-281",
+   "cat": "multi_item",
+   "text": "ek veg thali ek mango lassi aur ek gulab jamun",
+   "lines": [
+    {
+     "item": "Veg Lunch Thali",
+     "variant": null,
+     "qty": 1
+    },
+    {
+     "item": "Mango Lassi",
+     "variant": null,
+     "qty": 1
+    },
+    {
+     "item": "Gulab Jamun (2 pcs)",
+     "variant": null,
+     "qty": 1
+    }
+   ],
+   "command": null,
+   "gemini_sample": true
+  },
+  {
+   "id": "mult-282",
+   "cat": "multi_item",
+   "text": "do chicken tikka ek tandoori chicken full chaar butter naan",
+   "lines": [
+    {
+     "item": "Chicken Tikka",
+     "variant": null,
+     "qty": 2
+    },
+    {
+     "item": "Tandoori Chicken",
+     "variant": "Full",
+     "qty": 1
+    },
+    {
+     "item": "Butter Naan",
+     "variant": null,
+     "qty": 4
+    }
+   ],
+   "command": null,
+   "gemini_sample": false
+  },
+  {
+   "id": "mult-283",
+   "cat": "multi_item",
+   "text": "one butter chicken full, two garlic naan, one dal makhani and two sweet lassi",
+   "lines": [
+    {
+     "item": "Butter Chicken",
+     "variant": "Full",
+     "qty": 1
+    },
+    {
+     "item": "Garlic Naan",
+     "variant": null,
+     "qty": 2
+    },
+    {
+     "item": "Dal Makhani",
+     "variant": null,
+     "qty": 1
+    },
+    {
+     "item": "Sweet Lassi",
+     "variant": null,
+     "qty": 2
+    }
+   ],
+   "command": null,
+   "gemini_sample": false
+  },
+  {
+   "id": "mult-284",
+   "cat": "multi_item",
+   "text": "ek idli sambar, ek podi uttapam, ek masala dosa",
+   "lines": [
+    {
+     "item": "Idli Sambar (3 pcs)",
+     "variant": null,
+     "qty": 1
+    },
+    {
+     "item": "Podi Uttapam",
+     "variant": null,
+     "qty": 1
+    },
+    {
+     "item": "Masala Dosa",
+     "variant": null,
+     "qty": 1
+    }
+   ],
+   "command": null,
+   "gemini_sample": false
+  },
+  {
+   "id": "mult-285",
+   "cat": "multi_item",
+   "text": "do malai kulfi aur do rasmalai",
+   "lines": [
+    {
+     "item": "Malai Kulfi",
+     "variant": null,
+     "qty": 2
+    },
+    {
+     "item": "Rasmalai (2 pcs)",
+     "variant": null,
+     "qty": 2
+    }
+   ],
+   "command": null,
+   "gemini_sample": false
+  },
+  {
+   "id": "mult-286",
+   "cat": "multi_item",
+   "text": "ek chole masala do laccha paratha ek sweet lassi",
+   "lines": [
+    {
+     "item": "Chole Masala",
+     "variant": null,
+     "qty": 1
+    },
+    {
+     "item": "Laccha Paratha",
+     "variant": null,
+     "qty": 2
+    },
+    {
+     "item": "Sweet Lassi",
+     "variant": null,
+     "qty": 1
+    }
+   ],
+   "command": null,
+   "gemini_sample": false
+  },
+  {
+   "id": "mult-287",
+   "cat": "multi_item",
+   "text": "chai do samosa teen",
+   "lines": [
+    {
+     "item": "Masala Chai",
+     "variant": null,
+     "qty": 2
+    },
+    {
+     "item": "Samosa (2 pcs)",
+     "variant": null,
+     "qty": 3
+    }
+   ],
+   "command": null,
+   "gemini_sample": false
+  },
+  {
+   "id": "mult-288",
+   "cat": "multi_item",
+   "text": "ek mutton rogan josh, ek jeera rice, do tandoori roti, ek pani",
+   "lines": [
+    {
+     "item": "Mutton Rogan Josh",
+     "variant": null,
+     "qty": 1
+    },
+    {
+     "item": "Jeera Rice",
+     "variant": null,
+     "qty": 1
+    },
+    {
+     "item": "Tandoori Roti",
+     "variant": null,
+     "qty": 2
+    },
+    {
+     "item": "Packaged Drinking Water (1 L)",
+     "variant": null,
+     "qty": 1
+    }
+   ],
+   "command": null,
+   "gemini_sample": false
+  },
+  {
+   "id": "mult-289",
+   "cat": "multi_item",
+   "text": "paneer tikka do garlic naan teen",
+   "lines": [
+    {
+     "item": "Paneer Tikka",
+     "variant": null,
+     "qty": 2
+    },
+    {
+     "item": "Garlic Naan",
+     "variant": null,
+     "qty": 3
+    }
+   ],
+   "command": null,
+   "gemini_sample": true
+  },
+  {
+   "id": "mult-290",
+   "cat": "multi_item",
+   "text": "ek hara bhara kebab ek veg pakora ek chilli paneer",
+   "lines": [
+    {
+     "item": "Hara Bhara Kebab",
+     "variant": null,
+     "qty": 1
+    },
+    {
+     "item": "Veg Pakora",
+     "variant": null,
+     "qty": 1
+    },
+    {
+     "item": "Chilli Paneer",
+     "variant": null,
+     "qty": 1
+    }
+   ],
+   "command": null,
+   "gemini_sample": false
+  },
+  {
+   "id": "corr-291",
+   "cat": "correction",
+   "text": "do butter naan nahi nahi teen",
+   "lines": [
+    {
+     "item": "Butter Naan",
+     "variant": null,
+     "qty": 3
+    }
+   ],
+   "command": null,
+   "gemini_sample": false
+  },
+  {
+   "id": "corr-292",
+   "cat": "correction",
+   "text": "ek garlic naan, sorry, butter naan",
+   "lines": [
+    {
+     "item": "Butter Naan",
+     "variant": null,
+     "qty": 1
+    }
+   ],
+   "command": null,
+   "gemini_sample": false
+  },
+  {
+   "id": "corr-293",
+   "cat": "correction",
+   "text": "do masala dosa aur ek medu vada, cancel that",
+   "lines": [
+    {
+     "item": "Masala Dosa",
+     "variant": null,
+     "qty": 2
+    }
+   ],
+   "command": null,
+   "gemini_sample": false
+  },
+  {
+   "id": "corr-294",
+   "cat": "correction",
+   "text": "teen chai aur ek samosa, remove last",
+   "lines": [
+    {
+     "item": "Masala Chai",
+     "variant": null,
+     "qty": 3
+    }
+   ],
+   "command": null,
+   "gemini_sample": false
+  },
+  {
+   "id": "corr-295",
+   "cat": "correction",
+   "text": "ek butter chicken, ek aur",
+   "lines": [
+    {
+     "item": "Butter Chicken",
+     "variant": "Half",
+     "qty": 2
+    }
+   ],
+   "command": null,
+   "gemini_sample": false
+  },
+  {
+   "id": "corr-296",
+   "cat": "correction",
+   "text": "ek garlic naan, same again",
+   "lines": [
+    {
+     "item": "Garlic Naan",
+     "variant": null,
+     "qty": 2
+    }
+   ],
+   "command": null,
+   "gemini_sample": false
+  },
+  {
+   "id": "corr-297",
+   "cat": "correction",
+   "text": "do samosa aur ek chai, samosa hata do",
+   "lines": [
+    {
+     "item": "Masala Chai",
+     "variant": null,
+     "qty": 1
+    }
+   ],
+   "command": null,
+   "gemini_sample": true
+  },
+  {
+   "id": "corr-298",
+   "cat": "correction",
+   "text": "ek dal makhani, nahi, dal tadka",
+   "lines": [
+    {
+     "item": "Dal Tadka",
+     "variant": null,
+     "qty": 1
+    }
+   ],
+   "command": null,
+   "gemini_sample": false
+  },
+  {
+   "id": "corr-299",
+   "cat": "correction",
+   "text": "do butter naan no no three",
+   "lines": [
+    {
+     "item": "Butter Naan",
+     "variant": null,
+     "qty": 3
+    }
+   ],
+   "command": null,
+   "gemini_sample": false
+  },
+  {
+   "id": "corr-300",
+   "cat": "correction",
+   "text": "ek paneer tikka aur ek chilli paneer, chilli paneer cancel",
+   "lines": [
+    {
+     "item": "Paneer Tikka",
+     "variant": null,
+     "qty": 1
+    }
+   ],
+   "command": null,
+   "gemini_sample": false
+  },
+  {
+   "id": "corr-301",
+   "cat": "correction",
+   "text": "ek mango lassi, nahi sweet lassi",
+   "lines": [
+    {
+     "item": "Sweet Lassi",
+     "variant": null,
+     "qty": 1
+    }
+   ],
+   "command": null,
+   "gemini_sample": false
+  },
+  {
+   "id": "corr-302",
+   "cat": "correction",
+   "text": "ek aur garlic naan",
+   "lines": [
+    {
+     "item": "Garlic Naan",
+     "variant": null,
+     "qty": 1
+    }
+   ],
+   "command": null,
+   "gemini_sample": false
+  },
+  {
+   "id": "corr-303",
+   "cat": "correction",
+   "text": "ek chicken biryani half, nahi full",
+   "lines": [
+    {
+     "item": "Chicken Biryani",
+     "variant": "Full",
+     "qty": 1
+    }
+   ],
+   "command": null,
+   "gemini_sample": false
+  },
+  {
+   "id": "corr-304",
+   "cat": "correction",
+   "text": "teen roti, sorry, chaar roti",
+   "lines": [
+    {
+     "item": "Tandoori Roti",
+     "variant": null,
+     "qty": 4
+    }
+   ],
+   "command": null,
+   "gemini_sample": false
+  },
+  {
+   "id": "corr-305",
+   "cat": "correction",
+   "text": "do filter coffee, ek aur",
+   "lines": [
+    {
+     "item": "Filter Coffee",
+     "variant": null,
+     "qty": 3
+    }
+   ],
+   "command": null,
+   "gemini_sample": true
+  },
+  {
+   "id": "corr-306",
+   "cat": "correction",
+   "text": "cancel samosa",
+   "lines": [],
+   "command": null,
+   "gemini_sample": false
+  },
+  {
+   "id": "part-307",
+   "cat": "partial_category",
+   "text": "ek naan",
+   "lines": [
+    {
+     "ask": [
+      "Butter Naan",
+      "Garlic Naan"
+     ],
+     "qty": 1
+    }
+   ],
+   "command": null,
+   "gemini_sample": false
+  },
+  {
+   "id": "part-308",
+   "cat": "partial_category",
+   "text": "do biryani",
+   "lines": [
+    {
+     "ask": [
+      "Chicken Biryani",
+      "Mutton Biryani",
+      "Veg Biryani"
+     ],
+     "qty": 2
+    }
+   ],
+   "command": null,
+   "gemini_sample": false
+  },
+  {
+   "id": "part-309",
+   "cat": "partial_category",
+   "text": "ek dal",
+   "lines": [
+    {
+     "ask": [
+      "Dal Makhani",
+      "Dal Tadka"
+     ],
+     "qty": 1
+    }
+   ],
+   "command": null,
+   "gemini_sample": false
+  },
+  {
+   "id": "part-310",
+   "cat": "partial_category",
+   "text": "ek lassi",
+   "lines": [
+    {
+     "ask": [
+      "Mango Lassi",
+      "Sweet Lassi"
+     ],
+     "qty": 1
+    }
+   ],
+   "command": null,
+   "gemini_sample": false
+  },
+  {
+   "id": "part-311",
+   "cat": "partial_category",
+   "text": "ek kebab",
+   "lines": [
+    {
+     "ask": [
+      "Hara Bhara Kebab",
+      "Mutton Seekh Kebab"
+     ],
+     "qty": 1
+    }
+   ],
+   "command": null,
+   "gemini_sample": false
+  },
+  {
+   "id": "part-312",
+   "cat": "partial_category",
+   "text": "ek butter",
+   "lines": [
+    {
+     "ask": [
+      "Butter Chicken",
+      "Butter Naan"
+     ],
+     "qty": 1
+    }
+   ],
+   "command": null,
+   "gemini_sample": false
+  },
+  {
+   "id": "part-313",
+   "cat": "partial_category",
+   "text": "ek roti",
+   "lines": [
+    {
+     "item": "Tandoori Roti",
+     "variant": null,
+     "qty": 1
+    }
+   ],
+   "command": null,
+   "gemini_sample": true
+  },
+  {
+   "id": "part-314",
+   "cat": "partial_category",
+   "text": "ek dosa",
+   "lines": [
+    {
+     "item": "Masala Dosa",
+     "variant": null,
+     "qty": 1
+    }
+   ],
+   "command": null,
+   "gemini_sample": false
+  },
+  {
+   "id": "part-315",
+   "cat": "partial_category",
+   "text": "ek paratha",
+   "lines": [
+    {
+     "item": "Laccha Paratha",
+     "variant": null,
+     "qty": 1
+    }
+   ],
+   "command": null,
+   "gemini_sample": false
+  },
+  {
+   "id": "part-316",
+   "cat": "partial_category",
+   "text": "do kulfi",
+   "lines": [
+    {
+     "item": "Malai Kulfi",
+     "variant": null,
+     "qty": 2
+    }
+   ],
+   "command": null,
+   "gemini_sample": false
+  },
+  {
+   "id": "part-317",
+   "cat": "partial_category",
+   "text": "ek halwa",
+   "lines": [
+    {
+     "item": "Gajar Ka Halwa",
+     "variant": null,
+     "qty": 1
+    }
+   ],
+   "command": null,
+   "gemini_sample": false
+  },
+  {
+   "id": "part-318",
+   "cat": "partial_category",
+   "text": "do vada",
+   "lines": [
+    {
+     "item": "Medu Vada (2 pcs)",
+     "variant": null,
+     "qty": 2
+    }
+   ],
+   "command": null,
+   "gemini_sample": false
+  },
+  {
+   "id": "part-319",
+   "cat": "partial_category",
+   "text": "ek idli",
+   "lines": [
+    {
+     "item": "Idli Sambar (3 pcs)",
+     "variant": null,
+     "qty": 1
+    }
+   ],
+   "command": null,
+   "gemini_sample": false
+  },
+  {
+   "id": "part-320",
+   "cat": "partial_category",
+   "text": "ek uttapam",
+   "lines": [
+    {
+     "item": "Podi Uttapam",
+     "variant": null,
+     "qty": 1
+    }
+   ],
+   "command": null,
+   "gemini_sample": false
+  },
+  {
+   "id": "part-321",
+   "cat": "partial_category",
+   "text": "ek pakora",
+   "lines": [
+    {
+     "item": "Veg Pakora",
+     "variant": null,
+     "qty": 1
+    }
+   ],
+   "command": null,
+   "gemini_sample": true
+  },
+  {
+   "id": "part-322",
+   "cat": "partial_category",
+   "text": "ek seekh kebab",
+   "lines": [
+    {
+     "item": "Mutton Seekh Kebab",
+     "variant": null,
+     "qty": 1
+    }
+   ],
+   "command": null,
+   "gemini_sample": false
+  },
+  {
+   "id": "part-323",
+   "cat": "partial_category",
+   "text": "ek makhani",
+   "lines": [
+    {
+     "item": "Dal Makhani",
+     "variant": null,
+     "qty": 1
+    }
+   ],
+   "command": null,
+   "gemini_sample": false
+  },
+  {
+   "id": "part-324",
+   "cat": "partial_category",
+   "text": "ek tadka",
+   "lines": [
+    {
+     "item": "Dal Tadka",
+     "variant": null,
+     "qty": 1
+    }
+   ],
+   "command": null,
+   "gemini_sample": false
+  },
+  {
+   "id": "part-325",
+   "cat": "partial_category",
+   "text": "ek coffee",
+   "lines": [
+    {
+     "item": "Filter Coffee",
+     "variant": null,
+     "qty": 1
+    }
+   ],
+   "command": null,
+   "gemini_sample": false
+  },
+  {
+   "id": "part-326",
+   "cat": "partial_category",
+   "text": "do chai",
+   "lines": [
+    {
+     "item": "Masala Chai",
+     "variant": null,
+     "qty": 2
+    }
+   ],
+   "command": null,
+   "gemini_sample": false
+  },
+  {
+   "id": "part-327",
+   "cat": "partial_category",
+   "text": "ek soda",
+   "lines": [
+    {
+     "item": "Fresh Lime Soda",
+     "variant": null,
+     "qty": 1
+    }
+   ],
+   "command": null,
+   "gemini_sample": false
+  },
+  {
+   "id": "part-328",
+   "cat": "partial_category",
+   "text": "ek gulab jamun",
+   "lines": [
+    {
+     "item": "Gulab Jamun (2 pcs)",
+     "variant": null,
+     "qty": 1
+    }
+   ],
+   "command": null,
+   "gemini_sample": false
+  },
+  {
+   "id": "part-329",
+   "cat": "partial_category",
+   "text": "ek jamun",
+   "lines": [
+    {
+     "item": "Gulab Jamun (2 pcs)",
+     "variant": null,
+     "qty": 1
+    }
+   ],
+   "command": null,
+   "gemini_sample": true
+  },
+  {
+   "id": "part-330",
+   "cat": "partial_category",
+   "text": "ek tikka masala",
+   "lines": [
+    {
+     "item": "Chicken Tikka Masala",
+     "variant": null,
+     "qty": 1
+    }
+   ],
+   "command": null,
+   "gemini_sample": false
+  },
+  {
+   "id": "part-331",
+   "cat": "partial_category",
+   "text": "ek mutton biryani",
+   "lines": [
+    {
+     "item": "Mutton Biryani",
+     "variant": "Half",
+     "qty": 1
+    }
+   ],
+   "command": null,
+   "gemini_sample": false
+  },
+  {
+   "id": "part-332",
+   "cat": "partial_category",
+   "text": "ek tandoori",
+   "lines": [
+    {
+     "ask": [
+      "Tandoori Chicken",
+      "Tandoori Roti"
+     ],
+     "qty": 1
+    }
+   ],
+   "command": null,
+   "gemini_sample": false
+  },
+  {
+   "id": "part-333",
+   "cat": "partial_category",
+   "text": "ek tikka",
+   "lines": [
+    {
+     "ask": [
+      "Chicken Tikka",
+      "Paneer Tikka"
+     ],
+     "qty": 1
+    }
+   ],
+   "command": null,
+   "gemini_sample": false
+  },
+  {
+   "id": "part-334",
+   "cat": "partial_category",
+   "text": "ek shahi paneer",
+   "lines": [
+    {
+     "none": true
+    }
+   ],
+   "command": null,
+   "gemini_sample": false
+  },
+  {
+   "id": "part-335",
+   "cat": "partial_category",
+   "text": "do sprite",
+   "lines": [
+    {
+     "none": true
+    }
+   ],
+   "command": null,
+   "gemini_sample": false
+  },
+  {
+   "id": "part-336",
+   "cat": "partial_category",
+   "text": "ek pizza",
+   "lines": [
+    {
+     "none": true
+    }
+   ],
+   "command": null,
+   "gemini_sample": false
+  },
+  {
+   "id": "part-337",
+   "cat": "partial_category",
+   "text": "ek manchurian",
+   "lines": [
+    {
+     "none": true
+    }
+   ],
+   "command": null,
+   "gemini_sample": true
+  },
+  {
+   "id": "part-338",
+   "cat": "partial_category",
+   "text": "ek coke",
+   "lines": [
+    {
+     "none": true
+    }
+   ],
+   "command": null,
+   "gemini_sample": false
+  },
+  {
+   "id": "part-339",
+   "cat": "partial_category",
+   "text": "ek garlic",
+   "lines": [
+    {
+     "item": "Garlic Naan",
+     "variant": null,
+     "qty": 1
+    }
+   ],
+   "command": null,
+   "gemini_sample": false
+  },
+  {
+   "id": "part-340",
+   "cat": "partial_category",
+   "text": "ek palak",
+   "lines": [
+    {
+     "item": "Palak Paneer",
+     "variant": null,
+     "qty": 1
+    }
+   ],
+   "command": null,
+   "gemini_sample": false
+  },
+  {
+   "id": "part-341",
+   "cat": "partial_category",
+   "text": "ek fish",
+   "lines": [
+    {
+     "item": "Kerala Fish Curry",
+     "variant": null,
+     "qty": 1
+    }
+   ],
+   "command": null,
+   "gemini_sample": false
+  },
+  {
+   "id": "part-342",
+   "cat": "partial_category",
+   "text": "ek rogan",
+   "lines": [
+    {
+     "item": "Mutton Rogan Josh",
+     "variant": null,
+     "qty": 1
+    }
+   ],
+   "command": null,
+   "gemini_sample": false
+  },
+  {
+   "id": "part-343",
+   "cat": "partial_category",
+   "text": "ek hara bhara",
+   "lines": [
+    {
+     "item": "Hara Bhara Kebab",
+     "variant": null,
+     "qty": 1
+    }
+   ],
+   "command": null,
+   "gemini_sample": false
+  },
+  {
+   "id": "part-344",
+   "cat": "partial_category",
+   "text": "ek water",
+   "lines": [
+    {
+     "item": "Packaged Drinking Water (1 L)",
+     "variant": null,
+     "qty": 1
+    }
+   ],
+   "command": null,
+   "gemini_sample": false
+  },
+  {
+   "id": "part-345",
+   "cat": "partial_category",
+   "text": "ek thali",
+   "lines": [
+    {
+     "item": "Veg Lunch Thali",
+     "variant": null,
+     "qty": 1
+    }
+   ],
+   "command": null,
+   "gemini_sample": true
+  },
+  {
+   "id": "part-346",
+   "cat": "partial_category",
+   "text": "ek chole",
+   "lines": [
+    {
+     "item": "Chole Masala",
+     "variant": null,
+     "qty": 1
+    }
+   ],
+   "command": null,
+   "gemini_sample": false
+  },
+  {
+   "id": "hold-347",
+   "cat": "holdout",
+   "text": "bhaiya teen garlic naan aur do dal tadka jaldi",
+   "lines": [
+    {
+     "item": "Garlic Naan",
+     "variant": null,
+     "qty": 3
+    },
+    {
+     "item": "Dal Tadka",
+     "variant": null,
+     "qty": 2
+    }
+   ],
+   "command": null,
+   "gemini_sample": false
+  },
+  {
+   "id": "hold-348",
+   "cat": "holdout",
+   "text": "one plate chicken biriyani full and one raita",
+   "lines": [
+    {
+     "item": "Chicken Biryani",
+     "variant": "Full",
+     "qty": 1
+    },
+    {
+     "none": true
+    }
+   ],
+   "command": null,
+   "gemini_sample": false
+  },
+  {
+   "id": "hold-349",
+   "cat": "holdout",
+   "text": "ek kadak masala chai",
+   "lines": [
+    {
+     "item": "Masala Chai",
+     "variant": null,
+     "qty": 1
+    }
+   ],
+   "command": null,
+   "gemini_sample": false
+  },
+  {
+   "id": "hold-350",
+   "cat": "holdout",
+   "text": "do idly aur ek vada",
+   "lines": [
+    {
+     "item": "Idli Sambar (3 pcs)",
+     "variant": null,
+     "qty": 2
+    },
+    {
+     "item": "Medu Vada (2 pcs)",
+     "variant": null,
+     "qty": 1
+    }
+   ],
+   "command": null,
+   "gemini_sample": true
+  },
+  {
+   "id": "hold-351",
+   "cat": "holdout",
+   "text": "panir tika do plate",
+   "lines": [
+    {
+     "item": "Paneer Tikka",
+     "variant": null,
+     "qty": 2
+    }
+   ],
+   "command": null,
+   "gemini_sample": false
+  },
+  {
+   "id": "hold-352",
+   "cat": "holdout",
+   "text": "ek butter chicken aadha",
+   "lines": [
+    {
+     "item": "Butter Chicken",
+     "variant": "Half",
+     "qty": 1
+    }
+   ],
+   "command": null,
+   "gemini_sample": false
+  },
+  {
+   "id": "hold-353",
+   "cat": "holdout",
+   "text": "tandoori chicken poori plate",
+   "lines": [
+    {
+     "item": "Tandoori Chicken",
+     "variant": "Full",
+     "qty": 1
+    }
+   ],
+   "command": null,
+   "gemini_sample": true
+  },
+  {
+   "id": "hold-354",
+   "cat": "holdout",
+   "text": "char butter roti",
+   "lines": [
+    {
+     "none": true
+    }
+   ],
+   "command": null,
+   "gemini_sample": true
+  },
+  {
+   "id": "hold-355",
+   "cat": "holdout",
+   "text": "ek thandi lassi meethi wali",
+   "lines": [
+    {
+     "item": "Sweet Lassi",
+     "variant": null,
+     "qty": 1
+    }
+   ],
+   "command": null,
+   "gemini_sample": false
+  },
+  {
+   "id": "hold-356",
+   "cat": "holdout",
+   "text": "2 mango lassi 1 sweet lassi",
+   "lines": [
+    {
+     "item": "Mango Lassi",
+     "variant": null,
+     "qty": 2
+    },
+    {
+     "item": "Sweet Lassi",
+     "variant": null,
+     "qty": 1
+    }
+   ],
+   "command": null,
+   "gemini_sample": false
+  },
+  {
+   "id": "hold-357",
+   "cat": "holdout",
+   "text": "ek gulab jamun garam",
+   "lines": [
+    {
+     "item": "Gulab Jamun (2 pcs)",
+     "variant": null,
+     "qty": 1
+    }
+   ],
+   "command": null,
+   "gemini_sample": false
+  },
+  {
+   "id": "hold-358",
+   "cat": "holdout",
+   "text": "teen filter kaapi",
+   "lines": [
+    {
+     "item": "Filter Coffee",
+     "variant": null,
+     "qty": 3
+    }
+   ],
+   "command": null,
+   "gemini_sample": true
+  },
+  {
+   "id": "hold-359",
+   "cat": "holdout",
+   "text": "do masala dosai",
+   "lines": [
+    {
+     "item": "Masala Dosa",
+     "variant": null,
+     "qty": 2
+    }
+   ],
+   "command": null,
+   "gemini_sample": false
+  },
+  {
+   "id": "hold-360",
+   "cat": "holdout",
+   "text": "ek mutton seekh",
+   "lines": [
+    {
+     "item": "Mutton Seekh Kebab",
+     "variant": null,
+     "qty": 1
+    }
+   ],
+   "command": null,
+   "gemini_sample": false
+  },
+  {
+   "id": "hold-361",
+   "cat": "holdout",
+   "text": "ek hara bhara kabab aur ek chilli panir dry",
+   "lines": [
+    {
+     "item": "Hara Bhara Kebab",
+     "variant": null,
+     "qty": 1
+    },
+    {
+     "item": "Chilli Paneer",
+     "variant": null,
+     "qty": 1
+    }
+   ],
+   "command": null,
+   "gemini_sample": true
+  },
+  {
+   "id": "hold-362",
+   "cat": "holdout",
+   "text": "ek chole bhature",
+   "lines": [
+    {
+     "none": true
+    }
+   ],
+   "command": null,
+   "gemini_sample": true
+  },
+  {
+   "id": "hold-363",
+   "cat": "holdout",
+   "text": "ek dal makhani aur ek jeera rice aur char naan butter wale",
+   "lines": [
+    {
+     "item": "Dal Makhani",
+     "variant": null,
+     "qty": 1
+    },
+    {
+     "item": "Jeera Rice",
+     "variant": null,
+     "qty": 1
+    },
+    {
+     "item": "Butter Naan",
+     "variant": null,
+     "qty": 4
+    }
+   ],
+   "command": null,
+   "gemini_sample": false
+  },
+  {
+   "id": "hold-364",
+   "cat": "holdout",
+   "text": "एक कड़क चाय",
+   "lines": [
+    {
+     "item": "Masala Chai",
+     "variant": null,
+     "qty": 1
+    }
+   ],
+   "command": null,
+   "gemini_sample": false
+  },
+  {
+   "id": "hold-365",
+   "cat": "holdout",
+   "text": "दो प्लेट समोसे",
+   "lines": [
+    {
+     "item": "Samosa (2 pcs)",
+     "variant": null,
+     "qty": 2
+    }
+   ],
+   "command": null,
+   "gemini_sample": false
+  },
+  {
+   "id": "hold-366",
+   "cat": "holdout",
+   "text": "एक तंदूरी चिकन हाफ",
+   "lines": [
+    {
+     "item": "Tandoori Chicken",
+     "variant": "Half",
+     "qty": 1
+    }
+   ],
+   "command": null,
+   "gemini_sample": true
+  },
+  {
+   "id": "hold-367",
+   "cat": "holdout",
+   "text": "one kerala fish curry less spicy",
+   "lines": [
+    {
+     "item": "Kerala Fish Curry",
+     "variant": null,
+     "qty": 1,
+     "note": "less spicy"
+    }
+   ],
+   "command": null,
+   "gemini_sample": false
+  },
+  {
+   "id": "hold-368",
+   "cat": "holdout",
+   "text": "do paneer butter masala aur chaar laccha paratha",
+   "lines": [
+    {
+     "item": "Paneer Butter Masala",
+     "variant": null,
+     "qty": 2
+    },
+    {
+     "item": "Laccha Paratha",
+     "variant": null,
+     "qty": 4
+    }
+   ],
+   "command": null,
+   "gemini_sample": false
+  },
+  {
+   "id": "hold-369",
+   "cat": "holdout",
+   "text": "ek veg thaali",
+   "lines": [
+    {
+     "item": "Veg Lunch Thali",
+     "variant": null,
+     "qty": 1
+    }
+   ],
+   "command": null,
+   "gemini_sample": true
+  },
+  {
+   "id": "hold-370",
+   "cat": "holdout",
+   "text": "do rasmalai aur ek kulfi",
+   "lines": [
+    {
+     "item": "Rasmalai (2 pcs)",
+     "variant": null,
+     "qty": 2
+    },
+    {
+     "item": "Malai Kulfi",
+     "variant": null,
+     "qty": 1
+    }
+   ],
+   "command": null,
+   "gemini_sample": true
+  },
+  {
+   "id": "hold-371",
+   "cat": "holdout",
+   "text": "gajar halwa ek plate",
+   "lines": [
+    {
+     "item": "Gajar Ka Halwa",
+     "variant": null,
+     "qty": 1
+    }
+   ],
+   "command": null,
+   "gemini_sample": false
+  },
+  {
+   "id": "hold-372",
+   "cat": "holdout",
+   "text": "ek uttapam podi wala",
+   "lines": [
+    {
+     "item": "Podi Uttapam",
+     "variant": null,
+     "qty": 1
+    }
+   ],
+   "command": null,
+   "gemini_sample": false
+  },
+  {
+   "id": "hold-373",
+   "cat": "holdout",
+   "text": "ek mutton biryani bada",
+   "lines": [
+    {
+     "item": "Mutton Biryani",
+     "variant": "Full",
+     "qty": 1
+    }
+   ],
+   "command": null,
+   "gemini_sample": false
+  },
+  {
+   "id": "hold-374",
+   "cat": "holdout",
+   "text": "paanch tandoori roti, teen butter naan",
+   "lines": [
+    {
+     "item": "Tandoori Roti",
+     "variant": null,
+     "qty": 5
+    },
+    {
+     "item": "Butter Naan",
+     "variant": null,
+     "qty": 3
+    }
+   ],
+   "command": null,
+   "gemini_sample": true
+  },
+  {
+   "id": "hold-375",
+   "cat": "holdout",
+   "text": "ek chicken tikka aur ek chicken tikka masala",
+   "lines": [
+    {
+     "item": "Chicken Tikka",
+     "variant": null,
+     "qty": 1
+    },
+    {
+     "item": "Chicken Tikka Masala",
+     "variant": null,
+     "qty": 1
+    }
+   ],
+   "command": null,
+   "gemini_sample": false
+  },
+  {
+   "id": "hold-376",
+   "cat": "holdout",
+   "text": "two veg pakoras",
+   "lines": [
+    {
+     "item": "Veg Pakora",
+     "variant": null,
+     "qty": 2
+    }
+   ],
+   "command": null,
+   "gemini_sample": false
+  },
+  {
+   "id": "hold-377",
+   "cat": "holdout",
+   "text": "ek palak paneer no garlic",
+   "lines": [
+    {
+     "item": "Palak Paneer",
+     "variant": null,
+     "qty": 1,
+     "note": "no garlic"
+    }
+   ],
+   "command": null,
+   "gemini_sample": true
+  },
+  {
+   "id": "hold-378",
+   "cat": "holdout",
+   "text": "ek lime soda sweet",
+   "lines": [
+    {
+     "item": "Fresh Lime Soda",
+     "variant": null,
+     "qty": 1
+    }
+   ],
+   "command": null,
+   "gemini_sample": true
+  },
+  {
+   "id": "hold-379",
+   "cat": "holdout",
+   "text": "do bottle paani",
+   "lines": [
+    {
+     "item": "Packaged Drinking Water (1 L)",
+     "variant": null,
+     "qty": 2
+    }
+   ],
+   "command": null,
+   "gemini_sample": false
+  },
+  {
+   "id": "hold-380",
+   "cat": "holdout",
+   "text": "ek chicken sixty-five",
+   "lines": [
+    {
+     "item": "Chicken 65",
+     "variant": null,
+     "qty": 1
+    }
+   ],
+   "command": null,
+   "gemini_sample": false
+  },
+  {
+   "id": "hold-381",
+   "cat": "holdout",
+   "text": "ek butter chicken, nahi do",
+   "lines": [
+    {
+     "item": "Butter Chicken",
+     "variant": "Half",
+     "qty": 2
+    }
+   ],
+   "command": null,
+   "gemini_sample": false
+  },
+  {
+   "id": "hold-382",
+   "cat": "holdout",
+   "text": "teen samosa, ek hata do",
+   "lines": [
+    {
+     "item": "Samosa (2 pcs)",
+     "variant": null,
+     "qty": 2
+    }
+   ],
+   "command": null,
+   "gemini_sample": true
+  },
+  {
+   "id": "hold-383",
+   "cat": "holdout",
+   "text": "ek aloo paratha",
+   "lines": [
+    {
+     "none": true
+    }
+   ],
+   "command": null,
+   "gemini_sample": false
+  },
+  {
+   "id": "hold-384",
+   "cat": "holdout",
+   "text": "ek garlic naan aur ek butter naan, send to kitchen",
+   "lines": [
+    {
+     "item": "Garlic Naan",
+     "variant": null,
+     "qty": 1
+    },
+    {
+     "item": "Butter Naan",
+     "variant": null,
+     "qty": 1
+    }
+   ],
+   "command": "kot",
+   "gemini_sample": false
+  },
+  {
+   "id": "hold-385",
+   "cat": "holdout",
+   "text": "ek masala chai, place the order",
+   "lines": [
+    {
+     "item": "Masala Chai",
+     "variant": null,
+     "qty": 1
+    }
+   ],
+   "command": "place",
+   "gemini_sample": true
+  },
+  {
+   "id": "hold-386",
+   "cat": "holdout",
+   "text": "order bhej do kitchen mein",
+   "lines": [],
+   "command": "kot",
+   "gemini_sample": true
+  },
+  {
+   "id": "comm-387",
+   "cat": "command",
+   "text": "two butter naan place order",
+   "lines": [
+    {
+     "item": "Butter Naan",
+     "variant": null,
+     "qty": 2
+    }
+   ],
+   "command": "place",
+   "gemini_sample": false
+  },
+  {
+   "id": "comm-388",
+   "cat": "command",
+   "text": "do butter naan, place order",
+   "lines": [
+    {
+     "item": "Butter Naan",
+     "variant": null,
+     "qty": 2
+    }
+   ],
+   "command": "place",
+   "gemini_sample": false
+  },
+  {
+   "id": "comm-389",
+   "cat": "command",
+   "text": "place order",
+   "lines": [],
+   "command": "place",
+   "gemini_sample": true
+  },
+  {
+   "id": "comm-390",
+   "cat": "command",
+   "text": "order place karo",
+   "lines": [],
+   "command": "place",
+   "gemini_sample": false
+  },
+  {
+   "id": "comm-391",
+   "cat": "command",
+   "text": "order laga do",
+   "lines": [],
+   "command": "place",
+   "gemini_sample": false
+  },
+  {
+   "id": "comm-392",
+   "cat": "command",
+   "text": "order kar do",
+   "lines": [],
+   "command": "place",
+   "gemini_sample": false
+  },
+  {
+   "id": "comm-393",
+   "cat": "command",
+   "text": "confirm order",
+   "lines": [],
+   "command": "place",
+   "gemini_sample": true
+  },
+  {
+   "id": "comm-394",
+   "cat": "command",
+   "text": "ek dal makhani aur order confirm karo",
+   "lines": [
+    {
+     "item": "Dal Makhani",
+     "variant": null,
+     "qty": 1
+    }
+   ],
+   "command": "place",
+   "gemini_sample": false
+  },
+  {
+   "id": "comm-395",
+   "cat": "command",
+   "text": "plays order",
+   "lines": [],
+   "command": "place",
+   "gemini_sample": false
+  },
+  {
+   "id": "comm-396",
+   "cat": "command",
+   "text": "ek masala dosa plays order",
+   "lines": [
+    {
+     "item": "Masala Dosa",
+     "variant": null,
+     "qty": 1
+    }
+   ],
+   "command": "place",
+   "gemini_sample": false
+  },
+  {
+   "id": "comm-397",
+   "cat": "command",
+   "text": "please place the order",
+   "lines": [],
+   "command": "place",
+   "gemini_sample": true
+  },
+  {
+   "id": "comm-398",
+   "cat": "command",
+   "text": "send KOT",
+   "lines": [],
+   "command": "kot",
+   "gemini_sample": false
+  },
+  {
+   "id": "comm-399",
+   "cat": "command",
+   "text": "send kot",
+   "lines": [],
+   "command": "kot",
+   "gemini_sample": false
+  },
+  {
+   "id": "comm-400",
+   "cat": "command",
+   "text": "send cot",
+   "lines": [],
+   "command": "kot",
+   "gemini_sample": false
+  },
+  {
+   "id": "comm-401",
+   "cat": "command",
+   "text": "send to kitchen",
+   "lines": [],
+   "command": "kot",
+   "gemini_sample": true
+  },
+  {
+   "id": "comm-402",
+   "cat": "command",
+   "text": "kitchen me bhejo",
+   "lines": [],
+   "command": "kot",
+   "gemini_sample": false
+  },
+  {
+   "id": "comm-403",
+   "cat": "command",
+   "text": "kitchen mein bhej do",
+   "lines": [],
+   "command": "kot",
+   "gemini_sample": false
+  },
+  {
+   "id": "comm-404",
+   "cat": "command",
+   "text": "kitchen bhej do",
+   "lines": [],
+   "command": "kot",
+   "gemini_sample": false
+  },
+  {
+   "id": "comm-405",
+   "cat": "command",
+   "text": "KOT bhejo",
+   "lines": [],
+   "command": "kot",
+   "gemini_sample": true
+  },
+  {
+   "id": "comm-406",
+   "cat": "command",
+   "text": "kot bhej do",
+   "lines": [],
+   "command": "kot",
+   "gemini_sample": false
+  },
+  {
+   "id": "comm-407",
+   "cat": "command",
+   "text": "place order and send KOT",
+   "lines": [],
+   "command": "kot",
+   "gemini_sample": false
+  },
+  {
+   "id": "comm-408",
+   "cat": "command",
+   "text": "order place karo aur kitchen bhejo",
+   "lines": [],
+   "command": "kot",
+   "gemini_sample": false
+  },
+  {
+   "id": "comm-409",
+   "cat": "command",
+   "text": "two butter naan and send to kitchen",
+   "lines": [
+    {
+     "item": "Butter Naan",
+     "variant": null,
+     "qty": 2
+    }
+   ],
+   "command": "kot",
+   "gemini_sample": true
+  },
+  {
+   "id": "comm-410",
+   "cat": "command",
+   "text": "do paneer tikka aur kitchen bhej do",
+   "lines": [
+    {
+     "item": "Paneer Tikka",
+     "variant": null,
+     "qty": 2
+    }
+   ],
+   "command": "kot",
+   "gemini_sample": false
+  },
+  {
+   "id": "comm-411",
+   "cat": "command",
+   "text": "ek butter chicken full, place order and send kot",
+   "lines": [
+    {
+     "item": "Butter Chicken",
+     "variant": "Full",
+     "qty": 1
+    }
+   ],
+   "command": "kot",
+   "gemini_sample": false
+  },
+  {
+   "id": "comm-412",
+   "cat": "command",
+   "text": "send to kitchan",
+   "lines": [],
+   "command": "kot",
+   "gemini_sample": false
+  },
+  {
+   "id": "comm-413",
+   "cat": "command",
+   "text": "ek chai, kot bhejo",
+   "lines": [
+    {
+     "item": "Masala Chai",
+     "variant": null,
+     "qty": 1
+    }
+   ],
+   "command": "kot",
+   "gemini_sample": true
+  },
+  {
+   "id": "comm-414",
+   "cat": "command",
+   "text": "send it to the kitchen",
+   "lines": [],
+   "command": "kot",
+   "gemini_sample": false
+  },
+  {
+   "id": "comm-415",
+   "cat": "command",
+   "text": "cancel",
+   "lines": [],
+   "command": "clear",
+   "gemini_sample": false
+  },
+  {
+   "id": "comm-416",
+   "cat": "command",
+   "text": "clear",
+   "lines": [],
+   "command": "clear",
+   "gemini_sample": false
+  },
+  {
+   "id": "comm-417",
+   "cat": "command",
+   "text": "sab hata do",
+   "lines": [],
+   "command": "clear",
+   "gemini_sample": true
+  },
+  {
+   "id": "comm-418",
+   "cat": "command",
+   "text": "sab cancel kar do",
+   "lines": [],
+   "command": "clear",
+   "gemini_sample": false
+  },
+  {
+   "id": "comm-419",
+   "cat": "command",
+   "text": "clear all",
+   "lines": [],
+   "command": "clear",
+   "gemini_sample": false
+  },
+  {
+   "id": "comm-420",
+   "cat": "command",
+   "text": "new bill",
+   "lines": [],
+   "command": "new_bill",
+   "gemini_sample": false
+  },
+  {
+   "id": "comm-421",
+   "cat": "command",
+   "text": "next bill",
+   "lines": [],
+   "command": "new_bill",
+   "gemini_sample": true
+  },
+  {
+   "id": "comm-422",
+   "cat": "command",
+   "text": "naya bill",
+   "lines": [],
+   "command": "new_bill",
+   "gemini_sample": false
+  },
+  {
+   "id": "comm-423",
+   "cat": "command",
+   "text": "two butter naan, place order please",
+   "lines": [
+    {
+     "item": "Butter Naan",
+     "variant": null,
+     "qty": 2
+    }
+   ],
+   "command": "place",
+   "gemini_sample": false
+  },
+  {
+   "id": "comm-424",
+   "cat": "command",
+   "text": "three masala chai order laga do",
+   "lines": [
+    {
+     "item": "Masala Chai",
+     "variant": null,
+     "qty": 3
+    }
+   ],
+   "command": "place",
+   "gemini_sample": false
+  },
+  {
+   "id": "comm-425",
+   "cat": "command",
+   "text": "ek veg biryani, order kar do",
+   "lines": [
+    {
+     "item": "Veg Biryani",
+     "variant": null,
+     "qty": 1
+    }
+   ],
+   "command": "place",
+   "gemini_sample": true
+  },
+  {
+   "id": "comm-426",
+   "cat": "command_false_positive",
+   "text": "one chicken order special",
+   "lines": [
+    {
+     "none": true
+    }
+   ],
+   "command": null,
+   "gemini_sample": false
+  },
+  {
+   "id": "comm-427",
+   "cat": "command_false_positive",
+   "text": "kitchen paratha",
+   "lines": [
+    {
+     "none": true
+    }
+   ],
+   "command": null,
+   "gemini_sample": false
+  },
+  {
+   "id": "comm-428",
+   "cat": "command_false_positive",
+   "text": "ek laccha paratha kitchen se jaldi",
+   "lines": [
+    {
+     "item": "Laccha Paratha",
+     "variant": null,
+     "qty": 1
+    }
+   ],
+   "command": null,
+   "gemini_sample": false
+  },
+  {
+   "id": "comm-429",
+   "cat": "command_false_positive",
+   "text": "do butter naan order mein add karo",
+   "lines": [
+    {
+     "item": "Butter Naan",
+     "variant": null,
+     "qty": 2
+    }
+   ],
+   "command": null,
+   "gemini_sample": false
+  },
+  {
+   "id": "comm-430",
+   "cat": "command_false_positive",
+   "text": "place two orders of butter naan",
+   "lines": [
+    {
+     "item": "Butter Naan",
+     "variant": null,
+     "qty": 2
+    }
+   ],
+   "command": null,
+   "gemini_sample": false
+  },
+  {
+   "id": "comm-431",
+   "cat": "command_false_positive",
+   "text": "ek paneer tikka, order ka kya hua",
+   "lines": [
+    {
+     "item": "Paneer Tikka",
+     "variant": null,
+     "qty": 1
+    }
+   ],
+   "command": null,
+   "gemini_sample": false
+  },
+  {
+   "id": "comm-432",
+   "cat": "command_false_positive",
+   "text": "samosa cancel kar do",
+   "lines": [],
+   "command": null,
+   "gemini_sample": false
+  },
+  {
+   "id": "comm-433",
+   "cat": "command_false_positive",
+   "text": "ek dal makhani cancel karo",
+   "lines": [],
+   "command": null,
+   "gemini_sample": true
+  },
+  {
+   "id": "comm-434",
+   "cat": "command_false_positive",
+   "text": "ek coat",
+   "lines": [
+    {
+     "none": true
+    }
+   ],
+   "command": null,
+   "gemini_sample": false
+  },
+  {
+   "id": "comm-435",
+   "cat": "command_false_positive",
+   "text": "kitchen wala special",
+   "lines": [
+    {
+     "none": true
+    }
+   ],
+   "command": null,
+   "gemini_sample": false
+  },
+  {
+   "id": "comm-436",
+   "cat": "command_false_positive",
+   "text": "ek masala chai bina cheeni, clear soup nahi",
+   "lines": [
+    {
+     "item": "Masala Chai",
+     "variant": null,
+     "qty": 1,
+     "note": "no sugar"
+    }
+   ],
+   "command": null,
+   "gemini_sample": false
+  },
+  {
+   "id": "comm-437",
+   "cat": "command_false_positive",
+   "text": "send two butter naan",
+   "lines": [
+    {
+     "item": "Butter Naan",
+     "variant": null,
+     "qty": 2
+    }
+   ],
+   "command": null,
+   "gemini_sample": false
+  }
+ ]
+}

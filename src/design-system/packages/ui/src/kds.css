@@ -1,0 +1,34 @@
+/* @chilli/ui/kds styles. Load after styles.css. Kitchen mode is far density and LIGHT like the rest of the product (owner approval 2026-11-03, BREAK_UI_REPORT D07):
+   white ticket cards on the canvas, status bars from the light semantic tokens (info / warning / success / danger), no dark subtree. */
+.ch-kds{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,320px),1fr));gap:var(--space-16);align-items:start;min-height:100vh;padding:var(--space-16);background:var(--c-bg);color:var(--c-fg);font-family:var(--font-sans);font-size:var(--body-size);line-height:var(--body-lh)}
+.ch-kds-col{min-width:0;color:var(--c-fg);font-family:var(--font-sans)}
+.ch-kds-col__title{display:flex;align-items:center;justify-content:space-between;margin:0 0 var(--space-12);padding-bottom:var(--space-8);border-bottom:4px solid var(--c-info);font-size:var(--text-2xl);line-height:var(--lh-2xl)}
+.ch-kds-col--prep .ch-kds-col__title{border-bottom-color:var(--c-warning)}
+.ch-kds-col--ready .ch-kds-col__title{border-bottom-color:var(--c-success)}
+.ch-kds-col__count{min-width:var(--hit);padding:0 var(--space-12);border-radius:var(--radius-full);background:var(--c-surface-3);text-align:center;font-variant-numeric:tabular-nums}
+.ch-kds-col__list{display:flex;flex-direction:column;gap:var(--space-12)}
+.ch-kds-col__empty{margin:0;padding:var(--space-24) 0;text-align:center;color:var(--c-fg-muted)}
+
+.ch-kds-ticket{box-sizing:border-box;padding:var(--space-16);border:1px solid var(--c-border);border-inline-start:10px solid var(--c-info);border-radius:var(--radius-lg);background:var(--c-surface);color:var(--c-fg);font-family:var(--font-sans);font-size:var(--body-size);line-height:var(--body-lh)}
+.ch-kds-ticket--prep{border-inline-start-color:var(--c-warning)}
+.ch-kds-ticket--ready{border-inline-start-color:var(--c-success)}
+.ch-kds-ticket[data-age=warn]{border-color:var(--c-warning)}
+.ch-kds-ticket[data-age=late]{border-color:var(--c-danger);border-width:3px;border-inline-start:10px solid var(--c-danger)}
+.ch-kds-ticket__head{display:flex;flex-wrap:wrap;align-items:center;gap:var(--space-8) var(--space-12)}
+.ch-kds-ticket__no{font-family:var(--font-mono);font-size:var(--text-4xl);line-height:var(--lh-4xl);font-weight:700;font-variant-numeric:tabular-nums}
+.ch-kds-ticket__meta{flex:1;color:var(--c-fg-muted)}
+.ch-kds-ticket__age{display:inline-flex;align-items:center;gap:var(--space-8);padding:var(--space-4) var(--space-12);border-radius:var(--radius-full);background:var(--c-surface-3);color:var(--c-fg);font-family:var(--font-mono);font-weight:700;font-variant-numeric:tabular-nums}
+.ch-kds-ticket__age--warn{background:var(--c-warning-soft);color:var(--c-warning-fg)}
+.ch-kds-ticket__age--late{background:var(--c-danger-soft);color:var(--c-danger-fg)}
+.ch-kds-ticket__state{margin:var(--space-4) 0 var(--space-8);font-size:var(--text-sm);font-weight:600;letter-spacing:.04em;text-transform:uppercase;color:var(--c-fg-muted)}
+.ch-kds-ticket__items{margin:0;padding:0;list-style:none;display:flex;flex-direction:column;gap:var(--space-8);font-size:var(--text-2xl);line-height:var(--lh-2xl)}
+.ch-kds-ticket__items li{display:flex;gap:var(--space-12);min-width:0}
+.ch-kds-ticket__items li>span:not(.ch-kds-ticket__qty){min-width:0;overflow-wrap:anywhere}
+.ch-kds-ticket__qty{min-width:2.2ch;font-family:var(--font-mono);font-weight:700;font-variant-numeric:tabular-nums}
+.ch-kds-ticket__note{display:block;font-size:var(--text-lg);line-height:var(--lh-lg);font-style:normal;font-weight:600;color:var(--c-warning-fg)}
+.ch-kds-ticket__go{width:100%;margin-top:var(--space-16)}
+
+.ch-kds-ticket--tap{cursor:pointer}
+.ch-kds-ticket[data-fresh]{outline:4px solid var(--c-ring);outline-offset:2px}
+.ch-kds-ticket__meta{display:inline-flex;align-items:center;gap:var(--space-8)}
+.ch-kds-ticket__actions{display:flex;flex-wrap:wrap;justify-content:flex-end;gap:var(--space-8);margin-top:var(--space-12)}

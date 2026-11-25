@@ -1,0 +1,428 @@
+/* LIGHT ONLY (owner decision 2026-11-01): <html data-theme="light"> (layout.tsx) turns every `:root:not([data-theme="light"])` dark block
+   below and in @chilli/tokens off, so a phone set to dark still shows the light theme. The dark definitions are kept on purpose; to bring
+   dark back set APPLIED_THEME = "auto" in src/lib/mobileTheme.ts. */
+/* Base palette: @chilli/tokens (--c-*, light and dark through prefers-color-scheme), imported in layout.tsx.
+   Below: the waiter-app "mobile theme" layer. Only this app reads it; the web apps are untouched. See docs/MOBILE_THEME.md. */
+:root {
+  /* Mobile theme layer (light), mapped to the owner's brand guide (2026-10-31, @chilli/tokens): Chilli Red #E50914 (600) / 700 #C20710 /
+     800 #9B0309, Dark Charcoal neutrals, Vibrant Orange #FF5A1F for small accents only, Leaf Green #167D32 for the stem and success.
+     Splash: Chilli Red -> 700 -> 800 (white text 4.79 / 6.30 / 8.71 : 1, AA for any size). */
+  --m-splash: #e50914; --m-splash-b: #c20710; --m-splash-c: #9b0309; --m-splash-ink: #ffffff;
+  /* Shading follows the design-system --ch-* values: a soft orange light top-right on the splash, otherwise flat. Decoration only. */
+  --m-splash-glow: rgba(255, 90, 31, .35); --art-glow: rgba(255, 255, 255, .85); --art-c: #ffc2c2; --m-glow: rgba(229, 9, 20, 0); --m-card-end: #ffffff;
+  --m-page: #f9fafb; --m-field-border: #e5e7eb; --m-shadow: 0 1px 2px rgba(17, 24, 32, .06), 0 6px 16px -4px rgba(17, 24, 32, .10);
+  /* Input and control edges (text fields, radios, checkboxes, switch track): charcoal border-strong, >= 3:1 on white and on the page. */
+  --m-input-border: var(--c-border-strong);
+  /* Filled button: Chilli Red with a slightly darker bottom stop (darken, never lighten). White text 4.79 / 4.79 / 6.30. */
+  --m-btn-a: #e50914; --m-btn-b: #e50914; --m-btn-c: #c20710; --m-btn-shadow: rgba(229, 9, 20, .24);
+  /* Entry-screen artwork (decoration only, never carries text): the design-system sign-in scene, Chilli 50 -> 100 -> 200, white and
+     pale red leaves, a Chilli Red pepper with a Leaf Green stem, Vibrant Orange underline accent. */
+  --art-a: #fff1f1; --art-b: #ffe0e0; --art-l1: rgba(255, 255, 255, .55); --art-l2: rgba(229, 9, 20, .12); --art-l3: rgba(255, 148, 148, .30); --art-rib: rgba(255, 255, 255, .6);
+  --art-pep: #e50914; --art-stem: #167d32; --art-band: rgba(255, 255, 255, .7); --art-shadow: rgba(229, 9, 20, .12); --art-accent: #ff5a1f;
+  --r-card: 24px; --r-hero: 36px; --r-sheet: 32px; --r-pill: 999px;
+  --font-body: var(--font-inter), var(--font-noto-deva), system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  /* Brand guide: Poppins Bold for headings (Display, H1-H3), Inter for UI and body. */
+  --font-head: var(--font-poppins), var(--font-inter), var(--font-noto-deva), system-ui, sans-serif;
+  /* Existing app variable names, now fed by the tokens. */
+  --bg: var(--m-page); --surface: var(--c-surface); --surface-2: var(--c-surface-2); --border: var(--m-field-border);
+  --fg: var(--c-fg); --muted: var(--c-fg-muted); --primary: var(--c-primary); --primary-fg: var(--c-on-primary); --primary-soft: var(--c-primary-soft);
+  --ok: var(--c-success); --warn-bg: var(--c-warning-soft); --warn-fg: var(--c-warning-fg); --err: var(--c-danger); --err-bg: var(--c-danger-soft);
+  --tap: 48px; --tap-lg: 56px; --nav-h: 64px;
+  color-scheme: light; /* native form controls, scrollbars and the canvas stay light */
+  /* Food tiles (dish photo fallback), from the original POS: background / glyph pairs. */
+  --tile-1: #f9e4d6; --tile-1-fg: #8a4220; --tile-2: #fff0c2; --tile-2-fg: #855600; --tile-3: #e3f1df; --tile-3-fg: #2f6b3a;
+  --tile-4: #ffe1e3; --tile-4-fg: #a3263a; --tile-5: #f2e8dc; --tile-5-fg: #6b4f35; --tile-6: #e2eefb; --tile-6-fg: #24518f;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) { --m-page: #0b1015; --m-field-border: #2a3442; --m-shadow: 0 1px 2px rgba(0, 0, 0, .4);
+    /* Dark buttons: Chilli 400 with the charcoal label (5.84 : 1), as the tokens' dark primary. */
+    --m-btn-a: #ff5a5a; --m-btn-b: #ff5a5a; --m-btn-c: #ff5a5a; --m-btn-shadow: rgba(0, 0, 0, .35);
+    --art-glow: rgba(255, 90, 31, .25); --art-c: #3a0306; --m-glow: rgba(229, 9, 20, 0); --m-card-end: #111820;
+    /* Artwork on the design-system dark hero (Chilli 800 -> 900 -> deep red), leaves dimmed. */
+    --art-a: #9b0309; --art-b: #6e0207; --art-l1: rgba(255, 255, 255, .08); --art-l2: rgba(255, 90, 90, .18); --art-l3: rgba(255, 148, 148, .14); --art-rib: rgba(255, 255, 255, .12);
+    --art-pep: #ff5a5a; --art-stem: #167d32; --art-band: rgba(255, 255, 255, .06); --art-shadow: rgba(0, 0, 0, .35); --art-accent: #ff5a1f;
+    --tile-1: #35241b; --tile-1-fg: #efb893; --tile-2: #362c12; --tile-2-fg: #f6d36b; --tile-3: #1f3020; --tile-3-fg: #9fd99a;
+    --tile-4: #3a1d22; --tile-4-fg: #ffa3ad; --tile-5: #2e261e; --tile-5-fg: #e0c3a3; --tile-6: #1a2738; --tile-6-fg: #9cc2f2; }
+}
+* { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; }
+body { margin: 0; background: var(--bg); color: var(--fg); font: 400 16px/1.45 var(--font-body); -webkit-tap-highlight-color: transparent; overscroll-behavior-y: contain; -webkit-font-smoothing: antialiased; }
+h1, h2, h3 { letter-spacing: -.01em; font-family: var(--font-head); font-weight: 700; }
+h2 { font-size: 20px; font-weight: 700; margin: 20px 0 10px; }
+button, input, select, textarea { font: inherit; color: inherit; }
+button { cursor: pointer; touch-action: manipulation; }
+:focus-visible { outline: 3px solid var(--c-ring); outline-offset: 2px; }
+.sr-only { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+.skip { position: absolute; left: -999px; } .skip:focus { left: 8px; top: 8px; z-index: 100; background: var(--surface); padding: 8px; border-radius: var(--r-pill); }
+
+/* App frame: big bold title on the grey page, floating-style bottom bar with icons. Safe-area insets for notch and home indicator. */
+.shell { min-height: 100vh; min-height: 100dvh; display: flex; flex-direction: column; padding-bottom: calc(var(--nav-h) + 8px + env(safe-area-inset-bottom)); }
+.top { position: sticky; top: 0; z-index: 10; display: flex; align-items: center; gap: 8px; padding: calc(env(safe-area-inset-top) + 14px) calc(20px + env(safe-area-inset-right)) 8px calc(20px + env(safe-area-inset-left)); background: radial-gradient(120% 150% at 100% 0%, var(--m-glow) 0%, transparent 60%), var(--bg); }
+.top h1 { font-size: 28px; line-height: 36px; font-weight: 700; margin: 0; flex: 1; min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.main { flex: 1; padding: 8px calc(20px + env(safe-area-inset-right)) 16px calc(20px + env(safe-area-inset-left)); max-width: 720px; width: 100%; margin: 0 auto; }
+.nav { position: fixed; bottom: 0; left: 0; right: 0; display: grid; grid-template-columns: repeat(5, 1fr); background: var(--surface); border-radius: 28px 28px 0 0; box-shadow: 0 -1px 0 var(--border), 0 -6px 24px rgba(17, 24, 32, .06); padding: 6px 8px calc(6px + env(safe-area-inset-bottom)); z-index: 10; }
+.nav a { min-height: 52px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 2px; font-size: 12px; font-weight: 600; text-decoration: none; color: var(--c-fg-subtle); position: relative; }
+.nav .ico { width: 56px; height: 30px; border-radius: var(--r-pill); display: flex; align-items: center; justify-content: center; }
+.nav svg { width: 24px; height: 24px; fill: none; stroke: currentColor; stroke-width: 1.9; stroke-linecap: round; stroke-linejoin: round; }
+.nav a[aria-current="page"] { color: var(--c-primary-soft-fg); font-weight: 800; }
+.nav a[aria-current="page"] .ico { background: var(--c-primary-soft); }
+.nav .badge { position: absolute; top: 2px; left: calc(50% + 8px); }
+.badge { background: var(--primary); color: var(--primary-fg); border-radius: var(--r-pill); font-size: 12px; min-width: 20px; padding: 0 6px; text-align: center; font-weight: 700; }
+
+.btn { min-height: var(--tap); min-width: var(--tap); padding: 0 20px; border-radius: var(--r-pill); border: 1.5px solid var(--border); background: var(--surface); font-weight: 600; display: inline-flex; align-items: center; justify-content: center; gap: 6px; text-decoration: none; color: var(--fg); }
+.btn.primary { background: var(--primary); color: var(--primary-fg); border-color: var(--primary); font-weight: 700; }
+.btn.danger { color: var(--c-danger-fg); border-color: var(--err); }
+.row > .btn.grow { padding: 0 10px; min-width: 0; }
+.btn.block { display: flex; width: 100%; min-height: var(--tap-lg); font-size: 17px; }
+.btn.block.cartbar { width: auto; }
+.btn[disabled] { opacity: .5; cursor: not-allowed; }
+.btn:active:not([disabled]) { transform: scale(.985); }
+.card { background: var(--surface); border: 1px solid var(--border); border-radius: var(--r-card); padding: 16px; margin-bottom: 12px; box-shadow: var(--m-shadow); }
+.row { display: flex; align-items: center; gap: 10px; } .grow { flex: 1; min-width: 0; } .between { justify-content: space-between; }
+.muted { color: var(--muted); } .small { font-size: 13px; }
+.grid { display: grid; gap: 12px; grid-template-columns: repeat(auto-fill, minmax(104px, 1fr)); }
+.tile { min-height: 96px; gap: 2px; color: var(--fg); border-radius: var(--r-card); border: 2px solid transparent; background: var(--surface); box-shadow: var(--m-shadow); font-weight: 800; font-size: 18px; display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 8px; }
+.tile[aria-pressed="true"] { border-color: var(--primary); background: var(--primary-soft); }
+.chips { display: flex; gap: 8px; overflow-x: auto; padding-bottom: 8px; scrollbar-width: none; }
+.chip { flex: none; min-height: 44px; display: inline-flex; align-items: center; gap: 6px; white-space: nowrap; padding: 0 18px; border-radius: var(--r-pill); border: 1.5px solid var(--border); background: var(--surface); font-weight: 600; }
+.chip[aria-pressed="true"] { background: var(--primary); color: var(--primary-fg); border-color: var(--primary); }
+.field { display: block; margin-bottom: 14px; } .field span { display: block; font-weight: 600; font-size: 14px; margin: 0 0 6px 4px; }
+.input { width: 100%; min-height: var(--tap-lg); padding: 0 20px; border-radius: var(--r-pill); border: 1.5px solid var(--m-input-border); background: var(--surface); }
+.input::placeholder { color: var(--c-fg-subtle); opacity: 1; }
+textarea.input { padding: 14px 20px; min-height: 96px; border-radius: var(--r-card); }
+.banner { padding: 12px 16px; border-radius: 20px; margin-bottom: 12px; background: var(--warn-bg); color: var(--warn-fg); font-weight: 600; }
+.banner.err { background: var(--err-bg); color: var(--c-danger-fg); }
+/* Status never by colour alone: every banner starts with a shape (triangle = warning/info, circle ! = error, tick = done) in its text colour. */
+.banner { position: relative; padding-left: 46px; }
+.banner::before { content: ""; position: absolute; left: 16px; top: 13px; width: 20px; height: 20px; background: currentColor; -webkit-mask: var(--ico) center / contain no-repeat; mask: var(--ico) center / contain no-repeat;
+  --ico: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23000' stroke-width='2.2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M10.3 3.9 1.8 18a2 2 0 0 0 1.7 3h17a2 2 0 0 0 1.7-3L13.7 3.9a2 2 0 0 0-3.4 0z'/%3E%3Cpath d='M12 9v4M12 17h.01'/%3E%3C/svg%3E"); }
+.banner.err::before { --ico: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23000' stroke-width='2.2' stroke-linecap='round'%3E%3Ccircle cx='12' cy='12' r='10'/%3E%3Cpath d='M12 7v6M12 17h.01'/%3E%3C/svg%3E"); }
+.banner.ok::before { --ico: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23000' stroke-width='2.4' stroke-linecap='round' stroke-linejoin='round'%3E%3Ccircle cx='12' cy='12' r='10'/%3E%3Cpath d='m7.5 12.5 3 3 6-6'/%3E%3C/svg%3E"); }
+.banner.row::before { top: 50%; margin-top: -10px; }
+.pill { display: inline-block; padding: 3px 12px; border-radius: var(--r-pill); font-size: 13px; font-weight: 700; background: var(--surface); color: var(--fg); border: 1px solid var(--border); }
+.pill.pending { background: var(--warn-bg); color: var(--warn-fg); border-color: transparent; } .pill.synced { background: var(--ok); color: var(--primary-fg); border-color: transparent; } .pill.failed { background: var(--err); color: var(--primary-fg); border-color: transparent; }
+/* A sheet never grows past the visible screen: it leaves the status bar / notch (safe-area top, or the --safe-area-inset-top a Capacitor WebView injects on Android) plus a 12 px gap
+   of scrim above it, on 100dvh (the visible height, not the 100vh that includes the browser / system bars). Layout only, no colour. */
+:root { --safe-top: max(env(safe-area-inset-top, 0px), var(--safe-area-inset-top, 0px)); --safe-bottom: max(env(safe-area-inset-bottom, 0px), var(--safe-area-inset-bottom, 0px)); }
+.sheet { position: fixed; inset: 0; background: var(--c-scrim); display: flex; align-items: flex-end; z-index: 30; }
+.sheet > div { background: var(--surface); width: 100%; max-height: calc(100vh - var(--safe-top) - 12px); max-height: calc(100dvh - var(--safe-top) - 12px); overflow: auto; overscroll-behavior: contain; border-radius: var(--r-sheet) var(--r-sheet) 0 0; padding: 20px 20px calc(20px + var(--safe-bottom)); max-width: 720px; margin: 0 auto; }
+/* Voice sheet: the title row and the Cancel / Try again / Add buttons stay put, only the list in between scrolls (a 10-line review is taller than any phone). */
+.sheet > div.voicesheet { display: flex; flex-direction: column; overflow: hidden; padding-bottom: 0; }
+.voicesheet-title { flex: none; margin: 0 0 8px; }
+.voicesheet-body { flex: 1 1 auto; min-height: 0; overflow-y: auto; overscroll-behavior: contain; -webkit-overflow-scrolling: touch; padding-bottom: calc(20px + var(--safe-bottom)); }
+.voicesheet:has(.voicesheet-foot) .voicesheet-body { padding-bottom: 8px; }
+.voicesheet-foot { flex: none; padding: 12px 0 calc(16px + var(--safe-bottom)); border-top: 1px solid var(--border); background: var(--surface); }
+.cartbar { position: fixed; left: 20px; right: 20px; bottom: calc(var(--nav-h) + 12px + env(safe-area-inset-bottom)); z-index: 9; max-width: 680px; margin: 0 auto; box-shadow: 0 8px 24px var(--m-btn-shadow); }
+/* Bottom nav is --nav-h + safe area; the cart bar sits above it. The shell gets matching padding so content can scroll clear. */
+.toast { position: fixed; bottom: calc(var(--nav-h) + 12px + env(safe-area-inset-bottom)); left: 20px; right: 20px; z-index: 40; max-width: 680px; margin: 0 auto; }
+.toast.above-cartbar { bottom: calc(var(--nav-h) + 74px + env(safe-area-inset-bottom)); }
+.toast .card { border-color: var(--ok); border-width: 2px; margin-bottom: 0; }
+.shell.has-toast { padding-bottom: calc(148px + env(safe-area-inset-bottom)); }
+.shell.has-toast.has-cartbar { padding-bottom: calc(204px + env(safe-area-inset-bottom)); }
+.shell:has(.cartbar), .shell:has(.cartbar2) { padding-bottom: calc(136px + env(safe-area-inset-bottom)); }
+.shell.has-toast.has-cartbar:has(.cartbar), .shell.has-toast.has-cartbar:has(.cartbar2) { padding-bottom: calc(204px + env(safe-area-inset-bottom)); }
+/* Links outside buttons/cards/nav: visibly links. */
+.main a:not(.btn):not(.card):not(.cartbar2):not(.chiplink) { color: var(--c-primary-soft-fg); font-weight: 600; text-decoration: underline; text-underline-offset: 3px; min-height: 24px; }
+.main a:not(.btn):not(.card):not(.cartbar2):not(.chiplink):hover { text-decoration-thickness: 2px; }
+.qty { display: inline-flex; align-items: center; gap: 4px; } .qty output { min-width: 32px; text-align: center; font-weight: 700; }
+.kb-open .nav { display: none; }
+.banner a:not(.btn) { color: inherit; }
+.mic { display: block; width: 100%; min-height: 96px; margin: 12px 0 4px; border-radius: var(--r-card); border: 2px solid var(--primary); background: var(--surface); font-size: 1.1rem; font-weight: 700; touch-action: none; user-select: none; -webkit-user-select: none; -webkit-touch-callout: none; }
+.mic.live { background: var(--primary); color: var(--primary-fg); }
+.mic:disabled { opacity: .5; }
+
+/* ---- Entry screens (splash, welcome, sign in, sign up): coral leaf art, wavy white curve, underline fields. Art colours are decoration only. ---- */
+.splash { position: fixed; inset: 0; z-index: 200; isolation: isolate; background: radial-gradient(110% 55% at 78% -6%, var(--m-splash-glow) 0%, transparent 70%), linear-gradient(172deg, var(--m-splash) 0%, var(--m-splash) 38%, var(--m-splash-b) 72%, var(--m-splash-c) 100%); color: var(--m-splash-ink); overflow: hidden; display: flex; flex-direction: column; align-items: center; animation: splash-in .25s ease-out; }
+.splash svg.leafart { position: absolute; inset: 0; width: 100%; height: 100%; }
+.splash .logo-wrap { position: relative; margin-top: calc(50vh - 66px); margin-top: calc(50dvh - 66px); animation: float 2.4s ease-in-out infinite; }
+.splash .name { position: absolute; bottom: calc(52px + env(safe-area-inset-bottom)); margin: 0; font-family: var(--font-head); font-size: 28px; font-weight: 700; letter-spacing: -.01em; }
+/* The leaf art on the red splash: white and deep-red leaves, an orange pepper (decoration only). */
+.splash { --art-l1: rgba(255, 255, 255, .12); --art-l2: rgba(110, 2, 7, .30); --art-l3: rgba(255, 255, 255, .08); --art-rib: rgba(255, 255, 255, .22); --art-pep: #ff5a1f; --art-stem: #167d32; }
+@keyframes splash-in { from { opacity: 0 } to { opacity: 1 } }
+@keyframes float { 50% { transform: translateY(-8px) } }
+.entry { min-height: 100vh; min-height: 100dvh; display: flex; flex-direction: column; background: var(--surface); }
+.entry .art { position: relative; isolation: isolate; flex: none; height: 34vh; height: var(--art-h, 34dvh); min-height: 150px; background: radial-gradient(85% 60% at 18% -4%, var(--art-glow) 0%, transparent 72%), linear-gradient(168deg, var(--art-a) 0%, var(--art-b) 58%, var(--art-c) 100%); overflow: hidden; }
+/* Very light film grain over the shaded art and splash (inline SVG token, no request). */
+.entry .art::after, .splash::after { content: ""; position: absolute; inset: 0; z-index: -1; background-image: var(--ch-grain); background-size: 128px; opacity: .12; mix-blend-mode: overlay; pointer-events: none; }
+.entry.tall .art { flex: 1; height: auto; min-height: 300px; }
+.entry .art svg.leafart { position: absolute; inset: 0; width: 100%; height: 100%; }
+.entry .wave { position: absolute; left: 0; right: 0; bottom: -1px; width: 100%; height: clamp(84px, 24vw, 130px); display: block; filter: drop-shadow(0 -5px 8px var(--art-shadow)); }
+.leafart .l1 { fill: var(--art-l1); } .leafart .l2 { fill: var(--art-l2); } .leafart .l3 { fill: var(--art-l3); } .leafart .rib { stroke: var(--art-rib); stroke-width: 1.6; fill: none; stroke-linecap: round; } .leafart .dec { fill: none; stroke: var(--art-l1); stroke-width: 2.4; stroke-linecap: round; stroke-linejoin: round; } .leafart .pep { fill: var(--art-pep); } .leafart .stem { fill: var(--art-stem); }
+.wave .band { fill: var(--art-band); } .wave .main { fill: var(--surface); }
+.entry .body { flex: none; display: flex; flex-direction: column; padding: 4px calc(32px + env(safe-area-inset-right)) calc(28px + env(safe-area-inset-bottom)) calc(32px + env(safe-area-inset-left)); max-width: 560px; width: 100%; margin: 0 auto; }
+.entry.grow .body { flex: 1; }
+.entry h1 { font-size: 34px; line-height: 42px; font-weight: 700; color: var(--c-fg); letter-spacing: -.02em; margin: 0 0 6px; }
+.entry .sub { margin: 0; font-size: 15px; color: var(--c-fg-muted); }
+.entry .accent { display: block; width: 28px; height: 3px; border-radius: 2px; background: var(--art-accent); margin: 14px 0 22px; }
+.entry form { display: flex; flex-direction: column; flex: 1; }
+.uf { display: block; margin-bottom: 14px; }
+.uf > span:first-child, .uf .lbl { display: block; font-size: 14px; font-weight: 600; color: var(--c-fg); }
+.uf input { display: block; width: 100%; min-height: var(--tap); padding: 6px 0; border: 0; border-bottom: 1.5px solid var(--m-input-border); border-radius: 0; background: transparent; font-size: 16px; }
+.uf input:focus { outline: none; border-bottom: 2px solid var(--c-primary); }
+.uf input:focus-visible { outline: 3px solid var(--c-ring); outline-offset: 2px; border-radius: 4px; }
+.uf input::placeholder { color: var(--c-fg-subtle); opacity: 1; }
+.uf .pwrow { position: relative; } .uf .pwrow input { padding-right: 48px; }
+.eye { position: absolute; right: 0; top: 2px; width: 44px; height: 44px; border: 0; background: none; border-radius: var(--r-pill); display: flex; align-items: center; justify-content: center; }
+.eye svg { width: 22px; height: 22px; fill: none; stroke: var(--c-fg-muted); stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
+.entry .forgot { align-self: flex-end; min-height: 44px; padding: 0 2px; background: none; border: 0; font-size: 14px; font-weight: 600; color: var(--c-link); }
+.entry .hint { margin: 0 0 6px; font-size: 13px; color: var(--c-fg-muted); }
+.entry .spacer { flex: 1; min-height: 12px; }
+.entry .actions { display: flex; gap: 14px; margin-top: 16px; }
+.entry .actions > * { flex: 1; }
+.entry .actions.col { flex-direction: column; gap: 12px; } .entry .actions.col > * { flex: none; }
+.btn.pillbtn { min-height: var(--tap-lg); font-size: 14px; font-weight: 600; letter-spacing: .06em; text-transform: uppercase; padding: 0 18px; }
+.btn.outline { background: transparent; border: 1.5px solid var(--c-primary); color: var(--c-link); }
+.btn.primary.grad { background: linear-gradient(180deg, var(--m-btn-b) 0%, var(--m-btn-a) 50%, var(--m-btn-c) 100%); border-color: transparent; box-shadow: 0 8px 18px var(--m-btn-shadow); }
+/* Disabled filled button: grey face, muted label (tokens fg-muted on surface-2 is >= 4.5:1 in light and dark, see mobileTheme.test.ts), not the brand red at 50% (white label about 2.4:1). */
+.btn.primary[disabled], .btn.primary.grad[disabled] { background: var(--surface-2); color: var(--muted); border-color: var(--m-field-border); box-shadow: none; opacity: 1; }
+.entry .help { text-align: center; margin: 14px 0 0; font-size: 13px; color: var(--c-fg-muted); }
+.entry .card { box-shadow: none; background: var(--c-surface-2); border-color: transparent; }
+.entry .card p { margin: 0; }
+.langs { position: absolute; top: calc(env(safe-area-inset-top) + 12px); right: 16px; display: flex; gap: 2px; padding: 3px; border-radius: var(--r-pill); background: var(--surface); box-shadow: var(--m-shadow); z-index: 2; }
+.langs button { min-height: 44px; min-width: 44px; padding: 0 14px; border-radius: var(--r-pill); border: 0; background: transparent; color: var(--c-fg-muted); font-weight: 500; }
+.langs button[aria-pressed="true"] { background: var(--c-primary-soft); color: var(--c-primary-soft-fg); font-weight: 700; }
+/* Brand guide: on red or dark surfaces the logo sits on a white tile. */
+.brand-badge { display: inline-flex; align-items: center; justify-content: center; background: #fff; box-shadow: 0 10px 30px rgba(110, 2, 7, .28); }
+.brand-badge img { display: block; width: 82%; height: auto; }
+@media (prefers-reduced-motion: reduce) { * { animation: none !important; transition: none !important; scroll-behavior: auto !important; } }
+
+/* ---- Order taking (ported behaviour of the original Karahi counter on a phone) ---- */
+.money, .tnum { font-variant-numeric: tabular-nums; white-space: nowrap; }
+.clip { min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.center { text-align: center; }
+.sec { font-family: var(--font-head); font-size: 18px; line-height: 26px; font-weight: 700; margin: 18px 2px 10px; }
+.btn.small { min-height: 44px; min-width: 44px; padding: 0 14px; font-size: 14px; }
+.btn.ghost { background: transparent; border-style: dashed; color: var(--c-primary-soft-fg); font-size: 15px; min-height: 48px; }
+.banner.ok { background: var(--c-success-soft); color: var(--c-success-fg); }
+.banner .btn { flex: none; }
+.warn-text { color: var(--c-warning-fg); }
+.livestamp { display: flex; align-items: center; justify-content: space-between; gap: 12px; margin: 0 0 4px; }
+.livestamp .linkbtn { min-height: 40px; }
+.pullhint { text-align: center; padding: 6px 0; }
+.linkbtn { background: none; border: 0; padding: 0; min-height: 44px; color: var(--c-primary-soft-fg); font-weight: 600; font-size: 14px; text-align: left; }
+.iconbtn { flex: none; width: 48px; height: 48px; border-radius: var(--r-pill); border: 1.5px solid var(--border); background: var(--surface); display: inline-flex; align-items: center; justify-content: center; color: var(--fg); }
+.iconbtn svg, .search svg, .dish-note svg, .cb-go svg, .empty-ico { width: 22px; height: 22px; fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+.mic-btn { background: var(--primary); color: var(--primary-fg); border-color: var(--primary); }
+.pill.sync { text-decoration: none; min-height: 32px; display: inline-flex; align-items: center; white-space: nowrap; flex: none; }
+
+.forline { display: flex; align-items: center; gap: 8px; margin: 0 0 10px; min-height: 44px; flex-wrap: wrap; }
+.main a.chiplink { display: inline-flex; align-items: center; min-height: 40px; padding: 0 14px; border-radius: var(--r-pill); background: var(--c-primary-soft); color: var(--c-primary-soft-fg); font-weight: 700; text-decoration: none; }
+.main a.chiplink.warn { background: var(--warn-bg); color: var(--warn-fg); }
+.searchrow { display: flex; gap: 8px; margin-bottom: 10px; }
+.search { flex: 1; min-width: 0; position: relative; display: flex; align-items: center; }
+.search svg { position: absolute; left: 16px; color: var(--c-fg-subtle); pointer-events: none; }
+.search input { width: 100%; min-height: 48px; padding: 0 44px 0 46px; border-radius: var(--r-pill); border: 1.5px solid var(--m-input-border); background: var(--surface); font-size: 16px; }
+.search input::-webkit-search-cancel-button { display: none; }
+.search .clear { position: absolute; right: 2px; width: 44px; height: 44px; border: 0; background: none; font-size: 22px; color: var(--c-fg-muted); border-radius: var(--r-pill); }
+.chip .cnt { font-size: 12px; font-weight: 700; min-width: 22px; padding: 1px 6px; border-radius: var(--r-pill); background: var(--surface-2); color: var(--c-fg-muted); }
+/* D23 / B5 (owner-approved light colour change): the count in the pressed chip was white on a 22% white overlay on red = 3.93:1. Now a white pill with Chilli 700 text (6.3:1), the same pairing as the active nav item. */
+.chip[aria-pressed="true"] .cnt { background: var(--surface); color: var(--c-primary-soft-fg); }
+
+.dishgrid { list-style: none; padding: 0; margin: 4px 0 0; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; }
+@media (min-width: 560px) { .dishgrid { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
+.dishgrid > li { min-width: 0; }
+.dish { position: relative; display: flex; flex-direction: column; height: 100%; background: linear-gradient(180deg, var(--surface) 55%, var(--m-card-end) 100%); border: 1.5px solid var(--border); border-radius: 20px; padding: 8px; box-shadow: var(--m-shadow); }
+.dish.in { border-color: var(--primary); box-shadow: 0 0 0 1px var(--primary), var(--m-shadow); }
+.dish.skel { min-height: 236px; background: linear-gradient(100deg, var(--surface) 30%, var(--surface-2) 50%, var(--surface) 70%) 0 0 / 300% 100%; animation: skel 1.2s linear infinite; box-shadow: none; }
+@keyframes skel { to { background-position: -100% 0 } }
+.dish-main { display: flex; flex-direction: column; align-items: stretch; width: 100%; flex: 1; gap: 2px; padding: 0; border: 0; background: none; text-align: left; border-radius: 14px; min-width: 0; }
+.dish-main:active { transform: scale(.98); }
+.dish-photo { position: relative; display: block; width: 100%; margin-bottom: 6px; }
+.dish-qty { position: absolute; right: 6px; top: 6px; min-width: 30px; height: 28px; padding: 0 8px; border-radius: var(--r-pill); background: var(--primary); color: var(--primary-fg); font-weight: 800; font-size: 13px; display: grid; place-items: center; }
+.dish-name { font-weight: 700; font-size: 15px; line-height: 20px; min-height: 40px; padding: 0 4px; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; overflow-wrap: anywhere; }
+.dish-meta { font-size: 12px; color: var(--c-fg-subtle); padding: 0 4px; }
+.dish-row { display: flex; align-items: center; justify-content: space-between; gap: 6px; margin-top: 2px; }
+.dish-price { padding: 0 4px; min-width: 0; font-weight: 800; font-size: 15px; color: var(--c-primary-soft-fg); font-variant-numeric: tabular-nums; }
+.dish-note { flex: none; width: 44px; height: 44px; border-radius: var(--r-pill); border: 1.5px solid var(--border); background: var(--surface); color: var(--c-fg-muted); display: grid; place-items: center; padding: 0; }
+.dish-note svg { width: 18px; height: 18px; }
+.dish-foot { margin-top: 8px; }
+.dish-soldout { display: flex; align-items: center; justify-content: center; width: 100%; min-height: 44px; border-radius: 14px; background: var(--warn-bg); color: var(--warn-fg); font-weight: 700; font-size: 14px; }
+.dish.soldout .dish-photo { opacity: .55; }
+.dish-add { width: 100%; min-height: 44px; border-radius: 14px; border: 1.5px solid var(--border); background: var(--surface-2); font-weight: 700; font-size: 15px; color: var(--fg); }
+.stepper { display: flex; align-items: center; justify-content: space-between; min-height: 44px; border-radius: 14px; background: var(--primary); color: var(--primary-fg); overflow: hidden; }
+.stepper button { width: 48px; min-height: 44px; border: 0; background: transparent; color: inherit; font-size: 22px; font-weight: 700; line-height: 1; }
+.stepper output { flex: 1; text-align: center; font-weight: 800; font-variant-numeric: tabular-nums; }
+.line .stepper { width: 132px; flex: none; }
+.stepper.big { width: 164px; min-height: 52px; } .stepper.big button { min-height: 52px; width: 56px; }
+
+.food { position: relative; overflow: hidden; width: 100%; aspect-ratio: 4 / 3; border-radius: 14px; display: grid; place-items: center; isolation: isolate; }
+.food[data-tint="1"] { background: var(--tile-1); color: var(--tile-1-fg); } .food[data-tint="2"] { background: var(--tile-2); color: var(--tile-2-fg); }
+.food[data-tint="3"] { background: var(--tile-3); color: var(--tile-3-fg); } .food[data-tint="4"] { background: var(--tile-4); color: var(--tile-4-fg); }
+.food[data-tint="5"] { background: var(--tile-5); color: var(--tile-5-fg); } .food[data-tint="6"] { background: var(--tile-6); color: var(--tile-6-fg); }
+.food .glyph { width: 44%; height: 44%; max-width: 88px; max-height: 88px; }
+.food .initials::after { content: attr(data-initials); } /* initials are drawn by CSS so they are not text content of the dish button (axe label-content-name-mismatch; the photo is decorative) */
+.food .initials { position: absolute; right: 8px; bottom: 8px; min-width: 28px; height: 26px; padding: 0 6px; border-radius: var(--r-pill); background: rgba(255, 255, 255, .75); color: inherit; font-size: 11px; font-weight: 800; display: grid; place-items: center; letter-spacing: .04em; }
+.food img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; opacity: 0; transition: opacity .25s; }
+.food img.on { opacity: 1; }
+.food.thumb { width: 52px; height: 52px; aspect-ratio: auto; flex: none; border-radius: 14px; }
+.food.thumb .glyph { width: 60%; height: 60%; }
+
+.billtabs { display: flex; gap: 8px; overflow-x: auto; padding: 2px 0 10px; margin: 0 0 4px; scrollbar-width: none; align-items: stretch; flex-wrap: nowrap; }
+.billtabs-list { display: flex; gap: 8px; flex: none; align-items: stretch; }
+.billtab { flex: none; max-width: 180px; min-height: 52px; padding: 6px 14px; border-radius: 16px; border: 1.5px solid var(--border); background: var(--surface); text-align: left; display: flex; flex-direction: column; justify-content: center; }
+.billtab[aria-selected="true"] { border-color: var(--primary); background: var(--c-primary-soft); color: var(--c-primary-soft-fg); }
+.billtab .bt-name { font-weight: 800; font-size: 14px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.billtab .bt-sub { font-size: 12px; color: var(--c-fg-muted); white-space: nowrap; font-variant-numeric: tabular-nums; }
+.billtab.new { border-style: dashed; color: var(--c-primary-soft-fg); font-weight: 700; justify-content: center; }
+
+.main a.cartbar2 { position: fixed; left: 16px; right: 16px; bottom: calc(var(--nav-h) + 12px + env(safe-area-inset-bottom)); z-index: 9; max-width: 688px; margin: 0 auto; min-height: 64px; display: flex; align-items: center; gap: 12px; padding: 8px 8px 8px 10px; border-radius: 22px; background: var(--primary); color: var(--primary-fg); text-decoration: none; box-shadow: 0 8px 24px var(--m-btn-shadow); }
+/* Cart bar (owner-approved light colour change, light-polish task): was a near-black #111820 bar; now the filled primary button style (Chilli Red, white text 4.79:1, red shadow, same press feedback as .btn). The count and Review chips are white pills with Chilli 700 text (6.3:1), like the count badge of a pressed category chip; the label is full opacity (white at 85% on red is only 3.7:1). */
+.main a.cartbar2:active { transform: scale(.985); }
+.cb-count { flex: none; min-width: 44px; height: 44px; padding: 0 8px; border-radius: 14px; background: var(--surface); color: var(--c-primary-soft-fg); font-weight: 800; font-size: 18px; display: grid; place-items: center; }
+.cb-text { flex: 1; min-width: 0; display: flex; flex-direction: column; line-height: 1.2; }
+.cb-label { font-size: 13px; font-weight: 600; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.cb-total { font-size: 18px; font-weight: 800; font-variant-numeric: tabular-nums; white-space: nowrap; }
+.cb-go { flex: none; display: inline-flex; align-items: center; gap: 2px; min-height: 48px; padding: 0 12px 0 18px; border-radius: 16px; background: var(--surface); color: var(--c-primary-soft-fg); font-weight: 800; font-size: 16px; }
+
+.seg { display: grid; grid-auto-flow: column; grid-auto-columns: 1fr; gap: 4px; padding: 4px; border-radius: 18px; background: var(--surface-2); border: 1px solid var(--border); margin-bottom: 12px; }
+.seg button { min-height: 44px; border: 0; border-radius: 14px; background: transparent; font-weight: 700; font-size: 15px; color: var(--c-fg-muted); padding: 0 6px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+/* Selected segment: white face plus a 2px Chilli Red ring (>= 3:1 on the grey track), not only a lighter background. */
+.seg button[aria-checked="true"], .seg button[aria-pressed="true"] { background: var(--surface); color: var(--fg); box-shadow: inset 0 0 0 2px var(--c-primary), 0 2px 8px rgba(17, 24, 32, .10); }
+.facts { padding: 4px 16px; }
+.fact { display: flex; align-items: center; gap: 10px; min-height: 56px; border-bottom: 1px solid var(--border); }
+.fact:last-child { border-bottom: 0; }
+.fact > .muted:first-child { width: 76px; flex: none; font-size: 14px; }
+.fact > strong, .fact > span:nth-child(2) { flex: 1; min-width: 0; }
+.fact > .btn { flex: none; }
+.lines { list-style: none; padding: 0; margin: 0 0 12px; }
+.line { display: flex; flex-wrap: wrap; gap: 12px; align-items: flex-start; padding: 12px; background: var(--surface); border: 1px solid var(--border); border-radius: 20px; margin-bottom: 10px; }
+.line .grow { min-width: 0; }
+.line-name { font-weight: 700; overflow-wrap: anywhere; }
+.line-right { display: flex; flex-direction: column; align-items: flex-end; gap: 8px; flex: none; }
+.noteedit { display: flex; gap: 8px; flex-basis: 100%; } .noteedit .input { flex: 1; min-width: 0; }
+.input.slim { min-height: 44px; padding: 0 14px; font-size: 15px; }
+.totals { display: flex; justify-content: space-between; align-items: baseline; gap: 12px; padding: 16px 4px; font-size: 15px; border-top: 1px dashed var(--border); margin-top: 12px; }
+.totals strong { font-size: 22px; }
+.sendbar { position: sticky; bottom: calc(var(--nav-h) + 8px + env(safe-area-inset-bottom)); padding: 10px 0 2px; background: linear-gradient(to bottom, transparent, var(--bg) 24%); z-index: 5; }
+.sendbar .btn.primary { justify-content: space-between; padding: 0 22px; box-shadow: 0 10px 22px var(--m-btn-shadow); }
+.sendbar .sb-total { font-variant-numeric: tabular-nums; font-weight: 800; }
+.sendbar p { margin: 6px 0 0; }
+
+.empty { text-align: center; padding: 36px 16px; display: flex; flex-direction: column; align-items: center; gap: 6px; }
+.empty strong { font-size: 18px; }
+.empty p { margin: 0 0 12px; max-width: 320px; }
+.empty-ico { width: 48px !important; height: 48px !important; color: var(--c-fg-subtle); }
+
+.sheet > div .grabber { width: 40px; height: 5px; border-radius: 3px; background: var(--border); margin: -6px auto 12px; }
+.sheet-head { margin-bottom: 14px; }
+.sheet-title { margin: 0; font-family: var(--font-head); font-size: 20px; line-height: 26px; overflow-wrap: anywhere; }
+.opts { border: 0; padding: 0; margin: 0 0 14px; }
+.opts legend { font-weight: 700; font-size: 14px; margin-bottom: 8px; color: var(--c-fg-muted); }
+.optrow { width: 100%; min-height: 56px; display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 0 16px; margin-bottom: 8px; border-radius: 16px; border: 1.5px solid var(--border); background: var(--surface); font-weight: 600; text-align: left; }
+.optrow[aria-pressed="true"] { border-color: var(--primary); background: var(--c-primary-soft); }
+.plainlist { list-style: none; padding: 0; margin: 0; }
+
+.tile-label { font-size: 20px; font-weight: 800; }
+.tile-state { display: inline-flex; align-items: center; gap: 6px; font-size: 13px; font-weight: 700; margin-top: 2px; }
+.tile-state i { width: 8px; height: 8px; border-radius: 50%; background: var(--c-success); }
+/* "In use" (another waiter) is information, not an error: info blue. Only a clash (two open orders) is danger red. Each state has its word. */
+.tile[data-state="taken"] { border-color: var(--c-info); } .tile[data-state="taken"] .tile-state i { background: var(--c-info); }
+.tile[data-state="clash"] { border-color: var(--err); } .tile[data-state="clash"] .tile-state i { background: var(--err); }
+.tile[data-state="mine"] { border-color: var(--primary); } .tile[data-state="mine"] .tile-state i { background: var(--primary); }
+.tile[data-state="queued"] .tile-state i { background: var(--c-warning); }
+.tile[data-state="billed"] { border-color: var(--c-warning); } .tile[data-state="billed"] .tile-state i { background: var(--c-warning); }
+.tablesheet { position: sticky; top: 72px; z-index: 6; border: 2px solid var(--primary); }
+.main a.card.ordercard { display: block; text-decoration: none; color: inherit; }
+.ordercard .row.between { gap: 12px; }
+.ordercard strong.money { font-size: 17px; }
+.entry-links { display: flex; justify-content: space-between; gap: 8px; flex-wrap: wrap; }
+.entry-links .forgot:only-child { margin-left: auto; }
+/* Short phones (iPhone SE 667, 640 Androids): smaller art and heading so Sign In stays on the first screen. */
+@media (max-height: 700px) {
+  .entry .art { height: 24vh; height: 24dvh; min-height: 120px; }
+  .entry.tall .art { min-height: 220px; }
+  .entry h1 { font-size: 28px; line-height: 34px; margin-bottom: 2px; }
+  .entry .accent { margin: 10px 0 14px; }
+  .uf { margin-bottom: 8px; }
+  .entry .actions { margin-top: 10px; }
+  .entry .body { padding-bottom: calc(18px + env(safe-area-inset-bottom)); }
+}
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) .food .initials { background: rgba(0, 0, 0, .45); } }
+.kb-open .sendbar { position: static; }
+.flashtoast { position: fixed; z-index: 35; left: 16px; right: 16px; top: calc(env(safe-area-inset-top) + 64px); max-width: 688px; margin: 0 auto; box-shadow: 0 10px 28px rgba(17, 24, 32, .18); }
+.kb-open .main a.cartbar2 { display: none; } /* keyboard up (search, notes): the bar would float over the results */
+
+/* ---- MPIN lock (lock screen, MPIN set-up, More > Security). Peach entry styling; keys 72px (>= 44px targets). ---- */
+.lockscreen { position: fixed; inset: 0; z-index: 300; overflow-y: auto; }
+.entry .art.lockart { height: 22vh; height: 22dvh; min-height: 120px; }
+.entry .body.lockbody { flex: 1; align-items: center; text-align: center; padding-top: 0; }
+.lockbody h1 { margin-bottom: 4px; }
+.pindots { display: flex; gap: 16px; justify-content: center; margin: 22px 0 6px; }
+.pindots i { width: 16px; height: 16px; border-radius: 50%; border: 2px solid var(--art-accent); background: transparent; transition: background .1s; }
+.pindots i[data-on] { background: var(--m-btn-a); border-color: var(--m-btn-a); }
+.pindots.shake { animation: pin-shake .35s; }
+@keyframes pin-shake { 20%, 60% { transform: translateX(-8px); } 40%, 80% { transform: translateX(8px); } }
+@media (prefers-reduced-motion: reduce) { .pindots.shake { animation: none; } }
+.lockmsg { min-height: 40px; margin: 4px 0 8px; font-size: 14px; font-weight: 600; color: var(--c-fg-muted); }
+.lockmsg.err { color: var(--c-danger-fg); }
+.keypad { display: grid; grid-template-columns: repeat(3, 72px); gap: 14px 28px; justify-content: center; margin: 0 auto; }
+.keypad .key, .keypad .key-slot { width: 72px; height: 72px; }
+/* Keys: neutral grey face with a hairline (the pale pink tint of the art was 1.05:1 on white and the keys looked missing). */
+.keypad .key { border-radius: 50%; border: 1px solid var(--border); background: var(--c-surface-2); color: var(--fg); font-size: 28px; font-weight: 600; display: flex; align-items: center; justify-content: center; }
+.keypad .key:active:not(:disabled) { background: var(--c-primary-soft); border-color: var(--c-primary); }
+.keypad .key:disabled { opacity: .45; }
+.keypad .key-back, .keypad .key-bio { background: transparent; border-color: transparent; }
+.keypad .key svg { width: 30px; height: 30px; fill: none; stroke: currentColor; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
+.keypad .key-bio { color: var(--c-link); }
+.locklinks { display: flex; justify-content: space-between; gap: 8px; width: 100%; max-width: 320px; margin-top: 14px; }
+.lockactions { width: 100%; }
+.pinsheet { text-align: center; }
+.pinsheet .actions { display: flex; gap: 12px; margin-top: 16px; } .pinsheet .actions > * { flex: 1; }
+.switch { position: relative; width: 56px; min-width: 56px; height: 44px; border: 0; background: none; padding: 0; }
+.switch i { position: absolute; left: 0; top: 8px; width: 52px; height: 28px; border-radius: 14px; background: var(--m-input-border); transition: background .15s; }
+.switch i::after { content: ""; position: absolute; top: 3px; left: 3px; width: 22px; height: 22px; border-radius: 50%; background: var(--surface); box-shadow: 0 1px 3px rgba(0,0,0,.3); transition: transform .15s; }
+.switch[aria-checked="true"] i { background: var(--primary); } .switch[aria-checked="true"] i::after { transform: translateX(24px); }
+.radiolist { display: flex; flex-direction: column; gap: 8px; margin-bottom: 8px; }
+.radiorow { min-height: 52px; display: flex; align-items: center; justify-content: space-between; padding: 0 16px; border-radius: 16px; border: 1.5px solid var(--border); background: var(--surface); font-weight: 600; text-align: left; color: var(--fg); }
+.radiorow i { width: 20px; height: 20px; border-radius: 50%; border: 2px solid var(--m-input-border); }
+.radiorow[aria-checked="true"] { border-color: var(--primary); } .radiorow[aria-checked="true"] i { border: 6px solid var(--primary); }
+.backlink { display: inline-flex; align-items: center; min-height: 44px; margin-bottom: 6px; }
+/* Reserved table (free, booked within the hour) and modifier lines. */
+.tile[data-state="reserved"] { border-color: var(--c-warning); } .tile[data-state="reserved"] .tile-state i { background: var(--c-warning); }
+.tile-hint { font-size: 12px; font-weight: 600; color: var(--warn-fg); max-width: 100%; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.opts.mods legend .small { font-weight: 500; }
+.optrow[aria-checked="true"] { border-color: var(--primary); background: var(--c-primary-soft); }
+.optrow .tick { display: inline-block; width: 18px; height: 18px; margin-right: 10px; vertical-align: -3px; border-radius: 50%; border: 2px solid var(--m-input-border); }
+.optrow[role="checkbox"] .tick { border-radius: 5px; }
+.optrow[aria-checked="true"] .tick { border: 5px solid var(--primary); }
+.line-mods { font-size: 13px; color: var(--c-fg-muted); }
+.offer-line { display: flex; justify-content: space-between; gap: 8px; font-size: 14px; font-weight: 600; color: var(--c-success-fg); margin: 2px 2px 0; }
+.clock { display: flex; align-items: center; gap: 12px; }
+
+/* ---- Counter tablet roster (shared tablet, staff PIN). Tiles >= 96px tall, two or more per row. ---- */
+.roster { display: grid; grid-template-columns: repeat(auto-fill, minmax(140px, 1fr)); gap: 12px; width: 100%; margin-top: 12px; }
+.rostercard { min-height: 112px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 6px; padding: 12px; border-radius: 20px; border: 1.5px solid var(--border); background: var(--surface); color: var(--fg); }
+.rostercard:active { border-color: var(--primary); }
+.rostercard .initials { width: 52px; height: 52px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 18px; background: color-mix(in srgb, var(--art-a) 30%, var(--surface)); }
+.rostercard .nm { font-weight: 600; text-align: center; }
+.entry .forgot.center { align-self: center; display: inline-flex; align-items: center; }
+
+/* QA break-ui D08: a long unbroken note / name ("xxxx...", a URL) must wrap inside its card, never widen the page. */
+.line .grow { min-width: 0; }
+.linkbtn, .line-name, .line-mods, .card { overflow-wrap: anywhere; }
+.linkbtn { max-width: 100%; }
+/* QA break-ui D24: a 48-character table label ("LLLL...") overlapped its neighbours and widened the Tables page. */
+.tile { min-width: 0; }
+.tile-label { max-width: 100%; overflow-wrap: anywhere; text-align: center; line-height: 1.15; }
+/* Short screens (a phone held sideways, 200% zoom: D19 of docs/testing/BREAK_UI_REPORT.md, same problem as the counter): the title bar, the bill bar and
+   the bottom tabs took ~60% of 375 px and left a ~190 px strip for dishes. Compact bars (icon and label side by side), the title scrolls away
+   with the page, tap targets stay >= 44 px. Layout only, no colour. */
+@media (max-height: 480px) {
+  :root { --nav-h: 48px; }
+  .top { position: static; padding-top: calc(env(safe-area-inset-top) + 4px); padding-bottom: 2px; }
+  .top h1 { font-size: 20px; line-height: 28px; }
+  .nav { padding-top: 2px; padding-bottom: calc(2px + env(safe-area-inset-bottom)); border-radius: 20px 20px 0 0; }
+  .nav a { min-height: 44px; flex-direction: row; gap: 4px; }
+  .nav .ico { width: 40px; height: 28px; }
+  .nav .badge { top: 0; }
+  .main a.cartbar2 { min-height: 52px; bottom: calc(var(--nav-h) + 6px + env(safe-area-inset-bottom)); padding-top: 4px; padding-bottom: 4px; }
+  .cb-count { height: 38px; }
+  .cb-go { min-height: 40px; }
+  .toast { bottom: calc(var(--nav-h) + 6px + env(safe-area-inset-bottom)); }
+  .toast.above-cartbar { bottom: calc(var(--nav-h) + 64px + env(safe-area-inset-bottom)); }
+  .shell:has(.cartbar), .shell:has(.cartbar2) { padding-bottom: calc(var(--nav-h) + 72px + env(safe-area-inset-bottom)); }
+  .shell.has-toast { padding-bottom: calc(var(--nav-h) + 80px + env(safe-area-inset-bottom)); }
+  .shell.has-toast.has-cartbar, .shell.has-toast.has-cartbar:has(.cartbar), .shell.has-toast.has-cartbar:has(.cartbar2) { padding-bottom: calc(var(--nav-h) + 140px + env(safe-area-inset-bottom)); }
+  .tablesheet { top: 8px; }
+  .flashtoast { top: calc(env(safe-area-inset-top) + 40px); }
+}

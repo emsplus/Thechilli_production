@@ -1,0 +1,26 @@
+[
+  {
+    "type": "image",
+    "src": "/auth-media/waiter-serving.webp",
+    "alt": "",
+    "credit": "Filip Rankovic Grobgaard / Unsplash"
+  },
+  {
+    "type": "image",
+    "src": "/auth-media/chai-counter.webp",
+    "alt": "",
+    "credit": "Prasoon Srivastav / Unsplash"
+  },
+  {
+    "type": "image",
+    "src": "/auth-media/dining-room.webp",
+    "alt": "",
+    "credit": "Madeline Liu / Unsplash"
+  },
+  {
+    "type": "image",
+    "src": "/auth-media/thali-platter.webp",
+    "alt": "",
+    "credit": "Zoshua Colah / Unsplash"
+  }
+]

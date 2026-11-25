@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex, nofollow">
+<meta name="referrer" content="no-referrer">
+<meta name="color-scheme" content="light">
+<meta name="theme-color" content="#ffffff">
+<meta name="chilli-languages" content="{{LANGUAGES}}">
+<title>Order food</title>
+<link rel="icon" type="image/png" href="/assets/favicon-32.png">
+<link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
+<link rel="preload" href="/assets/Inter-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="/assets/app.css">
+</head>
+<body class="wide">
+<header class="top">
+  <div class="top-in">
+    <a class="logo" href="#main" aria-label="thechilli.ai"><img src="/assets/logo-wordmark.png" width="120" height="25" alt="thechilli.ai"></a>
+    <span class="brand" id="brand"></span>
+    <button type="button" id="lang" class="secondary" aria-label="Switch language" hidden></button>
+  </div>
+</header>
+<main id="main">
+<h1 id="title" data-i18n="menu_title">Order food</h1>
+<p class="help" data-i18n="menu_intro">Choose your items, then add your delivery details.</p>
+<div id="closed" class="msg closed" role="status" data-icon="clock" hidden><span><strong id="closed-head"></strong> <span id="closed-sub"></span></span></div>
+<div id="msg" class="msg" role="alert" hidden></div>
+<div id="view">
+<div id="placed" hidden>
+  <section class="card hero" aria-labelledby="h-placed" aria-live="polite">
+    <h2 id="h-placed" data-icon="check"><span data-i18n="ordered_title">Order placed</span></h2>
+    <dl>
+      <dt data-i18n="track_order">Order</dt><dd class="big code" id="p-code"></dd>
+      <dt data-i18n="sum_total">Total</dt><dd class="big amt" id="p-total"></dd>
+    </dl>
+    <p class="help" id="p-note" data-i18n="ordered_note">We sent the details on WhatsApp.</p>
+    <a id="p-track" class="btn" href="#" data-icon="bike"><span data-i18n="ordered_track">Track your order</span></a>
+  </section>
+</div>
+<div class="menu-grid" id="shop">
+  <section id="menu" aria-label="Menu"></section>
+  <aside id="checkout" aria-labelledby="h-cart">
+    <section class="card">
+      <h2 id="h-cart" data-icon="cart"><span data-i18n="cart_title">Your order</span></h2>
+      <p class="help" id="cart-empty" data-i18n="cart_empty">Your cart is empty. Add items from the menu.</p>
+      <ul class="lines" id="lines"></ul>
+      <div class="sum" id="sum" hidden>
+        <div class="grand"><span data-i18n="sum_items">Items</span><span class="amt" id="subtotal"></span></div>
+      </div>
+      <p class="help" id="sum-note" data-i18n="sum_note" hidden></p>
+      <p class="help" id="min-note" hidden></p>
+      <form id="order-form" novalidate hidden>
+        <div class="field"><label for="f-name" data-i18n="f_name">Your name</label>
+          <input type="text" id="f-name" autocomplete="name" maxlength="120" required></div>
+        <div class="field" id="phone-field" hidden><label for="f-phone" data-i18n="f_phone">WhatsApp number</label>
+          <input type="tel" id="f-phone" autocomplete="tel" inputmode="tel" maxlength="20" aria-describedby="phone-help">
+          <p class="help" id="phone-help" data-i18n="f_phone_help">We send your order updates to this number.</p></div>
+        <div class="field"><label for="f-address" data-i18n="f_address">Delivery address</label>
+          <textarea id="f-address" autocomplete="street-address" maxlength="500" required></textarea>
+          <p class="help"><button type="button" id="loc" class="secondary small" data-icon="locate"><span data-i18n="loc_use">Use my current location</span></button></p>
+          <p class="help" id="loc-state" role="status"></p></div>
+        <fieldset id="pay-set"><legend data-i18n="f_pay">Payment</legend>
+          <label class="pay-opt" for="pay-cod"><input type="radio" name="pay" id="pay-cod" value="cod" checked><span data-i18n="pay_cod">Cash on delivery</span></label>
+          <label class="pay-opt" for="pay-online"><input type="radio" name="pay" id="pay-online" value="online"><span data-i18n="pay_online">Pay online</span></label>
+          <div id="online-box" hidden>
+            <a id="pay-qr" class="btn secondary" href="#" target="_blank" rel="noopener noreferrer" hidden><span data-i18n="pay_qr">Open payment QR</span></a>
+            <label class="pay-opt" for="f-paid"><input type="checkbox" id="f-paid"><span data-i18n="f_paid">I have already paid</span></label>
+          </div>
+        </fieldset>
+        <div class="field"><label for="f-promo" data-i18n="f_promo">Promo code (optional)</label>
+          <input type="text" id="f-promo" autocomplete="off" autocapitalize="characters" maxlength="40"></div>
+        <button type="submit" id="submit" data-i18n="place_order">Place order</button>
+      </form>
+    </section>
+  </aside>
+</div>
+</div>
+<div class="cartbar" id="cartbar" hidden>
+  <a class="btn" href="#checkout" id="cartlink" data-icon="cart"><span id="cart-count"></span><span class="amt" id="cart-amt"></span></a>
+</div>
+</main>
+<footer class="foot"><span data-i18n="powered_by">Powered by</span> <strong>thechilli.ai</strong></footer>
+<script src="/assets/common.js"></script>
+<script src="/assets/menu.js"></script>
+</body>
+</html>

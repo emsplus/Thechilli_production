@@ -1,0 +1,14 @@
+# Keep the build context small and free of local env files (NEXT_PUBLIC_* would be baked into the bundle).
+node_modules
+.next
+out
+.env
+.env.*
+!.env.local.example
+e2e
+test-results
+playwright-report
+tsconfig.tsbuildinfo
+*.log
+Dockerfile
+.dockerignore

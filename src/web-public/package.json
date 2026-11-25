@@ -1,0 +1,38 @@
+{
+  "name": "web-public",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev -p 3400",
+    "dev:mock": "NEXT_PUBLIC_API_MOCK=1 next dev -p 3400",
+    "build": "next build",
+    "build:mock": "NEXT_PUBLIC_API_MOCK=1 next build",
+    "start": "next start -p 3400",
+    "lint": "eslint .",
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run",
+    "size": "node scripts/size.mjs",
+    "e2e": "playwright test"
+  },
+  "dependencies": {
+    "@chilli/tokens": "link:../design-system/packages/tokens",
+    "@chilli/ui": "link:../design-system/packages/ui",
+    "next": "16.4.6",
+    "react": "19.3.0",
+    "react-dom": "19.3.0"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.64.1",
+    "@testing-library/jest-dom": "^6",
+    "@testing-library/react": "^16",
+    "@types/node": "^22",
+    "@types/react": "^19",
+    "@types/react-dom": "^19",
+    "eslint": "^9",
+    "eslint-config-next": "16.4.6",
+    "jsdom": "^26",
+    "typescript": "^5",
+    "vitest": "^3"
+  },
+  "packageManager": "pnpm@12.11.2"
+}

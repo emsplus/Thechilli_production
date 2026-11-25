@@ -1,0 +1,56 @@
+{
+  "name": "waiter-app",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "eslint .",
+    "typecheck": "tsc --noEmit",
+    "test:e2e:bt": "playwright test -c playwright.bt.config.ts",
+    "test:e2e:light": "playwright test -c playwright.light.config.ts",
+    "test:e2e:login": "playwright test -c playwright.login.config.ts",
+    "test": "vitest run",
+    "check:light": "node scripts/light-fingerprint.mjs --check",
+    "build:native": "NATIVE=1 NEXT_PUBLIC_NATIVE=1 next build && cap sync android",
+    "android:debug": "bash scripts/android-build.sh debug",
+    "android:release": "bash scripts/android-build.sh release",
+    "ios:sync": "NATIVE=1 NEXT_PUBLIC_NATIVE=1 next build && cap sync ios",
+    "ios:build": "pnpm ios:sync && xcodebuild -project ios/App/App.xcodeproj -scheme App -configuration Debug -sdk iphonesimulator -destination 'platform=iOS Simulator,name=iPhone 18 Pro' -derivedDataPath ios/build CODE_SIGN_IDENTITY=- CODE_SIGNING_ALLOWED=YES CODE_SIGN_STYLE=Manual DEVELOPMENT_TEAM= build",
+    "ios:open": "cap open ios",
+    "test:e2e:native": "playwright test -c playwright.native.config.ts"
+  },
+  "dependencies": {
+    "@aparajita/capacitor-secure-storage": "^8.0.1",
+    "@capacitor/app": "^8.1.2",
+    "@capacitor/core": "^8.5.3",
+    "@capacitor/keyboard": "^8.0.6",
+    "@capacitor/network": "^8.0.1",
+    "@capacitor/splash-screen": "^8.0.2",
+    "@capacitor/status-bar": "^8.0.4",
+    "@capgo/capacitor-native-biometric": "8.9.1",
+    "@chilli/tokens": "link:../design-system/packages/tokens",
+    "idb": "^8.0.4",
+    "next": "16.4.6",
+    "react": "^19.3.1",
+    "react-dom": "^19.3.1"
+  },
+  "devDependencies": {
+    "@capacitor/android": "^8.5.3",
+    "@capacitor/cli": "^8.5.3",
+    "@capacitor/ios": "^8.5.3",
+    "@playwright/test": "1.64.1",
+    "@types/node": "^26.6.5",
+    "@types/react": "^19.3.0",
+    "@types/react-dom": "^19.3.0",
+    "eslint": "^10.13.0",
+    "eslint-config-next": "16.4.6",
+    "typescript": "~6.0.3",
+    "vitest": "^5.0.5"
+  },
+  "browserslist": [
+    "chrome >= 85",
+    "android >= 85"
+  ]
+}

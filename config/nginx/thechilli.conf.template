@@ -1,0 +1,105 @@
+# TheChilli.ai on the SHARED host nginx. Rendered by deploy.sh from nginx/thechilli.conf.template + .env into nginx/thechilli.conf.
+# deploy.sh NEVER installs or reloads it. The owner does, by hand (this file also serves the ACME challenge on port 80, so a
+# temporary ACME-only file for the same names must go in the same step, or nginx warns "conflicting server name"):
+#   sudo mv /etc/nginx/conf.d/thechilli-acme.conf /root/thechilli-acme.conf.bak   # only if it exists
+#   sudo cp nginx/thechilli.conf /etc/nginx/conf.d/thechilli.conf
+#   sudo nginx -t                      # if this FAILS: do not reload; remove the file again and send us the output
+#   sudo systemctl reload nginx        # reload, never restart (other sites keep running)
+# Remove: sudo rm /etc/nginx/conf.d/thechilli.conf && sudo nginx -t && sudo systemctl reload nginx
+#
+# Certificates (paths from .env: SSL_CERT_SUB/SSL_KEY_SUB and SSL_CERT_TOP/SSL_KEY_TOP):
+#   SUB = the wildcard *.thechilli.zonov.ai certificate: covers @@DOMAIN_APP@@, @@DOMAIN_WAITER@@, @@DOMAIN_API@@, @@DOMAIN_ORDER@@.
+#   TOP = a certificate for @@DOMAIN_SITE@@, @@DOMAIN_ADMIN@@, @@DOMAIN_PARTNER@@ (NOT covered by *.thechilli.zonov.ai), e.g.
+#         sudo certbot certonly --nginx -d @@DOMAIN_SITE@@ -d @@DOMAIN_ADMIN@@ -d @@DOMAIN_PARTNER@@
+#         (HTTP-01: needs the DNS A records first; a wildcard certificate needs the DNS-01 challenge instead).
+# Everything is proxied to the stack's internal router on 127.0.0.1:@@STACK_HTTP_PORT@@ (plain HTTP, loopback only).
+# Names used here are unique to this file (upstream chilli_router, map $chilli_connection_upgrade) so they cannot clash with other sites.
+
+upstream chilli_router {
+    server @@UPSTREAM@@;
+    keepalive 16;
+}
+
+map $http_upgrade $chilli_connection_upgrade {
+    default upgrade;
+    ''      '';
+}
+
+# HTTP -> HTTPS for our names only
+server {
+    listen 80;
+    listen [::]:80;
+    server_name @@DOMAIN_SITE@@ @@DOMAIN_ADMIN@@ @@DOMAIN_PARTNER@@ @@DOMAIN_APP@@ @@DOMAIN_WAITER@@ @@DOMAIN_API@@ @@DOMAIN_ORDER@@;
+@@EDGE_HEALTH@@
+    # Let's Encrypt HTTP-01 renewals keep working through this file (replaces a temporary ACME-only file such as thechilli-acme.conf)
+    location ^~ /.well-known/acme-challenge/ {
+        root @@ACME_WEBROOT@@;
+        default_type text/plain;
+    }
+    location / {
+        return 301 https://$host@@PUBLIC_PORT_SUFFIX@@$request_uri;
+    }
+}
+
+# Shared proxy settings (repeated per server block: nginx has no per-file include without a second file)
+# --- TOP certificate: public site, Super Admin, partner portal ---
+server {
+    listen 443 ssl http2;
+    listen [::]:443 ssl http2;
+    server_name @@DOMAIN_SITE@@ @@DOMAIN_ADMIN@@ @@DOMAIN_PARTNER@@;
+
+    ssl_certificate     @@SSL_CERT_TOP@@;
+    ssl_certificate_key @@SSL_KEY_TOP@@;
+    ssl_protocols TLSv1.2 TLSv1.3;
+    ssl_session_cache shared:chilli_ssl_top:5m;
+
+    server_tokens off;
+    add_header Strict-Transport-Security "max-age=31536000" always;
+    client_max_body_size 25m;
+
+    location / {
+        proxy_pass http://chilli_router;
+        proxy_http_version 1.1;
+        proxy_set_header Host $host;
+        proxy_set_header X-Forwarded-Proto https;
+        proxy_set_header X-Forwarded-Host $host;
+        proxy_set_header X-Forwarded-For $remote_addr;
+        proxy_set_header X-Real-IP $remote_addr;
+        proxy_set_header Upgrade $http_upgrade;
+        proxy_set_header Connection $chilli_connection_upgrade;
+        proxy_connect_timeout 10s;
+        proxy_send_timeout 120s;
+        proxy_read_timeout 120s;
+    }
+}
+
+# --- SUB certificate (*.thechilli.zonov.ai): business app, waiter PWA, API, customer order pages (not announced yet) ---
+server {
+    listen 443 ssl http2;
+    listen [::]:443 ssl http2;
+    server_name @@DOMAIN_APP@@ @@DOMAIN_WAITER@@ @@DOMAIN_API@@ @@DOMAIN_ORDER@@;
+
+    ssl_certificate     @@SSL_CERT_SUB@@;
+    ssl_certificate_key @@SSL_KEY_SUB@@;
+    ssl_protocols TLSv1.2 TLSv1.3;
+    ssl_session_cache shared:chilli_ssl_sub:5m;
+
+    server_tokens off;
+    add_header Strict-Transport-Security "max-age=31536000" always;
+    client_max_body_size 25m;
+
+    location / {
+        proxy_pass http://chilli_router;
+        proxy_http_version 1.1;
+        proxy_set_header Host $host;
+        proxy_set_header X-Forwarded-Proto https;
+        proxy_set_header X-Forwarded-Host $host;
+        proxy_set_header X-Forwarded-For $remote_addr;
+        proxy_set_header X-Real-IP $remote_addr;
+        proxy_set_header Upgrade $http_upgrade;
+        proxy_set_header Connection $chilli_connection_upgrade;
+        proxy_connect_timeout 10s;
+        proxy_send_timeout 120s;
+        proxy_read_timeout 120s;
+    }
+}

@@ -1,0 +1,29 @@
+{
+  "name": "chilli-design-system",
+  "private": true,
+  "type": "module",
+  "packageManager": "pnpm@12.11.2",
+  "scripts": {
+    "build": "pnpm -r --filter @chilli/tokens --filter @chilli/ui build && pnpm --filter showcase build && pnpm size",
+    "size": "pnpm --filter @chilli/ui size",
+    "lint": "eslint .",
+    "typecheck": "pnpm -r typecheck",
+    "test": "pnpm -r test",
+    "dev": "pnpm --filter showcase dev"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9",
+    "@types/node": "^22",
+    "@types/react": "^19",
+    "@types/react-dom": "^19",
+    "eslint": "^9",
+    "eslint-plugin-jsx-a11y": "^6",
+    "eslint-plugin-react-hooks": "^5",
+    "globals": "^15",
+    "tsup": "^8",
+    "tsx": "^4",
+    "typescript": "^5",
+    "typescript-eslint": "^8",
+    "vitest": "^3"
+  }
+}
