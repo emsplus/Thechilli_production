@@ -38,13 +38,12 @@ def business_types_catalogue() -> list[dict]:
 @router.put("/restaurant/business-types", response_model=RestaurantOut)
 def set_business_types(data: BusinessTypesIn, p: Principal = Depends(require_perm(P.SETTINGS_OWNER)),
                        db: Session = Depends(get_db)):
-    """Owner only. Replaces the selection (one or more types). 409 `open_orders_block_business_type_change` while any order
-    is open (UIs warn first). Nothing is deleted: removing Restaurant hides tables / reservations / dine-in until it is
-    selected again. Audit-logged (restaurant.business_types). Platform staff change it through platform-core."""
-    r = db.get(Restaurant, p.restaurant_id, with_for_update=True)
-    business_type.change(db, r, data.business_types, p, reason=data.reason)
-    db.commit()
-    return restaurant_out(db, p, r)
+    """LOCKED (owner decision 2026-11-25): the business type (restaurant / cloud kitchen / hotel kitchen) is chosen when the business is
+    created and afterwards changed ONLY by platform staff (super admin, PUT /internal/provision/tenants/{id}/business-types). A
+    business can never switch its own mode, so even the owner gets 403 `business_type_locked` here. The route stays so old clients get
+    a clear refusal instead of a 404."""
+    raise entitlements.EntitlementError(403, "business_type_locked",
+                                        "The business type can only be changed by Chilli Agent support. Please contact support.")
 
 
 @router.get("/restaurant/features", response_model=list[FeatureAccessOut])

@@ -25,6 +25,12 @@ export const QR_MSG = {
   making: { en: "Making page {page} of {of}…", hi: "पेज {page} / {of} बन रहा है…", hinglish: "Page {page} / {of} ban raha hai…" },
   pdfReady: { en: "PDF downloaded: {n} cards", hi: "PDF डाउनलोड हुआ: {n} कार्ड", hinglish: "PDF download hua: {n} cards" },
   pdfFail: { en: "Could not make the PDF", hi: "PDF नहीं बन सका", hinglish: "PDF nahi ban saka" },
+  // One common QR for a restaurant without tables (cloud kitchen / takeaway): the menu page carries the "Rate your visit" button.
+  commonSheetTitle: { en: "QR code", hi: "QR कोड", hinglish: "QR code" },
+  commonSheetDesc: { en: "One QR code for the whole restaurant: print it for the counter, the door or your packaging.", hi: "पूरे रेस्टोरेंट के लिए एक QR कोड: काउंटर, दरवाज़े या पैकेजिंग के लिए प्रिंट करें।", hinglish: "Poore restaurant ke liye ek QR code: counter, door ya packaging ke liye print karein." },
+  commonTitle: { en: "Menu & review QR", hi: "मेन्यू और रिव्यू QR", hinglish: "Menu aur review QR" },
+  commonHint: { en: "Guests scan this one code, see your menu, and tap \"Rate your visit\" to leave a review. Reviews from it show as \"Restaurant-wide QR\".", hi: "मेहमान यह एक कोड स्कैन करके आपका मेन्यू देखते हैं और \"Rate your visit\" दबाकर रिव्यू देते हैं। इससे आए रिव्यू \"Restaurant-wide QR\" के रूप में दिखते हैं।", hinglish: "Guest yeh ek code scan karke aapka menu dekhte hain aur \"Rate your visit\" dabakar review dete hain. Isse aaye reviews \"Restaurant-wide QR\" ke roop mein dikhte hain." },
+  commonReviewsOff: { en: "Reviews are switched off, so the menu page will not show the review button.", hi: "रिव्यू बंद हैं, इसलिए मेन्यू पेज पर रिव्यू बटन नहीं दिखेगा।", hinglish: "Reviews band hain, isliye menu page par review button nahi dikhega." },
   general: { en: "Whole restaurant", hi: "पूरा रेस्टोरेंट", hinglish: "Poora restaurant" },
   generalHint: { en: "One code for the counter, the door or a menu card. Reviews from it show as \"Restaurant-wide QR\".", hi: "काउंटर, दरवाज़े या मेन्यू कार्ड के लिए एक कोड। इससे आए रिव्यू \"Restaurant-wide QR\" के रूप में दिखते हैं।", hinglish: "Counter, darwaze ya menu card ke liye ek code. Isse aaye reviews \"Restaurant-wide QR\" ke roop mein dikhte hain." },
   tables: { en: "Tables", hi: "टेबल", hinglish: "Tables" },

@@ -1,7 +1,7 @@
 "use client";
 
 import { useCallback, useEffect, useMemo, useState } from "react";
-import { CheckCheck, Download, UserRound } from "lucide-react";
+import { CheckCheck, Download, QrCode, UserRound } from "lucide-react";
 import { Badge, Button, EmptyState, Input, Notice, Select, Skeleton, StatCard } from "@chilli/ui";
 import { FilterBar } from "@chilli/ui/data";
 import { api, ApiError } from "@/lib/api";
@@ -11,8 +11,10 @@ import { formatDateTime, relativeTime } from "@/lib/datetime";
 import { useMsg } from "@/lib/i18n";
 import { LOW_RATING, reviewCsvRows, reviews, stars, tableQr, type Review, type ReviewFilter, type ReviewList } from "@/lib/tableQr";
 import { useNotify } from "@/lib/useNotify";
+import { useCan } from "@/lib/useRole";
 import type { DiningTable } from "@/lib/types";
 import { QR_MSG } from "./qr-messages";
+import { TableQrPanel } from "./TableQrPanel";
 
 const PAGE = 50;
 /** `rating`: "" (any), "low" (1-2 stars) or "1".."5". Dates: yyyy-mm-dd, the restaurant's days. */
@@ -37,6 +39,8 @@ export function ReviewsTab() {
   const [more, setMore] = useState(false);
   const [off, setOff] = useState(false);
   const [now, setNow] = useState(0);
+  const { can } = useCan();
+  const [qrOpen, setQrOpen] = useState(false);
 
   useEffect(() => { api.allTables().then(setTables).catch(() => { /* the table filter then lists none */ }); }, []);
   useEffect(() => { const t = () => setNow(Date.now()); t(); const i = setInterval(t, 60_000); return () => clearInterval(i); }, []);
@@ -91,10 +95,12 @@ export function ReviewsTab() {
       <div className="flex flex-wrap items-center justify-between gap-3">
         <p className="text-sm text-fg-muted">{tr("reviewsIntro")}</p>
         <div className="flex flex-wrap gap-2">
+ {can("tables.manage") && <Button variant="secondary" iconStart={<QrCode />} onClick={() => setQrOpen(true)} data-testid="reviews-qr-open">{tr("qrCodes")}</Button>}
           {data && data.unread_low > 0 && <Button variant="secondary" iconStart={<CheckCheck />} onClick={() => void markAll()}>{tr("markAllRead")}</Button>}
           <Button iconStart={<Download />} disabled={!data || data.total === 0} onClick={() => void exportCsv()}>{tr("exportCsv")}</Button>
         </div>
       </div>
+      <TableQrPanel open={qrOpen} onClose={() => setQrOpen(false)} canSettings={can("settings.manage")} commonWhenNoTables />
       {off && <Notice tone="warning">{tr("reviewsOff")}</Notice>}
       <div className="grid grid-cols-2 gap-3 sm:grid-cols-3">
         <StatCard label={tr("avgRating")} loading={loading && !data} value={data?.average != null ? <span data-testid="reviews-average">{data.average.toFixed(1)} <span aria-hidden className="text-warning-fg">★</span></span> : "-"} hint={data?.average != null ? tr("outOf5", { n: data.average.toFixed(1) }) : undefined} />

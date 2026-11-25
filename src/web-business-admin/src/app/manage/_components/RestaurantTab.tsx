@@ -172,7 +172,7 @@ export function RestaurantTab() {
       </div>
 
       <div className="space-y-4">
-        <BusinessTypeCard restaurant={data ?? null} canEdit={canEdit} />
+        <BusinessTypeCard restaurant={data ?? null} />
 
         <Card>
           <CardHeader title={t("countryTitle")} description={t("countryDesc")} />

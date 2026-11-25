@@ -346,7 +346,7 @@ test.describe("registration: What do you run?", () => {
   });
 });
 
-test("changing the type later: tables are hidden, not deleted, and come back", async ({ browser, request }) => {
+test("the business type is locked: the owner cannot change it (only super admin can); tables stay", async ({ browser, request }) => {
   const b = await register(request, ["restaurant"], "change");
   const t = await request.post(`${API}/tables`, { headers: b.auth, data: { label: "T7" } });
   expect(t.status()).toBe(201);
@@ -355,19 +355,15 @@ test("changing the type later: tables are hidden, not deleted, and come back", a
   await expect(page).toHaveURL(/\/manage$/);
   await page.goto("/manage?tab=restaurant");
   const card = page.getByTestId("business-type");
-  await card.getByRole("checkbox", { name: LABEL.cloud_kitchen }).check();
-  await card.getByRole("checkbox", { name: LABEL.restaurant }).uncheck();
-  await card.getByRole("button", { name: "Save business type" }).click();
-  const confirm = page.getByRole("dialog", { name: "Change the business type?" });
-  await expect(confirm).toContainText("Nothing is deleted");
-  await shot(page, "change-type-confirm");
-  await confirm.getByRole("button", { name: "Change business type" }).click();
-  await expect(manageNav(page).getByRole("link", { name: "Delivery", exact: true })).toBeVisible({ timeout: 20_000 });
-  await expect(manageNav(page).getByRole("link", { name: "Tables", exact: true })).toHaveCount(0);
-  expect(await (await request.get(`${API}/tables`, { headers: b.auth })).json()).toEqual([]);
-  await page.getByTestId("business-type").getByRole("checkbox", { name: LABEL.restaurant }).check();
-  await page.getByTestId("business-type").getByRole("button", { name: "Save business type" }).click();
-  await expect(manageNav(page).getByRole("link", { name: "Tables", exact: true })).toBeVisible({ timeout: 20_000 });
+  await expect(card.getByRole("checkbox", { name: LABEL.restaurant })).toBeChecked();
+  await expect(card.getByRole("checkbox", { name: LABEL.cloud_kitchen })).toBeDisabled();
+  await expect(card.getByRole("button", { name: "Save business type" })).toHaveCount(0);
+  await expect(page.getByTestId("business-type-locked")).toContainText("Chilli Agent support");
+  // the API refuses too, with a stable code, and nothing changed
+  const r = await request.put(`${API}/restaurant/business-types`, { headers: b.auth, data: { business_types: ["cloud_kitchen"] } });
+  expect(r.status()).toBe(403);
+  expect((await r.json()).error.code).toBe("business_type_locked");
+  expect((await (await request.get(`${API}/restaurant`, { headers: b.auth })).json()).business_types).toEqual(["restaurant"]);
   await page.goto("/manage?tab=tables");
   await expect(page.getByText("T7").first()).toBeVisible();
   await page.context().close();

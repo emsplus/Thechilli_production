@@ -180,28 +180,19 @@ test("Cloud kitchen: no Dine-in/Outdoor, no Tables, no Reservations; Delivery se
   }
 });
 
-test("Owner changes the business type in Manage > Restaurant (warning when screens get hidden)", async ({ page, request }) => {
+test("Owner cannot change the business type in Manage > Restaurant (locked: only super admin changes it)", async ({ page, request }) => {
   const s = await register(request, ["restaurant"]);
   const me = await (await request.get(`${API}/auth/me`, { headers: s.auth })).json();
   test.skip(!me.capabilities, "server without business types");
   await openAs(page, s.token, "/manage?tab=restaurant", s.refresh);
   const card = page.getByTestId("business-type");
   await expect(card.getByRole("checkbox", { name: /Restaurant/ })).toBeChecked();
-  await card.getByRole("checkbox", { name: /Cloud kitchen/ }).check();
-  await card.getByRole("checkbox", { name: /Restaurant/ }).uncheck();
-  await card.getByRole("button", { name: "Save business type" }).click();
-  const confirm = page.getByRole("dialog", { name: "Change the business type?" });
-  await expect(confirm).toContainText("Tables");
-  await expect(confirm).toContainText("Reservations");
-  await confirm.getByRole("button", { name: "Change business type" }).click();
-  await expect.poll(async () => (await (await request.get(`${API}/restaurant`, { headers: s.auth })).json()).business_types).toEqual(["cloud_kitchen"]);
-  await page.waitForLoadState("load");
-  await expect(page.getByRole("navigation", { name: "Manage sections" }).getByRole("link", { name: "Delivery" })).toBeVisible({ timeout: 20_000 });
-  await expect(page.getByRole("navigation", { name: "Manage sections" }).getByRole("link", { name: "Tables" })).toHaveCount(0);
-  // and back: Restaurant + Cloud kitchen brings Tables back
-  await page.getByTestId("business-type").getByRole("checkbox", { name: /Restaurant/ }).check();
-  await page.getByTestId("business-type").getByRole("button", { name: "Save business type" }).click();
-  await expect(page.getByRole("navigation", { name: "Manage sections" }).getByRole("link", { name: "Tables" })).toBeVisible({ timeout: 20_000 });
+  await expect(card.getByRole("checkbox", { name: /Cloud kitchen/ })).toBeDisabled();
+  await expect(card.getByRole("button", { name: "Save business type" })).toHaveCount(0);
+  await expect(page.getByTestId("business-type-locked")).toBeVisible();
+  const r = await request.put(`${API}/restaurant/business-types`, { headers: s.auth, data: { business_types: ["cloud_kitchen"] } });
+  expect(r.status()).toBe(403);
+  expect((await (await request.get(`${API}/restaurant`, { headers: s.auth })).json()).business_types).toEqual(["restaurant"]);
 });
 
 test("New screens are axe clean and fit at 360 and 1280, light only", async ({ page, request }) => {

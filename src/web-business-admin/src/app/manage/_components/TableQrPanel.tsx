@@ -32,7 +32,7 @@ function QrThumb({ url, label, size = 88, testId }: { url: string; label: string
  * Manage > Tables > "QR codes": per table a menu QR and a review QR (PNG card each, open, regenerate), the restaurant-wide pair,
  * A4 PDF sheets for every table, and the switches (menu QR / reviews on, Google review link) for owners and managers.
  */
-export function TableQrPanel({ open, onClose, canSettings }: { open: boolean; onClose: () => void; canSettings: boolean }) {
+export function TableQrPanel({ open, onClose, canSettings, commonWhenNoTables = false }: { open: boolean; onClose: () => void; canSettings: boolean; commonWhenNoTables?: boolean }) {
   const tr = useMsg(QR_MSG);
   const toast = useNotify();
   const [ask, askNode] = useAsk();
@@ -56,6 +56,8 @@ export function TableQrPanel({ open, onClose, canSettings }: { open: boolean; on
   }, [tr]);
   useEffect(() => { if (open) void Promise.resolve().then(load); }, [open, load]);
 
+  // A restaurant without tables (cloud kitchen, takeaway) gets ONE common QR: the menu page carries the "Rate your visit" button.
+  const common = commonWhenNoTables && !!data && data.tables.length === 0;
   const host = useMemo(() => { try { return data ? new URL(data.base_url).host : ""; } catch { return ""; } }, [data]);
   const spec = (kind: CardKind, label: string | null, url: string): CardSpec => ({ restaurant: data?.restaurant_name ?? "", label, kind, url });
 
@@ -136,7 +138,7 @@ export function TableQrPanel({ open, onClose, canSettings }: { open: boolean; on
   );
 
   return (
-    <Sheet side="right" open={open} onOpenChange={(o) => { if (!o) onClose(); }} title={tr("sheetTitle")} description={tr("sheetDesc")}
+    <Sheet side="right" open={open} onOpenChange={(o) => { if (!o) onClose(); }} title={tr(common ? "commonSheetTitle" : "sheetTitle")} description={tr(common ? "commonSheetDesc" : "sheetDesc")}
       footer={<Button onClick={onClose}>{tr("close")}</Button>}>
       {askNode}
       {error ? (
@@ -158,6 +160,26 @@ export function TableQrPanel({ open, onClose, canSettings }: { open: boolean; on
               </form>
             </section>
           )}
+          {common ? (
+            <section aria-labelledby="qr-common" data-testid="qr-common">
+              <h3 id="qr-common" className="mb-1 text-sm font-semibold uppercase tracking-wide text-fg-muted">{tr("commonTitle")}</h3>
+              <p className="mb-3 text-xs text-fg-muted">{tr("commonHint")}</p>
+              {!data.reviews_enabled && <Notice tone="warning">{tr("commonReviewsOff")}</Notice>}
+              <div className="flex flex-wrap items-center gap-4 rounded-xl border border-border bg-surface p-3">
+                <QrThumb url={data.general.menu_url} label={tr("commonTitle")} size={160} testId="qr-menu-general" />
+                <div className="min-w-0 space-y-2">
+                  <div className="flex flex-wrap gap-2">
+                    <Button variant="primary" iconStart={<Download />} loading={busy === "png-menu-general"} disabled={busy !== null}
+                      aria-label={tr("downloadPng", { what: tr("commonTitle"), label: "" })} onClick={() => void png("menu", null, data.general.menu_url)}>{tr("png")}</Button>
+                    <a href={data.general.menu_url} target="_blank" rel="noopener noreferrer" aria-label={tr("openWhat", { what: tr("commonTitle"), label: "" })}
+                      className="inline-flex min-h-11 items-center gap-1 rounded-lg px-2 text-sm font-semibold text-primary underline-offset-2 hover:underline">
+                      <ExternalLink aria-hidden className="size-4" />{tr("open")}</a>
+                    <IconButton label={tr("regenerateWhat", { label: tr("commonTitle") })} icon={<RefreshCw />} onClick={() => void regenerate(null, tr("commonTitle"))} disabled={busy !== null} />
+                  </div>
+                </div>
+              </div>
+            </section>
+          ) : (<>
           <section aria-labelledby="qr-print">
             <h3 id="qr-print" className="mb-2 text-sm font-semibold uppercase tracking-wide text-fg-muted">{tr("printAll")}</h3>
             <div className="flex flex-wrap gap-2">
@@ -178,6 +200,7 @@ export function TableQrPanel({ open, onClose, canSettings }: { open: boolean; on
               <ul className="space-y-3">{data.tables.map((t) => row(t.table_id, t.label, tr("tableN", { label: t.label }), t.table_id, t, t.regenerated_at))}</ul>
             )}
           </section>
+          </>)}
         </div>
       )}
     </Sheet>
