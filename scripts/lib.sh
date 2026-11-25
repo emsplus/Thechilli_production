@@ -160,7 +160,9 @@ guard_volume() {  # NAME -> refuses unless it is a volume of our project
   local n="$1" p
   case "$n" in "${PROJECT}"_*) ;; *) die "refusing: volume '$n' does not start with '${PROJECT}_'";; esac
   p="$(docker volume inspect -f '{{ index .Labels "com.docker.compose.project" }}' "$n" 2>/dev/null || true)"
-  [ "$p" = "$PROJECT" ] || die "refusing: volume '$n' is not labelled as compose project '$PROJECT'"
+  # A volume created by hand (copied from the old project name, see docs/ENVIRONMENTS.md) has no compose label at all: it is ours when the
+  # name carries our project prefix (checked above). A volume labelled for ANOTHER project is always refused.
+  [ -z "$p" ] || [ "$p" = "$PROJECT" ] || die "refusing: volume '$n' is labelled as compose project '$p', not '$PROJECT'"
 }
 guard_project
 
