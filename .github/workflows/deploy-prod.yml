@@ -1,7 +1,7 @@
 name: deploy-prod
 # PRODUCTION (real customers). MANUAL ONLY: it never runs on a push.
 # Actions -> deploy-prod -> Run workflow: name one service (empty = every service) and type PROD to confirm.
-# Runs on the Prod runner (label `prod`, ~/Production/thechilli_resto/actions-runner) and updates ONE service at a time through
+# Runs on the Prod runner (repo-scoped, ~/Production/thechilli_resto/actions-runner) and updates ONE service at a time through
 # scripts/update.sh (backup -> build -> migrate -> health check -> automatic rollback). Ask a reviewer: GitHub environment `prod`
 # can require an approver (Settings -> Environments -> prod).
 # The website is NOT deployed from here (own repo: emsplus/Thechilli_website).
@@ -24,7 +24,7 @@ permissions:
   contents: read
 jobs:
   detect:
-    runs-on: [self-hosted, linux, prod]
+    runs-on: [self-hosted, linux]
     outputs:
       services: ${{ steps.d.outputs.services }}
     steps:
@@ -44,7 +44,7 @@ jobs:
           echo "deploying to PROD: $list"
   deploy:
     needs: detect
-    runs-on: [self-hosted, linux, prod]
+    runs-on: [self-hosted, linux]
     environment: prod
     strategy:
       max-parallel: 1
