@@ -3,7 +3,7 @@
 import { ViewHeader } from "@/components/ui/view-header";
 import { useCallback, useMemo, useState } from "react";
 import Link from "next/link";
-import { Pencil, Plus, SlidersHorizontal, X } from "lucide-react";
+import { Layers, Pencil, Plus, SlidersHorizontal, X } from "lucide-react";
 import { Badge, Button, Checkbox, IconButton, Input, Notice, Sheet, Skeleton, Switch } from "@chilli/ui";
 import { Card, EmptyState } from "@/components/ui";
 import { api, ApiError } from "@/lib/api";
@@ -15,8 +15,8 @@ import { useNotify } from "@/lib/useNotify";
 import { useCan } from "@/lib/useRole";
 
 const fetchAll = async () => {
-  const [groups, items] = await Promise.all([extras.modifierGroups(true), api.allItems()]);
-  return { groups, items };
+  const [groups, items, categories] = await Promise.all([extras.modifierGroups(true), api.allItems(), api.allCategories()]);
+  return { groups, items, categories };
 };
 
 /**
@@ -29,6 +29,7 @@ export function ModifiersView({ embedded = false }: { embedded?: boolean }) {
   const { data, error, loading, reload } = useLoader(fetchAll);
   const toast = useNotify();
   const [edit, setEdit] = useState<{ group: ModifierGroup | null } | null>(null);
+  const [apply, setApply] = useState<ModifierGroup | null>(null);
   const itemName = useMemo(() => new Map((data?.items ?? []).map((i) => [i.id, i.name])), [data]);
   const canEdit = can("menu.manage");
 
@@ -41,7 +42,7 @@ export function ModifiersView({ embedded = false }: { embedded?: boolean }) {
 
   return (
     <>
-      <ViewHeader embedded={embedded} title="Modifier groups" description="Choices a dish can take at the counter: spice level, extras, add-ons. Attach them to dishes in the menu item editor."
+      <ViewHeader embedded={embedded} title="Modifier groups" description="Choices a dish can take at the counter: spice level, extras, add-ons. Attach a group to one dish in the item editor, or to a whole category (or the whole menu) with Apply to dishes."
         actions={canEdit && <Button variant="primary" iconStart={<Plus />} onClick={() => setEdit({ group: null })}>Add group</Button>} />
       {error && <Notice tone="danger" className="mb-4" action={<Button size="sm" variant="secondary" onClick={() => void reload()}>Retry</Button>}>{error}</Notice>}
       {ready && !canEdit && <Notice tone="info" className="mb-4">You can see the groups. Changing them needs the menu permission.</Notice>}
@@ -71,15 +72,71 @@ export function ModifiersView({ embedded = false }: { embedded?: boolean }) {
                     ))}
                   </ul>
                   <p className="mt-3 text-sm text-fg-muted">{used.length ? `Used by ${used.length === 1 ? "1 dish" : `${used.length} dishes`}: ${used.slice(0, 4).join(", ")}${used.length > 4 ? ` +${used.length - 4}` : ""}` : <>Not used by any dish yet. <Link href="/manage?tab=menu" className="font-semibold text-primary underline-offset-2 hover:underline">Attach it in the menu</Link>.</>}</p>
-                  {canEdit && <div className="mt-2"><Switch label={g.is_active ? "Offered at the counter" : "Off"} checked={g.is_active} onChange={(e) => void setActive(g, e.target.checked)} /></div>}
+                  {canEdit && <div className="mt-2 flex flex-wrap items-center justify-between gap-2">
+                    <Switch label={g.is_active ? "Offered at the counter" : "Off"} checked={g.is_active} onChange={(e) => void setActive(g, e.target.checked)} />
+                    <Button size="sm" variant="secondary" iconStart={<Layers />} onClick={() => setApply(g)} data-testid={`apply-${g.id}`}>Apply to dishes</Button>
+                  </div>}
                 </Card>
               </li>
             );
           })}
         </ul>
       )}
+      <ApplySheet group={apply} categories={(data?.categories ?? []).filter((c) => c.is_active)} items={data?.items ?? []}
+        onClose={() => setApply(null)} onDone={() => { setApply(null); void reload(); }} />
       <GroupSheet state={edit} onClose={() => setEdit(null)} onSaved={() => { setEdit(null); void reload(); }} />
     </>
+  );
+}
+
+/** Attach (or take off) one group on a whole category, several categories or every dish in one step. Dishes that already have it are skipped. */
+function ApplySheet({ group, categories, items, onClose, onDone }: { group: ModifierGroup | null; categories: { id: string; name: string }[];
+  items: { id: string; category_id: string; is_active: boolean }[]; onClose: () => void; onDone: () => void }) {
+  const toast = useNotify();
+  const [mode, setMode] = useState<"attach" | "detach">("attach");
+  const [all, setAll] = useState(true);
+  const [picked, setPicked] = useState<string[]>([]);
+  const [busy, setBusy] = useState(false);
+  const [err, setErr] = useState<string | null>(null);
+  const [seen, setSeen] = useState<ModifierGroup | null>(null);
+  if (group !== seen) { setSeen(group); setMode("attach"); setAll(true); setPicked([]); setErr(null); }
+  const count = (cid: string) => items.filter((i) => i.is_active && i.category_id === cid).length;
+  const dishes = all ? items.filter((i) => i.is_active).length : picked.reduce((n, c) => n + count(c), 0);
+  const toggle = (id: string, on: boolean) => setPicked((p) => (on ? [...p, id] : p.filter((x) => x !== id)));
+
+  async function go() {
+    if (!group) return;
+    if (!all && picked.length === 0) { setErr("Choose at least one category, or all dishes."); return; }
+    setBusy(true); setErr(null);
+    try {
+      const r = await extras.applyModifierGroup(group.id, { mode, ...(all ? { all_items: true } : { category_ids: picked }) });
+      toast.success(r.changed === 0 ? `Nothing to change: ${group.name} was already ${mode === "attach" ? "on" : "off"} those dishes`
+        : mode === "attach" ? `${group.name} added to ${r.changed} ${r.changed === 1 ? "dish" : "dishes"}` : `${group.name} removed from ${r.changed} ${r.changed === 1 ? "dish" : "dishes"}`);
+      onDone();
+    } catch (e) { setErr(e instanceof ApiError ? e.message : "Could not apply the group"); } finally { setBusy(false); }
+  }
+
+  return (
+    <Sheet side="right" open={group !== null} onOpenChange={(o) => { if (!o && !busy) onClose(); }} title={group ? `Apply ${group.name} to dishes` : "Apply to dishes"}
+      description="Put this group on many dishes at once instead of opening each dish. Other groups on a dish and their order are not changed."
+      footer={<><Button onClick={onClose} disabled={busy}>Cancel</Button><Button variant="primary" loading={busy} onClick={() => void go()} data-testid="apply-go">{mode === "attach" ? "Add to dishes" : "Remove from dishes"}</Button></>}>
+      <div className="space-y-4 pb-3" data-testid="apply-sheet">
+        {err && <Notice tone="danger">{err}</Notice>}
+        <fieldset className="space-y-1">
+          <legend className="mb-1 text-sm font-semibold text-fg">What to do</legend>
+          <label className="flex min-h-11 items-center gap-2 text-sm"><input type="radio" name="apply-mode" checked={mode === "attach"} onChange={() => setMode("attach")} />Add this group to the dishes</label>
+          <label className="flex min-h-11 items-center gap-2 text-sm"><input type="radio" name="apply-mode" checked={mode === "detach"} onChange={() => setMode("detach")} />Remove this group from the dishes</label>
+        </fieldset>
+        <fieldset className="space-y-1">
+          <legend className="mb-1 text-sm font-semibold text-fg">Which dishes</legend>
+          <Checkbox label="All dishes of the menu" checked={all} onChange={(e) => setAll(e.target.checked)} />
+          {!all && (categories.length === 0 ? <p className="text-sm text-fg-muted">No categories yet.</p> : categories.map((c) => (
+            <Checkbox key={c.id} label={`${c.name} (${count(c.id)})`} checked={picked.includes(c.id)} onChange={(e) => toggle(c.id, e.target.checked)} />
+          )))}
+        </fieldset>
+        <p className="text-sm text-fg-muted" data-testid="apply-count">{dishes === 1 ? "1 dish" : `${dishes} dishes`} in this choice.</p>
+      </div>
+    </Sheet>
   );
 }
 

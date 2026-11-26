@@ -90,6 +90,9 @@ export const extras = {
   createModifierGroup: (b: ModifierGroupInput) => post<ModifierGroup>("/menu/modifier-groups", b),
   updateModifierGroup: (id: string, b: ModifierGroupInput) => put<ModifierGroup>(`/menu/modifier-groups/${id}`, b),
   setModifierGroupActive: (id: string, is_active: boolean) => patch<ModifierGroup>(`/menu/modifier-groups/${id}/active`, { is_active }),
+  /** One group on many dishes at once: every dish (`all_items`) or the dishes of the given categories (attach or detach, idempotent). */
+  applyModifierGroup: (id: string, b: { mode: "attach" | "detach"; all_items?: boolean; category_ids?: string[] }) =>
+    post<{ changed: number; total: number }>(`/menu/modifier-groups/${id}/apply`, b),
   setItemModifierGroups: (itemId: string, group_ids: string[]) => put<{ item_id: string; group_ids: string[] }>(`/menu/items/${itemId}/modifier-groups`, { group_ids }),
   combos: () => request<Combo[]>("/menu/combos"),
   setCombo: (itemId: string, components: { item_id: string; variant_id: string | null; quantity: number }[]) => put<Combo>(`/menu/items/${itemId}/combo`, { components }),

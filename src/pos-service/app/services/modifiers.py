@@ -13,10 +13,10 @@ import uuid
 from decimal import Decimal
 
 from fastapi import HTTPException
-from sqlalchemy import select
+from sqlalchemy import null, select
 from sqlalchemy.orm import Session
 
-from app.models.core import MenuItem, MenuVariant
+from app.models.core import Category, MenuItem, MenuVariant
 from app.models.menu_extras import ComboComponent, MenuItemModifierGroup, ModifierGroup, ModifierOption
 from app.services import audit
 
@@ -141,13 +141,15 @@ def _check_group(data) -> None:
 
 def create_group(db: Session, p, data) -> ModifierGroup:
     _check_group(data)
+    # max_select None = "no upper limit": a bare None would be replaced by the column default (1), so say NULL explicitly.
     g = ModifierGroup(restaurant_id=p.restaurant_id, name=data.name.strip(), min_select=data.min_select,
-                      max_select=data.max_select, sort_order=data.sort_order)
+                      max_select=null() if data.max_select is None else data.max_select, sort_order=data.sort_order)
     g.options = [ModifierOption(restaurant_id=p.restaurant_id, name=o.name.strip(), price_delta_paise=o.price_delta_paise,
                                 is_default=o.is_default, sort_order=o.sort_order if o.sort_order is not None else i)
                  for i, o in enumerate(data.options)]
     db.add(g)
     db.flush()
+    db.refresh(g)  # reads max_select back (NULL stays NULL)
     audit.record(db, p, "modifier_group.create", "modifier_group", g.id,
                  {"name": g.name, "min": g.min_select, "max": g.max_select,
                   "options": [[o.name, o.price_delta_paise, o.is_default] for o in g.options]})
@@ -270,6 +272,42 @@ def set_item_groups(db: Session, p, item_id: uuid.UUID, group_ids: list[uuid.UUI
                      {"old": [str(x) for x in old], "new": [str(x) for x in group_ids]})
     db.commit()
     return list(group_ids)
+
+
+def apply_group(db: Session, p, group_id: uuid.UUID, *, attach: bool, all_items: bool,
+                category_ids: list[uuid.UUID]) -> dict:
+    """Attach (or detach) one modifier group to MANY dishes at once: every active dish of the restaurant (`all_items`) or of the given
+    categories. Idempotent: a dish that already has the group is skipped on attach, one that does not is skipped on detach. A new
+    link goes after the dish's own groups (the owner's order for that dish is never reshuffled). One transaction, one audit row."""
+    g = _own_group(db, p, group_id)
+    q = select(MenuItem).where(MenuItem.restaurant_id == p.restaurant_id, MenuItem.is_active)
+    if not all_items:
+        ids = set(category_ids)
+        found = set(db.scalars(select(Category.id).where(Category.restaurant_id == p.restaurant_id, Category.id.in_(ids))))
+        if found != ids:
+            raise HTTPException(404, "Category not found")
+        q = q.where(MenuItem.category_id.in_(ids))
+    items = list(db.scalars(q))
+    links = {(r.item_id): r for r in db.scalars(select(MenuItemModifierGroup).where(
+        MenuItemModifierGroup.group_id == g.id, MenuItemModifierGroup.restaurant_id == p.restaurant_id))}
+    top: dict[uuid.UUID, int] = {}
+    if attach:
+        for item_id, so in db.execute(select(MenuItemModifierGroup.item_id, MenuItemModifierGroup.sort_order).where(
+                MenuItemModifierGroup.restaurant_id == p.restaurant_id)):
+            top[item_id] = max(top.get(item_id, -1), so)
+    changed = 0
+    for it in items:
+        if attach and it.id not in links:
+            db.add(MenuItemModifierGroup(item_id=it.id, group_id=g.id, restaurant_id=p.restaurant_id, sort_order=top.get(it.id, -1) + 1))
+            changed += 1
+        elif not attach and it.id in links:
+            db.delete(links[it.id])
+            changed += 1
+    if changed:
+        audit.record(db, p, "group.attach_bulk" if attach else "group.detach_bulk", "modifier_group", g.id,
+                     {"changed": changed, "dishes": len(items), "all_items": all_items, "categories": [str(c) for c in category_ids]})
+    db.commit()
+    return {"changed": changed, "total": len(items)}
 
 
 def set_combo(db: Session, p, item_id: uuid.UUID, components) -> list[ComboComponent]:

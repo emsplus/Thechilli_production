@@ -4,7 +4,7 @@ from datetime import date, time
 from decimal import Decimal
 from typing import Literal
 
-from pydantic import BaseModel, ConfigDict, Field, field_validator
+from pydantic import BaseModel, ConfigDict, Field, field_validator, model_validator
 
 from app.models.core import OrderType
 
@@ -55,6 +55,24 @@ class ActiveIn(BaseModel):
 
 class ItemGroupsIn(BaseModel):
     group_ids: list[uuid.UUID] = Field(max_length=20)  # in display order; [] removes every group
+
+
+class ApplyGroupIn(BaseModel):
+    """Attach / detach one modifier group to many dishes: every dish (`all_items`) or the dishes of the listed categories."""
+    mode: Literal["attach", "detach"] = "attach"
+    all_items: bool = False
+    category_ids: list[uuid.UUID] = Field(default_factory=list, max_length=200)
+
+    @model_validator(mode="after")
+    def _scope(self):
+        if not self.all_items and not self.category_ids:
+            raise ValueError("choose all dishes or at least one category")
+        return self
+
+
+class ApplyGroupOut(BaseModel):
+    changed: int  # dishes that got (or lost) the group
+    total: int    # dishes in the chosen scope
 
 
 class ItemGroupsOut(BaseModel):

@@ -9,7 +9,7 @@ from app.api.deps import P, Principal, current_principal, require_perm
 from app.core.db import get_db
 from app.models.menu_extras import ModifierGroup, Offer
 from app.schemas.menu_extras import (
-    ActiveIn, ComboIn, ComboOut, ItemGroupsIn, ItemGroupsOut, ModifierGroupIn, ModifierGroupOut, OfferIn, OfferOut,
+    ActiveIn, ApplyGroupIn, ApplyGroupOut, ComboIn, ComboOut, ItemGroupsIn, ItemGroupsOut, ModifierGroupIn, ModifierGroupOut, OfferIn, OfferOut,
 )
 from app.services import feature_access
 from app.services import modifiers as svc
@@ -53,6 +53,15 @@ def set_group_active(group_id: uuid.UUID, data: ActiveIn, p: Principal = Depends
     """A deactivated group disappears from every item (its links stay, so reactivating restores it)."""
     g = svc.set_group_active(db, p, group_id, data.is_active)
     return _group_out(g, svc.group_item_ids(db, p.restaurant_id).get(g.id, []))
+
+
+@router.post("/menu/modifier-groups/{group_id}/apply", response_model=ApplyGroupOut)
+def apply_group(group_id: uuid.UUID, data: ApplyGroupIn, p: Principal = Depends(require_perm(P.MENU_MANAGE)),
+                db: Session = Depends(get_db)):
+    """Attach (or detach) the group to every dish, or to every dish of the given categories, in one step (e.g. an "Add on" group on a
+    whole menu). Idempotent; an item's other groups and their order are untouched."""
+    return ApplyGroupOut(**svc.apply_group(db, p, group_id, attach=data.mode == "attach", all_items=data.all_items,
+                                           category_ids=data.category_ids))
 
 
 @router.put("/menu/items/{item_id}/modifier-groups", response_model=ItemGroupsOut)
