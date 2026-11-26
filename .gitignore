@@ -28,3 +28,5 @@ actions-runner/
 # The public website is NOT part of this repo: it lives in emsplus/Thechilli_website (never commit it here)
 src/web-site/
 deploy/site/
+!.env.*.example
+!.env.example
