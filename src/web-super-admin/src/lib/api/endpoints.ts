@@ -36,6 +36,10 @@ export function createApi(http: HttpClient) {
       suspend: (ref: string, reason: string) => http.post<T.TenantDetail>(`/tenants/${enc(ref)}/suspend`, { reason }),
       reactivate: (ref: string, reason: string) => http.post<T.TenantDetail>(`/tenants/${enc(ref)}/reactivate`, { reason }),
       close: (ref: string, reason: string) => http.post<T.TenantDetail>(`/tenants/${enc(ref)}/close`, { reason }),
+      /** The full new business-type selection (1-3 of restaurant / cloud_kitchen / hotel_kitchen). pos_sync in the response
+       *  says whether the live pos-service tenant picked it up (synced) or needs a retry (send the same call again). */
+      setBusinessTypes: (ref: string, business_types: T.BusinessType[], reason?: string) =>
+        http.patch<T.TenantPatchOut>(`/tenants/${enc(ref)}`, { business_types, reason }),
     },
     onboarding: {
       list: (q: ListParams & { status?: string; source?: string } = {}) => http.get<T.Page<T.OnboardingApplication>>("/onboarding/applications", { limit: 50, ...q } as Query),

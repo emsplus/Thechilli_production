@@ -60,6 +60,9 @@ export interface Outlet {
   status: "active" | "inactive"; pos_outlet_ref: string | null; created_at: Iso;
 }
 export interface TenantDetail extends Tenant { profile: BusinessProfile | null; outlets: Outlet[] }
+/** patch_tenant response (platform-core docs/PROVISIONING.md): how the business-type push to pos-service went, when business_types was sent. */
+export type PosSyncResult = "synced" | "not_provisioned" | "not_found" | `failed:${string}`;
+export interface TenantPatchOut extends TenantDetail { pos_sync?: PosSyncResult }
 export interface StatusChange { reason: string }
 
 // ---- onboarding

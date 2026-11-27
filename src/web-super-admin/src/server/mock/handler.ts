@@ -243,6 +243,23 @@ route("GET", "/tenants", "tenants.read", (c) => {
   return ok(page(rows, c.q));
 });
 route("GET", "/tenants/:ref", "tenants.read", (c) => { const t = tenantOr404(c.s, c.p[0]); return t ? ok(t) : NF("Tenant"); });
+route("PATCH", "/tenants/:ref", "tenants.write", (c) => {
+  const t = tenantOr404(c.s, c.p[0]); if (!t) return NF("Tenant");
+  const before = compute(c.s, t);
+  if (c.body.display_name) t.display_name = str(c.body.display_name);
+  let posSync: string | undefined;
+  if (Array.isArray(c.body.business_types) && c.body.business_types.length) {
+    const next = c.body.business_types as T.BusinessType[];
+    if (next.join(",") !== (t.business_types ?? ["restaurant"]).join(",")) {
+      const beforeTypes = t.business_types ?? ["restaurant"];
+      t.business_types = next;
+      log(c, "tenant.business_types_changed", "tenant", t.id, t.id, { business_types: beforeTypes }, { business_types: next }, c.body.reason ? { reason: str(c.body.reason) } : null);
+      posSync = t.pos_tenant_ref ? "synced" : "not_provisioned";
+    }
+  }
+  recordDiff(c, t, before, "tenant_updated", str(c.body.reason));
+  return ok({ ...t, pos_sync: posSync });
+});
 const statusRoute = (verb: string, to: T.TenantStatus, from: T.TenantStatus[]) =>
   route("POST", `/tenants/:ref/${verb}`, "tenants.suspend", (c) => {
     const t = tenantOr404(c.s, c.p[0]); if (!t) return NF("Tenant");

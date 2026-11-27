@@ -15,6 +15,7 @@ export const ALLOWED: Rule[] = [
   r("POST", `/staff/${seg}/mfa/reset`), r("DELETE", `/staff/${seg}/sessions`),
   r("GET", "/roles"), r("GET", "/staff"), r("POST", "/staff"), r("PATCH", `/staff/${seg}`), r("POST", `/staff/${seg}/reset-password`),
   r("GET", "/tenants"), r("GET", `/tenants/${seg}`),
+  r("PATCH", `/tenants/${seg}`), // display_name / business_types only (platform-core body validation; never orders/menus/customers)
   r("POST", `/tenants/${seg}/(suspend|reactivate|close)`),
   r("GET", `/tenants/${seg}/subscription`), r("POST", `/tenants/${seg}/subscription`), r("POST", `/tenants/${seg}/subscription/cancel`),
   r("GET", "/onboarding/applications"), r("GET", `/onboarding/applications/${seg}`),

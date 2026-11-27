@@ -2,9 +2,9 @@
 import { useState } from "react";
 import Link from "next/link";
 import { useParams } from "next/navigation";
-import { Badge, Button, Card, Dialog, Select, Table, useToast } from "@chilli/ui";
+import { Badge, Button, Card, Checkbox, Dialog, Select, Table, Textarea, useToast } from "@chilli/ui";
 import { api, ApiError } from "@/lib/api";
-import type { Outlet, TenantDetail } from "@/lib/api/types";
+import type { BusinessType, Outlet, TenantDetail } from "@/lib/api/types";
 import { fmtDate, fmtDateTime } from "@/lib/format";
 import { useCan } from "@/lib/session";
 import { useAction, useResource } from "@/lib/useResource";
@@ -29,6 +29,7 @@ export default function BusinessDetailPage() {
   }, id);
   const [act, setAct] = useState<Act | null>(null);
   const [planOpen, setPlanOpen] = useState(false);
+  const [typesOpen, setTypesOpen] = useState(false);
 
   const doAct = async (reason: string): Promise<ApiError | undefined> => {
     try { await api.tenants[act!](id, reason); toast.show(`${COPY[act!].confirm} done`, "success"); res.reload(); } catch (e) { return e as ApiError; }
@@ -48,7 +49,15 @@ export default function BusinessDetailPage() {
           </>} />
           {t.status_reason ? <p className="hq-sub" style={{ marginBottom: 16 }}>Status reason: {t.status_reason} ({fmtDateTime(t.status_changed_at)})</p> : null}
           <div className="hq-grid-2">
-            <Card as="section"><h2 className="hq-card-title">Business profile</h2><Profile t={t} /></Card>
+            <Card as="section">
+              <h2 className="hq-card-title">Business profile</h2>
+              <Profile t={t} />
+              <p style={{ marginTop: 12 }}>
+                <span className="hq-muted">Business types: </span>
+                {(t.business_types ?? ["restaurant"]).map((b) => BUSINESS_TYPE_LABEL[b]).join(", ")}
+                {can("tenants.write") && t.status !== "closed" ? <Button size="sm" style={{ marginLeft: 8 }} onClick={() => setTypesOpen(true)}>Change</Button> : null}
+              </p>
+            </Card>
             <Card as="section">
               <h2 className="hq-card-title">Subscription</h2>
               {sub ? (
@@ -67,9 +76,41 @@ export default function BusinessDetailPage() {
           ]} />
           {act ? <ReasonDialog open onOpenChange={(o) => !o && setAct(null)} title={COPY[act].title} description={COPY[act].desc(t.display_name)} confirmLabel={COPY[act].confirm} onConfirm={doAct} /> : null}
           {planOpen ? <PlanDialog plans={plans} current={sub?.current?.plan_id} onClose={() => setPlanOpen(false)} onDone={() => { setPlanOpen(false); toast.show("Plan updated", "success"); res.reload(); }} tenantRef={id} /> : null}
+          {typesOpen ? <BusinessTypesDialog current={t.business_types ?? ["restaurant"]} tenantRef={id} businessName={t.display_name} onClose={() => setTypesOpen(false)}
+            onDone={(posSync) => { setTypesOpen(false); toast.show(posSync === "synced" || posSync === undefined ? "Business types updated" : `Business types updated (pos sync: ${posSync}; it will retry)`, posSync?.startsWith("failed") ? "danger" : "success"); res.reload(); }} /> : null}
         </>
       )}
     </ResourceView>
+  );
+}
+
+const BUSINESS_TYPE_LABEL: Record<BusinessType, string> = { restaurant: "Restaurant", cloud_kitchen: "Cloud kitchen", hotel_kitchen: "Hotel kitchen" };
+const ALL_BUSINESS_TYPES: BusinessType[] = ["restaurant", "cloud_kitchen", "hotel_kitchen"];
+
+/** The owner's own change is locked (403 business_type_locked, docs/BUSINESS_TYPES.md): only here, Super Admin, staff-only. */
+function BusinessTypesDialog({ current, tenantRef, businessName, onClose, onDone }: {
+  current: BusinessType[]; tenantRef: string; businessName: string; onClose: () => void; onDone: (posSync?: string) => void;
+}) {
+  const [picked, setPicked] = useState<BusinessType[]>(current);
+  const [reason, setReason] = useState("");
+  const toggle = (b: BusinessType) => setPicked((p) => (p.includes(b) ? p.filter((x) => x !== b) : [...p, b]));
+  const { run, busy, error } = useAction(async () => {
+    const out = await api.tenants.setBusinessTypes(tenantRef, picked, reason.trim() || undefined);
+    onDone(out.pos_sync);
+  });
+  const unchanged = picked.length === current.length && picked.every((b) => current.includes(b));
+  return (
+    <Dialog open onOpenChange={(o) => !o && onClose()} title="Change business types" description={`What ${businessName} operates as. One or more. Removing a type never deletes data, it only turns off its features (e.g. tables, dine-in).`}
+      footer={<><Button onClick={onClose}>Cancel</Button><Button variant="primary" loading={busy} disabled={picked.length === 0 || unchanged} onClick={() => void run()}>Save</Button></>}>
+      <div style={{ display: "flex", flexDirection: "column", gap: 8 }}>
+        {ALL_BUSINESS_TYPES.map((b) => (
+          <Checkbox key={b} label={BUSINESS_TYPE_LABEL[b]} checked={picked.includes(b)} onChange={() => toggle(b)} />
+        ))}
+      </div>
+      <Textarea label="Reason (optional, kept in the audit log)" rows={2} value={reason} onChange={(e) => setReason(e.target.value)} />
+      <InlineError error={error} />
+      <Badge tone="neutral">Recorded in the audit log</Badge>
+    </Dialog>
   );
 }
 
