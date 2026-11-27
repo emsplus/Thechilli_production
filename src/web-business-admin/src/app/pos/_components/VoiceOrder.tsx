@@ -1,5 +1,6 @@
 "use client";
 
+import { getUserMediaQueued } from "@/lib/gum";
 import { LANGUAGES_ENABLED } from "@/lib/i18n";
 import { useEffect, useMemo, useRef, useState, useSyncExternalStore, type ReactNode } from "react";
 import { Ban, Check, Cpu, Keyboard, Mic, MicOff, RotateCcw, Send, Sparkles, Square, Trash2, TriangleAlert, User } from "lucide-react";
@@ -1062,7 +1063,7 @@ export function VoiceOrderButton({ online, disabled, items, cats, tables, custom
     const mine = run.current;
     let stream: MediaStream;
     try {
-      stream = await navigator.mediaDevices.getUserMedia({ audio: { echoCancellation: true, noiseSuppression: true } });
+      stream = await getUserMediaQueued({ audio: { echoCancellation: true, noiseSuppression: true } });
     } catch (e) {
       if (mine !== run.current) return;
       const blocked = e instanceof DOMException && (e.name === "NotAllowedError" || e.name === "SecurityError");

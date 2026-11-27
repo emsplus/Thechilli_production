@@ -1,5 +1,6 @@
 "use client";
 import Link from "next/link";
+import { ADMIN_URL, openAdmin, setMode } from "@/lib/adminUrl";
 import { useRouter } from "next/navigation";
 import { LeafArt, Wave } from "@/components/Scenery";
 import { useEffect, useState, type FormEvent } from "react";
@@ -27,6 +28,8 @@ export default function Login() {
   const [expired, setExpired] = useState<string | null>(null);
   const [wiped, setWiped] = useState(false);
   const [native, setNative] = useState(false);
+  // "Back to staff login" from the admin site lands here with ?mode=staff: this phone is a staff phone again.
+  useEffect(() => { if (new URLSearchParams(window.location.search).get("mode") === "staff") setMode("staff"); }, []);
   useEffect(() => {
     let live = true;
     // Tokens are loaded from secure storage on native; wait for that before deciding the session is gone.
@@ -45,6 +48,7 @@ export default function Login() {
       const me = await api.me();
       if (!["owner", "manager", "waiter", "cashier"].includes(me.role)) { auth.clear(); throw new ApiError(403, "This account cannot take orders"); }
       rememberRestaurantCode(restaurant, me.restaurant_code);
+      setMode("staff"); // this phone is used as the waiter app until "Admin login" is chosen
       prefs.setWiped(false);
       // Phone app: offer an MPIN right after the password sign-in (never on this screen). Skippable once (lib/lock/state.ts).
       if (isNative() && lockState.get().available && !lockState.get().enabled) { router.replace("/mpin"); return; }
@@ -85,6 +89,7 @@ export default function Login() {
           {err && <div className="banner err" role="alert">{err}</div>}
           <div className="spacer" />
           <p className="hint">{t("login.helper")} {t("login.help")}</p>
+          {ADMIN_URL && <button type="button" className="btn outline block pillbtn" data-testid="admin-login" onClick={() => openAdmin()}>Admin login (owner / manager)</button>}
           {native && <Link className="forgot center" href="/counter">Set up as a shared counter tablet</Link>}
           <div className="actions">
             <Link className="btn outline pillbtn" href="/signup">{t("login.signUp")}</Link>

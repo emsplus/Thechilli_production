@@ -7,6 +7,9 @@ import type { CapacitorConfig } from "@capacitor/cli";
 // and allow that origin in CORS_ORIGINS) -- see docs/ANDROID.md.
 const devNativeHttp = process.env.CHILLI_DEV_NATIVE_HTTP === "1";
 
+// Owner / manager open the Business app inside this WebView (src/lib/adminUrl.ts); its host must be allowed to navigate in-app.
+const adminHost = (() => { try { return process.env.NEXT_PUBLIC_ADMIN_URL ? new URL(process.env.NEXT_PUBLIC_ADMIN_URL).host : ""; } catch { return ""; } })();
+
 const config: CapacitorConfig = {
   appId: "in.chilli.staff",
   appName: "Chilli Staff",
@@ -22,7 +25,7 @@ const config: CapacitorConfig = {
   // iOS WKWebView cannot serve http(s) from a custom handler, so the origin is capacitor://localhost (see docs/IOS.md).
   // Android debug: WebView 113 still blocked http images under https://localhost with mixed content allowed, so debug builds
   // serve the app from http://localhost (still a secure context: WebCrypto for the MPIN vault works).
-  server: { iosScheme: "capacitor", errorPath: "webview-update.html", ...(devNativeHttp ? { androidScheme: "http" } : {}) },
+  server: { iosScheme: "capacitor", errorPath: "webview-update.html", ...(adminHost ? { allowNavigation: [adminHost] } : {}), ...(devNativeHttp ? { androidScheme: "http" } : {}) },
   // contentInset "never": the CSS already pads with env(safe-area-inset-*) (viewport-fit=cover); "always" doubled the top gap.
   // No iOS-only background: the shared Chilli Red shows until the splash HTML paints (a cream one flashed blank before).
   ios: { contentInset: "never" },

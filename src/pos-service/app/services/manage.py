@@ -54,6 +54,9 @@ def update_restaurant(db: Session, p, data) -> Restaurant:
         trn = check_tax_number(data.trn)  # the GSTIN
     except ValueError as e:
         raise HTTPException(422, str(e))
+    registered = data.vat_registered if data.vat_registered is not None else r.vat_registered
+    if not registered and trn != r.trn:  # GST switched off: no GSTIN can be entered or changed until it is switched on
+        raise HTTPException(422, "GST is switched off for this business. Turn on GST registration to enter a GSTIN.")
     from app.services import gst  # local import: loads the tax engine only when needed
     gst.check_trn_for_gst(r, trn)  # engine on: the GSTIN must pass the engine's full validation (checksum, state)
     changes = {"name": data.name, "trn": trn, "address": data.address}

@@ -10,6 +10,7 @@
  * Released on stop() (Reset, hands-free off, tab hidden, leaving the page). Nothing is sent by this module; never audio is stored.
  * Pure parts (VadState, gapDecision) are unit-tested in micGuard.test.ts.
  */
+import { getUserMediaQueued } from "./gum";
 import { micLog } from "./micLog";
 
 export interface Utterance { start: number; end: number; clip: Blob | null }
@@ -75,7 +76,7 @@ export class MicGuard {
     if (this.running) return true;
     this.running = true;
     try {
-      this.stream = await navigator.mediaDevices.getUserMedia({ audio: { echoCancellation: true, noiseSuppression: true, autoGainControl: true } });
+      this.stream = await getUserMediaQueued({ audio: { echoCancellation: true, noiseSuppression: true, autoGainControl: true } });
     } catch (e) { this.running = false; micLog("error", `mic guard: no stream (${(e as Error)?.name ?? "error"})`); return false; }
     if (!this.running) { this.release(); return false; }
     try {

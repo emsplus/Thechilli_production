@@ -132,6 +132,27 @@ def sc_label(v: "View") -> str:
     return f"Service charge {pct(v.sc_pct)}" if v.sc_pct else "Service charge"
 
 
+
+def upi_pay_uri(db, bill) -> tuple[str, Decimal, str] | None:
+    """(upi:// link, amount due, UPI id) for the bill's own unpaid balance, or None (no db, no UPI id saved, nothing due,
+    voided / replaced bill). The amount is what is still due, so a partly paid bill asks only for the rest."""
+    if db is None or getattr(bill, "status", "active") != "active":
+        return None
+    from app.models.core import Restaurant
+    rest = db.get(Restaurant, bill.restaurant_id)
+    vpa = (getattr(rest, "upi_vpa", None) or "").strip()
+    if not vpa:
+        return None
+    paid = sum((p.amount for p in bill.payments), Decimal("0"))
+    due = (bill.total - paid).quantize(Decimal("0.01"))
+    if due <= 0:
+        return None
+    from urllib.parse import quote
+    name = quote((bill.seller_name or "Restaurant")[:40], safe="")
+    note = quote(f"Bill {bill.invoice_number}", safe="")
+    return f"upi://pay?pa={quote(vpa, safe='@')}&pn={name}&am={due}&cu=INR&tn={note}", due, vpa
+
+
 def render_receipt_a5(bill: Bill, tz: str, db=None) -> bytes:
     """A5 invoice PDF built purely from the finalized snapshot (reprints never recompute)."""
     v = View(bill)
@@ -481,6 +502,13 @@ def render_receipt(bill: Bill, tz: str, size: str = "thermal", db=None) -> bytes
     if paid < bill.total and getattr(bill, "status", "active") == "active":
         s.pair("Balance due", fmt_inr_ascii(bill.total - paid), size=9.5, bold=True)
     s.rule()
+    pay = upi_pay_uri(db, bill)
+    if pay:
+        s.space(2)
+        s.line("Scan to pay by UPI", 9, True)
+        s.qr(pay[0], 104)
+        s.line(f"{fmt_inr_ascii(pay[1])} to {pay[2]}", 7.5, grey=True)
+        s.rule(dashed=True, pad=2)
     s.space(2)
     s.line("Thank you for dining with us!", 9.5, True)
     s.line("Visit again.", 9.5, True)

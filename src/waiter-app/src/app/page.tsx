@@ -8,6 +8,7 @@ import { counterState } from "@/lib/counter/state";
 import { hasSeenWelcome, nextRoute, splashHoldMs } from "@/lib/firstLaunch";
 import { statusBarForApp, statusBarForSplash } from "@/lib/native/statusBar";
 import { bootReady, bootStage } from "@/lib/native/boot";
+import { ADMIN_URL, getMode, openAdmin, setMode } from "@/lib/adminUrl";
 
 /**
  * Cold-start entry. The splash is in the static HTML, so it is the first paint (no blank page while JS loads and the
@@ -28,7 +29,7 @@ export default function Home() {
     void auth.hydrate().then(unlocked).then(() => {
       if (!live) return;
       const signedIn = !!auth.token;
-      const go = () => { statusBarForApp(); bootStage("leave-splash"); bootReady(); r.replace(nextRoute({ signedIn, seenWelcome: hasSeenWelcome(), counter: counterState.active, home: homeRouteNow() })); };
+      const go = () => { if (new URLSearchParams(window.location.search).get("mode") === "staff") setMode("staff"); /* "Back to staff login" from the admin site */ statusBarForApp(); bootStage("leave-splash"); bootReady(); if (ADMIN_URL && !counterState.active && getMode() === "admin") { openAdmin(true); return; } r.replace(nextRoute({ signedIn, seenWelcome: hasSeenWelcome(), counter: counterState.active, home: homeRouteNow() })); };
       const reducedMotion = typeof matchMedia === "function" && matchMedia("(prefers-reduced-motion: reduce)").matches;
       const hold = splashHoldMs({ signedIn, reducedMotion, elapsedMs: typeof performance !== "undefined" ? performance.now() : 0 });
       if (hold > 0) timer = setTimeout(go, hold); else go();

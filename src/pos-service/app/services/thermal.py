@@ -162,6 +162,11 @@ class Slip:
         self.ops.append(("image", img, width_pt, h, self.y))
         self.y += h + gap
 
+    def qr(self, data: str, size_pt: float = 110.0, gap: float = 3.0) -> None:
+        """Centred vector QR code (square, size_pt wide) at the current y."""
+        self.ops.append(("qr", data, size_pt, self.y))
+        self.y += size_pt + gap
+
     def space(self, h: float) -> None:
         self.y += h
 
@@ -236,6 +241,16 @@ class Slip:
             elif kind == "image":
                 _, img, w, h, top = op
                 c.drawImage(img, (WIDTH - w) / 2, height - (top - offset) - h, w, h, mask="auto")
+            elif kind == "qr":
+                _, data, size, top = op
+                from reportlab.graphics import renderPDF
+                from reportlab.graphics.barcode.qr import QrCodeWidget
+                from reportlab.graphics.shapes import Drawing
+                w = QrCodeWidget(data, barLevel="M", barBorder=1)
+                x0, y0, x1, y1 = w.getBounds()
+                d = Drawing(size, size, transform=[size / (x1 - x0), 0, 0, size / (y1 - y0), 0, 0])
+                d.add(w)
+                renderPDF.draw(d, c, (WIDTH - size) / 2, height - (top - offset) - size)
             elif kind == "banner":
                 _, s, size, top, h = op
                 top -= offset

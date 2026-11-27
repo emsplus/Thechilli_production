@@ -546,6 +546,12 @@ def render_bill(db, bill, tz: str, *, columns: int = 42, codepage: str = "pc858"
     if paid < bill.total and getattr(bill, "status", "active") == "active":
         e.two_col("Balance due", fmt_inr_ascii(bill.total - paid), bold=True)
     e.rule()
+    pay = R.upi_pay_uri(db, bill)
+    if pay:
+        e.line("Scan to pay by UPI", "c", True)
+        e.qr(pay[0], 6)
+        e.line(f"{fmt_inr_ascii(pay[1])} to {pay[2]}", "c")
+        e.rule()
     e.nl()
     e.line("Thank you for dining with us!", "c", True)
     e.line("Visit again.", "c", True)

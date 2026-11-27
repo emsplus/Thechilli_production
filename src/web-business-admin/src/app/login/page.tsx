@@ -4,6 +4,7 @@ import { useEffect, useState, type FormEvent } from "react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { takeReturnTo } from "@/lib/returnTo";
+import { appOrigin, rememberAppOrigin, staffLoginHref } from "@/lib/appOrigin";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
@@ -59,6 +60,19 @@ export default function LoginPage() {
   // Remember me keeps only the email on this device (never the password or a token).
   const remembered = useRememberedEmail("pos.rememberEmail");
   useEffect(() => { if (remembered.email && !getValues("email")) setValue("email", remembered.email); }, [remembered.email, getValues, setValue]);
+
+  // Already signed in (readable session marker) but the server rendered this page because the first request carried no cookies
+  // (SameSite=Strict: the Chilli Staff app opens this site from another origin). The marker is checked from inside the page,
+  // where the cookies do travel; a still-valid session goes straight home, an expired one stays here.
+  const [staffApp, setStaffApp] = useState<string | null>(null);
+  // eslint-disable-next-line react-hooks/set-state-in-effect
+  useEffect(() => { rememberAppOrigin(window.location.search); setStaffApp(appOrigin()); }, []);
+  useEffect(() => {
+    if (!auth.token) return;
+    let live = true;
+    void api.me().then((me) => { if (live) router.replace(takeReturnTo() ?? landingFor(me.role)); }).catch(() => { /* expired or offline: show the form */ });
+    return () => { live = false; };
+  }, [router]);
 
   async function signedIn(email: string) {
     remembered.commit(email.trim());
@@ -131,6 +145,7 @@ export default function LoginPage() {
         </div>
         <Button type="submit" variant="primary" size="lg" loading={isSubmitting}>{t("logIn")}</Button>
         <div className="ch-auth__center"><Link href="/staff-login" className="inline-flex min-h-11 items-center text-sm font-semibold text-primary-soft-fg underline-offset-4 hover:underline">Staff without email? Sign in with the restaurant code</Link></div>
+        {staffApp && <div className="ch-auth__center"><a href={staffLoginHref(staffApp)} data-testid="back-to-staff" className="inline-flex min-h-11 items-center text-sm font-semibold text-primary-soft-fg underline-offset-4 hover:underline">Back to staff login (waiter app)</a></div>}
       </form>
       <ForgotPasswordDialog open={forgot} onOpenChange={setForgot} />
     </AuthPage>

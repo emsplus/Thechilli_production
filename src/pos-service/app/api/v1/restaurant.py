@@ -1,4 +1,4 @@
-from fastapi import APIRouter, Depends
+from fastapi import APIRouter, Depends, HTTPException
 from pydantic import BaseModel
 from sqlalchemy.orm import Session
 
@@ -94,6 +94,8 @@ def set_gst_settings(data: GstSettingsIn, p: Principal = Depends(require_perm(P.
     """Owner only. `tax_mode` off | gst_engine; `config` is validated by the tax engine (state, GSTIN
     match, treatment, rates, SAC). Issued bills keep the mode they were finalized with."""
     r = db.get(Restaurant, p.restaurant_id, with_for_update=True)
+    if data.tax_mode != "off" and not r.vat_registered:
+        raise HTTPException(422, "GST is switched off for this business. Turn on GST registration first.")
     out = gst.set_settings(db, p, r, data.tax_mode, data.config)
     audit.record(db, p, "restaurant.gst_settings", "restaurant", r.id, {"tax_mode": r.tax_mode, "config": r.gst_config})
     db.commit()

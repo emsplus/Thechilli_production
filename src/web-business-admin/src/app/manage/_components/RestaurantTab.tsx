@@ -113,7 +113,7 @@ export function RestaurantTab() {
           {!canEdit && <Notice tone="info" className="mb-4">{t("ownerOnly")}</Notice>}
           <div className="space-y-4">
             <Input label={t("nameLabel")} disabled={!canEdit} error={errors.name?.message} {...register("name")} />
-            <Input label={t("trnIN")} maxLength={30} autoComplete="off" placeholder={info.example} disabled={!canEdit}
+            <Input label={t("trnIN")} maxLength={30} autoComplete="off" placeholder={info.example} disabled={!canEdit} readOnly={!registered}
               hint={stateOfGstin(trnValue ?? "") ? t("trnStateHint", { help: info.help, state: stateOfGstin(trnValue ?? "") ?? "" }) : info.help} error={errors.trn?.message} {...register("trn")} />
             <Input label={t("phone")} type="tel" inputMode="tel" autoComplete="off" placeholder={t("phoneExIN")} disabled={!canEdit} hint={t("phoneHint")} error={errors.phone?.message} {...register("phone")} />
             <Textarea label={t("address")} disabled={!canEdit} rows={3} hint={t("addressHint")} error={errors.address?.message} {...register("address")} />
@@ -144,7 +144,7 @@ export function RestaurantTab() {
           </div>
         </Card>
 
-        <GstSettingsCard canEdit={canEdit} gstin={trnValue ?? ""} />
+        {registered && <GstSettingsCard canEdit={canEdit} gstin={trnValue ?? ""} />}
         <UpiCard />
 
         <Card>

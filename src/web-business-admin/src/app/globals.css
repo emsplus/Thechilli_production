@@ -387,3 +387,9 @@ html, body { overflow-x: clip; }
 /* QR code of a counter device code (src/components/devices/CounterDevices.tsx): always dark modules on a light plate, so any
    scanner reads it. Tokens only: --c-on-ink / --c-ink are white / charcoal (light only: the dead dark overrides were removed). */
 .qr-plate { background: var(--c-on-ink); fill: var(--c-ink); }
+
+/* POS phone order sheet: fills the screen (the order list takes the middle and scrolls, Place order stays at the bottom).
+   Kept here, keyed on [data-order-sheet], so the shared design-system and every other sheet are untouched. */
+.ch-sheet--bottom:has([data-order-sheet]){height:calc(100vh - var(--space-12));height:calc(100dvh - var(--space-12));max-height:none}
+.ch-sheet--bottom:has([data-order-sheet]) .ch-pop__body{flex:1 1 0;min-height:0;display:flex;flex-direction:column}
+.ch-sheet--bottom:has([data-order-sheet]) .ch-pop__body>*{flex:1 1 auto;min-height:0;display:flex;flex-direction:column}

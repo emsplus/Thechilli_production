@@ -490,7 +490,7 @@ function Counter() {
   } : null;
 
   const panel = (variant: "aside" | "sheet") => active && panelActions ? (
-    <motion.div key={active.id} className="h-full" initial={{ opacity: 0, x: variant === "aside" ? 14 : 0, y: variant === "sheet" ? 8 : 0 }} animate={{ opacity: 1, x: 0, y: 0 }} transition={{ duration: 0.2, ease: [0.22, 1, 0.36, 1] }}>
+    <motion.div key={active.id} className="h-full" data-order-sheet={variant === "sheet" ? "" : undefined} initial={{ opacity: 0, x: variant === "aside" ? 14 : 0, y: variant === "sheet" ? 8 : 0 }} animate={{ opacity: 1, x: 0, y: 0 }} transition={{ duration: 0.2, ease: [0.22, 1, 0.36, 1] }}>
       <OrderPanel variant={variant} ticket={active} label={activeLabel} online={online} busy={!!busy[active.id]} tables={menu.tables} customers={menu.customers}
         tax={menu.tax} currency={currency} pricing={pricing} canDiscount={canDiscount} discountLimit={discountLimit} claims={claims} actions={panelActions}
         groups={menu.groups} canToggleOffers={canToggleOffers} tableStatus={tableStatus.byId} kotFirst={kotFirst} canCancelSent={isAdminRole(role)} />

@@ -1,4 +1,5 @@
 "use client";
+import { adminAvailable, openAdmin } from "@/lib/adminUrl";
 import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 import { AppShell } from "@/components/AppShell";
@@ -67,6 +68,7 @@ export default function More() {
           <button className={`btn${clock.state.open ? "" : " primary"}`} onClick={() => void clock.tap()}>{clock.state.open ? "Clock out" : "Clock in"}</button>
         </div>
       )}
+      {adminAvailable(me?.role) && <button className="btn primary block" style={{ marginBottom: 10 }} onClick={() => openAdmin()}>Open admin (all features)</button>}
       {!counter && <Link className="btn block" style={{ marginBottom: 10 }} href="/more/security">Security (MPIN, fingerprint)</Link>}
       <Link className="btn block" style={{ marginBottom: 10 }} href="/history">{t("more.history")}</Link>
       {!counter && <Link className="btn block" style={{ marginBottom: 10 }} href="/outlet">{t("more.switchOutlet")}</Link>}
